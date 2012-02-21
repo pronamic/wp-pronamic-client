@@ -2,7 +2,7 @@
 	<?php screen_icon('pronamic_client'); ?>
 
 	<h2>
-		<?php _e('Virus Scanner', 'pronamic-client'); ?>
+		<?php _e('Virus Scanner', 'pronamic_client'); ?>
 	</h2>
 
 	<?php 
@@ -28,6 +28,9 @@
 
 		<<?php echo $tag; ?>>
 			<tr>
+				<th id="cb" class="manage-column column-cb check-column" scope="col">
+					<input type="checkbox" />
+				</th>
 				<th scope="col"><?php _e('File', 'pronamic_client'); ?></th>
 				<th scope="col"><?php _e('Size', 'pronamic_client'); ?></th>
 				<th scope="col"><?php _e('Content', 'pronamic_client'); ?></th>
@@ -42,6 +45,9 @@
 			<?php foreach ($iter as $key => $leaf): ?>
 			
 			<tr>
+				<th class="check-column" scope="row">
+					
+				</th>
 				<td><?php echo $key; ?></td>
 				<td colspan="3"></td>
 			</tr>
@@ -53,6 +59,9 @@
 			foreach($infectionFiles as $filename): ?>
 			
 			<tr>
+				<th class="check-column" scope="row">
+					<input type="checkbox" value="<?php echo esc_attr($filename); ?>" name="files[]" />
+				</th>
 				<td><?php echo $filename; ?></td>
 				<td><?php echo filesize($filename); ?></td>
 				<td>
@@ -81,7 +90,18 @@
 			<?php endforeach; ?>
 		</tbody>
 	</table>
-	
+
+	<div class="tablenav bottom">
+		<div class="alignleft actions">
+			<select name="action2">
+				<option selected="selected" value="-1">Acties</option>
+				<option value="trash">Naar de prullenbak verplaatsen</option>
+			</select>
+
+			<input id="doaction2" class="button-secondary action" type="submit" value="Uitvoeren" name="">
+		</div>
+	</div>
+
 	<?php endif; endforeach; ?>
 	
 	<?php 

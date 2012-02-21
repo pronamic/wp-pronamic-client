@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, intranet
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 0.1
+Stable tag: 0.1.1
 
 WordPress plugin for Pronamic Clients
 
@@ -24,6 +24,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 0.1.1 =
+*	Added the "Sucuri Scanner" plugin to the checklist
 
 = 0.1 =
 *	Initial release

@@ -175,6 +175,10 @@
 		'backwpup/backwpup.php' => array(
 			'slug' => 'backwpup' , 
 			'name' => 'BackWPup'
+		) , 
+		'sucuri-scanner/sucuri.php' => array(
+			'slug' => 'sucuri-scanner' , 
+			'name' => 'Sucuri Scanner'
 		)
 	);
 	
