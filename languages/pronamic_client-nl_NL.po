@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-15 15:27+0100\n"
-"PO-Revision-Date: 2012-02-15 15:27+0100\n"
+"POT-Creation-Date: 2012-03-08 15:14+0100\n"
+"PO-Revision-Date: 2012-03-08 15:15+0100\n"
 "Last-Translator: Remco Tolsma <remco@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "MIME-Version: 1.0\n"
@@ -33,7 +33,7 @@ msgstr "Checklist"
 
 #: pronamic-client.php:73
 #: pronamic-client.php:74
-#: admin/virus-scanner.php:5
+#: admin/virus-scanner.php:18
 msgid "Virus Scanner"
 msgstr "Virusscanner"
 
@@ -126,32 +126,50 @@ msgid "Function wp_head() in header.php"
 msgstr "Functie wp_head() in header.php"
 
 #: admin/checklist.php:120
-msgid "Function wp_footer() in footer"
-msgstr "Functie wp_footer() in footer"
+msgid "Function wp_footer() in footer.php"
+msgstr "Functie wp_footer() in footer.php"
 
-#: admin/checklist.php:211
+#: admin/checklist.php:142
+msgid "Function wp_title('') in header.php"
+msgstr "Functie wp_title('') in header.php"
+
+#: admin/checklist.php:237
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
-#: admin/virus-scanner.php:31
+#: admin/virus-scanner.php:46
 msgid "File"
 msgstr "Bestand"
 
-#: admin/virus-scanner.php:32
+#: admin/virus-scanner.php:47
 msgid "Size"
 msgstr "Grootte"
 
-#: admin/virus-scanner.php:33
+#: admin/virus-scanner.php:48
+msgid "Date"
+msgstr "Datum"
+
+#: admin/virus-scanner.php:49
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/virus-scanner.php:34
+#: admin/virus-scanner.php:50
+#: admin/virus-scanner.php:110
 msgid "Actions"
 msgstr "Acties"
 
-#: admin/virus-scanner.php:72
+#: admin/virus-scanner.php:80
+msgid "F j, Y g:i a"
+msgstr "j F Y H:i "
+
+#: admin/virus-scanner.php:94
+#: admin/virus-scanner.php:111
 msgid "Delete"
 msgstr "Verwijder"
+
+#: admin/virus-scanner.php:147
+msgid "Empty W3TC directory"
+msgstr "Leeg W3TC map"
 
 #~ msgid "iDEAL Settings"
 #~ msgstr "iDEAL instellingen"
@@ -740,9 +758,6 @@ msgstr "Verwijder"
 
 #~ msgid "No payments found."
 #~ msgstr "Geen betalingen gevonden."
-
-#~ msgid "Date"
-#~ msgstr "Datum"
 
 #~ msgid "Details"
 #~ msgstr "Details"

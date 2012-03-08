@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, intranet
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 0.1.1
+Stable tag: 0.2
 
 WordPress plugin for Pronamic Clients
 
@@ -25,6 +25,14 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= todo =
+*	http://www.electrictoolbox.com/disable-php-apache-htaccess/
+
+= 0.2 =
+*	Added bulk delete function to the virusscanner
+*	Added check for wp_title('') in header.php
+*	Improved some translations
+ 
 = 0.1.1 =
 *	Added the "Sucuri Scanner" plugin to the checklist
 

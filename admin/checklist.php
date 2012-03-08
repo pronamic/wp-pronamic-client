@@ -117,13 +117,35 @@
 			
 			?>
 			<th scope="row">
-				<?php _e('Function wp_footer() in footer', 'pronamic_client'); ?>
+				<?php _e('Function wp_footer() in footer.php', 'pronamic_client'); ?>
 			</th>
 			<td>
                 <?php echo $hasWpFooterFunction ? 'true' : 'false'; ?>
 			</td>
 			<td>
 				<?php if($hasWpFooterFunction): ?>
+				&#9745;
+				<?php else: ?>
+				&#9744;
+				<?php endif; ?>
+			</td>
+		</tr>
+		<tr>
+			<?php 
+			
+			$headerFile = get_template_directory() . '/header.php'; 
+			$headerFileContent = file_get_contents($headerFile);
+			$hasWpHeadFunction = strpos($headerFileContent, "wp_title('');");
+			
+			?>
+			<th scope="row">
+				<?php _e('Function wp_title(\'\') in header.php', 'pronamic_client'); ?>
+			</th>
+			<td>
+                <?php echo $hasWpHeadFunction ? 'true' : 'false'; ?>
+			</td>
+			<td>
+				<?php if($hasWpHeadFunction): ?>
 				&#9745;
 				<?php else: ?>
 				&#9744;
