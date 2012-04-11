@@ -28,6 +28,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 = todo =
 *	http://www.electrictoolbox.com/disable-php-apache-htaccess/
 
+= 0.? =
+*	Added the "Regenerate Thumbnails" plugin to the checklist
+
 = 0.2 =
 *	Added bulk delete function to the virusscanner
 *	Added check for wp_title('') in header.php

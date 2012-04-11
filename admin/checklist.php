@@ -201,6 +201,10 @@
 		'sucuri-scanner/sucuri.php' => array(
 			'slug' => 'sucuri-scanner' , 
 			'name' => 'Sucuri Scanner'
+		) , 
+		'regenerate-thumbnails/regenerate-thumbnails.php' => array(
+			'slug' => 'regenerate-thumbnails' , 
+			'name' => 'Regenerate Thumbnails'
 		)
 	);
 	
