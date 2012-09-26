@@ -135,7 +135,11 @@
 			
 			$headerFile = get_template_directory() . '/header.php'; 
 			$headerFileContent = file_get_contents($headerFile);
-			$hasWpHeadFunction = strpos($headerFileContent, "wp_title('');");
+			$hasWpHeadFunction = (
+				( strpos( $headerFileContent, "wp_title('');" ) !== false )
+					or
+				( strpos( $headerFileContent, "wp_title( '' );" ) !== false )
+			);
 			
 			?>
 			<th scope="row">
