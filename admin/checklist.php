@@ -189,7 +189,11 @@
 		'wp-mail-smtp/wp_mail_smtp.php' => array(
 			'slug' => 'wp-mail-smtp' , 
 			'name' => 'WP-Mail-SMTP' 
-		) , 
+		),
+		'iwp-client/init.php' => array(
+			'slug' => 'iwp-client' , 
+			'name' => 'InfiniteWP Client'
+		),
 		'jetpack/jetpack.php' => array(
 			'slug' => 'jetpack' , 
 			'name' => 'Jetpack by WordPress.com'
@@ -205,6 +209,10 @@
 		'regenerate-thumbnails/regenerate-thumbnails.php' => array(
 			'slug' => 'regenerate-thumbnails' , 
 			'name' => 'Regenerate Thumbnails'
+		), 
+		'posts-to-posts/posts-to-posts.php' => array(
+			'slug' => 'posts-to-posts' , 
+			'name' => 'Posts 2 Posts'
 		)
 	);
 	
