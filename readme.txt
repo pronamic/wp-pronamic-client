@@ -1,4 +1,4 @@
-r=== Pronamic Client ===
+=== Pronamic Client ===
 Contributors: pronamic, remcotolsma 
 Tags: pronamic, client, intranet
 Requires at least: 3.0
