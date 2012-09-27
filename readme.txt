@@ -3,9 +3,9 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, intranet
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 0.2
+Stable tag: 0.2.1
 
-WordPress plugin for Pronamic Clients
+WordPress plugin for Pronamic clients.
 
 == Description ==
 
@@ -28,8 +28,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 = todo =
 *	http://www.electrictoolbox.com/disable-php-apache-htaccess/
 
-= 0.? =
+= 0.2.1 =
 *	Added the "Regenerate Thumbnails" plugin to the checklist
+*	Added the "Posts 2 Posts" plugin to the checklist
+*	Added the "InfiniteWP Client" plugin to the checklist
+*	Improved some checks on the checklist
 
 = 0.2 =
 *	Added bulk delete function to the virusscanner
