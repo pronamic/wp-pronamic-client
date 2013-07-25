@@ -5,10 +5,10 @@
 		<?php _e('Checklist', 'pronamic_client'); ?>
 	</h2>
 
-	<?php 
-	
+	<?php
+
 	$language = get_option('WPLANG', WPLANG);
-	$isDutch = $language == 'nl_NL'; 
+	$isDutch = $language == 'nl_NL';
 	$timezone = get_option('timezone_string');
 	$blogPublic = get_option('blog_public');
 	$categoryBase = get_option('category_base');
@@ -87,12 +87,12 @@
 			</td>
 		</tr>
 		<tr>
-			<?php 
-			
-			$headerFile = get_template_directory() . '/header.php'; 
+			<?php
+
+			$headerFile = get_template_directory() . '/header.php';
 			$headerFileContent = file_get_contents($headerFile);
 			$hasWpHeadFunction = strpos($headerFileContent, 'wp_head();');
-			
+
 			?>
 			<th scope="row">
 				<?php _e('Function wp_head() in header.php', 'pronamic_client'); ?>
@@ -109,12 +109,12 @@
 			</td>
 		</tr>
 		<tr>
-			<?php 
-			
-			$footerFile = get_template_directory() . '/footer.php'; 
+			<?php
+
+			$footerFile = get_template_directory() . '/footer.php';
 			$footerFileContent = file_get_contents($footerFile);
 			$hasWpFooterFunction = strpos($footerFileContent, 'wp_footer();');
-			
+
 			?>
 			<th scope="row">
 				<?php _e('Function wp_footer() in footer.php', 'pronamic_client'); ?>
@@ -131,16 +131,16 @@
 			</td>
 		</tr>
 		<tr>
-			<?php 
-			
-			$headerFile = get_template_directory() . '/header.php'; 
+			<?php
+
+			$headerFile = get_template_directory() . '/header.php';
 			$headerFileContent = file_get_contents($headerFile);
 			$hasWpHeadFunction = (
 				( strpos( $headerFileContent, "wp_title('');" ) !== false )
 					or
 				( strpos( $headerFileContent, "wp_title( '' );" ) !== false )
 			);
-			
+
 			?>
 			<th scope="row">
 				<?php _e('Function wp_title(\'\') in header.php', 'pronamic_client'); ?>
@@ -157,69 +157,69 @@
 			</td>
 		</tr>
 	</table>
-	
+
 	<h3>Plugins</h3>
 
 	<?php  ?>
 
-	<?php 
-	
+	<?php
+
 	$activePlugins = get_plugins();
 	$preferedPlugins = array(
 		'google-analytics-for-wordpress/googleanalytics.php' => array(
-			'slug' => 'google-analytics-for-wordpress' , 
+			'slug' => 'google-analytics-for-wordpress' ,
 			'name' => 'Google Analytics for WordPress'
-		) , 
+		) ,
 		'wordpress-seo/wp-seo.php' => array(
-			'slug' => 'wordpress-seo' , 
-			'name' => 'WordPress SEO by Yoast' 
-		) , 
+			'slug' => 'wordpress-seo' ,
+			'name' => 'WordPress SEO by Yoast'
+		) ,
 		'w3-total-cache/w3-total-cache.php' => array(
-			'slug' => 'w3-total-cache' , 
-			'name' => 'W3 Total Cache' 
+			'slug' => 'w3-total-cache' ,
+			'name' => 'W3 Total Cache'
 		) ,
 		'gravityforms/gravityforms.php' => array(
-			'slug' => 'gravityforms' , 
-			'name' => 'Gravity Forms' 
+			'slug' => 'gravityforms' ,
+			'name' => 'Gravity Forms'
 		) ,
 		'gravityforms-nl/gravityforms-nl.php' => array(
-			'slug' => 'gravityforms-nl' , 
-			'name' => 'Gravity Forms (nl)' 
+			'slug' => 'gravityforms-nl' ,
+			'name' => 'Gravity Forms (nl)'
 		) ,
 		'akismet/akismet.php' => array(
-			'slug' => 'akismet' , 
-			'name' => 'Akismet' 
-		) , 
+			'slug' => 'akismet' ,
+			'name' => 'Akismet'
+		) ,
 		'wp-mail-smtp/wp_mail_smtp.php' => array(
-			'slug' => 'wp-mail-smtp' , 
-			'name' => 'WP-Mail-SMTP' 
+			'slug' => 'wp-mail-smtp' ,
+			'name' => 'WP-Mail-SMTP'
 		),
 		'iwp-client/init.php' => array(
-			'slug' => 'iwp-client' , 
+			'slug' => 'iwp-client' ,
 			'name' => 'InfiniteWP Client'
 		),
 		'jetpack/jetpack.php' => array(
-			'slug' => 'jetpack' , 
+			'slug' => 'jetpack' ,
 			'name' => 'Jetpack by WordPress.com'
-		) , 
+		) ,
 		'backwpup/backwpup.php' => array(
-			'slug' => 'backwpup' , 
+			'slug' => 'backwpup' ,
 			'name' => 'BackWPup'
-		) , 
+		) ,
 		'sucuri-scanner/sucuri.php' => array(
-			'slug' => 'sucuri-scanner' , 
+			'slug' => 'sucuri-scanner' ,
 			'name' => 'Sucuri Scanner'
-		) , 
+		) ,
 		'regenerate-thumbnails/regenerate-thumbnails.php' => array(
-			'slug' => 'regenerate-thumbnails' , 
+			'slug' => 'regenerate-thumbnails' ,
 			'name' => 'Regenerate Thumbnails'
-		), 
+		),
 		'posts-to-posts/posts-to-posts.php' => array(
-			'slug' => 'posts-to-posts' , 
+			'slug' => 'posts-to-posts' ,
 			'name' => 'Posts 2 Posts'
 		)
 	);
-	
+
 	?>
 
 	<table class="form-table">
@@ -237,17 +237,17 @@
 				<?php endif; ?>
 			</td>
 			<td>
-				<?php 
-				
+				<?php
+
 				$searchUrl = add_query_arg(
 					array(
-						'tab' => 'search' , 
-						'type' => 'term' , 
+						'tab' => 'search' ,
+						'type' => 'term' ,
 						's' => $data['slug']
-					) , 
+					) ,
 					'plugin-install.php'
 				);
-				
+
 				?>
 				<a href="<?php echo $searchUrl; ?>">
 					<?php _e('Search Plugin', 'pronamic_client'); ?>
