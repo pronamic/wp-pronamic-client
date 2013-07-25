@@ -31,6 +31,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 = 1.0.0 =
 *	Added custom capability for Pronamic clients
 *	Removed the BackWPUp plugin from the recommended plugins list
+*	Update Pronamic phone number
 
 = 0.2.1 =
 *	Added the "Regenerate Thumbnails" plugin to the checklist
