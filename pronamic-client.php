@@ -64,6 +64,7 @@ function pronamic_client_menu() {
 		'pronamic_client', // menu slug
 		'pronamic_client_page_index', // function
 		plugins_url( 'images/icon-16x16.png', __FILE__ ) // icon URL
+		// 0 // position
 	);
 
 	// @see _add_post_type_submenus()
@@ -209,7 +210,7 @@ add_action( 'wp_dashboard_setup', 'pronamic_client_dashboard_setup' );
  */
 function pronamic_client_dashboard() {
 	?>
-	<h4><?php _e( 'Support', 'pronamic_client' ); ?></h4>
+	<h3><?php _e( 'Support', 'pronamic_client' ); ?></h3>
 
 	<p>
 		<?php printf( __( 'Telephone: %s', 'pronamic_client' ), sprintf( '<a href="tel:+315164812000">%s</a>', __( '+31 516 481 200', 'pronamic_client' ) ) ); ?><br />
@@ -217,7 +218,7 @@ function pronamic_client_dashboard() {
 		<?php printf( __( 'Website: %s', 'pronamic_client' ), sprintf( '<a href="%1$s">%1$s</a>', __( 'http://pronamic.eu/', 'pronamic_client' ) ) ); ?>
 	</p>
 
-	<h4><?php _e( 'News', 'pronamic_client' ); ?></h4>
+	<h3><?php _e( 'News', 'pronamic_client' ); ?></h3>
 
 	<?php
 
