@@ -169,27 +169,27 @@
 		'google-analytics-for-wordpress/googleanalytics.php' => array(
 			'slug' => 'google-analytics-for-wordpress' ,
 			'name' => 'Google Analytics for WordPress'
-		) ,
+		),
 		'wordpress-seo/wp-seo.php' => array(
 			'slug' => 'wordpress-seo' ,
 			'name' => 'WordPress SEO by Yoast'
-		) ,
+		),
 		'w3-total-cache/w3-total-cache.php' => array(
 			'slug' => 'w3-total-cache' ,
 			'name' => 'W3 Total Cache'
-		) ,
+		),
 		'gravityforms/gravityforms.php' => array(
 			'slug' => 'gravityforms' ,
 			'name' => 'Gravity Forms'
-		) ,
+		),
 		'gravityforms-nl/gravityforms-nl.php' => array(
 			'slug' => 'gravityforms-nl' ,
 			'name' => 'Gravity Forms (nl)'
-		) ,
+		),
 		'akismet/akismet.php' => array(
 			'slug' => 'akismet' ,
 			'name' => 'Akismet'
-		) ,
+		),
 		'wp-mail-smtp/wp_mail_smtp.php' => array(
 			'slug' => 'wp-mail-smtp' ,
 			'name' => 'WP-Mail-SMTP'
@@ -201,11 +201,11 @@
 		'jetpack/jetpack.php' => array(
 			'slug' => 'jetpack' ,
 			'name' => 'Jetpack by WordPress.com'
-		) ,
+		),
 		'sucuri-scanner/sucuri.php' => array(
 			'slug' => 'sucuri-scanner' ,
 			'name' => 'Sucuri Scanner'
-		) ,
+		),
 		'regenerate-thumbnails/regenerate-thumbnails.php' => array(
 			'slug' => 'regenerate-thumbnails' ,
 			'name' => 'Regenerate Thumbnails'
@@ -226,27 +226,23 @@
 				<?php echo $data['name']; ?>
 			</td>
 			<td>
-				<?php if(is_plugin_active($file)): ?>
-				&#9745;
-				<?php else: ?>
-				&#9744;
-				<?php endif; ?>
+				<?php echo is_plugin_active( $file ) ? '&#9745;' : '&#9744;'; ?>
 			</td>
 			<td>
 				<?php
 
 				$searchUrl = add_query_arg(
 					array(
-						'tab' => 'search' ,
+						'tab'  => 'search' ,
 						'type' => 'term' ,
-						's' => $data['slug']
+						's'    => $data['slug']
 					) ,
 					'plugin-install.php'
 				);
 
 				?>
 				<a href="<?php echo $searchUrl; ?>">
-					<?php _e('Search Plugin', 'pronamic_client'); ?>
+					<?php _e( 'Search Plugin', 'pronamic_client' ); ?>
 				</a>
 			</td>
 		</tr>
