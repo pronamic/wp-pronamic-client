@@ -4,7 +4,7 @@ Plugin Name: Pronamic Client
 Plugin URI: http://pronamic.eu/wordpress/pronamic-client/
 Description: WordPress plugin for Pronamic clients.
 
-Version: 0.2.1
+Version: 1.0.0
 Requires at least: 3.0
 
 Author: Pronamic
@@ -17,6 +17,8 @@ License: GPL
 
 GitHub URI: https://github.com/pronamic/wp-pronamic-client
 */
+
+require_once dirname( __FILE__ ) . '/includes/version.php';
 
 /**
  * Initialize the plugin
@@ -58,7 +60,7 @@ function pronamic_client_menu() {
 	add_menu_page(
 		__( 'Pronamic', 'pronamic_client' ), // page title
 		__( 'Pronamic', 'pronamic_client' ), // menu title
-		'manage_options', // capability
+		'pronamic_client', // capability
 		'pronamic_client', // menu slug
 		'pronamic_client_page_index', // function
 		plugins_url( 'images/icon-16x16.png', __FILE__ ) // icon URL
@@ -70,7 +72,7 @@ function pronamic_client_menu() {
 		'pronamic_client', // parent slug
 		__( 'Checklist', 'pronamic_client' ), // page title
 		__( 'Checklist', 'pronamic_client' ), // menu title
-		'manage_options', // capability
+		'pronamic_client', // capability
 		'pronamic_client_checklist', // menu slug
 		'pronamic_client_page_checklist' // function
 	);
@@ -81,7 +83,7 @@ function pronamic_client_menu() {
 		'pronamic_client', // parent slug
 		__('Virus Scanner', 'pronamic_client' ), // page title
 		__('Virus Scanner', 'pronamic_client' ), // menu title
-		'manage_options', // capability
+		'pronamic_client', // capability
 		'pronamic_client_virus_scanner', // menu slug
 		'pronamic_client_page_virus_scanner' // function
 	);
@@ -113,22 +115,24 @@ add_action( 'admin_enqueue_scripts', 'pronamic_client_admin_enqueue_scripts' );
  * Admin bar menu
  */
 function pronamic_client_admin_bar_menu() {
-	global $wp_admin_bar;
+	if ( current_user_can( 'pronamic_client' ) ) {
+		global $wp_admin_bar;
 
-	$wp_admin_bar->add_menu( array(
-		'id'    => 'pronamic' ,
-		'title' => __( 'Pronamic', 'pronamic_client' ),
-		'href'  => __( 'http://pronamic.eu/', 'pronamic_client' ),
-		'meta'  => array( 'target' => '_blank' )
-	) );
+		$wp_admin_bar->add_menu( array(
+			'id'    => 'pronamic' ,
+			'title' => __( 'Pronamic', 'pronamic_client' ),
+			'href'  => __( 'http://pronamic.eu/', 'pronamic_client' ),
+			'meta'  => array( 'target' => '_blank' )
+		) );
 
-	$wp_admin_bar->add_menu(array(
-		'parent' => 'pronamic',
-		'id'     => 'pronamic_contact',
-		'title'  => __( 'Contact', 'pronamic_client'),
-		'href'   => __( 'http://pronamic.eu/contact/', 'pronamic_client' ),
-		'meta'   => array( 'target' => '_blank' )
-	) );
+		$wp_admin_bar->add_menu(array(
+			'parent' => 'pronamic',
+			'id'     => 'pronamic_contact',
+			'title'  => __( 'Contact', 'pronamic_client'),
+			'href'   => __( 'http://pronamic.eu/contact/', 'pronamic_client' ),
+			'meta'   => array( 'target' => '_blank' )
+		) );
+	}
 }
 
 add_action( 'admin_bar_menu', 'pronamic_client_admin_bar_menu', 100 );
@@ -223,4 +227,30 @@ function pronamic_client_dashboard() {
 		'title' => __( 'Pronamic News', 'pronamic_client' ),
 		'items' => 5
 	) );
+}
+
+/**
+ * Admin initialize
+ */
+function pronamic_client_admin_init() {
+	// Maybe update
+	global $pronamic_client_db_version;
+
+	if ( get_option( 'pronamic_client_db_version' ) != $pronamic_client_db_version ) {
+		pronamic_client_upgrade();
+
+		update_option( 'pronamic_client_db_version', $pronamic_client_db_version );
+	}
+}
+
+add_action( 'admin_init', 'pronamic_client_admin_init' );
+
+/**
+ * Upgrade
+ */
+function pronamic_client_upgrade() {
+	global $wp_roles;
+
+	$wp_roles->add_cap( 'administrator', 'pronamic_client' );
+	$wp_roles->add_cap( 'editor', 'pronamic_client' );
 }

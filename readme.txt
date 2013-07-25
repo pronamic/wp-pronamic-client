@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, intranet
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 0.2.1
+Stable tag: 1.0.0
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 = todo =
 *	http://www.electrictoolbox.com/disable-php-apache-htaccess/
+
+= 1.0.0 =
+*	Added custom capability for Pronamic clients
+*	Removed the BackWPUp plugin from the recommended plugins list
 
 = 0.2.1 =
 *	Added the "Regenerate Thumbnails" plugin to the checklist
