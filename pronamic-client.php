@@ -32,6 +32,83 @@ function pronamic_client_init() {
 
 add_action('init', 'pronamic_client_init');
 
+function pronamic_client_transient_update_plugins_filter( $transient ) {
+	if ( empty( $transient->checked ) )
+		return $transient;
+
+	$pronamic_plugins = pronamic_client_get_plugins();
+//var_dump($pronamic_plugins);
+//exit;
+	foreach ( $pronamic_plugins as $file => $plugin ) {
+		$slug = pathinfo( $file, PATHINFO_DIRNAME );
+		$slug = $plugin['Name'];
+
+		if ( $slug !== 'pronamic-updater-test' )
+			continue;
+
+		$api_url = 'http://themes.pronamic.nl/2.0/';
+		$api_url = add_query_arg( 'slug', $slug, $api_url );
+
+		$response = wp_remote_get( $api_url );
+
+		if ( is_wp_error( $response ) || wp_remote_retrieve_response_code( $response ) != '200' ) {
+			break;
+		}
+		
+		$data = json_decode( wp_remote_retrieve_body( $response ) );
+
+		if ( $data ) {
+			$local_version  = $plugin['Version'];
+			$remote_version = $data->version;
+			
+			if ( version_compare( $remote_version, $local_version, '>' ) ) {
+				$plugin = array(
+					'slug'        => $slug,
+					'new_version' => $remote_version,
+					'url'         => null,
+					'package'     => $data->download_link,
+				);
+
+				$transient->response[$file] = (object) $plugin;
+			}
+		}
+	}
+	
+	return $transient;
+}
+
+//add_filter( 'pre_set_site_transient_update_themes', 'pronamic_client_transient_update_themes_filter' );
+add_filter( 'pre_set_site_transient_update_plugins', 'pronamic_client_transient_update_plugins_filter' );
+
+function pronamic_client_get_plugins() {
+	// @see https://github.com/afragen/github-updater/blob/1.7.4/classes/class-plugin-updater.php#L68
+	$plugins = get_plugins();
+
+	$pronamic_plugins = array();
+	
+	foreach ( $plugins as $file => $plugin ) {
+		if ( isset( $plugin['Author'] ) && $plugin['Author'] == 'Pronamic' ) {
+			$pronamic_plugins[$file] = $plugin;
+		}
+	}
+	
+	return $pronamic_plugins;
+}
+
+function pronamic_client_get_themes() {
+	$themes = wp_get_themes();
+
+	$pronamic_themes = array();
+	
+	foreach ( $themes as $slug => $theme ) {
+		if ( isset( $theme['Author'] ) && $theme['Author'] == 'Pronamic' ) {
+			$pronamic_themes[$slug] = $theme;
+		}
+	}
+	
+	return $pronamic_themes;
+}
+
 /**
  * Page index
  */
@@ -51,6 +128,10 @@ function pronamic_client_page_virus_scanner() {
  */
 function pronamic_client_page_checklist() {
 	include 'admin/checklist.php';
+}
+
+function pronamic_updater_page() {
+	include 'admin/updater.php';
 }
 
 /**
@@ -87,6 +168,14 @@ function pronamic_client_menu() {
 		'pronamic_client', // capability
 		'pronamic_client_virus_scanner', // menu slug
 		'pronamic_client_page_virus_scanner' // function
+	);
+	
+	$hook = add_dashboard_page(
+		__( 'Pronamic Updates', 'pronamic_client' ),
+		__( 'Pronamic Updates', 'pronamic_client' ),
+		'manage_options',
+		'pronamic_updater',
+		'pronamic_updater_page'
 	);
 }
 

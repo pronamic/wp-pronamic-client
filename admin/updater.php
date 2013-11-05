@@ -1,0 +1,97 @@
+<div class="wrap">
+	<?php screen_icon( 'pronamic_client' ); ?>
+
+	<h2><?php echo get_admin_page_title(); ?></h2>
+
+	<h3>Plugins</h3>
+	
+	<?php
+	
+	$pronamic_plugins = pronamic_client_get_plugins();
+	
+	if ( empty( $pronamic_plugins ) ) : ?>
+	
+		<p>
+			<?php _e( 'No Pronamic plugins found.', 'pronamic_client' ); ?>
+		</p>
+
+	<?php else : ?>
+	
+		<table class="wp-list-table widefat plugins" cellspacing="0">
+			<thead>
+				<tr>
+					<th scope="col">Plugin</th>
+					<th scope="col">Author</th>
+					<th scope="col">Version</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+
+				<?php foreach ( $pronamic_plugins as $plugin ) : ?>
+
+					<tr>
+						<td>
+							<?php echo $plugin['Name']; ?>
+						</td>
+						<td>
+							<?php echo $plugin['Author']; ?>
+						</td>
+						<td>
+							<?php echo $plugin['Version']; ?>
+						</td>
+					</tr>
+
+				<?php endforeach; ?>
+
+			</tbody>
+		</table>
+
+	<?php endif; ?>
+	
+	<h3>Themes</h3>
+	
+	<?php 
+	
+	$pronamic_themes = pronamic_client_get_themes();
+	
+	if ( empty( $pronamic_themes ) ) : ?>
+	
+		<p>
+			<?php _e( 'No Pronamic themes found.', 'pronamic_client' ); ?>
+		</p>
+
+	<?php else : ?>
+	
+		<table class="wp-list-table widefat themes" cellspacing="0">
+			<thead>
+				<tr>
+					<th scope="col">Theme</th>
+					<th scope="col">Author</th>
+					<th scope="col">Version</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+
+				<?php foreach ( $pronamic_themes as $theme ) : ?>
+
+					<tr>
+						<td>
+							<?php echo $theme['Name']; ?>
+						</td>
+						<td>
+							<?php echo $theme['Author']; ?>
+						</td>
+						<td>
+							<?php echo $theme['Version']; ?>
+						</td>
+					</tr>
+
+				<?php endforeach; ?>
+
+			</tbody>
+		</table>
+
+	<?php endif; ?>
+</div>
