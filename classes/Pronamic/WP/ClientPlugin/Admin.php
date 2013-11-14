@@ -31,11 +31,11 @@ class Pronamic_WP_ClientPlugin_Admin {
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
 		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
-		
+
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
-		
+
 		add_action( 'wp_dashboard_setup', array( $this, 'dashboard_setup' ) );
-		
+
 		// Filters
 		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
 	}
