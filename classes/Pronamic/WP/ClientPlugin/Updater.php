@@ -45,7 +45,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 		$options = array(
 			'timeout'    => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 3 ),
 			'body'       => $body,
-			'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' ),
+			'user-agent' => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ),
 		);
 
 		return $options;
