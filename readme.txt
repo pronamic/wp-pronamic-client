@@ -34,7 +34,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	http://www.electrictoolbox.com/disable-php-apache-htaccess/
 
 = 1.1.0 =
-*	Added support for Pronamic update from http://wp.pronamic.eu/.
+*	Added support for Pronamic extension updates from http://wp.pronamic.eu/.
 
 = 1.0.0 =
 *	Added custom capability for Pronamic clients
