@@ -3,7 +3,7 @@
 
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
-	<h3>Plugins</h3>
+	<h3><?php _e( 'Plugins', 'pronamic_client' ); ?></h3>
 	
 	<?php
 	
@@ -49,12 +49,12 @@
 
 	<?php endif; ?>
 	
-	<h3>Themes</h3>
+	<h3><?php _e( 'Themes', 'pronamic_client' ); ?></h3>
 	
 	<?php 
-	
+
 	$pronamic_themes = pronamic_client_get_themes();
-	
+
 	if ( empty( $pronamic_themes ) ) : ?>
 	
 		<p>
