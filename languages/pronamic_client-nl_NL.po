@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-client\n"
-"POT-Creation-Date: 2013-11-14 12:28:40+00:00\n"
-"PO-Revision-Date: 2013-11-14 13:29+0100\n"
+"POT-Creation-Date: 2013-11-14 13:26:08+00:00\n"
+"PO-Revision-Date: 2013-11-14 14:26+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -11,49 +11,43 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
-"X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Poedit 1.5.7\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-SearchPath-0: \n"
 
-#: admin/checklist.php:5 classes/Pronamic/WP/ClientPlugin/Admin.php:80
-msgid "Checklist"
-msgstr "Checklist"
-
-#: admin/checklist.php:20
+#: admin/checklist.php:18
 msgid "Language"
 msgstr "Taal"
 
-#: admin/checklist.php:31
+#: admin/checklist.php:29
 msgid "Is Dutch"
 msgstr "Is Nederlands"
 
-#: admin/checklist.php:42
+#: admin/checklist.php:40
 msgid "Timezone"
 msgstr "Tijdzone"
 
-#: admin/checklist.php:59
+#: admin/checklist.php:57
 msgid "Site Visibility"
 msgstr "Website zichtbaarheid"
 
-#: admin/checklist.php:70
+#: admin/checklist.php:68
 msgid "Category Base"
 msgstr "Categoriebasis"
 
-#: admin/checklist.php:88
+#: admin/checklist.php:86
 msgid "Function wp_head() in header.php"
 msgstr "Functie wp_head() in header.php"
 
-#: admin/checklist.php:106
+#: admin/checklist.php:104
 msgid "Function wp_footer() in footer.php"
 msgstr "Functie wp_footer() in footer.php"
 
-#: admin/checklist.php:128
+#: admin/checklist.php:126
 msgid "Function wp_title('') in header.php"
 msgstr "Functie wp_title('') in header.php"
 
-#: admin/checklist.php:224
+#: admin/checklist.php:222
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
@@ -73,18 +67,9 @@ msgstr "Thema's"
 msgid "No Pronamic themes found."
 msgstr "Geen Pronamic thema's gevonden."
 
-#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.0.0)  #-#-#-#-#
-#. Author of the plugin/theme
-#: admin/index.php:5 classes/Pronamic/WP/ClientPlugin/Admin.php:66
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:67
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:139
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:75 pronamic-client.php:157
-msgid "Pronamic"
-msgstr "Pronamic"
-
-#: admin/virus-scanner.php:18 classes/Pronamic/WP/ClientPlugin/Admin.php:91
-msgid "Virus Scanner"
-msgstr "Virusscanner"
+#: admin/virus-scanner.php:19
+msgid "Uploads"
+msgstr "Uploads"
 
 #: admin/virus-scanner.php:46
 msgid "File"
@@ -118,13 +103,30 @@ msgstr "Verwijder"
 msgid "Empty W3TC directory"
 msgstr "Leeg W3TC map"
 
+#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.0)  #-#-#-#-#
+#. Author of the plugin/theme
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:66
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:67
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:139
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:77 includes/credits.php:14
+msgid "Pronamic"
+msgstr "Pronamic"
+
 #: classes/Pronamic/WP/ClientPlugin/Admin.php:79
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:80
+msgid "Checklist"
+msgstr "Checklist"
+
 #: classes/Pronamic/WP/ClientPlugin/Admin.php:90
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
+
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:91
+msgid "Virus Scanner"
+msgstr "Virusscanner"
 
 #: classes/Pronamic/WP/ClientPlugin/Admin.php:99
 msgid "Pronamic Extensions"
@@ -134,63 +136,63 @@ msgstr "Pronamic extensies"
 msgid "Extensions"
 msgstr "Extensies"
 
-#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.0.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.0)  #-#-#-#-#
 #. Author URI of the plugin/theme
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:76 pronamic-client.php:155
-#: pronamic-client.php:182 pronamic-client.php:190
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
+#: includes/dashboard.php:13 includes/dashboard.php:21
 msgid "http://pronamic.eu/"
 msgstr "http://pronamic.nl/"
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:83
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:85
 msgid "Contact"
 msgstr "Contact"
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:84
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:86
 msgid "http://pronamic.eu/contact/"
 msgstr "http://pronamic.nl/contact/"
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:100
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:102
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
-#: pronamic-client.php:153
+#: includes/credits.php:10
 msgid "Concept and realisation by %s"
 msgstr "Concept en realisatie door %s"
 
-#: pronamic-client.php:156
+#: includes/credits.php:13
 msgid "Pronamic - Internet, marketing & WordPress specialist"
 msgstr "Pronamic - Internet, marketing & WordPress specialist"
 
-#: pronamic-client.php:177
+#: includes/dashboard.php:8
 msgid "Support"
 msgstr "Support"
 
-#: pronamic-client.php:180
+#: includes/dashboard.php:11
 msgid "Telephone: %s"
 msgstr "Telefoon: %s"
 
-#: pronamic-client.php:180
+#: includes/dashboard.php:11
 msgid "+31 (0)85 40 11 580"
 msgstr "085 40 11 580"
 
-#: pronamic-client.php:181
+#: includes/dashboard.php:12
 msgid "E-mail: %s"
 msgstr "E-mail: %s"
 
-#: pronamic-client.php:181
+#: includes/dashboard.php:12
 msgid "support@pronamic.eu"
 msgstr "support@pronamic.nl"
 
-#: pronamic-client.php:182
+#: includes/dashboard.php:13
 msgid "Website: %s"
 msgstr "Website: %s"
 
-#: pronamic-client.php:185
+#: includes/dashboard.php:16
 msgid "News"
 msgstr "Nieuws"
 
-#: pronamic-client.php:192
+#: includes/dashboard.php:23
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 

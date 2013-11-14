@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, intranet
 Requires at least: 3.0
 Tested up to: 3.0
-Stable tag: 1.0.0
+Stable tag: 1.1.0
 
 WordPress plugin for Pronamic clients.
 
@@ -32,6 +32,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 = todo =
 *	http://www.electrictoolbox.com/disable-php-apache-htaccess/
+
+= 1.1.0 =
+*	Added support for Pronamic update from http://wp.pronamic.eu/.
 
 = 1.0.0 =
 *	Added custom capability for Pronamic clients

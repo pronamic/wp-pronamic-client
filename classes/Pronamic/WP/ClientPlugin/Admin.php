@@ -4,7 +4,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	/**
 	 * Instance of this class.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @var self
 	 */
@@ -208,7 +208,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	/**
 	 * Return an instance of this class.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @return object A single instance of this class.
 	 */

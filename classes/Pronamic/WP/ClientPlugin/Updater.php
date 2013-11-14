@@ -4,7 +4,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	/**
 	 * Instance of this class.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @var Pronamic_WP_Extensions_ExtensionsPlugin
 	 */
@@ -140,7 +140,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	/**
 	 * Return an instance of this class.
 	 *
-	 * @since 1.0.0
+	 * @since 1.1.0
 	 *
 	 * @return object A single instance of this class.
 	 */
