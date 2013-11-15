@@ -1,15 +1,17 @@
 === Pronamic Client ===
 Contributors: pronamic, remcotolsma 
-Tags: pronamic, client, intranet
+Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
-Tested up to: 3.0
-Stable tag: 1.0.0
+Tested up to: 3.7.1
+Stable tag: 1.1.0
 
 WordPress plugin for Pronamic clients.
 
 == Description ==
 
-...
+The Pronamic CLient plugin is a handy plugin for all WordPress users who use 
+plugins or themes developed by Pronamic. It contains an checklist, virus scanner
+and an Pronamic extensions overview list.
 
 
 == Installation ==
@@ -18,15 +20,21 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 WordPress installation and then activate the Plugin from Plugins page.
 
 
+== Developers ==
+
+*	php ~/wp/svn/i18n-tools/makepot.php wp-plugin ~/wp/git/pronamic-client ~/wp/git/pronamic-client/languages/pronamic_client.pot
+
+
 == Screenshots ==
 
-1.	?
+1.	Checklist
+2.	Virus Scanner
 
 
 == Changelog ==
 
-= todo =
-*	http://www.electrictoolbox.com/disable-php-apache-htaccess/
+= 1.1.0 =
+*	Added support for Pronamic extension updates from http://wp.pronamic.eu/.
 
 = 1.0.0 =
 *	Added custom capability for Pronamic clients
