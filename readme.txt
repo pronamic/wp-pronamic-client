@@ -1,8 +1,8 @@
 === Pronamic Client ===
 Contributors: pronamic, remcotolsma 
-Tags: pronamic, client, intranet
+Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
-Tested up to: 3.0
+Tested up to: 3.7.1
 Stable tag: 1.1.0
 
 WordPress plugin for Pronamic clients.
