@@ -9,7 +9,9 @@ WordPress plugin for Pronamic clients.
 
 == Description ==
 
-...
+The Pronamic CLient plugin is a handy plugin for all WordPress users who use 
+plugins or themes developed by Pronamic. It contains an checklist, virus scanner
+and an Pronamic extensions overview list.
 
 
 == Installation ==
@@ -25,13 +27,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Screenshots ==
 
-1.	?
+1.	Checklist
+2.	Virus Scanner
 
 
 == Changelog ==
-
-= todo =
-*	http://www.electrictoolbox.com/disable-php-apache-htaccess/
 
 = 1.1.0 =
 *	Added support for Pronamic extension updates from http://wp.pronamic.eu/.
