@@ -76,13 +76,16 @@ class Pronamic_WP_ClientPlugin_Updater {
 			return $update_plugins;
 	
 		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
-		foreach ( $response['plugins'] as &$plugin ) {
-			$plugin = (object) $plugin;
-		}
-		unset( $plugin );
-	
-		if ( is_array( $response ) ) {
-			$update_plugins->response = array_merge( $update_plugins->response, $response['plugins'] );
+		
+		if ( is_array( $response ) && isset( $response['plugins'] ) ) {
+			foreach ( $response['plugins'] as &$plugin ) {
+				$plugin = (object) $plugin;
+			}
+			unset( $plugin );
+		
+			if ( is_array( $response ) ) {
+				$update_plugins->response = array_merge( $update_plugins->response, $response['plugins'] );
+			}
 		}
 		
 		return $update_plugins;
@@ -127,8 +130,8 @@ class Pronamic_WP_ClientPlugin_Updater {
 			return $update_themes;
 	
 		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
-	
-		if ( is_array( $response ) ) {
+		
+		if ( is_array( $response ) && isset( $response['themes'] ) ) {
 			$update_themes->response = array_merge( $update_themes->response, $response['themes'] );
 		}
 	
