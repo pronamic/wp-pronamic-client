@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 3.7.1
-Stable tag: 1.1.1
+Stable tag: 1.1.2
 
 WordPress plugin for Pronamic clients.
 
@@ -33,8 +33,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= 1.1.2 =
+*	Fix PHP Warning: array_merge(): Argument #1 is not an array.
+
 = 1.1.1 =
-*	Fix Notice: Undefined property: stdClass::$response
+*	Fix Notice: Undefined property: stdClass::$response.
 
 = 1.1.0 =
 *	Added support for Pronamic extension updates from http://wp.pronamic.eu/.

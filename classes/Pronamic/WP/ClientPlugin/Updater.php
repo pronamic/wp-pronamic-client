@@ -62,28 +62,28 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 * @return array
 	 */
 	public function transient_update_plugins_filter( $update_plugins ) {
-		$pronamic_plugins = pronamic_client_get_plugins();
+		if ( is_object( $update_plugins && is_array( $update_plugins->response ) ) ) {
+			$pronamic_plugins = pronamic_client_get_plugins();
+			
+			$options = $this->get_http_api_options( array(
+				'plugins' => json_encode( $pronamic_plugins )
+			) );
 		
-		$options = $this->get_http_api_options( array(
-			'plugins' => json_encode( $pronamic_plugins )
-		) );
-	
-		$url = 'http://wp.pronamic.eu/api/plugins/update-check/1.0/';
-	
-		$raw_response = wp_remote_post( $url, $options );
-	
-		if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
-			return $update_plugins;
-	
-		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+			$url = 'http://wp.pronamic.eu/api/plugins/update-check/1.0/';
 		
-		if ( is_array( $response ) && isset( $response['plugins'] ) ) {
-			foreach ( $response['plugins'] as &$plugin ) {
-				$plugin = (object) $plugin;
-			}
-			unset( $plugin );
+			$raw_response = wp_remote_post( $url, $options );
 		
-			if ( is_array( $response ) ) {
+			if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
+				return $update_plugins;
+		
+			$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+			
+			if ( is_array( $response ) && isset( $response['plugins'] ) ) {
+				foreach ( $response['plugins'] as &$plugin ) {
+					$plugin = (object) $plugin;
+				}
+				unset( $plugin );
+			
 				$update_plugins->response = array_merge( $update_plugins->response, $response['plugins'] );
 			}
 		}
@@ -100,41 +100,43 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 * @return array
 	 */
 	public function transient_update_themes_filter( $update_themes ) {
-		$pronamic_themes = pronamic_client_get_themes();
-	
-		$themes = array();
-	
-		foreach ( $pronamic_themes as $theme ) {
-			$checked[ $theme->get_stylesheet() ] = $theme->get( 'Version' );
+		if ( is_object( $update_themes ) && is_array( $update_themes->response ) ) {
+			$pronamic_themes = pronamic_client_get_themes();
 		
-			$themes[ $theme->get_stylesheet() ] = array(
-				'Name'       => $theme->get( 'Name' ),
-				'Title'      => $theme->get( 'Name' ),
-				'Version'    => $theme->get( 'Version' ),
-				'Author'     => $theme->get( 'Author' ),
-				'Author URI' => $theme->get( 'AuthorURI' ),
-				'Template'   => $theme->get_template(),
-				'Stylesheet' => $theme->get_stylesheet(),
-			);
-		}
-	
-		$options = $this->get_http_api_options( array(
-			'themes' => json_encode( $themes )
-		) );
-	
-		$url = 'http://wp.pronamic.eu/api/themes/update-check/1.0/';
-	
-		$raw_response = wp_remote_post( $url, $options );
-	
-		if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
-			return $update_themes;
-	
-		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+			$themes = array();
 		
-		if ( is_array( $response ) && isset( $response['themes'] ) ) {
-			$update_themes->response = array_merge( $update_themes->response, $response['themes'] );
+			foreach ( $pronamic_themes as $theme ) {
+				$checked[ $theme->get_stylesheet() ] = $theme->get( 'Version' );
+			
+				$themes[ $theme->get_stylesheet() ] = array(
+					'Name'       => $theme->get( 'Name' ),
+					'Title'      => $theme->get( 'Name' ),
+					'Version'    => $theme->get( 'Version' ),
+					'Author'     => $theme->get( 'Author' ),
+					'Author URI' => $theme->get( 'AuthorURI' ),
+					'Template'   => $theme->get_template(),
+					'Stylesheet' => $theme->get_stylesheet(),
+				);
+			}
+		
+			$options = $this->get_http_api_options( array(
+				'themes' => json_encode( $themes )
+			) );
+		
+			$url = 'http://wp.pronamic.eu/api/themes/update-check/1.0/';
+		
+			$raw_response = wp_remote_post( $url, $options );
+		
+			if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
+				return $update_themes;
+		
+			$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+			
+			if ( is_array( $response ) && isset( $response['themes'] ) ) {
+				$update_themes->response = array_merge( $update_themes->response, $response['themes'] );
+			}
 		}
-	
+
 		return $update_themes;
 	}	
 
