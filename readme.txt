@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 3.7.1
-Stable tag: 1.1.2
+Stable tag: 1.1.3
 
 WordPress plugin for Pronamic clients.
 
@@ -32,6 +32,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.1.3 =
+*	Improved Fix PHP Warning: array_merge(): Argument #1 is not an array.
+*	Removed Pronamic admin footer text.
 
 = 1.1.2 =
 *	Fix PHP Warning: array_merge(): Argument #1 is not an array.

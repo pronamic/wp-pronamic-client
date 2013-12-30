@@ -35,9 +35,6 @@ class Pronamic_WP_ClientPlugin_Admin {
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
 		add_action( 'wp_dashboard_setup', array( $this, 'dashboard_setup' ) );
-
-		// Filters
-		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ) );
 	}
 
 	//////////////////////////////////////////////////
@@ -139,20 +136,6 @@ class Pronamic_WP_ClientPlugin_Admin {
 			__( 'Pronamic', 'pronamic_client' ),
 			'pronamic_client_dashboard'
 		);
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Extend the admin footer text with a Pronamic text
-	 *
-	 * @param string $text
-	 * @return string
-	 */
-	function admin_footer_text( $text ) {
-		$text .= ' | ' . pronamic_client_get_credits();
-	
-		return $text;
 	}
 
 	//////////////////////////////////////////////////
