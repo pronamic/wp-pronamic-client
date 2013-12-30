@@ -6,7 +6,7 @@
  */
 global $pronamic_client_version;
 
-$pronamic_client_version = '1.1.2';
+$pronamic_client_version = '1.1.3';
 
 /**
  * Holds the Pronamic Client DB revision, increments when changes are made to the Pronamic Client DB schema.
@@ -15,4 +15,4 @@ $pronamic_client_version = '1.1.2';
  */
 global $pronamic_client_db_version;
 
-$pronamic_client_db_version = 112;
+$pronamic_client_db_version = 113;
