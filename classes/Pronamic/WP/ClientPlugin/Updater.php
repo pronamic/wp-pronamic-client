@@ -62,7 +62,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 * @return array
 	 */
 	public function transient_update_plugins_filter( $update_plugins ) {
-		if ( is_object( $update_plugins && is_array( $update_plugins->response ) ) ) {
+		if ( is_object( $update_plugins ) && is_array( $update_plugins->response ) ) {
 			$pronamic_plugins = pronamic_client_get_plugins();
 			
 			$options = $this->get_http_api_options( array(

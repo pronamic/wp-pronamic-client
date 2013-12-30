@@ -33,6 +33,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= 1.1.3 =
+*	Improved Fix PHP Warning: array_merge(): Argument #1 is not an array.
+
 = 1.1.2 =
 *	Fix PHP Warning: array_merge(): Argument #1 is not an array.
 
