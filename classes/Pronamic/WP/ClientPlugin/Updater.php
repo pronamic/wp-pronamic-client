@@ -62,7 +62,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 * @return array
 	 */
 	public function transient_update_plugins_filter( $update_plugins ) {
-		if ( is_object( $update_plugins ) && is_array( $update_plugins->response ) ) {
+		if ( is_object( $update_plugins ) && isset( $update_plugins->response ) && is_array( $update_plugins->response ) ) {
 			$pronamic_plugins = pronamic_client_get_plugins();
 			
 			$options = $this->get_http_api_options( array(
@@ -100,7 +100,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 * @return array
 	 */
 	public function transient_update_themes_filter( $update_themes ) {
-		if ( is_object( $update_themes ) && is_array( $update_themes->response ) ) {
+		if ( is_object( $update_themes ) && isset( $update_themes->response ) && is_array( $update_themes->response ) ) {
 			$pronamic_themes = pronamic_client_get_themes();
 		
 			$themes = array();
