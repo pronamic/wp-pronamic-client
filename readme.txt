@@ -33,6 +33,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= 1.1.5 =
+*   Added Pronamic Client menu to the network admin menu.
+
 = 1.1.4 =
 *	Improved check on plugin and themes update.
 
