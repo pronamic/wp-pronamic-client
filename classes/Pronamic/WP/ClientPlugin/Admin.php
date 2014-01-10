@@ -30,7 +30,8 @@ class Pronamic_WP_ClientPlugin_Admin {
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'admin_menu'        , array( $this, 'admin_menu' ) );
+        add_action( 'network_admin_menu', array( $this, 'admin_menu' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
