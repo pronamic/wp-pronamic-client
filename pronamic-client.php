@@ -27,6 +27,7 @@ require_once $dir . '/includes/version.php';
 require_once $dir . '/classes/Pronamic/WP/ClientPlugin/Plugin.php';
 require_once $dir . '/classes/Pronamic/WP/ClientPlugin/Updater.php';
 require_once $dir . '/classes/Pronamic/WP/ClientPlugin/Admin.php';
+require_once $dir . '/classes/Pronamic/WP/ClientPlugin/Extensions_API.php';
 
 /**
  * Bootstrap

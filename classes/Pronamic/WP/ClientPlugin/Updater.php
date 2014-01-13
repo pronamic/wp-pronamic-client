@@ -138,9 +138,9 @@ class Pronamic_WP_ClientPlugin_Updater {
 		}
 
 		return $update_themes;
-	}	
+	}
 
-	//////////////////////////////////////////////////
+    //////////////////////////////////////////////////
 
 	/**
 	 * Return an instance of this class.

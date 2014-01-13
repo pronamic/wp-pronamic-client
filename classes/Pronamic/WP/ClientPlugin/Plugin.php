@@ -6,7 +6,7 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	 *
 	 * @since 1.1.0
 	 *
-	 * @var Pronamic_WP_Extensions_ExtensionsPlugin
+	 * @var Pronamic_WP_ClientPlugin_Plugin
 	 */
 	protected static $instance = null;
 
@@ -29,7 +29,8 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	private function __construct( $file ) {
 		$this->file = $file;
 		
-		$this->updater = Pronamic_WP_ClientPlugin_Updater::get_instance( $this );
+		$this->updater        = Pronamic_WP_ClientPlugin_Updater::get_instance( $this );
+        $this->extensions_api = Pronamic_WP_ClientPlugin_Extensions_API::get_instance( $this );
 
 		// Actions
 		add_action( 'init', array( $this, 'init' ) );
@@ -122,7 +123,9 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	 *
 	 * @since 1.1.0
 	 *
-	 * @return object A single instance of this class.
+     * @param mixed $file
+     *
+	 * @return Pronamic_WP_ClientPlugin_Plugin A single instance of this class.
 	 */
 	public static function get_instance( $file = false ) {
 		// If the single instance hasn't been set, set it now.
