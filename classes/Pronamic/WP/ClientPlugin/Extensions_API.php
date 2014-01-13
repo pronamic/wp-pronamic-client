@@ -81,6 +81,61 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
     //////////////////////////////////////////////////
 
     /**
+     * Activate plugin.
+     *
+     * TODO Implement
+     *
+     * @return bool
+     */
+    public function activate() {
+        return true;
+    }
+
+    /**
+     * Deactivate plugin.
+     *
+     * TODO Implement
+     *
+     * @return bool
+     */
+    public function deactivate() {
+        return true;
+    }
+
+    /**
+     * Check plugin license.
+     *
+     * TODO Implement
+     *
+     * @return bool
+     */
+    public function check() {
+        return true;
+    }
+
+    /**
+     * TODO Check if needed. WooThemes uses this to check if a connection is available before loading the list of products.
+     *
+     * @return bool
+     */
+    public function ping() {
+       return true;
+    }
+
+    /**
+     * Makes a request to the API server.
+     *
+     * // TODO Implement using "wp_remote_get"
+     *
+     * @return mixed $data
+     */
+    public function request() {
+        return array();
+    }
+
+    //////////////////////////////////////////////////
+
+    /**
      * Registers all extension settings
      */
     public function register_settings() {
