@@ -15,37 +15,46 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
     /**
      * Plugin
      *
-     * @var Pronamic_WP_ClientPlugin_Plugin
+     * @const Pronamic_WP_ClientPlugin_Plugin
      */
     private $plugin;
 
     //////////////////////////////////////////////////
 
     /**
+     * Licenses API url
+     *
+     * @const string
+     */
+    const API_URL = 'http://wp.pronamic.eu/api/licenses/1.0/';
+
+    //////////////////////////////////////////////////
+
+    /**
      * Settings group
      *
-     * @var string
+     * @const string
      */
     const SETTINGS_GROUP = 'pronamic_client_extensions';
 
     /**
      * Plugins data option
      *
-     * @var string
+     * @const string
      */
     const PLUGINS_DATA_SETTING = 'pronamic_client_extensions_plugins_data';
 
     /**
      * Themes data option
      *
-     * @var string
+     * @const string
      */
     const THEMES_DATA_SETTING = 'pronamic_client_extensions_themes_data';
 
     /**
      * Active licenses option
      *
-     * @var string
+     * @const string
      */
     const ACTIVE_LICENSES_SETTING = 'pronamic_client_extensions_active_licenses';
 
@@ -192,12 +201,81 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
     /**
      * Makes a request to the API server.
      *
-     * // TODO Implement using "wp_remote_get"
+     * @param string $action     (optional, defaults to 'check_license')
+     * @param array  $parameters (optional, defaults to an empty array)
      *
      * @return mixed $data
      */
-    public function request() {
-        return array();
+    public function request( $action = 'check_license', $parameters = array() ) {
+
+        $url = add_query_arg( 'wc-api', 'product-key-api', self::API_URL );
+
+        $valid_actions    = array( 'check_license', 'activate_license', 'deactivate_license' );
+        $valid_parameters = array( 'license_key', 'slug' );
+
+        if ( in_array( $action, $valid_actions ) ) {
+            $url = add_query_arg( 'action', $action, $url );
+        }
+
+        // Only keep valid parameters
+        if ( is_array( $parameters ) ) {
+            foreach ( $parameters as $parameter_key => $parameter ) {
+
+                if ( ! in_array( $parameter_key, $valid_parameters ) ) {
+                    unset( $parameters[ $parameter_key ] );
+                }
+            }
+        }
+
+        $raw_response = wp_remote_get(
+            $url,
+            array(
+                // Variables as seen in this plugin's Updater class
+                'timeout'     => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 3 ),
+                'body'        => array(
+                    'license_key' => $parameters['license_key'],
+                    'slug'        => $parameters['slug'],
+                    'network'     => is_multisite()
+                ),
+                'user-agent'  => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ),
+
+                // Variables from the WooThemes updater
+                'method'      => 'POST',
+                'redirection' => 5,
+                'httpversion' => '1.0',
+                'blocking'    => true,
+                'headers'     => array(),
+                'cookies'     => array(),
+                'ssl_verify'  => false,
+            )
+        );
+
+        if ( is_wp_error( $raw_response ) || wp_remote_retrieve_response_code( $raw_response ) != 200 ) {
+            return array();
+        }
+
+        return json_decode( wp_remote_retrieve_body( $raw_response ), true );
+
+//        if( is_wp_error( $response ) ) {
+//            $data = new StdClass;
+//            $data->error = __( 'WooThemes Request Error', 'woothemes-updater' );
+//        } else {
+//            $data = $response['body'];
+//            $data = json_decode( $data );
+//        }
+//
+//        // Store errors in a transient, to be cleared on each request.
+//        if ( isset( $data->error ) && ( '' != $data->error ) ) {
+//            $error = esc_html( $data->error );
+//            $error = '<strong>' . $error . '</strong>';
+//            if ( isset( $data->additional_info ) ) { $error .= '<br /><br />' . esc_html( $data->additional_info ); }
+//            $this->log_request_error( $error );
+//        }elseif ( empty( $data ) ) {
+//            $error = '<strong>There was an error making your request, please try again.</strong>';
+//            $this->log_request_error( $error );
+//        }
+//
+//        return $data;
     }
 
     //////////////////////////////////////////////////
