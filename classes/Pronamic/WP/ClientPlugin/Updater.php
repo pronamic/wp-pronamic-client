@@ -6,7 +6,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 *
 	 * @since 1.1.0
 	 *
-	 * @var Pronamic_WP_Extensions_ExtensionsPlugin
+	 * @var Pronamic_WP_ClientPlugin_Updater
 	 */
 	protected static $instance = null;
 
@@ -147,7 +147,9 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 *
 	 * @since 1.1.0
 	 *
-	 * @return object A single instance of this class.
+     * @param Pronamic_WP_ClientPlugin_Plugin $plugin
+     *
+	 * @return Pronamic_WP_ClientPlugin_Updater A single instance of this class.
 	 */
 	public static function get_instance( $plugin = false ) {
 		// If the single instance hasn't been set, set it now.

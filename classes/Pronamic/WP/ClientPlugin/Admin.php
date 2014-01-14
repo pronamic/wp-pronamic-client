@@ -194,7 +194,9 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 *
 	 * @since 1.1.0
 	 *
-	 * @return object A single instance of this class.
+     * @param Pronamic_WP_ClientPlugin_Plugin $plugin
+     *
+	 * @return Pronamic_WP_ClientPlugin_Admin A single instance of this class.
 	 */
 	public static function get_instance( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
 		// If the single instance hasn't been set, set it now.

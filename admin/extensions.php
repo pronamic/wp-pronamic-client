@@ -24,7 +24,6 @@
             <table class="wp-list-table widefat plugins" cellspacing="0">
                 <thead>
                     <tr>
-                        <th scope="col"><?php _e( 'Activate'   , 'pronamic_client' ); ?></th>
                         <th scope="col"><?php _e( 'Plugin'     , 'pronamic_client' ); ?></th>
                         <th scope="col"><?php _e( 'Author'     , 'pronamic_client' ); ?></th>
                         <th scope="col"><?php _e( 'Version'    , 'pronamic_client' ); ?></th>
@@ -36,12 +35,7 @@
 
                     <?php foreach ( $pronamic_plugins as $plugin_slug => $plugin ) : ?>
 
-                        <?php $is_plugin_active = is_plugin_active( $plugin_slug ); ?>
-
                         <tr>
-                            <td>
-                                <input type="checkbox" name="<?php echo Pronamic_WP_ClientPlugin_Extensions_API::PLUGINS_DATA_SETTING . '[' . $plugin_slug . '][activate]'; ?>" <?php echo $is_plugin_active ? 'disabled="disabled"' : ''; ?> />
-                            </td>
                             <td>
                                 <?php echo $plugin['Name']; ?>
                             </td>
@@ -52,11 +46,11 @@
                                 <?php echo $plugin['Version']; ?>
                             </td>
                             <td>
-                                <?php if ( $is_plugin_active ) : ?>
+                                <?php if ( Pronamic_WP_ClientPlugin_Plugin::get_instance()->extensions_api->is_license_active( $plugin['license_key'] ) ) : ?>
 
                                     <?php _e( 'Deactivate', 'pronamic_client' ); ?>
 
-                                <?php else: ?>
+                                <?php elseif ( isset( $plugin['license_key_requested'] ) && $plugin['license_key_requested'] ) : ?>
 
                                     <input type="text" name="<?php echo Pronamic_WP_ClientPlugin_Extensions_API::PLUGINS_DATA_SETTING . '[' . $plugin_slug . '][license_key]'; ?>" value="<?php echo htmlspecialchars( $plugin['license_key'] ); ?>" />
 
@@ -90,7 +84,6 @@
             <table class="wp-list-table widefat themes" cellspacing="0">
                 <thead>
                     <tr>
-                        <th scope="col"></th>
                         <th scope="col"><?php _e( 'Theme'      , 'pronamic_client' ); ?></th>
                         <th scope="col"><?php _e( 'Author'     , 'pronamic_client' ); ?></th>
                         <th scope="col"><?php _e( 'Version'    , 'pronamic_client' ); ?></th>
@@ -104,9 +97,6 @@
 
                         <tr>
                             <td>
-                                <input type="radio" name="active_theme" <?php checked( $theme->get_stylesheet(), $current_theme->get_stylesheet() ); ?> />
-                            </td>
-                            <td>
                                 <?php echo $theme['Name']; ?>
                             </td>
                             <td>
@@ -116,7 +106,7 @@
                                 <?php echo $theme['Version']; ?>
                             </td>
                             <td>
-                                <input type="text" name="<?php echo Pronamic_WP_ClientPlugin_Extensions_API::THEMES_DATA_SETTING . '[' . $theme_slug . '][license_key]'; ?>" value="<?php echo htmlspecialchars( $theme->license_key ); ?>" />
+<!--                                <input type="text" name="--><?php //echo Pronamic_WP_ClientPlugin_Extensions_API::THEMES_DATA_SETTING . '[' . $theme_slug . '][license_key]'; ?><!--" value="--><?php //echo htmlspecialchars( $theme->license_key ); ?><!--" />-->
                             </td>
                         </tr>
 
