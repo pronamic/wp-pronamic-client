@@ -126,7 +126,11 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      */
     public function periodically_check_licenses() {
 
-        // TODO Check transient to see if an extensions check needs to be done
+        $transient = 'pronamic_client_periodic_license_check'; // Should be 40 characters or less
+
+        if ( get_site_transient( $transient ) === true ) {
+            return;
+        }
 
         $active_licenses = $this->get_active_licenses();
 
@@ -136,6 +140,8 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
                 $this->deactivate_license( $license_key );
             }
         }
+
+        set_site_transient( $transient, true, 60 * 60 * 24 ); // Check licenses on a daily basis
     }
 
     //////////////////////////////////////////////////
@@ -145,8 +151,6 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
     /**
      * Activate license. Adds the activated license to the active licenses array.
      *
-     * TODO Implement
-     *
      * @param string $license_key
      * @param string $slug
      * @param string $product_type (optional, defaults to 'plugin')
@@ -154,39 +158,82 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      * @return bool
      */
     public function activate_license( $license_key, $slug, $product_type = 'plugin' ) {
-        return true;
 
-        // Add license to active licenses if successful
+        if ( strlen( $license_key ) <= 0 ||
+             strlen( $slug ) <= 0 ||
+             strlen( $product_type ) <= 0 ) {
+            return false;
+        }
+
+        if ( $this->is_license_active( $license_key ) ) {
+            return true;
+        }
+
+        // TODO Check response data, as the API hasn't yet been created
+        $response = $this->request(
+            'activate_license',
+            array(
+                'license_key'  => $license_key,
+                'slug'         => $slug,
+                'product_type' => $product_type
+            )
+        );
+
+        if ( isset( $response['success'] ) && $response['success'] ) {
+            return $this->add_active_license( $license_key );
+        }
+
+        return false;
     }
 
     /**
      * Deactivate plugin. Removes the deactivated license from the active licenses array.
-     *
-     * TODO Implement
      *
      * @param string $license_key
      *
      * @return bool
      */
     public function deactivate_license( $license_key ) {
-        return true;
 
-        // Remove license from active licenses
+        if ( strlen( $license_key ) <= 0 ) {
+            return false;
+        }
+
+        if ( ! $this->is_license_active( $license_key ) ) {
+            return true;
+        }
+
+        // TODO Check response data, as the API hasn't yet been created
+        $response = $this->request( 'deactivate_license', array( 'license_key'  => $license_key ) );
+
+        if ( isset( $response['success'] ) && $response['success'] ) {
+            return $this->remove_active_license( $license_key );
+        }
+
+        return false;
     }
 
     /**
      * Check extension license.
-     *
-     * TODO Implement
      *
      * @param string $license_key
      *
      * @return bool
      */
     public function check_license( $license_key ) {
-        return true;
 
-        // Only check, no further actions should be taken by this method
+        if ( strlen( $license_key ) <= 0 ) {
+            return false;
+        }
+
+        // TODO Check response data, as the API hasn't yet been created
+        $response = $this->request( 'check', array( 'license_key'  => $license_key ) );
+
+        if ( isset( $response['success'] ) && $response['success'] ) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -201,6 +248,16 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
     /**
      * Makes a request to the API server.
      *
+     * $action is allowed to be one of the following values:
+     * - check_license
+     * - activate_license
+     * - deactivate_license
+     *
+     * $parameters can consist of the following keys:
+     * - license_key
+     * - slug
+     * - product_type
+     *
      * @param string $action     (optional, defaults to 'check_license')
      * @param array  $parameters (optional, defaults to an empty array)
      *
@@ -211,7 +268,7 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
         $url = add_query_arg( 'wc-api', 'product-key-api', self::API_URL );
 
         $valid_actions    = array( 'check_license', 'activate_license', 'deactivate_license' );
-        $valid_parameters = array( 'license_key', 'slug' );
+        $valid_parameters = array( 'license_key', 'slug', 'product_type' );
 
         if ( in_array( $action, $valid_actions ) ) {
             $url = add_query_arg( 'action', $action, $url );
@@ -255,27 +312,6 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
         }
 
         return json_decode( wp_remote_retrieve_body( $raw_response ), true );
-
-//        if( is_wp_error( $response ) ) {
-//            $data = new StdClass;
-//            $data->error = __( 'WooThemes Request Error', 'woothemes-updater' );
-//        } else {
-//            $data = $response['body'];
-//            $data = json_decode( $data );
-//        }
-//
-//        // Store errors in a transient, to be cleared on each request.
-//        if ( isset( $data->error ) && ( '' != $data->error ) ) {
-//            $error = esc_html( $data->error );
-//            $error = '<strong>' . $error . '</strong>';
-//            if ( isset( $data->additional_info ) ) { $error .= '<br /><br />' . esc_html( $data->additional_info ); }
-//            $this->log_request_error( $error );
-//        }elseif ( empty( $data ) ) {
-//            $error = '<strong>There was an error making your request, please try again.</strong>';
-//            $this->log_request_error( $error );
-//        }
-//
-//        return $data;
     }
 
     //////////////////////////////////////////////////
