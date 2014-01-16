@@ -1,5 +1,12 @@
 <?php
 
+/**
+ * Class Pronamic_WP_ClientPlugin_Extensions_API
+ *
+ * TODO Implement error handling
+ *
+ * @author Stefan Boonstra
+ */
 class Pronamic_WP_ClientPlugin_Extensions_API {
     /**
      * Instance of this class.
@@ -26,7 +33,15 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      *
      * @const string
      */
-    const API_URL = 'http://wp.pronamic.eu/api/licenses/1.0/';
+//    const API_URL = 'http://wp.pronamic.eu/api/licenses';
+    const API_URL = 'http://sb.beta.pronamic.nl/api/licenses';
+
+    /**
+     * API version
+     *
+     * @const string
+     */
+    const API_VERSION = '1.0';
 
     //////////////////////////////////////////////////
 
@@ -97,6 +112,8 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
         add_action( 'admin_init', array( $this, 'periodically_check_licenses' ) );
 
         add_action( 'admin_init', array( $this, 'register_settings' ) );
+
+        add_action( 'admin_init', array( $this, 'maybe_deactivate_license' ) );
     }
 
     //////////////////////////////////////////////////
@@ -111,11 +128,41 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
         // TODO Remove test code
         foreach ( $this->plugins as $plugin_key => $plugin ) {
-            $plugin['license_key_requested'] = true;
 
-            $this->plugins[ $plugin_key ] = $plugin;
+            if ( $plugin_key === 'wp-pronamic-ideal/pronamic-ideal.php' ) {
+                $plugin['license_key_requested'] = true;
+                $plugin['slug'] = 'pronamic-ideal';
 
-            break;
+                $this->plugins[ $plugin_key ] = $plugin;
+            }
+        }
+
+        // TODO Remove test code
+        foreach ( $this->themes as $theme_key => $theme ) {
+
+            if ( $theme_key === 'wt-orbis' ) {
+                $theme->license_key_requested = true;
+                $theme->slug = 'orbis';
+
+                $this->themes[ $theme_key ] = $theme;
+            }
+        }
+    }
+
+    //////////////////////////////////////////////////
+
+    /**
+     * Check if a license deactivation has been requested by a user.
+     */
+    public function maybe_deactivate_license() {
+
+        $license_key = filter_input( INPUT_GET, 'deactivate_license', FILTER_SANITIZE_STRING );
+
+        if ( strlen( $license_key ) > 0 ) {
+
+            $this->deactivate_license( $license_key );
+
+            wp_redirect( remove_query_arg( 'deactivate_license') );
         }
     }
 
@@ -153,11 +200,11 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      *
      * @param string $license_key
      * @param string $slug
-     * @param string $product_type (optional, defaults to 'plugin')
+     * @param string $product_type (optional, defaults to 'pronamic_plugin')
      *
      * @return bool
      */
-    public function activate_license( $license_key, $slug, $product_type = 'plugin' ) {
+    public function activate_license( $license_key, $slug, $product_type = 'pronamic_plugin' ) {
 
         if ( strlen( $license_key ) <= 0 ||
              strlen( $slug ) <= 0 ||
@@ -169,9 +216,8 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
             return true;
         }
 
-        // TODO Check response data, as the API hasn't yet been created
         $response = $this->request(
-            'activate_license',
+            'activate',
             array(
                 'license_key'  => $license_key,
                 'slug'         => $slug,
@@ -203,8 +249,7 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
             return true;
         }
 
-        // TODO Check response data, as the API hasn't yet been created
-        $response = $this->request( 'deactivate_license', array( 'license_key'  => $license_key ) );
+        $response = $this->request( 'deactivate', array( 'license_key'  => $license_key ) );
 
         if ( isset( $response['success'] ) && $response['success'] ) {
             return $this->remove_active_license( $license_key );
@@ -226,7 +271,6 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
             return false;
         }
 
-        // TODO Check response data, as the API hasn't yet been created
         $response = $this->request( 'check', array( 'license_key'  => $license_key ) );
 
         if ( isset( $response['success'] ) && $response['success'] ) {
@@ -237,21 +281,12 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
     }
 
     /**
-     * TODO Check if needed. WooThemes uses this to check if a connection is available before loading the list of products.
-     *
-     * @return bool
-     */
-    public function ping() {
-       return true;
-    }
-
-    /**
      * Makes a request to the API server.
      *
      * $action is allowed to be one of the following values:
-     * - check_license
-     * - activate_license
-     * - deactivate_license
+     * - check
+     * - activate
+     * - deactivate
      *
      * $parameters can consist of the following keys:
      * - license_key
@@ -261,17 +296,15 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      * @param string $action     (optional, defaults to 'check_license')
      * @param array  $parameters (optional, defaults to an empty array)
      *
-     * @return mixed $data
+     * @return array $data
      */
-    public function request( $action = 'check_license', $parameters = array() ) {
+    public function request( $action = 'check', $parameters = array() ) {
 
-        $url = add_query_arg( 'wc-api', 'product-key-api', self::API_URL );
-
-        $valid_actions    = array( 'check_license', 'activate_license', 'deactivate_license' );
+        $valid_actions    = array( 'check', 'activate', 'deactivate' );
         $valid_parameters = array( 'license_key', 'slug', 'product_type' );
 
-        if ( in_array( $action, $valid_actions ) ) {
-            $url = add_query_arg( 'action', $action, $url );
+        if ( ! in_array( $action, $valid_actions ) ) {
+            return array( 'success' => false, 'message' => __( 'Invalid request action', 'pronamic_client' ) );
         }
 
         // Only keep valid parameters
@@ -285,14 +318,16 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
         }
 
         $raw_response = wp_remote_get(
-            $url,
+            self::API_URL . '/' . $action . '/' . self::API_VERSION . '/',
             array(
                 // Variables as seen in this plugin's Updater class
-                'timeout'     => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 3 ),
-                'body'        => array(
-                    'license_key' => $parameters['license_key'],
-                    'slug'        => $parameters['slug'],
-                    'network'     => is_multisite()
+                'timeout'     => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 30 ), // TODO Set non-cron time to a lower amount of seconds again.
+                'body'        => array_merge(
+                    array(
+                        'site'    => home_url(),
+                        'network' => is_multisite(),
+                    ),
+                    $parameters
                 ),
                 'user-agent'  => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ),
 
@@ -303,12 +338,12 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
                 'blocking'    => true,
                 'headers'     => array(),
                 'cookies'     => array(),
-                'ssl_verify'  => false,
+                'ssl_verify'  => false, 'username' => 'pronamic', 'password' => 'pronamic'
             )
         );
 
         if ( is_wp_error( $raw_response ) || wp_remote_retrieve_response_code( $raw_response ) != 200 ) {
-            return array();
+            return array( 'success' => false  );
         }
 
         return json_decode( wp_remote_retrieve_body( $raw_response ), true );
@@ -335,17 +370,17 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
         $plugins_data = get_option( self::PLUGINS_DATA_SETTING );
 
-        foreach ( $plugins as $slug => $plugin ) {
+        foreach ( $plugins as $plugin_key => $plugin ) {
             if ( isset( $plugin['Author'] ) && strpos( $plugin['Author'], 'Pronamic' ) === false ) {
-                unset( $plugins[ $slug ] );
+                unset( $plugins[ $plugin_key ] );
 
                 continue;
             }
 
-            $plugins[ $slug ]['license_key'] = null;
+            $plugins[ $plugin_key ]['license_key'] = null;
 
-            if ( isset( $plugins_data[ $slug ] ) && isset( $plugins_data[ $slug ]['license_key'] ) ) {
-                $plugins[ $slug ]['license_key'] = $plugins_data[ $slug ]['license_key'];
+            if ( isset( $plugins_data[ $plugin_key ] ) && isset( $plugins_data[ $plugin_key ]['license_key'] ) ) {
+                $plugins[ $plugin_key ]['license_key'] = $plugins_data[ $plugin_key ]['license_key'];
             }
         }
 
@@ -371,17 +406,17 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
         $themes_data = get_option( self::THEMES_DATA_SETTING );
 
-        foreach ( $themes as $slug => $theme ) {
+        foreach ( $themes as $theme_key => $theme ) {
             if ( isset( $theme['Author'] ) && strpos( $theme['Author'], 'Pronamic' ) === false ) {
-                unset( $themes[ $slug ] );
+                unset( $themes[ $theme_key ] );
 
                 continue;
             }
 
-            $themes[ $slug ]->license_key = null;
+            $themes[ $theme_key ]->license_key = null;
 
-            if ( isset( $themes_data[ $slug ] ) && isset( $themes_data[ $slug ]['license_key'] ) ) {
-                $themes[ $slug ]->license_key = $themes_data[ $slug ]['license_key'];
+            if ( isset( $themes_data[ $theme_key ] ) && isset( $themes_data[ $theme_key ]['license_key'] ) ) {
+                $themes[ $theme_key ]->license_key = $themes_data[ $theme_key ]['license_key'];
             }
         }
 
@@ -511,20 +546,23 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
         $current_plugins_data = $this->get_plugins();
 
-        foreach ( $plugins_data as $slug => $plugin_data ) {
+        foreach ( $plugins_data as $plugin_key => $plugin_data ) {
 
-            if ( isset( $plugin_data['license_key'] ) && strlen( $plugin_data['license_key'] ) > 0 ) {
+            if ( isset( $plugin_data['license_key'] ) &&
+                 isset( $plugin_data['slug'] ) &&
+                 strlen( $plugin_data['license_key'] ) > 0 &&
+                 strlen( $plugin_data['slug'] ) > 0 ) {
 
-                // Activate plugin
-                if ( ! $this->is_license_active( $plugin_data['license_key'] ) && isset( $plugin_data['activate'] ) ) {
+                // Activate license
+                if ( ! $this->is_license_active( $plugin_data['license_key'] ) ) {
 
-                    $this->activate_license( $slug, $plugin_data['license_key'] );
+                    $this->activate_license( $plugin_data['license_key'], $plugin_data['slug'] );
 
                 // If the license key has changed, check if the license should still be active
-                } else if ( $this->is_license_active( $slug ) && $plugin_data['license_key'] !== $current_plugins_data[ $slug ]['license_key'] ) {
+                } else if ( $this->is_license_active( $plugin_data['license_key'] ) && $plugin_data['license_key'] !== $current_plugins_data[ $plugin_key ]['license_key'] ) {
 
                     if ( ! $this->check_license( $plugin_data['license_key'] ) ) {
-                        $this->deactivate_license( $slug, $plugin_data['license_key'] );
+                        $this->deactivate_license( $plugin_data['license_key'] );
                     }
                 }
             }
@@ -551,19 +589,37 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
             return $themes_data;
         }
 
-        $current_themes_data = $this->get_themes();
+        $new_themes_data = array();
 
-        foreach ( $current_themes_data as $slug => $current_theme_data ) {
-            if ( isset( $themes_data[ $slug ] ) && isset( $themes_data[ $slug ] ) && strlen( $themes_data[ $slug ]['license_key'] ) > 0 ) {
-                if ( true ) { // TODO Replace "true" by a call to a function for validating license keys. Also check if the key has changed at all, to save request time.
-                    $current_themes_data[ $slug ]->license_key = $themes_data[ $slug ]['license_key'];
+        $themes = $this->get_themes();
+
+        foreach ( $themes_data as $theme_key => $theme_data ) {
+
+            if ( isset( $theme_data['license_key'] ) &&
+                 isset( $theme_data['slug'] ) &&
+                 strlen( $theme_data['license_key'] ) > 0 &&
+                 strlen( $theme_data['slug'] ) > 0 ) {
+
+                $new_themes_data[ $theme_key ] = array( 'license_key' => $theme_data['license_key'] );
+
+                // Activate license
+                if ( ! $this->is_license_active( $theme_data['license_key'] ) ) {
+
+                    $this->activate_license( $theme_data['license_key'], $theme_data['slug'], 'pronamic_theme' );
+
+                // If the license key has change, check if the license should still be active
+                } else if ( $this->is_license_active( $theme_data['license_key'] ) && $theme_data['license_key'] !== $themes[ $theme_key ]->license_key ) {
+
+                    if ( ! $this->check_license( $theme_data['license_key'] ) ) {
+                        $this->deactivate_license( $theme_data['license_key'] );
+                    }
                 }
-            } else if ( isset( $themes_data[ $slug ] ) ) {
-                unset( $themes_data[ $slug ] );
+            } else {
+                $new_themes_data[ $theme_key ] = array( 'license_key' => $themes[ $theme_key ]->license_key );
             }
         }
 
-        return $themes_data;
+        return $new_themes_data;
     }
 
     //////////////////////////////////////////////////
