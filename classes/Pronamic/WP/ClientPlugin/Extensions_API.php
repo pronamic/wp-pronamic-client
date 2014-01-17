@@ -173,9 +173,10 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      */
     public function periodically_check_licenses() {
 
-        $transient = 'pronamic_client_periodic_license_check'; // Should be 40 characters or less
+        // Should be 40 characters or less
+        $transient = 'pronamic_client_periodic_license_check';
 
-        if ( get_site_transient( $transient ) === true ) {
+        if ( get_site_transient( $transient ) == true ) {
             return;
         }
 
@@ -188,7 +189,8 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
             }
         }
 
-        set_site_transient( $transient, true, 60 * 60 * 24 ); // Check licenses on a daily basis
+        // Check licenses on a daily basis
+        set_site_transient( $transient, true, 60 * 60 * 24 );
     }
 
     //////////////////////////////////////////////////
