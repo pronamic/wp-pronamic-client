@@ -3,11 +3,14 @@
 /**
  * Class Pronamic_WP_ClientPlugin_Extensions_API
  *
- * TODO Implement error handling
+ * TODO Implement sending and receiving multiple requests in a single request.
+ *
+ * TODO Implement error handling.
  *
  * @author Stefan Boonstra
  */
 class Pronamic_WP_ClientPlugin_Extensions_API {
+
     /**
      * Instance of this class.
      *
@@ -33,8 +36,7 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      *
      * @const string
      */
-//    const API_URL = 'http://wp.pronamic.eu/api/licenses';
-    const API_URL = 'http://sb.beta.pronamic.nl/api/licenses';
+    const API_URL = 'http://wp.pronamic.eu/api/licenses';
 
     /**
      * API version
@@ -125,28 +127,6 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
         $this->plugins = $this->get_plugins();
         $this->themes  = $this->get_themes();
-
-        // TODO Remove test code
-        foreach ( $this->plugins as $plugin_key => $plugin ) {
-
-            if ( $plugin_key === 'wp-pronamic-ideal/pronamic-ideal.php' ) {
-                $plugin['license_key_requested'] = true;
-                $plugin['slug'] = 'pronamic-ideal';
-
-                $this->plugins[ $plugin_key ] = $plugin;
-            }
-        }
-
-        // TODO Remove test code
-        foreach ( $this->themes as $theme_key => $theme ) {
-
-            if ( $theme_key === 'wt-orbis' ) {
-                $theme->license_key_requested = true;
-                $theme->slug = 'orbis';
-
-                $this->themes[ $theme_key ] = $theme;
-            }
-        }
     }
 
     //////////////////////////////////////////////////
@@ -323,7 +303,7 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
             self::API_URL . '/' . $action . '/' . self::API_VERSION . '/',
             array(
                 // Variables as seen in this plugin's Updater class
-                'timeout'     => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 30 ), // TODO Set non-cron time to a lower amount of seconds again.
+                'timeout'     => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 3 ),
                 'body'        => array_merge(
                     array(
                         'site'    => home_url(),
@@ -357,6 +337,13 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
     /**
      * Returns all Pronamic plugins with extra data.
+     *
+     * Pronamic plugins can hook into the 'pronamic_client_plugins' filter, which allows them to indicate whether or not
+     * they require a license key. A Pronamic plugin can indicate to require a license key by setting the following
+     * array keys:
+     *
+     * $plugin['license_key_requested'] = true;
+     * $plugin['slug']                  = 'plugin-slug';
      *
      * @param bool $cache (optional, defaults to true)
      *
@@ -393,6 +380,13 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
     /**
      * Returns all Pronamic themes with extra data.
+     *
+     * Pronamic themes can hook into the 'pronamic_client_themes' filter, which allows them to indicate whether or not
+     * they require a license key. A Pronamic theme can indicate to require a license key by setting the following
+     * magic variables:
+     *
+     * $theme->license_key_requested = true;
+     * $theme->slug                  = 'theme-slug';
      *
      * @param bool $cache (optional, defaults to true)
      *
