@@ -3,8 +3,6 @@
 /**
  * Class Pronamic_WP_ClientPlugin_Extensions_API
  *
- * TODO Implement sending and receiving multiple requests in a single request.
- *
  * TODO Implement error handling.
  *
  * @author Stefan Boonstra
@@ -36,7 +34,8 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      *
      * @const string
      */
-    const API_URL = 'http://wp.pronamic.eu/api/licenses';
+//    const API_URL = 'http://wp.pronamic.eu/api/licenses';
+    const API_URL = 'http://sb.beta.pronamic.nl/api/licenses';
 
     /**
      * API version
@@ -127,6 +126,10 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
         $this->plugins = $this->get_plugins();
         $this->themes  = $this->get_themes();
+
+//        $this->check_licenses( array( 'sdw9iu1d3a4uh7h7aus1oid8', 'tdw3iu1d5a1uh2h7wut2oid9' ) );
+        $this->activate_licenses( array( 'sdw9iu1d3a4uh7h7aus1oid8', 'tdw3iu1d5a1uh2h7wut2oid9' ) );
+//        $this->check_licenses( array( 'sdw9iu1d3a4uh7h7aus1oid8', 'tdw3iu1d5a1uh2h7wut2oid9' ) );
     }
 
     //////////////////////////////////////////////////
@@ -140,7 +143,7 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
         if ( strlen( $license_key ) > 0 ) {
 
-            $this->deactivate_license( $license_key );
+            $this->deactivate_licenses( $license_key );
 
             wp_redirect( remove_query_arg( 'deactivate_license') );
         }
@@ -164,8 +167,8 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
         foreach ( $active_licenses as $license_key => $license ) {
 
-            if ( ! $this->check_license( $license_key ) ) {
-                $this->deactivate_license( $license_key );
+            if ( ! $this->check_licenses( $license_key ) ) {
+                $this->deactivate_licenses( $license_key );
             }
         }
 
@@ -180,86 +183,104 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
     /**
      * Activate license. Adds the activated license to the active licenses array.
      *
-     * @param string $license_key
-     * @param string $slug
-     * @param string $product_type (optional, defaults to 'pronamic_plugin')
+     * TODO Describe describe how to the extensions array should be built up.
+     * TODO Should probably reference the yet to create description of the request method.
      *
-     * @return bool
+     * license_key
+     * slug
+     * product_type
+     *
+     * @param array $extensions
+     *
+     * @return array
      */
-    public function activate_license( $license_key, $slug, $product_type = 'pronamic_plugin' ) {
+    public function activate_licenses( $extensions ) {
 
-        if ( strlen( $license_key ) <= 0 ||
-             strlen( $slug ) <= 0 ||
-             strlen( $product_type ) <= 0 ) {
+        if ( ! is_array( $extensions ) ) {
             return false;
         }
 
-        if ( $this->is_license_active( $license_key ) ) {
-            return true;
+        $response_extensions = $this->request( 'activate', $extensions );
+
+        // Set successfully returned license keys to active
+        foreach ( $response_extensions as $license_key => $response_extension ) {
+
+            if ( isset( $response_extension['success'] ) && $response_extension['success'] ) {
+                $response_extensions[ $license_key ]['success'] = $this->add_active_license( $license_key );
+            }
         }
 
-        $response = $this->request(
-            'activate',
-            array(
-                'license_key'  => $license_key,
-                'slug'         => $slug,
-                'product_type' => $product_type
-            )
-        );
-
-        if ( isset( $response['success'] ) && $response['success'] ) {
-            return $this->add_active_license( $license_key );
-        }
-
-        return false;
+        return $response_extensions;
     }
 
     /**
      * Deactivate plugin. Removes the deactivated license from the active licenses array.
      *
-     * @param string $license_key
+     * @param array|string $license_keys
      *
-     * @return bool
+     * @return array
      */
-    public function deactivate_license( $license_key ) {
+    public function deactivate_licenses( $license_keys ) {
 
-        if ( strlen( $license_key ) <= 0 ) {
+        if ( is_string( $license_keys ) && strlen( $license_keys ) <= 0 ) {
+            return false;
+        } else if ( is_string( $license_keys ) ) {
+            $license_keys = array( $license_keys );
+        }
+
+        if ( count( $license_keys ) <= 0 ) {
             return false;
         }
 
-        if ( ! $this->is_license_active( $license_key ) ) {
-            return true;
+        $extensions = array();
+
+        foreach ( $license_keys as $license_key ) {
+
+            // Only deactivate active license keys
+            if ( $this->is_license_active( $license_key ) ) {
+                $extensions[] = array( 'license_key' => $license_key );
+            }
         }
 
-        $response = $this->request( 'deactivate', array( 'license_key'  => $license_key ) );
+        $response_extensions = $this->request( 'deactivate', $extensions );
 
-        if ( isset( $response['success'] ) && $response['success'] ) {
-            return $this->remove_active_license( $license_key );
+        // Deactivate license keys
+        foreach ( $response_extensions as $license_key => $response_extension ) {
+
+            if ( isset( $response_extension['success'] ) && $response_extension['success'] ) {
+                $response_extensions[ $license_key ]['success'] = $this->remove_active_license( $license_key );
+            }
         }
 
-        return false;
+        return $response_extensions;
     }
 
     /**
      * Check extension license.
      *
-     * @param string $license_key
+     * @param array|string $license_keys
      *
-     * @return bool
+     * @return array
      */
-    public function check_license( $license_key ) {
+    public function check_licenses( $license_keys ) {
 
-        if ( strlen( $license_key ) <= 0 ) {
-            return false;
+        if ( is_string( $license_keys ) && strlen( $license_keys ) <= 0 ) {
+            return array();
+        } else if ( is_string( $license_keys ) ) {
+            $license_keys = array( $license_keys );
         }
 
-        $response = $this->request( 'check', array( 'license_key'  => $license_key ) );
-
-        if ( isset( $response['success'] ) && $response['success'] ) {
-            return true;
+        if ( count( $license_keys ) <= 0 ) {
+            return array();
         }
 
-        return false;
+        $extensions = array();
+
+        foreach ( $license_keys as $license_key ) {
+            $extensions[] = array( 'license_key' => $license_key );
+        }
+
+        return $this->request( 'check', $extensions );
     }
 
     /**
@@ -276,40 +297,27 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      * - product_type
      *
      * @param string $action     (optional, defaults to 'check_license')
-     * @param array  $parameters (optional, defaults to an empty array)
+     * @param array  $extensions (optional, defaults to an empty array)
      *
      * @return array $data
      */
-    public function request( $action = 'check', $parameters = array() ) {
+    public function request( $action = 'check', $extensions = array() ) {
 
         $valid_actions    = array( 'check', 'activate', 'deactivate' );
-        $valid_parameters = array( 'license_key', 'slug', 'product_type' );
 
         if ( ! in_array( $action, $valid_actions ) ) {
             return array( 'success' => false, 'message' => __( 'Invalid request action', 'pronamic_client' ) );
-        }
-
-        // Only keep valid parameters
-        if ( is_array( $parameters ) ) {
-            foreach ( $parameters as $parameter_key => $parameter ) {
-
-                if ( ! in_array( $parameter_key, $valid_parameters ) ) {
-                    unset( $parameters[ $parameter_key ] );
-                }
-            }
         }
 
         $raw_response = wp_remote_get(
             self::API_URL . '/' . $action . '/' . self::API_VERSION . '/',
             array(
                 // Variables as seen in this plugin's Updater class
-                'timeout'     => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 3 ),
-                'body'        => array_merge(
-                    array(
-                        'site'    => home_url(),
-                        'network' => is_multisite(),
-                    ),
-                    $parameters
+                'timeout'     => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 15 ),
+                'body'        => array(
+                    'data'    => json_encode(array('extensions' => $extensions)),
+                    'site'    => home_url(),
+                    'network' => is_multisite(),
                 ),
                 'user-agent'  => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ),
 
@@ -320,10 +328,10 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
                 'blocking'    => true,
                 'headers'     => array(),
                 'cookies'     => array(),
-                'ssl_verify'  => false, 'username' => 'pronamic', 'password' => 'pronamic'
+                'ssl_verify'  => false,
             )
         );
-
+var_dump($raw_response['body']); die();
         if ( is_wp_error( $raw_response ) || wp_remote_retrieve_response_code( $raw_response ) != 200 ) {
             return array( 'success' => false  );
         }
@@ -552,13 +560,13 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
                 // Activate license
                 if ( ! $this->is_license_active( $plugin_data['license_key'] ) ) {
 
-                    $this->activate_license( $plugin_data['license_key'], $plugin_data['slug'] );
+                    $this->activate_licenses( $plugin_data['license_key'], $plugin_data['slug'] );
 
                 // If the license key has changed, check if the license should still be active
                 } else if ( $this->is_license_active( $plugin_data['license_key'] ) && $plugin_data['license_key'] !== $current_plugins_data[ $plugin_key ]['license_key'] ) {
 
-                    if ( ! $this->check_license( $plugin_data['license_key'] ) ) {
-                        $this->deactivate_license( $plugin_data['license_key'] );
+                    if ( ! $this->check_licenses( $plugin_data['license_key'] ) ) {
+                        $this->deactivate_licenses( $plugin_data['license_key'] );
                     }
                 }
             }
@@ -601,13 +609,13 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
                 // Activate license
                 if ( ! $this->is_license_active( $theme_data['license_key'] ) ) {
 
-                    $this->activate_license( $theme_data['license_key'], $theme_data['slug'], 'pronamic_theme' );
+                    $this->activate_licenses( $theme_data['license_key'], $theme_data['slug'], 'pronamic_theme' );
 
                 // If the license key has change, check if the license should still be active
                 } else if ( $this->is_license_active( $theme_data['license_key'] ) && $theme_data['license_key'] !== $themes[ $theme_key ]->license_key ) {
 
-                    if ( ! $this->check_license( $theme_data['license_key'] ) ) {
-                        $this->deactivate_license( $theme_data['license_key'] );
+                    if ( ! $this->check_licenses( $theme_data['license_key'] ) ) {
+                        $this->deactivate_licenses( $theme_data['license_key'] );
                     }
                 }
             } else {
