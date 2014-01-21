@@ -3,7 +3,7 @@
 /**
  * Class Pronamic_WP_ClientPlugin_Extensions_API
  *
- * TODO Implement error handling.
+ * TODO Implement error handling. This can be done using the "add_settings_error" function.
  *
  * @author Stefan Boonstra
  */
@@ -34,8 +34,7 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      *
      * @const string
      */
-//    const API_URL = 'http://wp.pronamic.eu/api/licenses';
-    const API_URL = 'http://sb.beta.pronamic.nl/api/licenses';
+    const API_URL = 'http://wp.pronamic.eu/api/licenses';
 
     /**
      * API version
@@ -102,10 +101,36 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
     //////////////////////////////////////////////////
 
     /**
+     * Error messages
+     *
+     * @var array
+     */
+    public $error_messages;
+
+    //////////////////////////////////////////////////
+
+    /**
      * Constructs and initialize admin
      */
     private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
         $this->plugin = $plugin;
+
+        $this->error_messages = array(
+            '001' => __( 'An error occurred while communicating with the server'   , 'pronamic_client' ),
+            '002' => __( 'An error occurred while looking for a license key'       , 'pronamic_client' ),
+            '003' => __( 'An error occurred while looking for a slug'              , 'pronamic_client' ),
+            '004' => __( 'An error occurred while looking for a product type'      , 'pronamic_client' ),
+            '005' => __( 'An error occurred while trying to identify your website' , 'pronamic_client' ),
+            '006' => __( 'The license key has expired'                             , 'pronamic_client' ),
+            '007' => __( 'The license key is not active on your website'           , 'pronamic_client' ),
+            '008' => __( 'The license key is already active on your website'       , 'pronamic_client' ),
+            '009' => __( 'The license key could not be activated on your website'  , 'pronamic_client' ),
+            '010' => __( 'The license key could not be deactivated on your website', 'pronamic_client' ),
+            '011' => __( 'The license key is invalid'                              , 'pronamic_client' ),
+            '012' => __( 'The product slug is invalid'                             , 'pronamic_client' ),
+            '013' => __( 'The product type is invalid'                             , 'pronamic_client' ),
+            '014' => __( 'An error occurred while communicating with the server'   , 'pronamic_client' ),
+        );
 
         // Actions
         add_action( 'admin_init', array( $this, 'load_product_data' ), 9 );
@@ -128,25 +153,25 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
         $this->themes  = $this->get_themes();
 
         // Used for testing the Pronamic iDEAL plugin and Orbis theme as licensed extensions
-//        foreach ( $this->plugins as $plugin_key => $plugin ) {
-//
-//            if ( $plugin_key === 'wp-pronamic-ideal/pronamic-ideal.php' ) {
-//                $plugin['license_key_requested'] = true;
-//                $plugin['slug'] = 'pronamic-ideal';
-//
-//                $this->plugins[ $plugin_key ] = $plugin;
-//            }
-//        }
-//
-//        foreach ( $this->themes as $theme_key => $theme ) {
-//
-//            if ( $theme_key === 'wt-orbis' ) {
-//                $theme->license_key_requested = true;
-//                $theme->slug = 'orbis';
-//
-//                $this->themes[ $theme_key ] = $theme;
-//            }
-//        }
+        foreach ( $this->plugins as $plugin_key => $plugin ) {
+
+            if ( $plugin_key === 'wp-pronamic-ideal/pronamic-ideal.php' ) {
+                $plugin['license_key_requested'] = true;
+                $plugin['slug'] = 'pronamic-ideal';
+
+                $this->plugins[ $plugin_key ] = $plugin;
+            }
+        }
+
+        foreach ( $this->themes as $theme_key => $theme ) {
+
+            if ( $theme_key === 'wt-orbis' ) {
+                $theme->license_key_requested = true;
+                $theme->slug = 'orbis';
+
+                $this->themes[ $theme_key ] = $theme;
+            }
+        }
     }
 
     //////////////////////////////////////////////////
@@ -321,10 +346,14 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
      */
     public function request( $action = 'check', $extensions = array() ) {
 
-        $valid_actions    = array( 'check', 'activate', 'deactivate' );
+        $valid_actions = array( 'check', 'activate', 'deactivate' );
 
         if ( ! in_array( $action, $valid_actions ) ) {
-            return array( 'success' => false, 'message' => __( 'Invalid request action', 'pronamic_client' ) );
+            return array();
+        }
+
+        if ( ! is_array( $extensions ) || count( $extensions ) <= 0 ) {
+            return array();
         }
 
         $raw_response = wp_remote_get(
@@ -586,12 +615,12 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
                         $licenses_to_deactivate[] = array( 'license_key' => $current_plugins_data[ $plugin_key ]['license_key'] );
                     }
+                }
 
-                    // Activate the new license key
-                    if ( ! $this->is_license_active( $plugin_data['license_key'] ) ) {
+                // Activate the new license key
+                if ( ! $this->is_license_active( $plugin_data['license_key'] ) ) {
 
-                        $licenses_to_activate[] = array( 'license_key' => $plugin_data['license_key'], 'slug' => $plugin_data['slug'], 'product_type' => 'pronamic_plugin' );
-                    }
+                    $licenses_to_activate[] = array( 'license_key' => $plugin_data['license_key'], 'slug' => $plugin_data['slug'], 'product_type' => 'pronamic_plugin' );
                 }
             }
         }
@@ -644,12 +673,12 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
                         $licenses_to_deactivate[] = array( 'license_key' => $themes[ $theme_key ]->license_key );
                     }
+                }
 
-                    // Activate the new license key
-                    if ( ! $this->is_license_active( $theme_data['license_key'] ) ) {
+                // Activate the new license key
+                if ( ! $this->is_license_active( $theme_data['license_key'] ) ) {
 
-                        $licenses_to_activate[] = array( 'license_key' => $theme_data['license_key'], 'slug' => $theme_data['slug'], 'product_type' => 'pronamic_theme' );
-                    }
+                    $licenses_to_activate[] = array( 'license_key' => $theme_data['license_key'], 'slug' => $theme_data['slug'], 'product_type' => 'pronamic_theme' );
                 }
             } else {
                 $new_themes_data[ $theme_key ] = array( 'license_key' => $themes[ $theme_key ]->license_key );

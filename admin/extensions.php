@@ -3,6 +3,8 @@
 
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
+    <?php settings_errors(); ?>
+
 	<h3><?php _e( 'Plugins', 'pronamic_client' ); ?></h3>
 
     <form method="post" action="options.php">
