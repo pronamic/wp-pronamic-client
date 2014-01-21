@@ -152,26 +152,26 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
         $this->plugins = $this->get_plugins();
         $this->themes  = $this->get_themes();
 
-        // Used for testing the Pronamic iDEAL plugin and Orbis theme as licensed extensions
-        foreach ( $this->plugins as $plugin_key => $plugin ) {
-
-            if ( $plugin_key === 'wp-pronamic-ideal/pronamic-ideal.php' ) {
-                $plugin['license_key_requested'] = true;
-                $plugin['slug'] = 'pronamic-ideal';
-
-                $this->plugins[ $plugin_key ] = $plugin;
-            }
-        }
-
-        foreach ( $this->themes as $theme_key => $theme ) {
-
-            if ( $theme_key === 'wt-orbis' ) {
-                $theme->license_key_requested = true;
-                $theme->slug = 'orbis';
-
-                $this->themes[ $theme_key ] = $theme;
-            }
-        }
+//        // Used for testing the Pronamic iDEAL plugin and Orbis theme as licensed extensions
+//        foreach ( $this->plugins as $plugin_key => $plugin ) {
+//
+//            if ( $plugin_key === 'wp-pronamic-ideal/pronamic-ideal.php' ) {
+//                $plugin['license_key_requested'] = true;
+//                $plugin['slug'] = 'pronamic-ideal';
+//
+//                $this->plugins[ $plugin_key ] = $plugin;
+//            }
+//        }
+//
+//        foreach ( $this->themes as $theme_key => $theme ) {
+//
+//            if ( $theme_key === 'wt-orbis' ) {
+//                $theme->license_key_requested = true;
+//                $theme->slug = 'orbis';
+//
+//                $this->themes[ $theme_key ] = $theme;
+//            }
+//        }
     }
 
     //////////////////////////////////////////////////
