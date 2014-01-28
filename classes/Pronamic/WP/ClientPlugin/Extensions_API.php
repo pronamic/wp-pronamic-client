@@ -45,7 +45,16 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
 
     //////////////////////////////////////////////////
 
-    /**
+	/**
+	 * The check licenses cronjob hook
+	 *
+	 * @const string
+	 */
+	const CHECK_LICENSES_CRONJOB = 'pronamic_client_extensions_api_check_licenses';
+
+	//////////////////////////////////////////////////
+
+	/**
      * Settings group
      *
      * @const string
@@ -135,11 +144,12 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
         // Actions
         add_action( 'admin_init', array( $this, 'load_product_data' ), 9 );
 
-        add_action( 'admin_init', array( $this, 'periodically_check_licenses' ) );
-
         add_action( 'admin_init', array( $this, 'register_settings' ) );
 
         add_action( 'admin_init', array( $this, 'maybe_deactivate_license' ) );
+
+	    add_action( 'admin_init', array( $this, 'schedule_periodically_check_licenses' ) );
+	    add_action( self::CHECK_LICENSES_CRONJOB, array( $this, 'periodically_check_licenses' ) );
     }
 
     //////////////////////////////////////////////////
@@ -192,18 +202,26 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
     }
 
     //////////////////////////////////////////////////
+	// Check licenses cronjob
+    //////////////////////////////////////////////////
+
+	/**
+	 * Schedule a cronjob for executing the periodically_check_licenses() method on a daily basis.
+	 */
+	public function schedule_periodically_check_licenses() {
+
+		if ( is_numeric( wp_next_scheduled( self::CHECK_LICENSES_CRONJOB ) ) ) {
+
+			return;
+		}
+
+		wp_schedule_event( strtotime( 'midnight' ), 'daily', self::CHECK_LICENSES_CRONJOB );
+	}
 
     /**
-     * Periodically check if license keys are valid.
+     * Called by the check licenses cronjob to check whether the active license keys are valid.
      */
     public function periodically_check_licenses() {
-
-        // Should be 40 characters or less
-        $transient = 'pronamic_client_periodic_license_check';
-
-        if ( get_site_transient( $transient ) !== false ) {
-            return;
-        }
 
         $checked_licenses = $this->check_licenses( $this->get_active_licenses() );
 
@@ -218,9 +236,6 @@ class Pronamic_WP_ClientPlugin_Extensions_API {
         }
 
         $this->deactivate_licenses( $licenses_to_deactivate );
-
-        // Check licenses on a daily basis
-        set_site_transient( $transient, true, 60 * 60 * 24 );
     }
 
     //////////////////////////////////////////////////
