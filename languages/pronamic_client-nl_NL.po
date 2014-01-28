@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-client\n"
-"POT-Creation-Date: 2014-01-13 14:07+0100\n"
-"PO-Revision-Date: 2014-01-13 14:08+0100\n"
+"POT-Creation-Date: 2014-01-28 17:02+0100\n"
+"PO-Revision-Date: 2014-01-28 17:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -53,41 +53,37 @@ msgstr "Functie wp_title('') in header.php"
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
-#: admin/extensions.php:6
+#: admin/extensions.php:8
 msgid "Plugins"
 msgstr "Plugins"
 
-#: admin/extensions.php:19
+#: admin/extensions.php:21
 msgid "No Pronamic plugins found."
 msgstr "Geen Pronamic plugins gevonden."
 
-#: admin/extensions.php:27
-msgid "Activate"
-msgstr "Activeer"
-
-#: admin/extensions.php:28
+#: admin/extensions.php:29
 msgid "Plugin"
 msgstr "Plugin"
 
-#: admin/extensions.php:29 admin/extensions.php:95
+#: admin/extensions.php:30 admin/extensions.php:94
 msgid "Author"
 msgstr "Auteur"
 
-#: admin/extensions.php:30 admin/extensions.php:96
+#: admin/extensions.php:31 admin/extensions.php:95
 msgid "Version"
 msgstr "Versie"
 
-#: admin/extensions.php:31 admin/extensions.php:97
+#: admin/extensions.php:32 admin/extensions.php:96
 msgid "License Key"
 msgstr "Licentiesleutel"
 
-#: admin/extensions.php:57
+#: admin/extensions.php:55 admin/extensions.php:119
 msgid "Deactivate"
 msgstr "Deactiveer"
 
-#: admin/extensions.php:71 admin/extensions.php:127
-msgid "Save"
-msgstr "Opslaan"
+#: admin/extensions.php:71 admin/extensions.php:135
+msgid "Activate"
+msgstr "Activeer"
 
 #: admin/extensions.php:75
 msgid "Themes"
@@ -97,7 +93,7 @@ msgstr "Thema's"
 msgid "No Pronamic themes found."
 msgstr "Geen Pronamic thema's gevonden."
 
-#: admin/extensions.php:94
+#: admin/extensions.php:93
 msgid "Theme"
 msgstr "Thema"
 
@@ -168,6 +164,59 @@ msgstr "Pronamic extensies"
 msgid "Extensions"
 msgstr "Extensies"
 
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:128
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:141
+msgid "An error occurred while communicating with the server"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:129
+msgid "An error occurred while looking for a license key"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:130
+msgid "An error occurred while looking for a slug"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:131
+msgid "An error occurred while looking for a product type"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:132
+msgid "An error occurred while trying to identify your website"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:133
+msgid "The license key has expired"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:134
+msgid "The license key is not active on your website"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:135
+msgid "The license key is already active on your website"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:136
+msgid "The license key could not be activated on your website"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:137
+msgid "The license key could not be deactivated on your website"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:138
+msgid "The license key is invalid"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:139
+msgid "The product slug is invalid"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Extensions_API.php:140
+msgid "The product type is invalid"
+msgstr ""
+
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:79 includes/credits.php:12
 #: includes/dashboard.php:13 includes/dashboard.php:21
 msgid "http://pronamic.eu/"
@@ -228,6 +277,9 @@ msgstr "Nieuws"
 #: includes/dashboard.php:23
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
+
+#~ msgid "Save"
+#~ msgstr "Opslaan"
 
 #~ msgid "Pronamic Client"
 #~ msgstr "Pronamic Client"
