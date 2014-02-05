@@ -20,9 +20,9 @@
 		<table class="wp-list-table widefat plugins" cellspacing="0">
 			<thead>
 				<tr>
-					<th scope="col">Plugin</th>
-					<th scope="col">Author</th>
-					<th scope="col">Version</th>
+					<th scope="col"><?php _e( 'Plugin', 'pronamic_client' ); ?></th>
+					<th scope="col"><?php _e( 'Author', 'pronamic_client' ); ?></th>
+					<th scope="col"><?php _e( 'Version', 'pronamic_client' ); ?></th>
 				</tr>
 			</thead>
 			
@@ -66,9 +66,9 @@
 		<table class="wp-list-table widefat themes" cellspacing="0">
 			<thead>
 				<tr>
-					<th scope="col">Theme</th>
-					<th scope="col">Author</th>
-					<th scope="col">Version</th>
+					<th scope="col"><?php _e( 'Theme', 'pronamic_client' ); ?></th>
+					<th scope="col"><?php _e( 'Author', 'pronamic_client' ); ?></th>
+					<th scope="col"><?php _e( 'Version', 'pronamic_client' ); ?></th>
 				</tr>
 			</thead>
 			

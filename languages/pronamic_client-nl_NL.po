@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-client\n"
-"POT-Creation-Date: 2013-11-15 09:38:12+00:00\n"
-"PO-Revision-Date: 2013-11-15 10:38+0100\n"
+"POT-Creation-Date: 2014-02-05 12:36:54+00:00\n"
+"PO-Revision-Date: 2014-02-05 13:37+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.5.7\n"
+"X-Generator: Poedit 1.6.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/checklist.php:18
@@ -59,6 +59,18 @@ msgstr "Plugins"
 msgid "No Pronamic plugins found."
 msgstr "Geen Pronamic plugins gevonden."
 
+#: admin/extensions.php:23
+msgid "Plugin"
+msgstr "Plugin"
+
+#: admin/extensions.php:24 admin/extensions.php:70
+msgid "Author"
+msgstr "Auteur"
+
+#: admin/extensions.php:25 admin/extensions.php:71
+msgid "Version"
+msgstr "Versie"
+
 #: admin/extensions.php:52
 msgid "Themes"
 msgstr "Thema's"
@@ -66,6 +78,10 @@ msgstr "Thema's"
 #: admin/extensions.php:61
 msgid "No Pronamic themes found."
 msgstr "Geen Pronamic thema's gevonden."
+
+#: admin/extensions.php:69
+msgid "Theme"
+msgstr "Thema"
 
 #: admin/virus-scanner.php:19
 msgid "Uploads"
@@ -103,40 +119,38 @@ msgstr "Verwijder"
 msgid "Empty W3TC directory"
 msgstr "Leeg W3TC map"
 
-#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.0)  #-#-#-#-#
 #. Author of the plugin/theme
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:66
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:67
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:139
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:63
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:64
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:136
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:77 includes/credits.php:14
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:79
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:76
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:80
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:77
 msgid "Checklist"
 msgstr "Checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:90
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:87
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:91
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:88
 msgid "Virus Scanner"
 msgstr "Virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:99
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:96
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:100
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:97
 msgid "Extensions"
 msgstr "Extensies"
 
-#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.0)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
 #: includes/dashboard.php:13 includes/dashboard.php:21
@@ -227,9 +241,6 @@ msgstr "WordPress plugin voor Pronamic klanten."
 
 #~ msgid "Installation Status"
 #~ msgstr "Installatie status"
-
-#~ msgid "PHP Version"
-#~ msgstr "PHP versie"
 
 #~ msgid "Pronamic iDEAL requires PHP 5.2 or above."
 #~ msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
@@ -679,12 +690,12 @@ msgstr "WordPress plugin voor Pronamic klanten."
 #~ "32 tekens zal automatisch worden afgekapt."
 
 #~ msgid ""
-#~ "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>"
-#~ "{form_id}</code>, Form Title = <code>{form_title}</code>"
+#~ "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
+#~ "<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
 #~ msgstr ""
 #~ "Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, "
-#~ "Formulier ID = <code>{form_id}</code>, Formulier titel = <code>"
-#~ "{form_title}</code>"
+#~ "Formulier ID = <code>{form_id}</code>, Formulier titel = "
+#~ "<code>{form_title}</code>"
 
 #~ msgid "iDEAL Condition"
 #~ msgstr "iDEAL conditie"

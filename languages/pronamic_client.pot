@@ -1,14 +1,14 @@
-# Copyright (C) 2013 Pronamic Client
+# Copyright (C) 2014 Pronamic Client
 # This file is distributed under the same license as the Pronamic Client package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.1.0\n"
+"Project-Id-Version: Pronamic Client 1.1.5\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-client\n"
-"POT-Creation-Date: 2013-11-15 09:38:12+00:00\n"
+"POT-Creation-Date: 2014-02-05 12:36:54+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2013-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
@@ -56,12 +56,28 @@ msgstr ""
 msgid "No Pronamic plugins found."
 msgstr ""
 
+#: admin/extensions.php:23
+msgid "Plugin"
+msgstr ""
+
+#: admin/extensions.php:24 admin/extensions.php:70
+msgid "Author"
+msgstr ""
+
+#: admin/extensions.php:25 admin/extensions.php:71
+msgid "Version"
+msgstr ""
+
 #: admin/extensions.php:52
 msgid "Themes"
 msgstr ""
 
 #: admin/extensions.php:61
 msgid "No Pronamic themes found."
+msgstr ""
+
+#: admin/extensions.php:69
+msgid "Theme"
 msgstr ""
 
 #: admin/virus-scanner.php:19
@@ -100,40 +116,40 @@ msgstr ""
 msgid "Empty W3TC directory"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.5)  #-#-#-#-#
 #. Author of the plugin/theme
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:66
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:67
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:139
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:63
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:64
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:136
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:77 includes/credits.php:14
 msgid "Pronamic"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:79
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:76
 msgid "Pronamic Checklist"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:80
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:77
 msgid "Checklist"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:90
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:87
 msgid "Pronamic Virus Scanner"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:91
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:88
 msgid "Virus Scanner"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:99
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:96
 msgid "Pronamic Extensions"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:100
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:97
 msgid "Extensions"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.0)  #-#-#-#-#
+#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.5)  #-#-#-#-#
 #. Author URI of the plugin/theme
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
 #: includes/dashboard.php:13 includes/dashboard.php:21
