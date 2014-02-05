@@ -30,8 +30,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
-		add_action( 'admin_menu'        , array( $this, 'admin_menu' ) );
-        add_action( 'network_admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
 
 		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
 
@@ -194,9 +193,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 *
 	 * @since 1.1.0
 	 *
-     * @param Pronamic_WP_ClientPlugin_Plugin $plugin
-     *
-	 * @return Pronamic_WP_ClientPlugin_Admin A single instance of this class.
+	 * @return object A single instance of this class.
 	 */
 	public static function get_instance( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
 		// If the single instance hasn't been set, set it now.

@@ -33,12 +33,6 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
-= 1.2.0 =
-*   Implemented the extensions page and extensions API. Pronamic plugins can now indicate to require a license key to be checked against the pronamic.eu database.
-
-= 1.1.5 =
-*   Added Pronamic Client menu to the network admin menu.
-
 = 1.1.4 =
 *	Improved check on plugin and themes update.
 
