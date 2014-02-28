@@ -73,6 +73,17 @@ class Pronamic_WP_ClientPlugin_Admin {
 		// @see wp-admin/menu.php
 		add_submenu_page(
 			'pronamic_client', // parent slug
+			__( 'Pronamic Status', 'pronamic_client' ), // page title
+			__( 'Status', 'pronamic_client' ), // menu title
+			'pronamic_client', // capability
+			'pronamic_client_status', // menu slug
+			array( $this, 'page_status' ) // function
+		);
+	
+		// @see _add_post_type_submenus()
+		// @see wp-admin/menu.php
+		add_submenu_page(
+			'pronamic_client', // parent slug
 			__( 'Pronamic Checklist', 'pronamic_client' ), // page title
 			__( 'Checklist', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
@@ -147,6 +158,13 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	public function page_index() {
 		$this->plugin->display( 'admin/index.php' );
+	}
+
+	/**
+	 * Page status
+	 */
+	public function page_status() {
+		$this->plugin->display( 'admin/status.php' );
 	}
 	
 	/**
