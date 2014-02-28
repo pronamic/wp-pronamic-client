@@ -6,7 +6,7 @@ module.exports = function( grunt ) {
 		checkwpversion: {
 			options: {
 				readme: 'readme.txt',
-				plugin: 'pronamic-ideal.php',
+				plugin: 'pronamic-client.php',
 			},
 			check: {
 				version1: 'plugin',
