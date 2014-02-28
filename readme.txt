@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 1.1.5
+Stable tag: 1.2.0
 
 WordPress plugin for Pronamic clients.
 
@@ -33,6 +33,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= 1.2.0 =
+*	Added an WordPress admin status page with info about versions, plugins and more.
+
 = 1.1.5 =
 *	Added support for Pronamic extension updates from http://www.happywp.com/.
 
@@ -53,26 +56,26 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	Added support for Pronamic extension updates from http://wp.pronamic.eu/.
 
 = 1.0.0 =
-*	Added custom capability for Pronamic clients
-*	Removed the BackWPUp plugin from the recommended plugins list
-*	Update Pronamic phone number
+*	Added custom capability for Pronamic clients.
+*	Removed the BackWPUp plugin from the recommended plugins list.
+*	Update Pronamic phone number.
 
 = 0.2.1 =
-*	Added the "Regenerate Thumbnails" plugin to the checklist
-*	Added the "Posts 2 Posts" plugin to the checklist
-*	Added the "InfiniteWP Client" plugin to the checklist
-*	Improved some checks on the checklist
+*	Added the "Regenerate Thumbnails" plugin to the checklist.
+*	Added the "Posts 2 Posts" plugin to the checklist.
+*	Added the "InfiniteWP Client" plugin to the checklist.
+*	Improved some checks on the checklist.
 
 = 0.2 =
-*	Added bulk delete function to the virusscanner
-*	Added check for wp_title('') in header.php
-*	Improved some translations
+*	Added bulk delete function to the virusscanner.
+*	Added check for wp_title('') in header.php.
+*	Improved some translations.
  
 = 0.1.1 =
-*	Added the "Sucuri Scanner" plugin to the checklist
+*	Added the "Sucuri Scanner" plugin to the checklist.
 
 = 0.1 =
-*	Initial release
+*	Initial release.
 
 
 == Links ==

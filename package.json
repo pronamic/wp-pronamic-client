@@ -1,0 +1,39 @@
+{
+  "name": "pronamic-client",
+  "version": "1.2.0",
+  "description": "WordPress plugin for Pronamic clients.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pronamic/wp-pronamic-client.git"
+  },
+  "keywords": [
+    "pronamic",
+    "wordpress",
+    "wp",
+    "client",
+    "status"
+  ],
+  "author": {
+    "name": "Pronamic",
+    "email": "info@pronamic.nl",
+    "url": "http://www.pronamic.nl/"
+  },
+  "contributors": [
+    {
+      "name": "Remco Tolsma",
+      "email": "info@remcotolsma.nl",
+      "url": "http://www.remcotolsma.nl/"
+    }
+  ],
+  "license": "GPL",
+  "bugs": {
+    "url": "https://github.com/pronamic/wp-pronamic-client/issues",
+    "email": "support@pronamic.nl"
+  },
+  "homepage": "https://github.com/pronamic/wp-pronamic-client",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-wp-i18n": "~0.4.0",
+    "grunt-checkwpversion": "~0.3.0"
+  }
+}

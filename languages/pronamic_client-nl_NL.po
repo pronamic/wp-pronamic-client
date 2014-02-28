@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-client\n"
-"POT-Creation-Date: 2014-02-05 12:36:54+00:00\n"
-"PO-Revision-Date: 2014-02-05 13:37+0100\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
+"POT-Creation-Date: 2014-02-28 10:38:54+00:00\n"
+"PO-Revision-Date: 2014-02-28 11:41+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -12,10 +12,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.3\n"
+"X-Generator: Poedit 1.6.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/checklist.php:18
+#: admin/checklist.php:18 admin/status.php:40
 msgid "Language"
 msgstr "Taal"
 
@@ -51,7 +51,7 @@ msgstr "Functie wp_title('') in header.php"
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
-#: admin/extensions.php:6
+#: admin/extensions.php:6 admin/status.php:72
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -67,7 +67,7 @@ msgstr "Plugin"
 msgid "Author"
 msgstr "Auteur"
 
-#: admin/extensions.php:25 admin/extensions.php:71
+#: admin/extensions.php:25 admin/extensions.php:71 admin/status.php:28
 msgid "Version"
 msgstr "Versie"
 
@@ -82,6 +82,90 @@ msgstr "Geen Pronamic thema's gevonden."
 #: admin/extensions.php:69
 msgid "Theme"
 msgstr "Thema"
+
+#: admin/status.php:14
+msgid "WordPres"
+msgstr "WordPres"
+
+#: admin/status.php:20
+msgid "Home URL"
+msgstr "Home URL"
+
+#: admin/status.php:24
+msgid "Site URL"
+msgstr "Site URL"
+
+#: admin/status.php:32
+msgid "Multisite"
+msgstr "Multisite"
+
+#: admin/status.php:33 admin/status.php:37
+msgid "Yes"
+msgstr "Ja"
+
+#: admin/status.php:33 admin/status.php:37
+msgid "No"
+msgstr "Nee"
+
+#: admin/status.php:36
+msgid "Debug Mode"
+msgstr "Debug mode"
+
+#: admin/status.php:41
+msgid "Default"
+msgstr "Standaard"
+
+#: admin/status.php:44
+msgid "Max Upload Size"
+msgstr "Max Upload Size"
+
+#: admin/status.php:51
+msgid "Hosting"
+msgstr "Hosting"
+
+#: admin/status.php:57
+msgid "Web Server Info"
+msgstr "Web Server Info"
+
+#: admin/status.php:61
+msgid "PHP Version"
+msgstr "PHP-versie"
+
+#: admin/status.php:65
+msgid "MySQL Version"
+msgstr "MySQL versie"
+
+#: admin/status.php:95
+msgid "Visit plugin homepage"
+msgstr "Bezoek plugin homepagina"
+
+#: admin/status.php:98
+msgid "by"
+msgstr "door"
+
+#: admin/status.php:98
+msgid "version"
+msgstr "versie"
+
+#: admin/status.php:106
+msgid "Number Plugins"
+msgstr "Aantal plugins"
+
+#: admin/status.php:110
+msgid "Installed Plugins"
+msgstr "Geïnstalleerde plugins"
+
+#: admin/status.php:117
+msgid "Performance"
+msgstr "Prestatie"
+
+#: admin/status.php:125
+msgid "Number Autoload Options"
+msgstr "Aantal autoload opties"
+
+#: admin/status.php:135
+msgid "Number Transient Options"
+msgstr "Aantal transient opties"
 
 #: admin/virus-scanner.php:19
 msgid "Uploads"
@@ -120,38 +204,41 @@ msgid "Empty W3TC directory"
 msgstr "Leeg W3TC map"
 
 #. Author of the plugin/theme
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:63
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:64
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:136
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:77 includes/credits.php:14
 msgid "Pronamic"
 msgstr "Pronamic"
 
 #: classes/Pronamic/WP/ClientPlugin/Admin.php:76
+msgid "Pronamic Status"
+msgstr "Pronamic status"
+
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:77
+msgid "Status"
+msgstr "Status"
+
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:87
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:77
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:88
 msgid "Checklist"
 msgstr "Checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:87
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:98
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:88
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:99
 msgid "Virus Scanner"
 msgstr "Virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:96
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:107
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:97
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:108
 msgid "Extensions"
 msgstr "Extensies"
 
-#. Author URI of the plugin/theme
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
 #: includes/dashboard.php:13 includes/dashboard.php:21
 msgid "http://pronamic.eu/"
@@ -164,11 +251,6 @@ msgstr "Contact"
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:86
 msgid "http://pronamic.eu/contact/"
 msgstr "http://pronamic.nl/contact/"
-
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:102
-msgctxt "x-powered-by"
-msgid "Pronamic | pronamic.eu | info@pronamic.eu"
-msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #: includes/credits.php:10
 msgid "Concept and realisation by %s"
@@ -215,12 +297,21 @@ msgid "Pronamic Client"
 msgstr "Pronamic Client"
 
 #. Plugin URI of the plugin/theme
-msgid "http://pronamic.eu/wordpress/pronamic-client/"
-msgstr "http://pronamic.eu/wordpress/pronamic-client/"
+msgid "http://www.happywp.com/plugins/pronamic-client/"
+msgstr "http://www.happywp.com/plugins/pronamic-client/"
 
 #. Description of the plugin/theme
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
+
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
+msgstr "http://www.pronamic.nl/"
+
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:102
+msgctxt "x-powered-by"
+msgid "Pronamic | pronamic.eu | info@pronamic.eu"
+msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "+31 516 481 200"
 #~ msgstr "0516 481 200"
@@ -245,14 +336,8 @@ msgstr "WordPress plugin voor Pronamic klanten."
 #~ msgid "Pronamic iDEAL requires PHP 5.2 or above."
 #~ msgstr "Pronamic iDEAL vereist PHP 5.2 of hoger."
 
-#~ msgid "MySQL Version"
-#~ msgstr "MySQL versie"
-
 #~ msgid "Pronamic iDEAL requires MySQL 5 or above."
 #~ msgstr "Pronamic iDEAL vereist MySQL 5 of hoger."
-
-#~ msgid "WordPress Version"
-#~ msgstr "WordPress versie"
 
 #~ msgid "Pronamic iDEAL requires WordPress 3.2 or above."
 #~ msgstr "Pronamic iDEAL vereist WordPress 3.2 of hoger."
@@ -366,9 +451,6 @@ msgstr "WordPress plugin voor Pronamic klanten."
 #~ msgid "Expiration Period"
 #~ msgstr "Vervalperiode"
 
-#~ msgid "Status"
-#~ msgstr "Status"
-
 #~ msgid "Consumer"
 #~ msgstr "Consument"
 
@@ -424,9 +506,6 @@ msgstr "WordPress plugin voor Pronamic klanten."
 
 #~ msgid "Dashboard"
 #~ msgstr "Dashboard"
-
-#~ msgid "Number Payments"
-#~ msgstr "Aantal betalingen"
 
 #~ msgid "Edit"
 #~ msgstr "Bewerken"
@@ -948,12 +1027,6 @@ msgstr "WordPress plugin voor Pronamic klanten."
 #~ msgid "Jigoshop"
 #~ msgstr "Jigoshop"
 
-#~ msgid "Yes"
-#~ msgstr "Ja"
-
-#~ msgid "No"
-#~ msgstr "Nee"
-
 #~ msgid "This controls the description which the user sees during checkout."
 #~ msgstr ""
 #~ "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
@@ -1082,9 +1155,6 @@ msgstr "WordPress plugin voor Pronamic klanten."
 #, fuzzy
 #~ msgid "Edit Feed"
 #~ msgstr "Bewerken"
-
-#~ msgid "Custom URL:"
-#~ msgstr "Maatwerk URL:"
 
 #~ msgctxt "post type general name"
 #~ msgid "Blocks"
