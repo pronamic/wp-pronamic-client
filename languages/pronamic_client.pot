@@ -2,17 +2,17 @@
 # This file is distributed under the same license as the Pronamic Client package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.1.5\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/tag/pronamic-client\n"
-"POT-Creation-Date: 2014-02-05 12:36:54+00:00\n"
+"Project-Id-Version: Pronamic Client 1.2.0\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
+"POT-Creation-Date: 2014-02-28 10:38:54+00:00\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: admin/checklist.php:18
+#: admin/checklist.php:18 admin/status.php:40
 msgid "Language"
 msgstr ""
 
@@ -48,7 +48,7 @@ msgstr ""
 msgid "Search Plugin"
 msgstr ""
 
-#: admin/extensions.php:6
+#: admin/extensions.php:6 admin/status.php:72
 msgid "Plugins"
 msgstr ""
 
@@ -64,7 +64,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: admin/extensions.php:25 admin/extensions.php:71
+#: admin/extensions.php:25 admin/extensions.php:71 admin/status.php:28
 msgid "Version"
 msgstr ""
 
@@ -78,6 +78,90 @@ msgstr ""
 
 #: admin/extensions.php:69
 msgid "Theme"
+msgstr ""
+
+#: admin/status.php:14
+msgid "WordPres"
+msgstr ""
+
+#: admin/status.php:20
+msgid "Home URL"
+msgstr ""
+
+#: admin/status.php:24
+msgid "Site URL"
+msgstr ""
+
+#: admin/status.php:32
+msgid "Multisite"
+msgstr ""
+
+#: admin/status.php:33 admin/status.php:37
+msgid "Yes"
+msgstr ""
+
+#: admin/status.php:33 admin/status.php:37
+msgid "No"
+msgstr ""
+
+#: admin/status.php:36
+msgid "Debug Mode"
+msgstr ""
+
+#: admin/status.php:41
+msgid "Default"
+msgstr ""
+
+#: admin/status.php:44
+msgid "Max Upload Size"
+msgstr ""
+
+#: admin/status.php:51
+msgid "Hosting"
+msgstr ""
+
+#: admin/status.php:57
+msgid "Web Server Info"
+msgstr ""
+
+#: admin/status.php:61
+msgid "PHP Version"
+msgstr ""
+
+#: admin/status.php:65
+msgid "MySQL Version"
+msgstr ""
+
+#: admin/status.php:95
+msgid "Visit plugin homepage"
+msgstr ""
+
+#: admin/status.php:98
+msgid "by"
+msgstr ""
+
+#: admin/status.php:98
+msgid "version"
+msgstr ""
+
+#: admin/status.php:106
+msgid "Number Plugins"
+msgstr ""
+
+#: admin/status.php:110
+msgid "Installed Plugins"
+msgstr ""
+
+#: admin/status.php:117
+msgid "Performance"
+msgstr ""
+
+#: admin/status.php:125
+msgid "Number Autoload Options"
+msgstr ""
+
+#: admin/status.php:135
+msgid "Number Transient Options"
 msgstr ""
 
 #: admin/virus-scanner.php:19
@@ -116,41 +200,42 @@ msgstr ""
 msgid "Empty W3TC directory"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.5)  #-#-#-#-#
 #. Author of the plugin/theme
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:63
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:64
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:136
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:77 includes/credits.php:14
 msgid "Pronamic"
 msgstr ""
 
 #: classes/Pronamic/WP/ClientPlugin/Admin.php:76
-msgid "Pronamic Checklist"
+msgid "Pronamic Status"
 msgstr ""
 
 #: classes/Pronamic/WP/ClientPlugin/Admin.php:77
-msgid "Checklist"
+msgid "Status"
 msgstr ""
 
 #: classes/Pronamic/WP/ClientPlugin/Admin.php:87
-msgid "Pronamic Virus Scanner"
+msgid "Pronamic Checklist"
 msgstr ""
 
 #: classes/Pronamic/WP/ClientPlugin/Admin.php:88
+msgid "Checklist"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:98
+msgid "Pronamic Virus Scanner"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:99
 msgid "Virus Scanner"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:96
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:107
 msgid "Pronamic Extensions"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:97
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:108
 msgid "Extensions"
 msgstr ""
 
-#. #-#-#-#-#  pronamic_client.pot (Pronamic Client 1.1.5)  #-#-#-#-#
-#. Author URI of the plugin/theme
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
 #: includes/dashboard.php:13 includes/dashboard.php:21
 msgid "http://pronamic.eu/"
@@ -162,11 +247,6 @@ msgstr ""
 
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:86
 msgid "http://pronamic.eu/contact/"
-msgstr ""
-
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:102
-msgctxt "x-powered-by"
-msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr ""
 
 #: includes/credits.php:10
@@ -214,9 +294,18 @@ msgid "Pronamic Client"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://pronamic.eu/wordpress/pronamic-client/"
+msgid "http://www.happywp.com/plugins/pronamic-client/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid "WordPress plugin for Pronamic clients."
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
+msgstr ""
+
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:102
+msgctxt "x-powered-by"
+msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr ""
