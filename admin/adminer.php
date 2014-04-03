@@ -6,8 +6,6 @@ $adminer_url = plugins_url( 'vendor/adminer/adminer.php', $plugin->file );
 
 ?>
 <div class="wrap">
-	<?php screen_icon( 'pronamic_client' ); ?>
-
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
 	<form method="post" action="<?php echo esc_attr( $adminer_url ); ?>" target="_blank">
