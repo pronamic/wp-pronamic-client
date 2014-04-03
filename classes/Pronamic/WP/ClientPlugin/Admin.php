@@ -64,7 +64,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 			__( 'Pronamic', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client', // menu slug
-			array( $this, 'page_index' ), // function
+			array( $this, 'page_dashboard' ), // function
 			plugins_url( 'images/icon-16x16.png', $this->plugin->file ) // icon URL
 			// 0 // position
 		);
@@ -165,8 +165,8 @@ class Pronamic_WP_ClientPlugin_Admin {
 	/**
 	 * Page index
 	 */
-	public function page_index() {
-		$this->plugin->display( 'admin/index.php' );
+	public function page_dashboard() {
+		$this->plugin->display( 'admin/dashboard.php' );
 	}
 
 	/**
