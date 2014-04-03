@@ -104,15 +104,6 @@ class Pronamic_WP_ClientPlugin_Admin {
 
 		add_submenu_page(
 			'pronamic_client', // parent slug
-			__( 'Adminer', 'pronamic_client' ), // page title
-			__( 'Adminer', 'pronamic_client' ), // menu title
-			'pronamic_client', // capability
-			'pronamic_client_adminer', // menu slug
-			array( $this, 'page_adminer' ) // function
-		);
-
-		add_submenu_page(
-			'pronamic_client', // parent slug
 			__( 'Pronamic Extensions', 'pronamic_client' ), // page title
 			__( 'Extensions', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
@@ -195,13 +186,6 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	public function page_extensions() {
 		$this->plugin->display( 'admin/extensions.php' );
-	}
-	
-	/**
-	 * Page extensions
-	 */
-	public function page_adminer() {
-		$this->plugin->display( 'admin/adminer.php' );
 	}
 
 	//////////////////////////////////////////////////
