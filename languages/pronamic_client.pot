@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic Client package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.2.0\n"
+"Project-Id-Version: Pronamic Client 1.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2014-04-03 10:13:07+00:00\n"
+"POT-Creation-Date: 2014-04-04 11:04:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,15 +56,15 @@ msgstr ""
 msgid "Search Plugin"
 msgstr ""
 
-#: admin/dashboard/support.php:2 includes/dashboard.php:12
+#: admin/dashboard/support.php:2 includes/dashboard.php:11
 msgid "E-mail: %s"
 msgstr ""
 
-#: admin/dashboard/support.php:2 includes/dashboard.php:12
+#: admin/dashboard/support.php:2 includes/dashboard.php:11
 msgid "support@pronamic.eu"
 msgstr ""
 
-#: admin/dashboard/support.php:3 includes/dashboard.php:13
+#: admin/dashboard/support.php:3 includes/dashboard.php:12
 msgid "Website: %s"
 msgstr ""
 
@@ -82,11 +82,11 @@ msgstr ""
 
 #: admin/dashboard.php:35 admin/dashboard.php:56
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
-#: includes/dashboard.php:13 includes/dashboard.php:21
+#: includes/dashboard.php:20
 msgid "http://pronamic.eu/"
 msgstr ""
 
-#: admin/dashboard.php:37 admin/dashboard.php:58 includes/dashboard.php:23
+#: admin/dashboard.php:37 admin/dashboard.php:58 includes/dashboard.php:22
 msgid "Pronamic News"
 msgstr ""
 
@@ -298,15 +298,7 @@ msgstr ""
 msgid "Pronamic - Internet, marketing & WordPress specialist"
 msgstr ""
 
-#: includes/dashboard.php:11
-msgid "Telephone: %s"
-msgstr ""
-
-#: includes/dashboard.php:11
-msgid "+31 (0)85 40 11 580"
-msgstr ""
-
-#: includes/dashboard.php:16
+#: includes/dashboard.php:15
 msgid "News"
 msgstr ""
 

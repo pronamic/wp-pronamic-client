@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2014-04-03 10:13:07+00:00\n"
-"PO-Revision-Date: 2014-04-03 12:13+0100\n"
+"POT-Creation-Date: 2014-04-04 11:04:42+00:00\n"
+"PO-Revision-Date: 2014-04-04 13:11+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -59,15 +59,15 @@ msgstr "Functie wp_title('') in header.php"
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
-#: admin/dashboard/support.php:2 includes/dashboard.php:12
+#: admin/dashboard/support.php:2 includes/dashboard.php:11
 msgid "E-mail: %s"
 msgstr "E-mail: %s"
 
-#: admin/dashboard/support.php:2 includes/dashboard.php:12
+#: admin/dashboard/support.php:2 includes/dashboard.php:11
 msgid "support@pronamic.eu"
 msgstr "support@pronamic.nl"
 
-#: admin/dashboard/support.php:3 includes/dashboard.php:13
+#: admin/dashboard/support.php:3 includes/dashboard.php:12
 msgid "Website: %s"
 msgstr "Website: %s"
 
@@ -85,11 +85,11 @@ msgstr "Pronamic.nl nieuws"
 
 #: admin/dashboard.php:35 admin/dashboard.php:56
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
-#: includes/dashboard.php:13 includes/dashboard.php:21
+#: includes/dashboard.php:20
 msgid "http://pronamic.eu/"
 msgstr "http://pronamic.nl/"
 
-#: admin/dashboard.php:37 admin/dashboard.php:58 includes/dashboard.php:23
+#: admin/dashboard.php:37 admin/dashboard.php:58 includes/dashboard.php:22
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
@@ -301,15 +301,7 @@ msgstr "Concept en realisatie door %s"
 msgid "Pronamic - Internet, marketing & WordPress specialist"
 msgstr "Pronamic - Internet, marketing & WordPress specialist"
 
-#: includes/dashboard.php:11
-msgid "Telephone: %s"
-msgstr "Telefoon: %s"
-
-#: includes/dashboard.php:11
-msgid "+31 (0)85 40 11 580"
-msgstr "085 40 11 580"
-
-#: includes/dashboard.php:16
+#: includes/dashboard.php:15
 msgid "News"
 msgstr "Nieuws"
 
@@ -329,6 +321,12 @@ msgstr "WordPress plugin voor Pronamic klanten."
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
+
+#~ msgid "Telephone: %s"
+#~ msgstr "Telefoon: %s"
+
+#~ msgid "+31 (0)85 40 11 580"
+#~ msgstr "085 40 11 580"
 
 #~ msgid "+31 516 481 200"
 #~ msgstr "0516 481 200"
