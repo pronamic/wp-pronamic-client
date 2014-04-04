@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2014-02-28 10:38:54+00:00\n"
-"PO-Revision-Date: 2014-02-28 11:41+0100\n"
+"POT-Creation-Date: 2014-04-04 11:04:42+00:00\n"
+"PO-Revision-Date: 2014-04-04 13:11+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -15,191 +15,237 @@ msgstr ""
 "X-Generator: Poedit 1.6.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/checklist.php:18 admin/status.php:40
+#: admin/adminer.php:21 admin/dashboard/adminer.php:10 admin/dashboard.php:17
+msgid "Adminer"
+msgstr "Adminer"
+
+#: admin/adminer.php:29 admin/dashboard/adminer.php:18
+msgid "Login"
+msgstr "Inloggen"
+
+#: admin/checklist.php:16 admin/status.php:38
 msgid "Language"
 msgstr "Taal"
 
-#: admin/checklist.php:29
+#: admin/checklist.php:27
 msgid "Is Dutch"
 msgstr "Is Nederlands"
 
-#: admin/checklist.php:40
+#: admin/checklist.php:38
 msgid "Timezone"
 msgstr "Tijdzone"
 
-#: admin/checklist.php:57
+#: admin/checklist.php:55
 msgid "Site Visibility"
 msgstr "Website zichtbaarheid"
 
-#: admin/checklist.php:68
+#: admin/checklist.php:66
 msgid "Category Base"
 msgstr "Categoriebasis"
 
-#: admin/checklist.php:86
+#: admin/checklist.php:84
 msgid "Function wp_head() in header.php"
 msgstr "Functie wp_head() in header.php"
 
-#: admin/checklist.php:104
+#: admin/checklist.php:102
 msgid "Function wp_footer() in footer.php"
 msgstr "Functie wp_footer() in footer.php"
 
-#: admin/checklist.php:126
+#: admin/checklist.php:124
 msgid "Function wp_title('') in header.php"
 msgstr "Functie wp_title('') in header.php"
 
-#: admin/checklist.php:222
+#: admin/checklist.php:220
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
-#: admin/extensions.php:6 admin/status.php:72
+#: admin/dashboard/support.php:2 includes/dashboard.php:11
+msgid "E-mail: %s"
+msgstr "E-mail: %s"
+
+#: admin/dashboard/support.php:2 includes/dashboard.php:11
+msgid "support@pronamic.eu"
+msgstr "support@pronamic.nl"
+
+#: admin/dashboard/support.php:3 includes/dashboard.php:12
+msgid "Website: %s"
+msgstr "Website: %s"
+
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
+msgstr "http://www.pronamic.nl/"
+
+#: admin/dashboard.php:9 includes/dashboard.php:8
+msgid "Support"
+msgstr "Support"
+
+#: admin/dashboard.php:29
+msgid "Pronamic.nl News"
+msgstr "Pronamic.nl nieuws"
+
+#: admin/dashboard.php:35 admin/dashboard.php:56
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
+#: includes/dashboard.php:20
+msgid "http://pronamic.eu/"
+msgstr "http://pronamic.nl/"
+
+#: admin/dashboard.php:37 admin/dashboard.php:58 includes/dashboard.php:22
+msgid "Pronamic News"
+msgstr "Pronamic nieuws"
+
+#: admin/dashboard.php:50
+msgid "HappyWP.com News"
+msgstr "HappyWP.com nieuws"
+
+#: admin/extensions.php:4 admin/status.php:70
 msgid "Plugins"
 msgstr "Plugins"
 
-#: admin/extensions.php:15
+#: admin/extensions.php:13
 msgid "No Pronamic plugins found."
 msgstr "Geen Pronamic plugins gevonden."
 
-#: admin/extensions.php:23
+#: admin/extensions.php:21
 msgid "Plugin"
 msgstr "Plugin"
 
-#: admin/extensions.php:24 admin/extensions.php:70
+#: admin/extensions.php:22 admin/extensions.php:68
 msgid "Author"
 msgstr "Auteur"
 
-#: admin/extensions.php:25 admin/extensions.php:71 admin/status.php:28
+#: admin/extensions.php:23 admin/extensions.php:69 admin/status.php:26
 msgid "Version"
 msgstr "Versie"
 
-#: admin/extensions.php:52
+#: admin/extensions.php:50
 msgid "Themes"
 msgstr "Thema's"
 
-#: admin/extensions.php:61
+#: admin/extensions.php:59
 msgid "No Pronamic themes found."
 msgstr "Geen Pronamic thema's gevonden."
 
-#: admin/extensions.php:69
+#: admin/extensions.php:67
 msgid "Theme"
 msgstr "Thema"
 
-#: admin/status.php:14
+#: admin/status.php:12
 msgid "WordPres"
 msgstr "WordPres"
 
-#: admin/status.php:20
+#: admin/status.php:18
 msgid "Home URL"
 msgstr "Home URL"
 
-#: admin/status.php:24
+#: admin/status.php:22
 msgid "Site URL"
 msgstr "Site URL"
 
-#: admin/status.php:32
+#: admin/status.php:30
 msgid "Multisite"
 msgstr "Multisite"
 
-#: admin/status.php:33 admin/status.php:37
+#: admin/status.php:31 admin/status.php:35
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/status.php:33 admin/status.php:37
+#: admin/status.php:31 admin/status.php:35
 msgid "No"
 msgstr "Nee"
 
-#: admin/status.php:36
+#: admin/status.php:34
 msgid "Debug Mode"
 msgstr "Debug mode"
 
-#: admin/status.php:41
+#: admin/status.php:39
 msgid "Default"
 msgstr "Standaard"
 
-#: admin/status.php:44
+#: admin/status.php:42
 msgid "Max Upload Size"
 msgstr "Max Upload Size"
 
-#: admin/status.php:51
+#: admin/status.php:49
 msgid "Hosting"
 msgstr "Hosting"
 
-#: admin/status.php:57
+#: admin/status.php:55
 msgid "Web Server Info"
 msgstr "Web Server Info"
 
-#: admin/status.php:61
+#: admin/status.php:59
 msgid "PHP Version"
 msgstr "PHP-versie"
 
-#: admin/status.php:65
+#: admin/status.php:63
 msgid "MySQL Version"
 msgstr "MySQL versie"
 
-#: admin/status.php:95
+#: admin/status.php:93
 msgid "Visit plugin homepage"
 msgstr "Bezoek plugin homepagina"
 
-#: admin/status.php:98
+#: admin/status.php:96
 msgid "by"
 msgstr "door"
 
-#: admin/status.php:98
+#: admin/status.php:96
 msgid "version"
 msgstr "versie"
 
-#: admin/status.php:106
+#: admin/status.php:104
 msgid "Number Plugins"
 msgstr "Aantal plugins"
 
-#: admin/status.php:110
+#: admin/status.php:108
 msgid "Installed Plugins"
 msgstr "Geïnstalleerde plugins"
 
-#: admin/status.php:117
+#: admin/status.php:115
 msgid "Performance"
 msgstr "Prestatie"
 
-#: admin/status.php:125
+#: admin/status.php:123
 msgid "Number Autoload Options"
 msgstr "Aantal autoload opties"
 
-#: admin/status.php:135
+#: admin/status.php:133
 msgid "Number Transient Options"
 msgstr "Aantal transient opties"
 
-#: admin/virus-scanner.php:19
+#: admin/virus-scanner.php:17
 msgid "Uploads"
 msgstr "Uploads"
 
-#: admin/virus-scanner.php:46
+#: admin/virus-scanner.php:44
 msgid "File"
 msgstr "Bestand"
 
-#: admin/virus-scanner.php:47
+#: admin/virus-scanner.php:45
 msgid "Size"
 msgstr "Grootte"
 
-#: admin/virus-scanner.php:48
+#: admin/virus-scanner.php:46
 msgid "Date"
 msgstr "Datum"
 
-#: admin/virus-scanner.php:49
+#: admin/virus-scanner.php:47
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/virus-scanner.php:50 admin/virus-scanner.php:110
+#: admin/virus-scanner.php:48 admin/virus-scanner.php:108
 msgid "Actions"
 msgstr "Acties"
 
-#: admin/virus-scanner.php:80
+#: admin/virus-scanner.php:78
 msgid "F j, Y g:i a"
 msgstr "j F Y H:i "
 
-#: admin/virus-scanner.php:94 admin/virus-scanner.php:111
+#: admin/virus-scanner.php:92 admin/virus-scanner.php:109
 msgid "Delete"
 msgstr "Verwijder"
 
-#: admin/virus-scanner.php:147
+#: admin/virus-scanner.php:145
 msgid "Empty W3TC directory"
 msgstr "Leeg W3TC map"
 
@@ -239,11 +285,6 @@ msgstr "Pronamic extensies"
 msgid "Extensions"
 msgstr "Extensies"
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
-#: includes/dashboard.php:13 includes/dashboard.php:21
-msgid "http://pronamic.eu/"
-msgstr "http://pronamic.nl/"
-
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:85
 msgid "Contact"
 msgstr "Contact"
@@ -260,37 +301,9 @@ msgstr "Concept en realisatie door %s"
 msgid "Pronamic - Internet, marketing & WordPress specialist"
 msgstr "Pronamic - Internet, marketing & WordPress specialist"
 
-#: includes/dashboard.php:8
-msgid "Support"
-msgstr "Support"
-
-#: includes/dashboard.php:11
-msgid "Telephone: %s"
-msgstr "Telefoon: %s"
-
-#: includes/dashboard.php:11
-msgid "+31 (0)85 40 11 580"
-msgstr "085 40 11 580"
-
-#: includes/dashboard.php:12
-msgid "E-mail: %s"
-msgstr "E-mail: %s"
-
-#: includes/dashboard.php:12
-msgid "support@pronamic.eu"
-msgstr "support@pronamic.nl"
-
-#: includes/dashboard.php:13
-msgid "Website: %s"
-msgstr "Website: %s"
-
-#: includes/dashboard.php:16
+#: includes/dashboard.php:15
 msgid "News"
 msgstr "Nieuws"
-
-#: includes/dashboard.php:23
-msgid "Pronamic News"
-msgstr "Pronamic nieuws"
 
 #. Plugin Name of the plugin/theme
 msgid "Pronamic Client"
@@ -304,14 +317,16 @@ msgstr "http://www.happywp.com/plugins/pronamic-client/"
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
-#. Author URI of the plugin/theme
-msgid "http://www.pronamic.eu/"
-msgstr "http://www.pronamic.nl/"
-
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:102
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
+
+#~ msgid "Telephone: %s"
+#~ msgstr "Telefoon: %s"
+
+#~ msgid "+31 (0)85 40 11 580"
+#~ msgstr "085 40 11 580"
 
 #~ msgid "+31 516 481 200"
 #~ msgstr "0516 481 200"
@@ -856,9 +871,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "iDEAL Administrator"
 #~ msgstr "iDEAL beheerder"
-
-#~ msgid "Administrator"
-#~ msgstr "Beheerder"
 
 #~ msgid "Cancelled"
 #~ msgstr "Geannuleerd"

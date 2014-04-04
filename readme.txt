@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 
 WordPress plugin for Pronamic clients.
 
@@ -20,11 +20,6 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 WordPress installation and then activate the Plugin from Plugins page.
 
 
-== Developers ==
-
-*	php ~/wp/svn/i18n-tools/makepot.php wp-plugin ~/wp/git/pronamic-client ~/wp/git/pronamic-client/languages/pronamic_client.pot
-
-
 == Screenshots ==
 
 1.	Checklist
@@ -32,6 +27,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.2.1 =
+*	Feature - Added [Adminer](http://www.adminer.org/) to the Pronamic dashboard.
+*	Tweak - Improved the Pronamic dashboard layout.
+*	Tweak - Removed deprecated [screen_icon](http://codex.wordpress.org/Function_Reference/screen_icon) function calls.
 
 = 1.2.0 =
 *	Added an WordPress admin status page with info about versions, plugins and more.

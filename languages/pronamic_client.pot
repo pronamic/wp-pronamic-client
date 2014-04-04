@@ -2,9 +2,9 @@
 # This file is distributed under the same license as the Pronamic Client package.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.2.0\n"
+"Project-Id-Version: Pronamic Client 1.2.1\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2014-02-28 10:38:54+00:00\n"
+"POT-Creation-Date: 2014-04-04 11:04:42+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -12,191 +12,237 @@ msgstr ""
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 
-#: admin/checklist.php:18 admin/status.php:40
+#: admin/adminer.php:21 admin/dashboard/adminer.php:10 admin/dashboard.php:17
+msgid "Adminer"
+msgstr ""
+
+#: admin/adminer.php:29 admin/dashboard/adminer.php:18
+msgid "Login"
+msgstr ""
+
+#: admin/checklist.php:16 admin/status.php:38
 msgid "Language"
 msgstr ""
 
-#: admin/checklist.php:29
+#: admin/checklist.php:27
 msgid "Is Dutch"
 msgstr ""
 
-#: admin/checklist.php:40
+#: admin/checklist.php:38
 msgid "Timezone"
 msgstr ""
 
-#: admin/checklist.php:57
+#: admin/checklist.php:55
 msgid "Site Visibility"
 msgstr ""
 
-#: admin/checklist.php:68
+#: admin/checklist.php:66
 msgid "Category Base"
 msgstr ""
 
-#: admin/checklist.php:86
+#: admin/checklist.php:84
 msgid "Function wp_head() in header.php"
 msgstr ""
 
-#: admin/checklist.php:104
+#: admin/checklist.php:102
 msgid "Function wp_footer() in footer.php"
 msgstr ""
 
-#: admin/checklist.php:126
+#: admin/checklist.php:124
 msgid "Function wp_title('') in header.php"
 msgstr ""
 
-#: admin/checklist.php:222
+#: admin/checklist.php:220
 msgid "Search Plugin"
 msgstr ""
 
-#: admin/extensions.php:6 admin/status.php:72
+#: admin/dashboard/support.php:2 includes/dashboard.php:11
+msgid "E-mail: %s"
+msgstr ""
+
+#: admin/dashboard/support.php:2 includes/dashboard.php:11
+msgid "support@pronamic.eu"
+msgstr ""
+
+#: admin/dashboard/support.php:3 includes/dashboard.php:12
+msgid "Website: %s"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
+msgstr ""
+
+#: admin/dashboard.php:9 includes/dashboard.php:8
+msgid "Support"
+msgstr ""
+
+#: admin/dashboard.php:29
+msgid "Pronamic.nl News"
+msgstr ""
+
+#: admin/dashboard.php:35 admin/dashboard.php:56
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
+#: includes/dashboard.php:20
+msgid "http://pronamic.eu/"
+msgstr ""
+
+#: admin/dashboard.php:37 admin/dashboard.php:58 includes/dashboard.php:22
+msgid "Pronamic News"
+msgstr ""
+
+#: admin/dashboard.php:50
+msgid "HappyWP.com News"
+msgstr ""
+
+#: admin/extensions.php:4 admin/status.php:70
 msgid "Plugins"
 msgstr ""
 
-#: admin/extensions.php:15
+#: admin/extensions.php:13
 msgid "No Pronamic plugins found."
 msgstr ""
 
-#: admin/extensions.php:23
+#: admin/extensions.php:21
 msgid "Plugin"
 msgstr ""
 
-#: admin/extensions.php:24 admin/extensions.php:70
+#: admin/extensions.php:22 admin/extensions.php:68
 msgid "Author"
 msgstr ""
 
-#: admin/extensions.php:25 admin/extensions.php:71 admin/status.php:28
+#: admin/extensions.php:23 admin/extensions.php:69 admin/status.php:26
 msgid "Version"
 msgstr ""
 
-#: admin/extensions.php:52
+#: admin/extensions.php:50
 msgid "Themes"
 msgstr ""
 
-#: admin/extensions.php:61
+#: admin/extensions.php:59
 msgid "No Pronamic themes found."
 msgstr ""
 
-#: admin/extensions.php:69
+#: admin/extensions.php:67
 msgid "Theme"
 msgstr ""
 
-#: admin/status.php:14
+#: admin/status.php:12
 msgid "WordPres"
 msgstr ""
 
-#: admin/status.php:20
+#: admin/status.php:18
 msgid "Home URL"
 msgstr ""
 
-#: admin/status.php:24
+#: admin/status.php:22
 msgid "Site URL"
 msgstr ""
 
-#: admin/status.php:32
+#: admin/status.php:30
 msgid "Multisite"
 msgstr ""
 
-#: admin/status.php:33 admin/status.php:37
+#: admin/status.php:31 admin/status.php:35
 msgid "Yes"
 msgstr ""
 
-#: admin/status.php:33 admin/status.php:37
+#: admin/status.php:31 admin/status.php:35
 msgid "No"
 msgstr ""
 
-#: admin/status.php:36
+#: admin/status.php:34
 msgid "Debug Mode"
 msgstr ""
 
-#: admin/status.php:41
+#: admin/status.php:39
 msgid "Default"
 msgstr ""
 
-#: admin/status.php:44
+#: admin/status.php:42
 msgid "Max Upload Size"
 msgstr ""
 
-#: admin/status.php:51
+#: admin/status.php:49
 msgid "Hosting"
 msgstr ""
 
-#: admin/status.php:57
+#: admin/status.php:55
 msgid "Web Server Info"
 msgstr ""
 
-#: admin/status.php:61
+#: admin/status.php:59
 msgid "PHP Version"
 msgstr ""
 
-#: admin/status.php:65
+#: admin/status.php:63
 msgid "MySQL Version"
 msgstr ""
 
-#: admin/status.php:95
+#: admin/status.php:93
 msgid "Visit plugin homepage"
 msgstr ""
 
-#: admin/status.php:98
+#: admin/status.php:96
 msgid "by"
 msgstr ""
 
-#: admin/status.php:98
+#: admin/status.php:96
 msgid "version"
 msgstr ""
 
-#: admin/status.php:106
+#: admin/status.php:104
 msgid "Number Plugins"
 msgstr ""
 
-#: admin/status.php:110
+#: admin/status.php:108
 msgid "Installed Plugins"
 msgstr ""
 
-#: admin/status.php:117
+#: admin/status.php:115
 msgid "Performance"
 msgstr ""
 
-#: admin/status.php:125
+#: admin/status.php:123
 msgid "Number Autoload Options"
 msgstr ""
 
-#: admin/status.php:135
+#: admin/status.php:133
 msgid "Number Transient Options"
 msgstr ""
 
-#: admin/virus-scanner.php:19
+#: admin/virus-scanner.php:17
 msgid "Uploads"
 msgstr ""
 
-#: admin/virus-scanner.php:46
+#: admin/virus-scanner.php:44
 msgid "File"
 msgstr ""
 
-#: admin/virus-scanner.php:47
+#: admin/virus-scanner.php:45
 msgid "Size"
 msgstr ""
 
-#: admin/virus-scanner.php:48
+#: admin/virus-scanner.php:46
 msgid "Date"
 msgstr ""
 
-#: admin/virus-scanner.php:49
+#: admin/virus-scanner.php:47
 msgid "Content"
 msgstr ""
 
-#: admin/virus-scanner.php:50 admin/virus-scanner.php:110
+#: admin/virus-scanner.php:48 admin/virus-scanner.php:108
 msgid "Actions"
 msgstr ""
 
-#: admin/virus-scanner.php:80
+#: admin/virus-scanner.php:78
 msgid "F j, Y g:i a"
 msgstr ""
 
-#: admin/virus-scanner.php:94 admin/virus-scanner.php:111
+#: admin/virus-scanner.php:92 admin/virus-scanner.php:109
 msgid "Delete"
 msgstr ""
 
-#: admin/virus-scanner.php:147
+#: admin/virus-scanner.php:145
 msgid "Empty W3TC directory"
 msgstr ""
 
@@ -236,11 +282,6 @@ msgstr ""
 msgid "Extensions"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
-#: includes/dashboard.php:13 includes/dashboard.php:21
-msgid "http://pronamic.eu/"
-msgstr ""
-
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:85
 msgid "Contact"
 msgstr ""
@@ -257,36 +298,8 @@ msgstr ""
 msgid "Pronamic - Internet, marketing & WordPress specialist"
 msgstr ""
 
-#: includes/dashboard.php:8
-msgid "Support"
-msgstr ""
-
-#: includes/dashboard.php:11
-msgid "Telephone: %s"
-msgstr ""
-
-#: includes/dashboard.php:11
-msgid "+31 (0)85 40 11 580"
-msgstr ""
-
-#: includes/dashboard.php:12
-msgid "E-mail: %s"
-msgstr ""
-
-#: includes/dashboard.php:12
-msgid "support@pronamic.eu"
-msgstr ""
-
-#: includes/dashboard.php:13
-msgid "Website: %s"
-msgstr ""
-
-#: includes/dashboard.php:16
+#: includes/dashboard.php:15
 msgid "News"
-msgstr ""
-
-#: includes/dashboard.php:23
-msgid "Pronamic News"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -299,10 +312,6 @@ msgstr ""
 
 #. Description of the plugin/theme
 msgid "WordPress plugin for Pronamic clients."
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://www.pronamic.eu/"
 msgstr ""
 
 #: classes/Pronamic/WP/ClientPlugin/Plugin.php:102
