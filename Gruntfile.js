@@ -34,5 +34,6 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks( 'grunt-checkwpversion' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
-	grunt.registerTask( 'default', [ 'checkwpversion', 'makepot' ] );
+	grunt.registerTask( 'default', [ 'checkwpversion' ] );
+	grunt.registerTask( 'pot', [ 'makepot' ] );
 };

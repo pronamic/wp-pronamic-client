@@ -2,8 +2,8 @@
 Contributors: pronamic, remcotolsma 
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
-Tested up to: 3.8.1
-Stable tag: 1.2.1
+Tested up to: 3.9
+Stable tag: 1.2.2
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.2.2 =
+*	Updated Adminer to version 4.1.0.
+*	Tested up to WordPress version 3.9.
 
 = 1.2.1 =
 *	Feature - Added [Adminer](http://www.adminer.org/) to the Pronamic dashboard.
@@ -84,6 +88,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 *	[Remco Tolsma](http://remcotolsma.nl/)
 *	[Markdown's Syntax Documentation][markdown syntax]
 *	[Special Characters for HTML  & XHTML](http://www.mistywindow.com/reference/html-characters.php)
+*	[Adminer](http://www.adminer.org/)
 
 [markdown syntax]: http://daringfireball.net/projects/markdown/syntax
             "Markdown is what the parser uses to process much of the readme file"
