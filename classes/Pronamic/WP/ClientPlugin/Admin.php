@@ -28,7 +28,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 		$this->plugin = $plugin;
 
 		// Includes
-		foreach ( glob( $this->dir_path . 'admin/includes/*.php' ) as $filename ) {
+		foreach ( glob( $this->plugin->dir_path . 'admin/includes/*.php' ) as $filename ) {
 			require_once $filename;
 		}
 
@@ -123,14 +123,17 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 * @param string $hook
 	 */
 	function admin_enqueue_scripts( $hook ) {
-		$enqueue = strpos( $hook, 'pronamic_client' ) !== false;
+		wp_register_script( 'proanmic-client-media', plugins_url( 'admin/js/media.js', $this->plugin->file ) );
+		wp_localize_script( 'proanmic-client-media', 'pronamicClientMedia', array(
+			'browseText' => __( 'Browse…', 'pronamic_client' ),
+		) );
 
+		wp_register_style( 'proanmic-client-admin', plugins_url( 'admin/css/admin.css', $this->plugin->file ) );
+
+		$enqueue = strpos( $hook, 'pronamic_client' ) !== false;
 		if ( $enqueue ) {
 			// Styles
-			wp_enqueue_style(
-				'proanmic_client_admin' ,
-				plugins_url( 'css/admin.css', $this->plugin->file )
-			);
+			wp_enqueue_style( 'proanmic_client_admin' );
 		}
 	}
 
