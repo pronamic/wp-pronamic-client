@@ -12,7 +12,7 @@ if ( ! function_exists( 'pronamic_field_dropdown_pages' ) ) {
 		wp_dropdown_pages( array(
 			'name'             => $name,
 			'selected'         => get_option( $name, '' ),
-			'show_option_none' => __( '&mdash; Select a page &mdash;', 'pronamic_framework' ),
+			'show_option_none' => __( '&mdash; Select a page &mdash;', 'pronamic_client' ),
 		) );
 	}
 }
