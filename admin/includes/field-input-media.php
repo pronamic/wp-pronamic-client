@@ -7,12 +7,14 @@ if ( ! function_exists( 'pronamic_field_input_media' ) ) {
 	 * @param array $args
 	 */
 	function pronamic_field_input_media( $args ) {
+		wp_enqueue_media();
+
 		printf(
 			'<input name="%s" id="%s" type="text" value="%s" class="%s" data-frame-title="%s" data-button-text="%s" data-library-type="%s" />',
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['label_for'] ),
 			esc_attr( get_option( $args['label_for'] ) ),
-			'code pronamic-media-picker',
+			'regular-text code pronamic-media-picker',
 			__( 'Select Media', 'pronamic_client' ),
 			__( 'Select', 'pronamic_client' ),
 			''
