@@ -27,6 +27,11 @@ class Pronamic_WP_ClientPlugin_Admin {
 	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
 		$this->plugin = $plugin;
 
+		// Includes
+		foreach ( glob( $this->dir_path . 'admin/includes/*.php' ) as $filename ) {
+			require_once $filename;
+		}
+
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
