@@ -14,7 +14,7 @@ class Pronamic_WP_ClientPlugin_Plugin {
 
 	/**
 	 * Plugin file
-	 * 
+	 *
 	 * @var string
 	 */
 	public $file;
@@ -23,12 +23,12 @@ class Pronamic_WP_ClientPlugin_Plugin {
 
 	/**
 	 * Constructs and initialize Pronamic WordPress Extensions plugin
-	 * 
+	 *
 	 * @param string $file
 	 */
 	private function __construct( $file ) {
 		$this->file = $file;
-		
+
 		$this->updater = Pronamic_WP_ClientPlugin_Updater::get_instance( $this );
 
 		// Actions
@@ -37,10 +37,10 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 100 );
-		
+
 		// Filters
 		add_filter( 'wp_headers', array( $this, 'wp_headers' ) );
-		
+
 		// Admin
 		if ( is_admin() ) {
 			Pronamic_WP_ClientPlugin_Admin::get_instance( $this );
@@ -64,25 +64,25 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Admin bar menu
 	 */
 	public function admin_bar_menu() {
 		if ( current_user_can( 'pronamic_client' ) ) {
 			global $wp_admin_bar;
-	
+
 			$wp_admin_bar->add_menu( array(
-				'id'    => 'pronamic' ,
+				'id'    => 'pronamic',
 				'title' => __( 'Pronamic', 'pronamic_client' ),
 				'href'  => __( 'http://pronamic.eu/', 'pronamic_client' ),
 				'meta'  => array( 'target' => '_blank' )
 			) );
-	
+
 			$wp_admin_bar->add_menu(array(
 				'parent' => 'pronamic',
 				'id'     => 'pronamic_contact',
-				'title'  => __( 'Contact', 'pronamic_client'),
+				'title'  => __( 'Contact', 'pronamic_client' ),
 				'href'   => __( 'http://pronamic.eu/contact/', 'pronamic_client' ),
 				'meta'   => array( 'target' => '_blank' )
 			) );
@@ -108,11 +108,11 @@ class Pronamic_WP_ClientPlugin_Plugin {
 
 	/**
 	 * Display/iinclude the specified file
-	 * 
+	 *
 	 * @param string $file
 	 */
 	public function display( $file ) {
-		include plugin_dir_path( $this->file ) . $file; 
+		include plugin_dir_path( $this->file ) . $file;
 	}
 
 	//////////////////////////////////////////////////
@@ -129,7 +129,7 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		if ( null == self::$instance ) {
 			self::$instance = new self( $file );
 		}
-	
+
 		return self::$instance;
 	}
 }

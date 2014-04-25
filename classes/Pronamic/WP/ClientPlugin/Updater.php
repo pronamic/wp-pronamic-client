@@ -14,7 +14,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 
 	/**
 	 * Plugin
-	 * 
+	 *
 	 * @var Pronamic_WP_ClientPlugin_Plugin
 	 */
 	private $plugin;
@@ -23,7 +23,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 
 	/**
 	 * Constructs and initialize updater
-	 * 
+	 *
 	 * @param Pronamic_WP_ClientPlugin_Plugin $plugin
 	 */
 	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
@@ -37,13 +37,13 @@ class Pronamic_WP_ClientPlugin_Updater {
 
 	/**
 	 * Get the HTTP API options
-	 * 
+	 *
 	 * @param array $body
 	 * @return array
 	 */
 	private function get_http_api_options( $body ) {
 		$options = array(
-			'timeout'    => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 3 ),
+			'timeout'    => ( ( defined( 'DOING_CRON' ) && DOING_CRON ) ? 30 : 3 ),
 			'body'       => $body,
 			'user-agent' => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ),
 		);
@@ -52,62 +52,63 @@ class Pronamic_WP_ClientPlugin_Updater {
 	}
 
 	//////////////////////////////////////////////////
-	
+
 	/**
 	 * Transient update plugins filter
-	 * 
+	 *
 	 * @see https://github.com/WordPress/WordPress/blob/3.7/wp-includes/option.php#L1030
-	 * 
+	 *
 	 * @param array $update_plugins
 	 * @return array
 	 */
 	public function transient_update_plugins_filter( $update_plugins ) {
 		if ( is_object( $update_plugins ) && isset( $update_plugins->response ) && is_array( $update_plugins->response ) ) {
 			$pronamic_plugins = pronamic_client_get_plugins();
-			
+
 			$options = $this->get_http_api_options( array(
-				'plugins' => json_encode( $pronamic_plugins )
+				'plugins' => json_encode( $pronamic_plugins ),
 			) );
-		
+
 			$url = 'http://www.happywp.com/api/plugins/update-check/1.0/';
-		
+
 			$raw_response = wp_remote_post( $url, $options );
-		
-			if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
+
+			if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
 				return $update_plugins;
-		
+			}
+
 			$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
-			
+
 			if ( is_array( $response ) && isset( $response['plugins'] ) ) {
 				foreach ( $response['plugins'] as &$plugin ) {
 					$plugin = (object) $plugin;
 				}
 				unset( $plugin );
-			
+
 				$update_plugins->response = array_merge( $update_plugins->response, $response['plugins'] );
 			}
 		}
-		
+
 		return $update_plugins;
 	}
-	
+
 	/**
 	 * Transient update themes filter
-	 * 
+	 *
 	 * @see https://github.com/WordPress/WordPress/blob/3.7/wp-includes/option.php#L1030
-	 * 
+	 *
 	 * @param array $update_themes
 	 * @return array
 	 */
 	public function transient_update_themes_filter( $update_themes ) {
 		if ( is_object( $update_themes ) && isset( $update_themes->response ) && is_array( $update_themes->response ) ) {
 			$pronamic_themes = pronamic_client_get_themes();
-		
+
 			$themes = array();
-		
+
 			foreach ( $pronamic_themes as $theme ) {
 				$checked[ $theme->get_stylesheet() ] = $theme->get( 'Version' );
-			
+
 				$themes[ $theme->get_stylesheet() ] = array(
 					'Name'       => $theme->get( 'Name' ),
 					'Title'      => $theme->get( 'Name' ),
@@ -118,27 +119,28 @@ class Pronamic_WP_ClientPlugin_Updater {
 					'Stylesheet' => $theme->get_stylesheet(),
 				);
 			}
-		
+
 			$options = $this->get_http_api_options( array(
 				'themes' => json_encode( $themes )
 			) );
-		
+
 			$url = 'http://www.happywp.com/api/themes/update-check/1.0/';
-		
+
 			$raw_response = wp_remote_post( $url, $options );
-		
-			if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) )
+
+			if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
 				return $update_themes;
-		
+			}
+
 			$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
-			
+
 			if ( is_array( $response ) && isset( $response['themes'] ) ) {
 				$update_themes->response = array_merge( $update_themes->response, $response['themes'] );
 			}
 		}
 
 		return $update_themes;
-	}	
+	}
 
 	//////////////////////////////////////////////////
 
@@ -154,7 +156,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 		if ( null == self::$instance ) {
 			self::$instance = new self( $plugin );
 		}
-	
+
 		return self::$instance;
 	}
 }

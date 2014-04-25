@@ -13,7 +13,7 @@
 	<table class="form-table">
 		<tr>
 			<th scope="row">
-				<?php _e('Language', 'pronamic_client'); ?>
+				<?php _e( 'Language', 'pronamic_client' ); ?>
 			</th>
 			<td>
                 <?php echo $language; ?>
@@ -76,8 +76,8 @@
 			<?php
 
 			$headerFile        = get_template_directory() . '/header.php';
-			$headerFileContent = file_get_contents($headerFile);
-			$hasWpHeadFunction = strpos($headerFileContent, 'wp_head();');
+			$headerFileContent = file_get_contents( $headerFile );
+			$hasWpHeadFunction = strpos( $headerFileContent, 'wp_head();' );
 
 			?>
 			<th scope="row">
@@ -94,8 +94,8 @@
 			<?php
 
 			$footerFile          = get_template_directory() . '/footer.php';
-			$footerFileContent   = file_get_contents($footerFile);
-			$hasWpFooterFunction = strpos($footerFileContent, 'wp_footer();');
+			$footerFileContent   = file_get_contents( $footerFile );
+			$hasWpFooterFunction = strpos( $footerFileContent, 'wp_footer();' );
 
 			?>
 			<th scope="row">
@@ -111,8 +111,8 @@
 		<tr>
 			<?php
 
-			$headerFile = get_template_directory() . '/header.php';
-			$headerFileContent = file_get_contents($headerFile);
+			$headerFile        = get_template_directory() . '/header.php';
+			$headerFileContent = file_get_contents( $headerFile );
 			$hasWpHeadFunction = (
 				( strpos( $headerFileContent, "wp_title('');" ) !== false )
 					or
@@ -121,7 +121,7 @@
 
 			?>
 			<th scope="row">
-				<?php _e('Function wp_title(\'\') in header.php', 'pronamic_client'); ?>
+				<?php _e( 'Function wp_title(\'\') in header.php', 'pronamic_client' ); ?>
 			</th>
 			<td>
                 <?php echo $hasWpHeadFunction ? 'true' : 'false'; ?>
@@ -142,52 +142,52 @@
 	$preferedPlugins = array(
 		'google-analytics-for-wordpress/googleanalytics.php' => array(
 			'slug' => 'google-analytics-for-wordpress',
-			'name' => 'Google Analytics for WordPress'
+			'name' => 'Google Analytics for WordPress',
 		),
 		'wordpress-seo/wp-seo.php' => array(
 			'slug' => 'wordpress-seo',
-			'name' => 'WordPress SEO by Yoast'
+			'name' => 'WordPress SEO by Yoast',
 		),
 		'w3-total-cache/w3-total-cache.php' => array(
 			'slug' => 'w3-total-cache',
-			'name' => 'W3 Total Cache'
+			'name' => 'W3 Total Cache',
 		),
 		'gravityforms/gravityforms.php' => array(
 			'slug' => 'gravityforms',
-			'name' => 'Gravity Forms'
+			'name' => 'Gravity Forms',
 		),
 		'gravityforms-nl/gravityforms-nl.php' => array(
 			'slug' => 'gravityforms-nl',
-			'name' => 'Gravity Forms (nl)'
+			'name' => 'Gravity Forms (nl)',
 		),
 		'akismet/akismet.php' => array(
 			'slug' => 'akismet',
-			'name' => 'Akismet'
+			'name' => 'Akismet',
 		),
 		'wp-mail-smtp/wp_mail_smtp.php' => array(
 			'slug' => 'wp-mail-smtp',
-			'name' => 'WP-Mail-SMTP'
+			'name' => 'WP-Mail-SMTP',
 		),
 		'iwp-client/init.php' => array(
 			'slug' => 'iwp-client',
-			'name' => 'InfiniteWP Client'
+			'name' => 'InfiniteWP Client',
 		),
 		'jetpack/jetpack.php' => array(
 			'slug' => 'jetpack',
-			'name' => 'Jetpack by WordPress.com'
+			'name' => 'Jetpack by WordPress.com',
 		),
 		'sucuri-scanner/sucuri.php' => array(
 			'slug' => 'sucuri-scanner',
-			'name' => 'Sucuri Scanner'
+			'name' => 'Sucuri Scanner',
 		),
 		'regenerate-thumbnails/regenerate-thumbnails.php' => array(
 			'slug' => 'regenerate-thumbnails',
-			'name' => 'Regenerate Thumbnails'
+			'name' => 'Regenerate Thumbnails',
 		),
 		'posts-to-posts/posts-to-posts.php' => array(
 			'slug' => 'posts-to-posts',
-			'name' => 'Posts 2 Posts'
-		)
+			'name' => 'Posts 2 Posts',
+		),
 	);
 
 	?>
@@ -208,10 +208,10 @@
 
 					$searchUrl = add_query_arg(
 						array(
-							'tab'  => 'search' ,
-							'type' => 'term' ,
-							's'    => $data['slug']
-						) ,
+							'tab'  => 'search',
+							'type' => 'term',
+							's'    => $data['slug'],
+						),
 						'plugin-install.php'
 					);
 

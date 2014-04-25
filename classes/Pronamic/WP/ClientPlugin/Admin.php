@@ -14,7 +14,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 
 	/**
 	 * Plugin
-	 * 
+	 *
 	 * @var Pronamic_WP_ClientPlugin_Plugin
 	 */
 	private $plugin;
@@ -45,10 +45,10 @@ class Pronamic_WP_ClientPlugin_Admin {
 	public function admin_init() {
 		// Maybe update
 		global $pronamic_client_db_version;
-		
+
 		if ( get_option( 'pronamic_client_db_version' ) != $pronamic_client_db_version ) {
 			$this->upgrade();
-		
+
 			update_option( 'pronamic_client_db_version', $pronamic_client_db_version );
 		}
 	}
@@ -68,7 +68,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 			plugins_url( 'images/icon-16x16.png', $this->plugin->file ) // icon URL
 			// 0 // position
 		);
-	
+
 		// @see _add_post_type_submenus()
 		// @see wp-admin/menu.php
 		add_submenu_page(
@@ -79,7 +79,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 			'pronamic_client_status', // menu slug
 			array( $this, 'page_status' ) // function
 		);
-	
+
 		// @see _add_post_type_submenus()
 		// @see wp-admin/menu.php
 		add_submenu_page(
@@ -90,7 +90,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 			'pronamic_client_checklist', // menu slug
 			array( $this, 'page_checklist' ) // function
 		);
-	
+
 		// @see _add_post_type_submenus()
 		// @see wp-admin/menu.php
 		add_submenu_page(
@@ -119,7 +119,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	function admin_enqueue_scripts( $hook ) {
 		$enqueue = strpos( $hook, 'pronamic_client' ) !== false;
-	
+
 		if ( $enqueue ) {
 			// Styles
 			wp_enqueue_style(
@@ -166,21 +166,21 @@ class Pronamic_WP_ClientPlugin_Admin {
 	public function page_status() {
 		$this->plugin->display( 'admin/status.php' );
 	}
-	
+
 	/**
 	 * Page virus scanner
 	 */
 	public function page_virus_scanner() {
 		$this->plugin->display( 'admin/virus-scanner.php' );
 	}
-	
+
 	/**
 	 * Page checklist
 	 */
 	public function page_checklist() {
 		$this->plugin->display( 'admin/checklist.php' );
 	}
-	
+
 	/**
 	 * Page extensions
 	 */
@@ -197,11 +197,11 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	public function upgrade() {
 		global $wp_roles;
-	
+
 		$wp_roles->add_cap( 'administrator', 'pronamic_client' );
 		$wp_roles->add_cap( 'editor', 'pronamic_client' );
 	}
-	
+
 	//////////////////////////////////////////////////
 	// Singleton
 	//////////////////////////////////////////////////
@@ -218,7 +218,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 		if ( null == self::$instance ) {
 			self::$instance = new self( $plugin );
 		}
-	
+
 		return self::$instance;
 	}
 }

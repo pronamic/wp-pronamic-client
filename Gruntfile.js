@@ -1,8 +1,30 @@
 module.exports = function( grunt ) {
-
+	// Config init
 	grunt.initConfig( {
+		// Package
 		pkg: grunt.file.readJSON( 'package.json' ),
+		
+		// PHPLint
+		phplint: {
+			options: {
+				phpArgs: {
+					'-lf': null
+				}
+			},
+			all: [ '**/*.php' ]
+		},
+		
+		// PHP Code Sniffer
+		phpcs: {
+		    application: {
+		        dir: [ '**/*.php' ]
+		    },
+		    options: {
+		        standard: 'project.ruleset.xml'
+		    }
+		},
 
+		// Check WordPress version
 		checkwpversion: {
 			options: {
 				readme: 'readme.txt',
@@ -20,6 +42,7 @@ module.exports = function( grunt ) {
 			}
 		},
 
+		// Make POT
 		makepot: {
 			target: {
 				options: {
@@ -31,9 +54,13 @@ module.exports = function( grunt ) {
 		}
 	} );
 
+	// Load tasks
+	grunt.loadNpmTasks( 'grunt-phplint' );
+	grunt.loadNpmTasks( 'grunt-phpcs' );
 	grunt.loadNpmTasks( 'grunt-checkwpversion' );
 	grunt.loadNpmTasks( 'grunt-wp-i18n' );
 
-	grunt.registerTask( 'default', [ 'checkwpversion' ] );
+	// Register tasks
+	grunt.registerTask( 'default', [ 'phplint', 'phpcs', 'checkwpversion' ] );
 	grunt.registerTask( 'pot', [ 'makepot' ] );
 };
