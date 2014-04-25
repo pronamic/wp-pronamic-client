@@ -16,7 +16,7 @@ if ( ! function_exists( 'pronamic_field_dropdown_gravityforms' ) ) {
 		}
 
 		if ( empty( $forms ) ) {
-			_e( 'You don\'t  have any Gravity Forms forms.', 'pronamic_framework' );
+			_e( 'You don\'t have any Gravity Forms forms.', 'pronamic_client' );
 		} else {
 			$form_id = get_option( $name );
 
@@ -26,7 +26,7 @@ if ( ! function_exists( 'pronamic_field_dropdown_gravityforms' ) ) {
 				'<option value="%s" %s>%s</option>',
 				'',
 				selected( $form_id, '', false ),
-				__( '&mdash; Select a form &mdash;', 'pronamic_framework' )
+				__( '&mdash; Select a form &mdash;', 'pronamic_client' )
 			);
 
 			foreach ( $forms as $form ) {
