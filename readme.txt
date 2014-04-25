@@ -28,6 +28,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= 1.2.3 =
+*	Tweak - WordPress Coding Standards optimizations.
+
 = 1.2.2 =
 *	Updated Adminer to version 4.1.0.
 *	Tested up to WordPress version 3.9.
