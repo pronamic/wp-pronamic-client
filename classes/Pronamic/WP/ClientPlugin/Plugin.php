@@ -30,8 +30,6 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		$this->file     = $file;
 		$this->dir_path = plugin_dir_path( $file );
 
-		$this->updater = Pronamic_WP_ClientPlugin_Updater::get_instance( $this );
-
 		// Includes
 		foreach ( glob( $this->dir_path . 'includes/*.php' ) as $filename ) {
 			require_once $filename;
@@ -51,6 +49,9 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		if ( is_admin() ) {
 			Pronamic_WP_ClientPlugin_Admin::get_instance( $this );
 		}
+
+		// Updater
+		$this->updater = Pronamic_WP_ClientPlugin_Updater::get_instance( $this );
 	}
 
 	//////////////////////////////////////////////////
