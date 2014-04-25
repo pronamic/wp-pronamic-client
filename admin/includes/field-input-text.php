@@ -20,7 +20,7 @@ if ( ! function_exists( 'pronamic_field_input_text' ) ) {
 			esc_attr( $args['label_for'] ),
 			esc_attr( $args['label_for'] ),
 			esc_attr( get_option( $args['label_for'] ) ),
-			'regular-text code'
+			'regular-text'
 		);
 
 		if ( isset( $args['description'] ) ) {
