@@ -12,7 +12,7 @@ function pronamic_client_get_plugins() {
 
 	foreach ( $plugins as $file => $plugin ) {
 		if ( isset( $plugin['Author'] ) && strpos( $plugin['Author'], 'Pronamic' ) !== false ) {
-			$pronamic_plugins[$file] = $plugin;
+			$pronamic_plugins[ $file ] = $plugin;
 		}
 	}
 
@@ -31,7 +31,7 @@ function pronamic_client_get_themes() {
 
 	foreach ( $themes as $slug => $theme ) {
 		if ( isset( $theme['Author'] ) && strpos( $theme['Author'], 'Pronamic' ) !== false ) {
-			$pronamic_themes[$slug] = $theme;
+			$pronamic_themes[ $slug ] = $theme;
 		}
 	}
 

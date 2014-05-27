@@ -7,15 +7,15 @@
 				<div class="meta-box-sortables">
 					<div class="postbox">
 						<h3 class="hndle"><span><?php _e( 'Support', 'pronamic_client' ); ?></span></h3>
-		
+
 						<div class="inside">
-						    <?php include 'dashboard/support.php'; ?>
+							<?php include 'dashboard/support.php'; ?>
 						</div>
 					</div>
-	
+
 					<div class="postbox">
 						<h3 class="hndle"><span><?php _e( 'Adminer', 'pronamic_client' ); ?></span></h3>
-		
+
 						<div class="inside">
 							<?php include 'dashboard/adminer.php'; ?>
 						</div>
@@ -27,18 +27,18 @@
 				<div class="meta-box-sortables">
 					<div class="postbox">
 						<h3 class="hndle"><span><?php _e( 'Pronamic.nl News', 'pronamic_client' ); ?></span></h3>
-		
-						<div class="inside">
-						    <?php 
 
-						    wp_widget_rss_output( 'http://feeds.feedburner.com/pronamic', array(
-							    'link'  => __( 'http://pronamic.eu/', 'pronamic_client' ),
-							    'url'   => 'http://feeds.feedburner.com/pronamic',
-							    'title' => __( 'Pronamic News', 'pronamic_client' ),
-							    'items' => 5,
-						    ) );
-						    
-						    ?>
+						<div class="inside">
+							<?php
+
+							wp_widget_rss_output( 'http://feeds.feedburner.com/pronamic', array(
+								'link'  => __( 'http://pronamic.eu/', 'pronamic_client' ),
+								'url'   => 'http://feeds.feedburner.com/pronamic',
+								'title' => __( 'Pronamic News', 'pronamic_client' ),
+								'items' => 5,
+							) );
+
+							?>
 						</div>
 					</div>
 				</div>
@@ -48,18 +48,18 @@
 				<div class="meta-box-sortables">
 					<div class="postbox">
 						<h3 class="hndle"><span><?php _e( 'HappyWP.com News', 'pronamic_client' ); ?></span></h3>
-		
+
 						<div class="inside">
-						    <?php 
+							<?php
 
-						    wp_widget_rss_output( 'http://feeds.feedburner.com/happywp', array(
-							    'link'  => __( 'http://pronamic.eu/', 'pronamic_client' ),
-							    'url'   => 'http://feeds.feedburner.com/pronamic',
-							    'title' => __( 'Pronamic News', 'pronamic_client' ),
-							    'items' => 5,
-						    ) );
+							wp_widget_rss_output( 'http://feeds.feedburner.com/happywp', array(
+								'link'  => __( 'http://pronamic.eu/', 'pronamic_client' ),
+								'url'   => 'http://feeds.feedburner.com/pronamic',
+								'title' => __( 'Pronamic News', 'pronamic_client' ),
+								'items' => 5,
+							) );
 
-						    ?>
+							?>
 						</div>
 					</div>
 				</div>

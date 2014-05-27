@@ -1,6 +1,6 @@
 {
   "name": "pronamic-client",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "WordPress plugin for Pronamic clients.",
   "repository": {
     "type": "git",
@@ -34,6 +34,11 @@
   "devDependencies": {
     "grunt": "~0.4.2",
     "grunt-wp-i18n": "~0.4.0",
-    "grunt-checkwpversion": "~0.3.0"
+    "grunt-checkwpversion": "~0.3.0",
+    "grunt-phpcs": "^0.2.2",
+    "grunt-phplint": "0.0.5",
+    "grunt-rt-wp-deploy": "^0.1.0",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-copy": "^0.5.0"
   }
 }

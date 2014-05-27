@@ -14,7 +14,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 
 	/**
 	 * Plugin
-	 * 
+	 *
 	 * @var Pronamic_WP_ClientPlugin_Plugin
 	 */
 	private $plugin;
@@ -26,6 +26,11 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
 		$this->plugin = $plugin;
+
+		// Includes
+		foreach ( glob( $this->plugin->dir_path . 'admin/includes/*.php' ) as $filename ) {
+			require_once $filename;
+		}
 
 		// Actions
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
@@ -45,11 +50,18 @@ class Pronamic_WP_ClientPlugin_Admin {
 	public function admin_init() {
 		// Maybe update
 		global $pronamic_client_db_version;
-		
+
 		if ( get_option( 'pronamic_client_db_version' ) != $pronamic_client_db_version ) {
 			$this->upgrade();
-		
+
 			update_option( 'pronamic_client_db_version', $pronamic_client_db_version );
+		}
+
+		// Adminer
+		if ( filter_has_var( INPUT_GET, 'pronamic_adminer' ) ) {
+			include $this->plugin->display( 'adminer/index.php' );
+
+			exit;
 		}
 	}
 
@@ -68,7 +80,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 			plugins_url( 'images/icon-16x16.png', $this->plugin->file ) // icon URL
 			// 0 // position
 		);
-	
+
 		// @see _add_post_type_submenus()
 		// @see wp-admin/menu.php
 		add_submenu_page(
@@ -79,7 +91,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 			'pronamic_client_status', // menu slug
 			array( $this, 'page_status' ) // function
 		);
-	
+
 		// @see _add_post_type_submenus()
 		// @see wp-admin/menu.php
 		add_submenu_page(
@@ -90,7 +102,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 			'pronamic_client_checklist', // menu slug
 			array( $this, 'page_checklist' ) // function
 		);
-	
+
 		// @see _add_post_type_submenus()
 		// @see wp-admin/menu.php
 		add_submenu_page(
@@ -118,14 +130,17 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 * @param string $hook
 	 */
 	function admin_enqueue_scripts( $hook ) {
+		wp_register_script( 'proanmic-client-media', plugins_url( 'admin/js/media.js', $this->plugin->file ) );
+		wp_localize_script( 'proanmic-client-media', 'pronamicClientMedia', array(
+			'browseText' => __( 'Browse…', 'pronamic_client' ),
+		) );
+
+		wp_register_style( 'proanmic-client-admin', plugins_url( 'admin/css/admin.css', $this->plugin->file ) );
+
 		$enqueue = strpos( $hook, 'pronamic_client' ) !== false;
-	
 		if ( $enqueue ) {
 			// Styles
-			wp_enqueue_style(
-				'proanmic_client_admin' ,
-				plugins_url( 'css/admin.css', $this->plugin->file )
-			);
+			wp_enqueue_style( 'proanmic_client_admin' );
 		}
 	}
 
@@ -166,21 +181,21 @@ class Pronamic_WP_ClientPlugin_Admin {
 	public function page_status() {
 		$this->plugin->display( 'admin/status.php' );
 	}
-	
+
 	/**
 	 * Page virus scanner
 	 */
 	public function page_virus_scanner() {
 		$this->plugin->display( 'admin/virus-scanner.php' );
 	}
-	
+
 	/**
 	 * Page checklist
 	 */
 	public function page_checklist() {
 		$this->plugin->display( 'admin/checklist.php' );
 	}
-	
+
 	/**
 	 * Page extensions
 	 */
@@ -197,11 +212,11 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	public function upgrade() {
 		global $wp_roles;
-	
+
 		$wp_roles->add_cap( 'administrator', 'pronamic_client' );
 		$wp_roles->add_cap( 'editor', 'pronamic_client' );
 	}
-	
+
 	//////////////////////////////////////////////////
 	// Singleton
 	//////////////////////////////////////////////////
@@ -218,7 +233,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 		if ( null == self::$instance ) {
 			self::$instance = new self( $plugin );
 		}
-	
+
 		return self::$instance;
 	}
 }

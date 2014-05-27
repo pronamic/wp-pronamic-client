@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2014-04-22 08:07:42+00:00\n"
-"PO-Revision-Date: 2014-04-22 10:07+0100\n"
+"POT-Creation-Date: 2014-05-27 10:27:03+00:00\n"
+"PO-Revision-Date: 2014-05-27 12:27+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -12,14 +12,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/adminer.php:21 admin/dashboard/adminer.php:10 admin/dashboard.php:17
 msgid "Adminer"
 msgstr "Adminer"
 
-#: admin/adminer.php:29 admin/dashboard/adminer.php:18
+#: admin/adminer.php:29 admin/dashboard/adminer.php:27
 msgid "Login"
 msgstr "Inloggen"
 
@@ -59,15 +59,15 @@ msgstr "Functie wp_title('') in header.php"
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
-#: admin/dashboard/support.php:2 includes/dashboard.php:11
+#: admin/dashboard/support.php:2 admin/includes/dashboard.php:11
 msgid "E-mail: %s"
 msgstr "E-mail: %s"
 
-#: admin/dashboard/support.php:2 includes/dashboard.php:11
+#: admin/dashboard/support.php:2 admin/includes/dashboard.php:11
 msgid "support@pronamic.eu"
 msgstr "support@pronamic.nl"
 
-#: admin/dashboard/support.php:3 includes/dashboard.php:12
+#: admin/dashboard/support.php:3 admin/includes/dashboard.php:12
 msgid "Website: %s"
 msgstr "Website: %s"
 
@@ -75,7 +75,7 @@ msgstr "Website: %s"
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
 
-#: admin/dashboard.php:9 includes/dashboard.php:8
+#: admin/dashboard.php:9 admin/includes/dashboard.php:8
 msgid "Support"
 msgstr "Support"
 
@@ -84,12 +84,13 @@ msgid "Pronamic.nl News"
 msgstr "Pronamic.nl nieuws"
 
 #: admin/dashboard.php:35 admin/dashboard.php:56
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:78 includes/credits.php:12
-#: includes/dashboard.php:20
+#: admin/includes/dashboard.php:20
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:85 includes/credits.php:12
 msgid "http://pronamic.eu/"
 msgstr "http://pronamic.nl/"
 
-#: admin/dashboard.php:37 admin/dashboard.php:58 includes/dashboard.php:22
+#: admin/dashboard.php:37 admin/dashboard.php:58
+#: admin/includes/dashboard.php:22
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
@@ -128,6 +129,32 @@ msgstr "Geen Pronamic thema's gevonden."
 #: admin/extensions.php:67
 msgid "Theme"
 msgstr "Thema"
+
+#: admin/includes/dashboard.php:15
+msgid "News"
+msgstr "Nieuws"
+
+#: admin/includes/field-dropdown-gravityforms.php:19
+msgid "You don't have any Gravity Forms forms."
+msgstr "Je hebt momenteel geen Gravity Forms formulieren."
+
+#: admin/includes/field-dropdown-gravityforms.php:29
+msgid "&mdash; Select a form &mdash;"
+msgstr "&mdash; Selecteer een formulier &mdash;"
+
+#: admin/includes/field-dropdown-pages.php:15
+msgid "&mdash; Select a page &mdash;"
+msgstr "&mdash; Selecteer een pagina &mdash;"
+
+#: admin/includes/field-input-media.php:18
+#: admin/includes/field-input-url.php:19
+msgid "Select Media"
+msgstr "Selecteer media"
+
+#: admin/includes/field-input-media.php:19
+#: admin/includes/field-input-url.php:20
+msgid "Select"
+msgstr "Selecteer"
 
 #: admin/status.php:12
 msgid "WordPres"
@@ -245,51 +272,51 @@ msgstr "j F Y H:i "
 msgid "Delete"
 msgstr "Verwijder"
 
-#: admin/virus-scanner.php:145
-msgid "Empty W3TC directory"
-msgstr "Leeg W3TC map"
-
 #. Author of the plugin/theme
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:76
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:88
 msgid "Pronamic Status"
 msgstr "Pronamic status"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:77
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:89
 msgid "Status"
 msgstr "Status"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:87
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:99
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:88
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:100
 msgid "Checklist"
 msgstr "Checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:98
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:110
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:99
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:111
 msgid "Virus Scanner"
 msgstr "Virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:107
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:119
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:108
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:120
 msgid "Extensions"
 msgstr "Extensies"
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:85
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:135
+msgid "Browse…"
+msgstr "Bladeren…"
+
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:92
 msgid "Contact"
 msgstr "Contact"
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:86
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:93
 msgid "http://pronamic.eu/contact/"
 msgstr "http://pronamic.nl/contact/"
 
@@ -300,10 +327,6 @@ msgstr "Concept en realisatie door %s"
 #: includes/credits.php:13
 msgid "Pronamic - Internet, marketing & WordPress specialist"
 msgstr "Pronamic - Internet, marketing & WordPress specialist"
-
-#: includes/dashboard.php:15
-msgid "News"
-msgstr "Nieuws"
 
 #. Plugin Name of the plugin/theme
 msgid "Pronamic Client"
@@ -317,19 +340,26 @@ msgstr "http://www.happywp.com/plugins/pronamic-client/"
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:102
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:109
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
+#, fuzzy
+#~ msgid "Function wp_footer() in footer"
+#~ msgstr "Functie wp_footer() in footer.php"
+
 #~ msgid "Telephone: %s"
 #~ msgstr "Telefoon: %s"
 
-#~ msgid "+31 (0)85 40 11 580"
-#~ msgstr "085 40 11 580"
-
 #~ msgid "+31 516 481 200"
 #~ msgstr "0516 481 200"
+
+#~ msgid "Empty W3TC directory"
+#~ msgstr "Leeg W3TC map"
+
+#~ msgid "+31 (0)85 40 11 580"
+#~ msgstr "085 40 11 580"
 
 #~ msgid "iDEAL Settings"
 #~ msgstr "iDEAL instellingen"
@@ -762,9 +792,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Gravity Form"
 #~ msgstr "Gravity Form"
 
-#~ msgid "&mdash; Select a form &mdash;"
-#~ msgstr "&mdash; Selecteer een formulier &mdash;"
-
 #~ msgid "No iDEAL configurations found, %s."
 #~ msgstr "Geen iDEAL configuraties gevonden, %s."
 
@@ -833,9 +860,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "Page:"
 #~ msgstr "Pagina:"
-
-#~ msgid "&mdash; Select &mdash;"
-#~ msgstr "&mdash; Selecteren &mdash;"
 
 #~ msgid "URL:"
 #~ msgstr "URL:"
@@ -1145,12 +1169,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #, fuzzy
 #~ msgid "iDEAL Setting"
 #~ msgstr "iDEAL instellingen"
-
-#~ msgid "Select a form"
-#~ msgstr "Selecteer een formulier"
-
-#~ msgid "Select settings"
-#~ msgstr "Selecteer conf"
 
 #~ msgid "Acquirer"
 #~ msgstr "Acquirer"
