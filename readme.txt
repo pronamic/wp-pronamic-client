@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 3.9
-Stable tag: 1.2.2
+Stable tag: 1.2.3
 
 WordPress plugin for Pronamic clients.
 
@@ -28,11 +28,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
-= 1.2.4 =
-*	Tweak - Improved security of Adminer, now only accessible from WordPress admin.
-
 = 1.2.3 =
 *	Tweak - WordPress Coding Standards optimizations.
+*	Tweak - Improved security of Adminer, now only accessible from WordPress admin.
 
 = 1.2.2 =
 *	Updated Adminer to version 4.1.0.

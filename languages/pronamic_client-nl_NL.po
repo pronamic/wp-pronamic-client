@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2014-04-25 13:33:35+00:00\n"
-"PO-Revision-Date: 2014-04-25 15:33+0100\n"
+"POT-Creation-Date: 2014-05-27 10:27:03+00:00\n"
+"PO-Revision-Date: 2014-05-27 12:27+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -12,14 +12,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.6.4\n"
+"X-Generator: Poedit 1.6.5\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/adminer.php:21 admin/dashboard/adminer.php:10 admin/dashboard.php:17
 msgid "Adminer"
 msgstr "Adminer"
 
-#: admin/adminer.php:29 admin/dashboard/adminer.php:18
+#: admin/adminer.php:29 admin/dashboard/adminer.php:27
 msgid "Login"
 msgstr "Inloggen"
 
@@ -276,39 +276,39 @@ msgstr "Verwijder"
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:81
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:88
 msgid "Pronamic Status"
 msgstr "Pronamic status"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:82
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:89
 msgid "Status"
 msgstr "Status"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:92
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:99
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:93
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:100
 msgid "Checklist"
 msgstr "Checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:103
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:110
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:104
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:111
 msgid "Virus Scanner"
 msgstr "Virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:112
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:119
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:113
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:120
 msgid "Extensions"
 msgstr "Extensies"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:128
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:135
 msgid "Browse…"
 msgstr "Bladeren…"
 
@@ -345,17 +345,21 @@ msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
-#~ msgid "Empty W3TC directory"
-#~ msgstr "Leeg W3TC map"
+#, fuzzy
+#~ msgid "Function wp_footer() in footer"
+#~ msgstr "Functie wp_footer() in footer.php"
 
 #~ msgid "Telephone: %s"
 #~ msgstr "Telefoon: %s"
 
-#~ msgid "+31 (0)85 40 11 580"
-#~ msgstr "085 40 11 580"
-
 #~ msgid "+31 516 481 200"
 #~ msgstr "0516 481 200"
+
+#~ msgid "Empty W3TC directory"
+#~ msgstr "Leeg W3TC map"
+
+#~ msgid "+31 (0)85 40 11 580"
+#~ msgstr "085 40 11 580"
 
 #~ msgid "iDEAL Settings"
 #~ msgstr "iDEAL instellingen"

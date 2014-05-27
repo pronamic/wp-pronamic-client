@@ -1,10 +1,10 @@
-# Copyright (C) 2014 Pronamic Client
-# This file is distributed under the same license as the Pronamic Client package.
+# Copyright (C) 2014 Pronamic
+# This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.2.2\n"
+"Project-Id-Version: Pronamic Client 1.2.3\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2014-04-25 13:33:35+00:00\n"
+"POT-Creation-Date: 2014-05-27 10:27:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,7 +16,7 @@ msgstr ""
 msgid "Adminer"
 msgstr ""
 
-#: admin/adminer.php:29 admin/dashboard/adminer.php:18
+#: admin/adminer.php:29 admin/dashboard/adminer.php:27
 msgid "Login"
 msgstr ""
 
@@ -273,39 +273,39 @@ msgstr ""
 msgid "Pronamic"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:81
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:88
 msgid "Pronamic Status"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:82
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:89
 msgid "Status"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:92
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:99
 msgid "Pronamic Checklist"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:93
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:100
 msgid "Checklist"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:103
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:110
 msgid "Pronamic Virus Scanner"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:104
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:111
 msgid "Virus Scanner"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:112
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:119
 msgid "Pronamic Extensions"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:113
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:120
 msgid "Extensions"
 msgstr ""
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:128
+#: classes/Pronamic/WP/ClientPlugin/Admin.php:135
 msgid "Browse…"
 msgstr ""
 
