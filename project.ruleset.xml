@@ -2,8 +2,8 @@
 <ruleset name="Pronamic Client">
 	<description>A custom set of rules to check for the Pronamic Client WordPress plugin.</description>
 
+	<exclude-pattern>/adminer</exclude-pattern>
 	<exclude-pattern>/node_modules</exclude-pattern>
-	<exclude-pattern>/vendor</exclude-pattern>
 
 	<rule ref="WordPress">
 		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />

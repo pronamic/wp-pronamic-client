@@ -56,6 +56,13 @@ class Pronamic_WP_ClientPlugin_Admin {
 
 			update_option( 'pronamic_client_db_version', $pronamic_client_db_version );
 		}
+
+		// Adminer
+		if ( filter_has_var( INPUT_GET, 'pronamic_adminer' ) ) {
+			include $this->plugin->display( 'adminer/index.php' );
+
+			exit;
+		}
 	}
 
 	//////////////////////////////////////////////////

@@ -28,6 +28,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= 1.2.4 =
+*	Tweak - Improved security of Adminer, now only accessible from WordPress admin.
+
 = 1.2.3 =
 *	Tweak - WordPress Coding Standards optimizations.
 
