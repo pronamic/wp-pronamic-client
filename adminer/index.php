@@ -18,7 +18,7 @@ if ( filter_has_var( INPUT_POST, 'pronamic_auth' ) ) {
 
 	$access = filter_has_var( INPUT_COOKIE, $key );
 } else {
-	$access = filter_has_var( INPUT_COOKIE, 'adminer_key' );
+	$access = filter_has_var( INPUT_COOKIE, 'adminer_sid' );
 }
 
 if ( ! $access ) {
