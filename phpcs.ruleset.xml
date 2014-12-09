@@ -1,7 +1,5 @@
 <?xml version="1.0"?>
 <ruleset name="Pronamic Client">
-	<description>A custom set of rules to check for the Pronamic Client WordPress plugin.</description>
-
 	<exclude-pattern>/adminer</exclude-pattern>
 	<exclude-pattern>/node_modules</exclude-pattern>
 
@@ -10,7 +8,9 @@
 
 		<exclude name="WordPress.XSS.EscapeOutput" />
 
-		<exclude name="WordPress.WhiteSpace.ScopeIndent" />
+		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
+
+		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />		
 		<exclude name="WordPress.VIP.RestrictedFunctions.file_get_contents" />
