@@ -41,7 +41,7 @@
 				<?php echo $timezone; ?>
 			</td>
 			<td>
-				<?php if ( $isDutch && $timezone == 'Europe/Amsterdam' ) : ?>
+				<?php if ( $isDutch && 'Europe/Amsterdam' == $timezone ) : ?>
 					&#9745;
 				<?php elseif ( $isDutch ) : ?>
 					&#9744;
