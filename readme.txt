@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 3.9.1
-Stable tag: 1.2.4
+Stable tag: 1.2.5
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.2.5 =
+*	Tweak - Use the new Pronamic API endpoints (api.pronamic.eu).
 
 = 1.2.4 =
 *	Tweak - Improved support for Adminer.
