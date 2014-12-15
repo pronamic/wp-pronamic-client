@@ -54,7 +54,8 @@ module.exports = function( grunt ) {
 					exclude: [ 'deploy/.*', 'wp-svn/.*' ],
 				}
 			}
-		},	
+		},
+
 		// Check textdomain errors
 		checktextdomain: {
 			options:{
