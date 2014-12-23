@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2014-12-15 12:22:27+00:00\n"
-"PO-Revision-Date: 2014-12-15 13:22+0100\n"
+"POT-Creation-Date: 2014-12-23 12:20:23+00:00\n"
+"PO-Revision-Date: 2014-12-23 13:21+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -83,20 +83,14 @@ msgstr "Support"
 msgid "Pronamic.nl News"
 msgstr "Pronamic.nl nieuws"
 
-#: admin/dashboard.php:35 admin/dashboard.php:56
-#: admin/includes/dashboard.php:20
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:85 includes/credits.php:12
-msgid "http://pronamic.eu/"
-msgstr "http://pronamic.nl/"
-
 #: admin/dashboard.php:37 admin/dashboard.php:58
 #: admin/includes/dashboard.php:22
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
 #: admin/dashboard.php:50
-msgid "HappyWP.com News"
-msgstr "HappyWP.com nieuws"
+msgid "Pronamic.eu News"
+msgstr "Pronamic.eu nieuws"
 
 #: admin/extensions.php:4 admin/status.php:70
 msgid "Plugins"
@@ -133,6 +127,11 @@ msgstr "Thema"
 #: admin/includes/dashboard.php:15
 msgid "News"
 msgstr "Nieuws"
+
+#: admin/includes/dashboard.php:20
+#: classes/Pronamic/WP/ClientPlugin/Plugin.php:85 includes/credits.php:12
+msgid "http://pronamic.eu/"
+msgstr "http://pronamic.nl/"
 
 #: admin/includes/field-dropdown-gravityforms.php:19
 msgid "You don't have any Gravity Forms forms."
@@ -344,6 +343,9 @@ msgstr "WordPress plugin voor Pronamic klanten."
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
+
+#~ msgid "HappyWP.com News"
+#~ msgstr "HappyWP.com nieuws"
 
 #, fuzzy
 #~ msgid "Function wp_footer() in footer"
