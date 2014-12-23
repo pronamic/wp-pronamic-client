@@ -110,7 +110,8 @@ module.exports = function( grunt ) {
 					'!wp-content/**',
 				],
 				dest: 'deploy/latest',
-				expand: true
+				expand: true,
+				dot: true
 			},
 		},
 
