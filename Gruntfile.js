@@ -94,6 +94,7 @@ module.exports = function( grunt ) {
 			deploy: {
 				src: [
 					'**',
+					'adminer/.htaccess',
 					'!composer.json',
 					'!composer.lock',
 					'!Gruntfile.js',
@@ -110,8 +111,7 @@ module.exports = function( grunt ) {
 					'!wp-content/**',
 				],
 				dest: 'deploy/latest',
-				expand: true,
-				dot: true
+				expand: true
 			},
 		},
 
