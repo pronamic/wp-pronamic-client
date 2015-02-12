@@ -126,10 +126,6 @@
 			'slug' => 'wordpress-seo',
 			'name' => 'WordPress SEO by Yoast',
 		),
-		'w3-total-cache/w3-total-cache.php' => array(
-			'slug' => 'w3-total-cache',
-			'name' => 'W3 Total Cache',
-		),
 		'gravityforms/gravityforms.php' => array(
 			'slug' => 'gravityforms',
 			'name' => 'Gravity Forms',
