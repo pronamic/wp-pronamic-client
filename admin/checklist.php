@@ -108,28 +108,6 @@
 				<?php echo $hasWpFooterFunction ? '&#9745;' : '&#9744;'; ?>
 			</td>
 		</tr>
-		<tr>
-			<?php
-
-			$headerFile        = get_template_directory() . '/header.php';
-			$headerFileContent = file_get_contents( $headerFile );
-			$hasWpHeadFunction = (
-				( strpos( $headerFileContent, "wp_title('');" ) !== false )
-					or
-				( strpos( $headerFileContent, "wp_title( '' );" ) !== false )
-			);
-
-			?>
-			<th scope="row">
-				<?php _e( 'Function wp_title(\'\') in header.php', 'pronamic_client' ); ?>
-			</th>
-			<td>
-                <?php echo $hasWpHeadFunction ? 'true' : 'false'; ?>
-			</td>
-			<td>
-				<?php echo $hasWpHeadFunction ? '&#9745;' : '&#9744;'; ?>
-			</td>
-		</tr>
 	</table>
 
 	<h3>Plugins</h3>
