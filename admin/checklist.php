@@ -3,7 +3,7 @@
 
 	<?php
 
-	$language     = get_option( 'WPLANG', WPLANG );
+	$language     = get_locale();
 	$isDutch      = $language == 'nl_NL';
 	$timezone     = get_option( 'timezone_string' );
 	$blogPublic   = get_option( 'blog_public' );
