@@ -138,10 +138,6 @@
 			'slug' => 'akismet',
 			'name' => 'Akismet',
 		),
-		'wp-mail-smtp/wp_mail_smtp.php' => array(
-			'slug' => 'wp-mail-smtp',
-			'name' => 'WP-Mail-SMTP',
-		),
 		'iwp-client/init.php' => array(
 			'slug' => 'iwp-client',
 			'name' => 'InfiniteWP Client',
