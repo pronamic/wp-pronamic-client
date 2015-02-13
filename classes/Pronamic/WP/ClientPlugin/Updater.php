@@ -29,8 +29,21 @@ class Pronamic_WP_ClientPlugin_Updater {
 	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
 		$this->plugin = $plugin;
 
+		// Filters
+		add_filter( 'plugins_api', array( $this, 'plugins_api' ), 10, 3 );
+
 		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'transient_update_plugins_filter' ) );
 		add_filter( 'pre_set_site_transient_update_themes', array( $this, 'transient_update_themes_filter' ) );
+	}
+
+	/**
+	 * Plugins API
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/4.1/wp-admin/includes/plugin-install.php#L55-L66
+	 */
+	public function plugins_api( $result, $action, $args ) {
+		/* @todo */
+		return $result;
 	}
 
 	//////////////////////////////////////////////////
