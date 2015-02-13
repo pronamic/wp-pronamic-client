@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.2.6
+Stable tag: 1.2.7
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,14 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.2.7 =
+*	Tweak - Updated Adminer to version 4.2.0.
+*	Tweak - Improved retrieving database (MySQL) version on status page.
+*	Tweak - Replace use of WPLANG constant with get_locale() function.
+*	Tweak - Removed wp_title() function check from the checklist.
+*	Tweak - Removed the "W3 Total Cache" plugin from the checklist.
+*	Tweak - Removed the "WP-Mail-SMTP" from the checklist.
 
 = 1.2.6 =
 *	Tweak - Changed HappyWP RSS feed to the English Pronamic RSS feed.

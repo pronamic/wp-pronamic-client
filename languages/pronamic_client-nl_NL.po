@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2014-12-23 12:20:23+00:00\n"
-"PO-Revision-Date: 2014-12-23 13:21+0100\n"
+"POT-Creation-Date: 2015-02-13 12:42:40+00:00\n"
+"PO-Revision-Date: 2015-02-13 13:43+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -23,7 +23,7 @@ msgstr "Adminer"
 msgid "Login"
 msgstr "Inloggen"
 
-#: admin/checklist.php:16 admin/status.php:38
+#: admin/checklist.php:16 admin/status.php:40
 msgid "Language"
 msgstr "Taal"
 
@@ -51,11 +51,7 @@ msgstr "Functie wp_head() in header.php"
 msgid "Function wp_footer() in footer.php"
 msgstr "Functie wp_footer() in footer.php"
 
-#: admin/checklist.php:124
-msgid "Function wp_title('') in header.php"
-msgstr "Functie wp_title('') in header.php"
-
-#: admin/checklist.php:220
+#: admin/checklist.php:190
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
@@ -92,7 +88,7 @@ msgstr "Pronamic nieuws"
 msgid "Pronamic.eu News"
 msgstr "Pronamic.eu nieuws"
 
-#: admin/extensions.php:4 admin/status.php:70
+#: admin/extensions.php:4 admin/status.php:72
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -108,7 +104,7 @@ msgstr "Plugin"
 msgid "Author"
 msgstr "Auteur"
 
-#: admin/extensions.php:23 admin/extensions.php:69 admin/status.php:26
+#: admin/extensions.php:23 admin/extensions.php:69 admin/status.php:28
 msgid "Version"
 msgstr "Versie"
 
@@ -155,87 +151,87 @@ msgstr "Selecteer media"
 msgid "Select"
 msgstr "Selecteer"
 
-#: admin/status.php:12
+#: admin/status.php:14
 msgid "WordPres"
 msgstr "WordPres"
 
-#: admin/status.php:18
+#: admin/status.php:20
 msgid "Home URL"
 msgstr "Home URL"
 
-#: admin/status.php:22
+#: admin/status.php:24
 msgid "Site URL"
 msgstr "Site URL"
 
-#: admin/status.php:30
+#: admin/status.php:32
 msgid "Multisite"
 msgstr "Multisite"
 
-#: admin/status.php:31 admin/status.php:35
+#: admin/status.php:33 admin/status.php:37
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/status.php:31 admin/status.php:35
+#: admin/status.php:33 admin/status.php:37
 msgid "No"
 msgstr "Nee"
 
-#: admin/status.php:34
+#: admin/status.php:36
 msgid "Debug Mode"
 msgstr "Debug mode"
 
-#: admin/status.php:39
+#: admin/status.php:41
 msgid "Default"
 msgstr "Standaard"
 
-#: admin/status.php:42
+#: admin/status.php:44
 msgid "Max Upload Size"
 msgstr "Max Upload Size"
 
-#: admin/status.php:49
+#: admin/status.php:51
 msgid "Hosting"
 msgstr "Hosting"
 
-#: admin/status.php:55
+#: admin/status.php:57
 msgid "Web Server Info"
 msgstr "Web Server Info"
 
-#: admin/status.php:59
+#: admin/status.php:61
 msgid "PHP Version"
 msgstr "PHP-versie"
 
-#: admin/status.php:63
+#: admin/status.php:65
 msgid "MySQL Version"
 msgstr "MySQL versie"
 
-#: admin/status.php:93
+#: admin/status.php:95
 msgid "Visit plugin homepage"
 msgstr "Bezoek plugin homepagina"
 
-#: admin/status.php:96
+#: admin/status.php:98
 msgid "by"
 msgstr "door"
 
-#: admin/status.php:96
+#: admin/status.php:98
 msgid "version"
 msgstr "versie"
 
-#: admin/status.php:104
+#: admin/status.php:106
 msgid "Number Plugins"
 msgstr "Aantal plugins"
 
-#: admin/status.php:108
+#: admin/status.php:110
 msgid "Installed Plugins"
 msgstr "Geïnstalleerde plugins"
 
-#: admin/status.php:115
+#: admin/status.php:117
 msgid "Performance"
 msgstr "Prestatie"
 
-#: admin/status.php:123
+#: admin/status.php:125
 msgid "Number Autoload Options"
 msgstr "Aantal autoload opties"
 
-#: admin/status.php:133
+#: admin/status.php:135
 msgid "Number Transient Options"
 msgstr "Aantal transient opties"
 
@@ -343,6 +339,9 @@ msgstr "WordPress plugin voor Pronamic klanten."
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
+
+#~ msgid "Function wp_title('') in header.php"
+#~ msgstr "Functie wp_title('') in header.php"
 
 #~ msgid "HappyWP.com News"
 #~ msgstr "HappyWP.com nieuws"

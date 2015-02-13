@@ -3,7 +3,7 @@
 
 	<?php
 
-	$language     = get_option( 'WPLANG', WPLANG );
+	$language     = get_locale();
 	$isDutch      = $language == 'nl_NL';
 	$timezone     = get_option( 'timezone_string' );
 	$blogPublic   = get_option( 'blog_public' );
@@ -108,28 +108,6 @@
 				<?php echo $hasWpFooterFunction ? '&#9745;' : '&#9744;'; ?>
 			</td>
 		</tr>
-		<tr>
-			<?php
-
-			$headerFile        = get_template_directory() . '/header.php';
-			$headerFileContent = file_get_contents( $headerFile );
-			$hasWpHeadFunction = (
-				( strpos( $headerFileContent, "wp_title('');" ) !== false )
-					or
-				( strpos( $headerFileContent, "wp_title( '' );" ) !== false )
-			);
-
-			?>
-			<th scope="row">
-				<?php _e( 'Function wp_title(\'\') in header.php', 'pronamic_client' ); ?>
-			</th>
-			<td>
-                <?php echo $hasWpHeadFunction ? 'true' : 'false'; ?>
-			</td>
-			<td>
-				<?php echo $hasWpHeadFunction ? '&#9745;' : '&#9744;'; ?>
-			</td>
-		</tr>
 	</table>
 
 	<h3>Plugins</h3>
@@ -148,10 +126,6 @@
 			'slug' => 'wordpress-seo',
 			'name' => 'WordPress SEO by Yoast',
 		),
-		'w3-total-cache/w3-total-cache.php' => array(
-			'slug' => 'w3-total-cache',
-			'name' => 'W3 Total Cache',
-		),
 		'gravityforms/gravityforms.php' => array(
 			'slug' => 'gravityforms',
 			'name' => 'Gravity Forms',
@@ -163,10 +137,6 @@
 		'akismet/akismet.php' => array(
 			'slug' => 'akismet',
 			'name' => 'Akismet',
-		),
-		'wp-mail-smtp/wp_mail_smtp.php' => array(
-			'slug' => 'wp-mail-smtp',
-			'name' => 'WP-Mail-SMTP',
 		),
 		'iwp-client/init.php' => array(
 			'slug' => 'iwp-client',

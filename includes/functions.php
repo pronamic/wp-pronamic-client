@@ -2,7 +2,7 @@
 
 /**
  * Get Pronamic plugins
- * 
+ *
  * @return array
  */
 function pronamic_client_get_plugins() {
@@ -21,7 +21,7 @@ function pronamic_client_get_plugins() {
 
 /**
  * Get Pronamic themes
- * 
+ *
  * @return array
  */
 function pronamic_client_get_themes() {

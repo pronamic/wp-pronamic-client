@@ -1,5 +1,7 @@
 <?php
 
+global $wpdb;
+
 // @see https://github.com/woothemes/woocommerce/blob/v2.1.3/includes/admin/views/html-admin-page-status-report.php
 
 ?>
@@ -61,7 +63,7 @@
 			</tr>
 			<tr>
 				<td><?php _e( 'MySQL Version', 'pronamic_client' ); ?></td>
-				<td><?php echo esc_html( mysql_get_server_info() ); ?></td>
+				<td><?php echo esc_html( $wpdb->db_version() ); ?></td>
 			</tr>
 		</tbody>
 
