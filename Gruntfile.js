@@ -22,7 +22,7 @@ module.exports = function( grunt ) {
 			options: {
 				standard: 'phpcs.ruleset.xml',
 				extensions: 'php',
-				ignore: 'wp-svn,deploy,node_modules'
+				ignore: 'adminer,deploy,node_modules'
 			}
 		},
 
@@ -51,7 +51,7 @@ module.exports = function( grunt ) {
 					cwd: '',
 					domainPath: 'languages',
 					type: 'wp-plugin',
-					exclude: [ 'deploy/.*', 'wp-svn/.*' ],
+					exclude: [ 'deploy/.*', 'node_modules/.*' ],
 				}
 			}
 		},
