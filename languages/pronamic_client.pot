@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.2.7\n"
+"Project-Id-Version: Pronamic Client 1.2.8\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2015-02-13 12:42:40+00:00\n"
+"POT-Creation-Date: 2015-02-16 10:18:07+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -86,7 +86,7 @@ msgstr ""
 msgid "Pronamic.eu News"
 msgstr ""
 
-#: admin/extensions.php:4 admin/status.php:72
+#: admin/extensions.php:4 admin/status.php:76
 msgid "Plugins"
 msgstr ""
 
@@ -185,51 +185,55 @@ msgstr ""
 msgid "Max Upload Size"
 msgstr ""
 
-#: admin/status.php:51
+#: admin/status.php:48
+msgid "Absolute Path"
+msgstr ""
+
+#: admin/status.php:55
 msgid "Hosting"
 msgstr ""
 
-#: admin/status.php:57
+#: admin/status.php:61
 msgid "Web Server Info"
 msgstr ""
 
-#: admin/status.php:61
+#: admin/status.php:65
 msgid "PHP Version"
 msgstr ""
 
-#: admin/status.php:65
+#: admin/status.php:69
 msgid "MySQL Version"
 msgstr ""
 
-#: admin/status.php:95
+#: admin/status.php:99
 msgid "Visit plugin homepage"
 msgstr ""
 
-#: admin/status.php:98
+#: admin/status.php:102
 msgid "by"
 msgstr ""
 
-#: admin/status.php:98
+#: admin/status.php:102
 msgid "version"
 msgstr ""
 
-#: admin/status.php:106
+#: admin/status.php:110
 msgid "Number Plugins"
 msgstr ""
 
-#: admin/status.php:110
+#: admin/status.php:114
 msgid "Installed Plugins"
 msgstr ""
 
-#: admin/status.php:117
+#: admin/status.php:121
 msgid "Performance"
 msgstr ""
 
-#: admin/status.php:125
+#: admin/status.php:129
 msgid "Number Autoload Options"
 msgstr ""
 
-#: admin/status.php:135
+#: admin/status.php:139
 msgid "Number Transient Options"
 msgstr ""
 

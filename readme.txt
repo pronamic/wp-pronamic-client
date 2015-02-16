@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.2.7
+Stable tag: 1.2.8
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.2.8 =
+*	Tweak - Added ABSPATH to the admin status page.
 
 = 1.2.7 =
 *	Tweak - Updated Adminer to version 4.2.0.

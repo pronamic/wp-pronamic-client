@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2015-02-13 12:42:40+00:00\n"
-"PO-Revision-Date: 2015-02-13 13:43+0100\n"
+"POT-Creation-Date: 2015-02-16 10:18:07+00:00\n"
+"PO-Revision-Date: 2015-02-16 11:19+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -88,7 +88,7 @@ msgstr "Pronamic nieuws"
 msgid "Pronamic.eu News"
 msgstr "Pronamic.eu nieuws"
 
-#: admin/extensions.php:4 admin/status.php:72
+#: admin/extensions.php:4 admin/status.php:76
 msgid "Plugins"
 msgstr "Plugins"
 
@@ -187,51 +187,55 @@ msgstr "Standaard"
 msgid "Max Upload Size"
 msgstr "Max Upload Size"
 
-#: admin/status.php:51
+#: admin/status.php:48
+msgid "Absolute Path"
+msgstr "Absolute pad"
+
+#: admin/status.php:55
 msgid "Hosting"
 msgstr "Hosting"
 
-#: admin/status.php:57
+#: admin/status.php:61
 msgid "Web Server Info"
 msgstr "Web Server Info"
 
-#: admin/status.php:61
+#: admin/status.php:65
 msgid "PHP Version"
 msgstr "PHP-versie"
 
-#: admin/status.php:65
+#: admin/status.php:69
 msgid "MySQL Version"
 msgstr "MySQL versie"
 
-#: admin/status.php:95
+#: admin/status.php:99
 msgid "Visit plugin homepage"
 msgstr "Bezoek plugin homepagina"
 
-#: admin/status.php:98
+#: admin/status.php:102
 msgid "by"
 msgstr "door"
 
-#: admin/status.php:98
+#: admin/status.php:102
 msgid "version"
 msgstr "versie"
 
-#: admin/status.php:106
+#: admin/status.php:110
 msgid "Number Plugins"
 msgstr "Aantal plugins"
 
-#: admin/status.php:110
+#: admin/status.php:114
 msgid "Installed Plugins"
 msgstr "Geïnstalleerde plugins"
 
-#: admin/status.php:117
+#: admin/status.php:121
 msgid "Performance"
 msgstr "Prestatie"
 
-#: admin/status.php:125
+#: admin/status.php:129
 msgid "Number Autoload Options"
 msgstr "Aantal autoload opties"
 
-#: admin/status.php:135
+#: admin/status.php:139
 msgid "Number Transient Options"
 msgstr "Aantal transient opties"
 
