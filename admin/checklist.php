@@ -57,7 +57,11 @@
 					<?php _e( 'Site Visibility', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<span class="dashicons dashicons-<?php echo esc_attr( $blog_public ? 'yes' : 'no' ); ?>"></span>
+					<?php if ( $blog_public ) : ?>
+
+						<span class="dashicons dashicons-yes"></span>
+
+					<?php endif; ?>
 
 					<?php $blog_public ? esc_html_e( 'Public', 'pronamic_client' ) : esc_html_e( 'Private', 'pronamic_client' ); ?>
 				</td>
@@ -121,7 +125,11 @@
 					<?php _e( 'WordPress user role \'manager\'', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<span class="dashicons dashicons-<?php echo esc_attr( $has_manager_role ? 'yes' : 'no' ); ?>"></span>
+					<?php if ( $has_manager_role ) : ?>
+
+						<span class="dashicons dashicons-yes"></span>
+
+					<?php endif; ?>
 
 					<?php $has_manager_role ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
 				</td>
