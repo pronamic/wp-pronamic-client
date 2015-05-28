@@ -2,9 +2,9 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.2.8\n"
+"Project-Id-Version: Pronamic Client 1.2.9\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2015-05-28 08:32:31+00:00\n"
+"POT-Creation-Date: 2015-05-28 12:16:13+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,35 +21,103 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
-#: admin/checklist.php:16 admin/status.php:40
+#: admin/checklist.php:16 admin/status.php:14
+msgid "WordPres"
+msgstr ""
+
+#: admin/checklist.php:23 admin/status.php:61
 msgid "Language"
 msgstr ""
 
-#: admin/checklist.php:27
+#: admin/checklist.php:31
 msgid "Is Dutch"
 msgstr ""
 
-#: admin/checklist.php:38
+#: admin/checklist.php:43
 msgid "Timezone"
 msgstr ""
 
-#: admin/checklist.php:55
+#: admin/checklist.php:57
 msgid "Site Visibility"
 msgstr ""
 
 #: admin/checklist.php:66
+msgid "Public"
+msgstr ""
+
+#: admin/checklist.php:66
+msgid "Private"
+msgstr ""
+
+#: admin/checklist.php:71
 msgid "Category Base"
 msgstr ""
 
-#: admin/checklist.php:84
-msgid "Function wp_head() in header.php"
+#: admin/checklist.php:89
+msgid "Config"
 msgstr ""
 
-#: admin/checklist.php:102
-msgid "Function wp_footer() in footer.php"
+#: admin/checklist.php:128 admin/extensions.php:67
+msgid "Theme"
 msgstr ""
 
-#: admin/checklist.php:190
+#: admin/checklist.php:142 admin/checklist.php:159
+msgid "Function %s in %s"
+msgstr ""
+
+#: admin/checklist.php:147 admin/checklist.php:164 admin/checklist.php:183
+#: admin/checklist.php:202 admin/checklist.php:233 admin/checklist.php:278
+#: admin/checklist.php:308 admin/status.php:48 admin/status.php:56
+msgid "Yes"
+msgstr ""
+
+#: admin/checklist.php:147 admin/checklist.php:164 admin/checklist.php:183
+#: admin/checklist.php:202 admin/checklist.php:233 admin/checklist.php:278
+#: admin/checklist.php:308 admin/status.php:48 admin/status.php:56
+msgid "No"
+msgstr ""
+
+#: admin/checklist.php:174
+msgid "Theme Support HTML5"
+msgstr ""
+
+#: admin/checklist.php:193
+msgid "Theme Support Title Tag"
+msgstr ""
+
+#: admin/checklist.php:211
+msgid "Users"
+msgstr ""
+
+#: admin/checklist.php:224
+msgid "WordPress user 'pronamic'"
+msgstr ""
+
+#: admin/checklist.php:246
+msgid "WordPress user 'pronamic' email 'info@pronamic.nl'"
+msgstr ""
+
+#: admin/checklist.php:269
+msgid "WordPress user role 'manager'"
+msgstr ""
+
+#: admin/checklist.php:287
+msgid "Gravity Forms"
+msgstr ""
+
+#: admin/checklist.php:299
+msgid "Gravity Forms Output HTML5"
+msgstr ""
+
+#: admin/checklist.php:318
+msgid "Gravity Forms Currency"
+msgstr ""
+
+#: admin/checklist.php:383 admin/extensions.php:4 admin/status.php:122
+msgid "Plugins"
+msgstr ""
+
+#: admin/checklist.php:415
 msgid "Search Plugin"
 msgstr ""
 
@@ -86,10 +154,6 @@ msgstr ""
 msgid "Pronamic.eu News"
 msgstr ""
 
-#: admin/extensions.php:4 admin/status.php:76
-msgid "Plugins"
-msgstr ""
-
 #: admin/extensions.php:13
 msgid "No Pronamic plugins found."
 msgstr ""
@@ -102,7 +166,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: admin/extensions.php:23 admin/extensions.php:69 admin/status.php:28
+#: admin/extensions.php:23 admin/extensions.php:69 admin/status.php:37
 msgid "Version"
 msgstr ""
 
@@ -112,10 +176,6 @@ msgstr ""
 
 #: admin/extensions.php:59
 msgid "No Pronamic themes found."
-msgstr ""
-
-#: admin/extensions.php:67
-msgid "Theme"
 msgstr ""
 
 #: admin/includes/dashboard.php:15
@@ -149,91 +209,79 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: admin/status.php:14
-msgid "WordPres"
-msgstr ""
-
-#: admin/status.php:20
+#: admin/status.php:21
 msgid "Home URL"
 msgstr ""
 
-#: admin/status.php:24
+#: admin/status.php:29
 msgid "Site URL"
 msgstr ""
 
-#: admin/status.php:32
+#: admin/status.php:45
 msgid "Multisite"
 msgstr ""
 
-#: admin/status.php:33 admin/status.php:37
-msgid "Yes"
-msgstr ""
-
-#: admin/status.php:33 admin/status.php:37
-msgid "No"
-msgstr ""
-
-#: admin/status.php:36
+#: admin/status.php:53
 msgid "Debug Mode"
 msgstr ""
 
-#: admin/status.php:41
+#: admin/status.php:64
 msgid "Default"
 msgstr ""
 
-#: admin/status.php:44
+#: admin/status.php:69
 msgid "Max Upload Size"
 msgstr ""
 
-#: admin/status.php:48
+#: admin/status.php:77
 msgid "Absolute Path"
 msgstr ""
 
-#: admin/status.php:55
+#: admin/status.php:89
 msgid "Hosting"
 msgstr ""
 
-#: admin/status.php:61
+#: admin/status.php:96
 msgid "Web Server Info"
 msgstr ""
 
-#: admin/status.php:65
+#: admin/status.php:102
 msgid "PHP Version"
 msgstr ""
 
-#: admin/status.php:69
+#: admin/status.php:110
 msgid "MySQL Version"
 msgstr ""
 
-#: admin/status.php:99
+#: admin/status.php:145
 msgid "Visit plugin homepage"
 msgstr ""
 
-#: admin/status.php:102
+#: admin/status.php:148
 msgid "by"
 msgstr ""
 
-#: admin/status.php:102
+#: admin/status.php:148
 msgid "version"
 msgstr ""
 
-#: admin/status.php:110
+#: admin/status.php:157
 msgid "Number Plugins"
 msgstr ""
 
-#: admin/status.php:114
+#: admin/status.php:165
 msgid "Installed Plugins"
 msgstr ""
 
-#: admin/status.php:121
+#: admin/status.php:177
 msgid "Performance"
 msgstr ""
 
-#: admin/status.php:129
+#: admin/status.php:186
 msgid "Number Autoload Options"
 msgstr ""
 
-#: admin/status.php:139
+#: admin/status.php:198
 msgid "Number Transient Options"
 msgstr ""
 

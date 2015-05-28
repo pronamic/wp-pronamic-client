@@ -13,7 +13,7 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'WordPres', 'pronamic_client' ); ?></td>
+				<th colspan="2"><?php _e( 'WordPres', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -80,6 +80,56 @@
 					<?php echo $category_base; ?>
 				</td>
 			</tr>
+		</tbody>
+	</table>
+
+	<table class="pronamic-status-table widefat striped" cellspacing="0">
+		<thead>
+			<tr>
+				<th colspan="2"><?php _e( 'Config', 'pronamic_client' ); ?></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<?php
+
+			$constants = array(
+				'WP_DEBUG',
+				'SCRIPT_DEBUG',
+				'SAVEQUERIES',
+				'JETPACK_DEV_DEBUG',
+			);
+
+			foreach ( $constants as $constant ) : ?>
+
+				<tr>
+					<th scope="row">
+						<code><?php echo esc_html( $constant ); ?></code>
+					</th>
+					<td>
+						<?php if ( ! defined( $constant ) || false === constant( $constant ) ) : ?>
+
+							<span class="dashicons dashicons-yes"></span>
+
+						<?php endif; ?>
+
+						<code><?php echo esc_html( defined( $constant ) ? constant( $constant ) : '' ); ?></code>
+					</td>
+				</tr>
+
+			<?php endforeach; ?>
+
+		</tbody>
+	</table>
+
+	<table class="pronamic-status-table widefat striped" cellspacing="0">
+		<thead>
+			<tr>
+				<th colspan="2"><?php _e( 'Theme', 'pronamic_client' ); ?></th>
+			</tr>
+		</thead>
+
+		<tbody>
 			<tr>
 				<?php
 
@@ -89,7 +139,7 @@
 
 				?>
 				<th scope="row">
-					<?php _e( 'Function wp_head() in header.php', 'pronamic_client' ); ?>
+					<?php printf( __( 'Function %s in %s', 'pronamic_client' ), '<code>wp_head();</code>', '<code>header.php</code>' ); ?>
 				</th>
 				<td>
 					<span class="dashicons dashicons-<?php echo esc_attr( $has_wp_head_function ? 'yes' : 'no' ); ?>"></span>
@@ -106,7 +156,7 @@
 
 				?>
 				<th scope="row">
-					<?php _e( 'Function wp_footer() in footer.php', 'pronamic_client' ); ?>
+					<?php printf( __( 'Function %s in %s', 'pronamic_client' ), '<code>wp_footer();</code>', '<code>footer.php</code>' ); ?>
 				</th>
 				<td>
 					<span class="dashicons dashicons-<?php echo esc_attr( $has_wp_footer_function ? 'yes' : 'no' ); ?>"></span>
@@ -117,21 +167,164 @@
 			<tr>
 				<?php
 
-				$manager_role     = get_role( 'manager' );
-				$has_manager_role = null !== $manager_role;
+				$theme_support_html5 = get_theme_support( 'html5' );
+
+				?>
+				<th scope="row">
+					<?php _e( 'Theme Support HTML5', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php if ( $theme_support_html5 ) : ?>
+
+						<span class="dashicons dashicons-yes"></span>
+
+					<?php endif; ?>
+
+					<?php $theme_support_html5 ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+				</td>
+			</tr>
+			<tr>
+				<?php
+
+				$theme_support_title_tag = get_theme_support( 'title-tag' );
+
+				?>
+				<th scope="row">
+					<?php _e( 'Theme Support Title Tag', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php if ( $theme_support_title_tag ) : ?>
+
+						<span class="dashicons dashicons-yes"></span>
+
+					<?php endif; ?>
+
+					<?php $theme_support_title_tag ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="pronamic-status-table widefat striped" cellspacing="0">
+		<thead>
+			<tr>
+				<th colspan="2"><?php _e( 'Users', 'pronamic_client' ); ?></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<?php
+
+				$user_pronamic      = get_user_by( 'login', 'pronamic' );
+				$has_user_pronamic  = false !== $user_pronamic;
+
+				?>
+				<th scope="row">
+					<?php _e( 'WordPress user \'pronamic\'', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php if ( $has_user_pronamic ) : ?>
+
+						<span class="dashicons dashicons-yes"></span>
+
+					<?php endif; ?>
+
+					<?php $has_user_pronamic ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+				</td>
+			</tr>
+
+			<?php if ( false !== $user_pronamic ) : ?>
+
+				<tr>
+					<?php
+
+					$has_email_pronamic = 'info@pronamic.nl' === $user_pronamic->user_email;
+
+					?>
+					<th scope="row">
+						<?php _e( 'WordPress user \'pronamic\' email \'info@pronamic.nl\'', 'pronamic_client' ); ?>
+					</th>
+					<td>
+						<?php if ( $has_email_pronamic ) : ?>
+
+							<span class="dashicons dashicons-yes"></span>
+
+						<?php endif; ?>
+
+						<?php echo esc_html( $user_pronamic->user_email ); ?>
+					</td>
+				</tr>
+
+			<?php endif; ?>
+
+			<tr>
+				<?php
+
+				$role_manager     = get_role( 'manager' );
+				$has_role_manager = null !== $role_manager;
 
 				?>
 				<th scope="row">
 					<?php _e( 'WordPress user role \'manager\'', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php if ( $has_manager_role ) : ?>
+					<?php if ( $has_role_manager ) : ?>
 
 						<span class="dashicons dashicons-yes"></span>
 
 					<?php endif; ?>
 
-					<?php $has_manager_role ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+					<?php $has_role_manager ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table class="pronamic-status-table widefat striped" cellspacing="0">
+		<thead>
+			<tr>
+				<th colspan="2"><?php _e( 'Gravity Forms', 'pronamic_client' ); ?></th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<?php
+
+				$rg_gforms_enable_html5 = (bool) get_option( 'rg_gforms_enable_html5' );
+
+				?>
+				<th scope="row">
+					<?php _e( 'Gravity Forms Output HTML5', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php if ( $rg_gforms_enable_html5 ) : ?>
+
+						<span class="dashicons dashicons-yes"></span>
+
+					<?php endif; ?>
+
+					<?php $rg_gforms_enable_html5 ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+				</td>
+			</tr>
+			<tr>
+				<?php
+
+				$rg_gforms_currency = get_option( 'rg_gforms_currency' );
+
+				?>
+				<th scope="row">
+					<?php _e( 'Gravity Forms Currency', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php if ( $is_dutch && 'EUR' === $rg_gforms_currency ) : ?>
+
+						<span class="dashicons dashicons-yes"></span>
+
+					<?php endif; ?>
+
+					<code><?php echo esc_html( $rg_gforms_currency ); ?></code>
 				</td>
 			</tr>
 		</tbody>
