@@ -4,7 +4,7 @@
 	<?php
 
 	$language     = get_locale();
-	$isDutch      = $language == 'nl_NL';
+	$isDutch      = 'nl_NL' === $language;
 	$timezone     = get_option( 'timezone_string' );
 	$blogPublic   = get_option( 'blog_public' );
 	$categoryBase = get_option( 'category_base' );
@@ -41,7 +41,7 @@
 				<?php echo $timezone; ?>
 			</td>
 			<td>
-				<?php if ( $isDutch && 'Europe/Amsterdam' == $timezone ) : ?>
+				<?php if ( $isDutch && 'Europe/Amsterdam' === $timezone ) : ?>
 					&#9745;
 				<?php elseif ( $isDutch ) : ?>
 					&#9744;
@@ -69,7 +69,7 @@
                 <?php echo $categoryBase; ?>
 			</td>
 			<td>
-				<?php echo ( $isDutch && $categoryBase == 'categorie' ) ? '&#9745;' : '&#9744;'; ?>
+				<?php echo ( $isDutch && 'categorie' === $categoryBase ) ? '&#9745;' : '&#9744;'; ?>
 			</td>
 		</tr>
 		<tr>

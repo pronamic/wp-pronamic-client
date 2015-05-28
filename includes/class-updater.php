@@ -86,7 +86,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 
 			$raw_response = wp_remote_post( $url, $options );
 
-			if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
+			if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
 				return $update_plugins;
 			}
 
@@ -134,14 +134,14 @@ class Pronamic_WP_ClientPlugin_Updater {
 			}
 
 			$options = $this->get_http_api_options( array(
-				'themes' => json_encode( $themes )
+				'themes' => json_encode( $themes ),
 			) );
 
 			$url = 'http://api.pronamic.eu/themes/update-check/1.1/';
 
 			$raw_response = wp_remote_post( $url, $options );
 
-			if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
+			if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
 				return $update_themes;
 			}
 
@@ -166,7 +166,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 */
 	public static function get_instance( $plugin = false ) {
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self( $plugin );
 		}
 

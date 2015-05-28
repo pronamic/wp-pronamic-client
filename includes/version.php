@@ -15,4 +15,4 @@ $pronamic_client_version = '1.2.5';
  */
 global $pronamic_client_db_version;
 
-$pronamic_client_db_version = 125;
+$pronamic_client_db_version = '125';

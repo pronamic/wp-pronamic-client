@@ -1,16 +1,14 @@
 <?xml version="1.0"?>
-<ruleset name="Pronamic Client">
-	<exclude-pattern>/adminer</exclude-pattern>
-	<exclude-pattern>/node_modules</exclude-pattern>
 
+<ruleset name="Pronamic Client">
 	<rule ref="WordPress">
+		<exclude name="Squiz.Commenting" />
+
 		<exclude name="Generic.PHP.NoSilencedErrors.Discouraged" />
 
+		<exclude name="WordPress.PHP.DiscouragedFunctions.DiscouragedWithAlternative" />
+
 		<exclude name="WordPress.XSS.EscapeOutput" />
-
-		<exclude name="Generic.WhiteSpace.ScopeIndent.Incorrect" />
-
-		<exclude name="PEAR.Functions.FunctionCallSignature.Indent" />
 
 		<exclude name="WordPress.VIP.DirectDatabaseQuery" />		
 		<exclude name="WordPress.VIP.RestrictedFunctions.file_get_contents" />
