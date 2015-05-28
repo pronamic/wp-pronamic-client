@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2015-02-16 10:18:07+00:00\n"
-"PO-Revision-Date: 2015-02-16 11:19+0100\n"
+"POT-Creation-Date: 2015-05-28 08:32:31+00:00\n"
+"PO-Revision-Date: 2015-05-28 10:32+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.7.1\n"
+"X-Generator: Poedit 1.7.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/adminer.php:21 admin/dashboard/adminer.php:10 admin/dashboard.php:17
@@ -124,8 +124,8 @@ msgstr "Thema"
 msgid "News"
 msgstr "Nieuws"
 
-#: admin/includes/dashboard.php:20
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:85 includes/credits.php:12
+#: admin/includes/dashboard.php:20 includes/class-plugin.php:85
+#: includes/credits.php:12
 msgid "http://pronamic.eu/"
 msgstr "http://pronamic.nl/"
 
@@ -243,31 +243,31 @@ msgstr "Aantal transient opties"
 msgid "Uploads"
 msgstr "Uploads"
 
-#: admin/virus-scanner.php:44
+#: admin/virus-scanner.php:45
 msgid "File"
 msgstr "Bestand"
 
-#: admin/virus-scanner.php:45
+#: admin/virus-scanner.php:46
 msgid "Size"
 msgstr "Grootte"
 
-#: admin/virus-scanner.php:46
+#: admin/virus-scanner.php:47
 msgid "Date"
 msgstr "Datum"
 
-#: admin/virus-scanner.php:47
+#: admin/virus-scanner.php:48
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/virus-scanner.php:48 admin/virus-scanner.php:108
+#: admin/virus-scanner.php:49 admin/virus-scanner.php:109
 msgid "Actions"
 msgstr "Acties"
 
-#: admin/virus-scanner.php:78
+#: admin/virus-scanner.php:79
 msgid "F j, Y g:i a"
 msgstr "j F Y H:i "
 
-#: admin/virus-scanner.php:92 admin/virus-scanner.php:109
+#: admin/virus-scanner.php:93 admin/virus-scanner.php:110
 msgid "Delete"
 msgstr "Verwijder"
 
@@ -275,47 +275,47 @@ msgstr "Verwijder"
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:88
+#: includes/class-admin.php:88
 msgid "Pronamic Status"
 msgstr "Pronamic status"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:89
+#: includes/class-admin.php:89
 msgid "Status"
 msgstr "Status"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:99
+#: includes/class-admin.php:99
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:100
+#: includes/class-admin.php:100
 msgid "Checklist"
 msgstr "Checklist"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:110
+#: includes/class-admin.php:110
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:111
+#: includes/class-admin.php:111
 msgid "Virus Scanner"
 msgstr "Virusscanner"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:119
+#: includes/class-admin.php:119
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:120
+#: includes/class-admin.php:120
 msgid "Extensions"
 msgstr "Extensies"
 
-#: classes/Pronamic/WP/ClientPlugin/Admin.php:135
+#: includes/class-admin.php:135
 msgid "Browse…"
 msgstr "Bladeren…"
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:92
+#: includes/class-plugin.php:92
 msgid "Contact"
 msgstr "Contact"
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:93
+#: includes/class-plugin.php:93
 msgid "http://pronamic.eu/contact/"
 msgstr "http://pronamic.nl/contact/"
 
@@ -339,7 +339,7 @@ msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
-#: classes/Pronamic/WP/ClientPlugin/Plugin.php:109
+#: includes/class-plugin.php:109
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
