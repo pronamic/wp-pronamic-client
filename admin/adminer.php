@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $plugin = Pronamic_WP_ClientPlugin_Plugin::get_instance();
 

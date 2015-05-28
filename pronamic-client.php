@@ -4,7 +4,7 @@ Plugin Name: Pronamic Client
 Plugin URI: http://www.pronamic.eu/plugins/pronamic-client/
 Description: WordPress plugin for Pronamic clients.
 
-Version: 1.2.7
+Version: 1.2.8
 Requires at least: 3.0
 
 Author: Pronamic
@@ -20,9 +20,9 @@ GitHub URI: https://github.com/pronamic/wp-pronamic-client
 
 $dir = plugin_dir_path( __FILE__ );
 
-require_once $dir . 'classes/Pronamic/WP/ClientPlugin/Plugin.php';
-require_once $dir . 'classes/Pronamic/WP/ClientPlugin/Updater.php';
-require_once $dir . 'classes/Pronamic/WP/ClientPlugin/Admin.php';
+require_once $dir . 'includes/class-plugin.php';
+require_once $dir . 'includes/class-updater.php';
+require_once $dir . 'includes/class-admin.php';
 
 /**
  * Bootstrap

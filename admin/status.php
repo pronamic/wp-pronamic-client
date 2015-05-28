@@ -44,6 +44,10 @@ global $wpdb;
 				<td><?php _e( 'Max Upload Size','pronamic_client' ); ?></td>
 				<td><?php echo size_format( wp_max_upload_size() ); ?></td>
 			</tr>
+			<tr>
+				<td><?php _e( 'Absolute Path','pronamic_client' ); ?></td>
+				<td><?php echo esc_html( ABSPATH ); ?></td>
+			</tr>
 		</tbody>
 
 		<thead>

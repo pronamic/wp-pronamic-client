@@ -51,7 +51,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 		// Maybe update
 		global $pronamic_client_db_version;
 
-		if ( get_option( 'pronamic_client_db_version' ) != $pronamic_client_db_version ) {
+		if ( get_option( 'pronamic_client_db_version' ) !== $pronamic_client_db_version ) {
 			$this->upgrade();
 
 			update_option( 'pronamic_client_db_version', $pronamic_client_db_version );
@@ -230,7 +230,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	public static function get_instance( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self( $plugin );
 		}
 

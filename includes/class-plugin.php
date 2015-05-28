@@ -83,7 +83,7 @@ class Pronamic_WP_ClientPlugin_Plugin {
 				'id'    => 'pronamic',
 				'title' => __( 'Pronamic', 'pronamic_client' ),
 				'href'  => __( 'http://pronamic.eu/', 'pronamic_client' ),
-				'meta'  => array( 'target' => '_blank' )
+				'meta'  => array( 'target' => '_blank' ),
 			) );
 
 			$wp_admin_bar->add_menu(array(
@@ -91,7 +91,7 @@ class Pronamic_WP_ClientPlugin_Plugin {
 				'id'     => 'pronamic_contact',
 				'title'  => __( 'Contact', 'pronamic_client' ),
 				'href'   => __( 'http://pronamic.eu/contact/', 'pronamic_client' ),
-				'meta'   => array( 'target' => '_blank' )
+				'meta'   => array( 'target' => '_blank' ),
 			) );
 		}
 	}
@@ -133,7 +133,7 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	 */
 	public static function get_instance( $file = false ) {
 		// If the single instance hasn't been set, set it now.
-		if ( null == self::$instance ) {
+		if ( null === self::$instance ) {
 			self::$instance = new self( $file );
 		}
 
