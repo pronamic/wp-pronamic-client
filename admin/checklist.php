@@ -57,11 +57,7 @@
 					<?php _e( 'Site Visibility', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php if ( $blog_public ) : ?>
-
-						<span class="dashicons dashicons-yes"></span>
-
-					<?php endif; ?>
+					<span class="dashicons dashicons-<?php echo esc_attr( $blog_public ? 'yes' : 'no' ); ?>"></span>
 
 					<?php $blog_public ? esc_html_e( 'Public', 'pronamic_client' ) : esc_html_e( 'Private', 'pronamic_client' ); ?>
 				</td>
@@ -92,11 +88,7 @@
 					<?php _e( 'Function wp_head() in header.php', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php if ( $has_wp_head_function ) : ?>
-
-						<span class="dashicons dashicons-yes"></span>
-
-					<?php endif; ?>
+					<span class="dashicons dashicons-<?php echo esc_attr( $has_wp_head_function ? 'yes' : 'no' ); ?>"></span>
 
 					<?php $has_wp_head_function ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
 				</td>
@@ -113,13 +105,25 @@
 					<?php _e( 'Function wp_footer() in footer.php', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php if ( $has_wp_footer_function ) : ?>
-
-						<span class="dashicons dashicons-yes"></span>
-
-					<?php endif; ?>
+					<span class="dashicons dashicons-<?php echo esc_attr( $has_wp_footer_function ? 'yes' : 'no' ); ?>"></span>
 
 					<?php $has_wp_footer_function ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+				</td>
+			</tr>
+			<tr>
+				<?php
+
+				$manager_role     = get_role( 'manager' );
+				$has_manager_role = null !== $manager_role;
+
+				?>
+				<th scope="row">
+					<?php _e( 'WordPress user role \'manager\'', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<span class="dashicons dashicons-<?php echo esc_attr( $has_manager_role ? 'yes' : 'no' ); ?>"></span>
+
+					<?php $has_manager_role ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
 				</td>
 			</tr>
 		</tbody>
