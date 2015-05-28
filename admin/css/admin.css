@@ -1,3 +1,17 @@
 #icon-pronamic_client {
 	background: url("../images/icon-32x32.png") no-repeat;	
 }
+
+.pronamic-status-table {
+	margin-bottom: 1em;
+}
+
+.pronamic-status-table thead th {
+	font-weight: 700;
+
+	padding: 9px;
+}
+
+.pronamic-status-table th:first-child {
+	width: 33%;
+}

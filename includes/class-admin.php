@@ -138,9 +138,10 @@ class Pronamic_WP_ClientPlugin_Admin {
 		wp_register_style( 'proanmic-client-admin', plugins_url( 'admin/css/admin.css', $this->plugin->file ) );
 
 		$enqueue = strpos( $hook, 'pronamic_client' ) !== false;
+
 		if ( $enqueue ) {
 			// Styles
-			wp_enqueue_style( 'proanmic_client_admin' );
+			wp_enqueue_style( 'proanmic-client-admin' );
 		}
 	}
 
