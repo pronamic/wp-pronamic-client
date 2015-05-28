@@ -8,72 +8,118 @@ global $wpdb;
 <div class="wrap">
 	<h2><?php echo get_admin_page_title(); ?></h2>
 
-	<table class="widefat" cellspacing="0">
+	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'WordPres', 'pronamic_client' ); ?></td>
+				<th colspan="2"><?php _e( 'WordPres', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
 		<tbody>
 			<tr>
-				<td><?php _e( 'Home URL', 'pronamic_client' ); ?></td>
-				<td><?php echo home_url(); ?></td>
+				<th scope="row">
+					<?php _e( 'Home URL', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo home_url(); ?>
+				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Site URL', 'pronamic_client' ); ?></td>
-				<td><?php echo site_url(); ?></td>
+				<th scope="row">
+					<?php _e( 'Site URL', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo site_url(); ?>
+				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Version', 'pronamic_client' ); ?></td>
-				<td><?php bloginfo( 'version' ); ?></td>
+				<th scope="row">
+					<?php _e( 'Version', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php bloginfo( 'version' ); ?>
+				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Multisite', 'pronamic_client' ); ?></td>
-				<td><?php echo is_multisite() ? __( 'Yes', 'pronamic_client' ): __( 'No', 'pronamic_client' ); ?></td>
+				<th scope="row">
+					<?php _e( 'Multisite', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo is_multisite() ? __( 'Yes', 'pronamic_client' ): __( 'No', 'pronamic_client' ); ?>
+				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Debug Mode', 'pronamic_client' ); ?></td>
-				<td><?php echo defined( 'WP_DEBUG' ) && WP_DEBUG ?  __( 'Yes', 'pronamic_client' ) : __( 'No', 'pronamic_client' ); ?></td>
+				<th scope="row">
+					<?php _e( 'Debug Mode', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo defined( 'WP_DEBUG' ) && WP_DEBUG ?  __( 'Yes', 'pronamic_client' ) : __( 'No', 'pronamic_client' ); ?>
+				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Language', 'pronamic_client' ); ?></td>
-				<td><?php echo defined( 'WPLANG' ) && WPLANG ? WPLANG : __( 'Default', 'pronamic_client' ); ?></td>
+				<th scope="row">
+					<?php _e( 'Language', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo defined( 'WPLANG' ) && WPLANG ? WPLANG : __( 'Default', 'pronamic_client' ); ?>
+				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Max Upload Size','pronamic_client' ); ?></td>
-				<td><?php echo size_format( wp_max_upload_size() ); ?></td>
+				<th scope="row">
+					<?php _e( 'Max Upload Size','pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo size_format( wp_max_upload_size() ); ?>
+				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Absolute Path','pronamic_client' ); ?></td>
-				<td><?php echo esc_html( ABSPATH ); ?></td>
+				<th scope="row">
+					<?php _e( 'Absolute Path','pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo esc_html( ABSPATH ); ?>
+				</td>
 			</tr>
 		</tbody>
+	</table>
 
+	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'Hosting', 'pronamic_client' ); ?></td>
+				<th colspan="2"><?php _e( 'Hosting', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
 		<tbody>
 			<tr>
-				<td><?php _e( 'Web Server Info', 'pronamic_client' ); ?></td>
+				<th scope="row">
+					<?php _e( 'Web Server Info', 'pronamic_client' ); ?>
+				</th>
 				<td><?php echo esc_html( filter_input( INPUT_SERVER, 'SERVER_SOFTWARE', FILTER_SANITIZE_STRING ) ); ?></td>
 			</tr>
 			<tr>
-				<td><?php _e( 'PHP Version', 'pronamic_client' ); ?></td>
-				<td><?php echo esc_html( phpversion() ); ?></td>
+				<th scope="row">
+					<?php _e( 'PHP Version', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo esc_html( phpversion() ); ?>
+				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'MySQL Version', 'pronamic_client' ); ?></td>
-				<td><?php echo esc_html( $wpdb->db_version() ); ?></td>
+				<th scope="row">
+					<?php _e( 'MySQL Version', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo esc_html( $wpdb->db_version() ); ?>
+				</td>
 			</tr>
 		</tbody>
+	</table>
 
+	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'Plugins', 'pronamic_client' ); ?></td>
+				<th colspan="2"><?php _e( 'Plugins', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -107,18 +153,28 @@ global $wpdb;
 
 		<tbody>
 			<tr>
-				<td><?php _e( 'Number Plugins', 'pronamic_client' ); ?></td>
-				<td><?php echo count( $plugins ); ?></td>
+				<th scope="row">
+					<?php _e( 'Number Plugins', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo count( $plugins ); ?>
+				</td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Installed Plugins', 'pronamic_client' ); ?></td>
-				<td><?php echo implode( '<br/>', $plugins ); ?></td>
+				<th scope="row">
+					<?php _e( 'Installed Plugins', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php echo implode( '<br/>', $plugins ); ?>
+				</td>
 			</tr>
 		</tbody>
+	</table>
 
+	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'Performance', 'pronamic_client' ); ?></td>
+				<th colspan="2"><?php _e( 'Performance', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -126,7 +182,9 @@ global $wpdb;
 
 		<tbody>
 			<tr>
-				<td><?php _e( 'Number Autoload Options', 'pronamic_client' ); ?></td>
+				<th scope="row">
+					<?php _e( 'Number Autoload Options', 'pronamic_client' ); ?>
+				</th>
 				<td><?php
 
 				$query = "SELECT COUNT( option_id ) FROM $wpdb->options WHERE autoload = 'yes';";
@@ -136,7 +194,9 @@ global $wpdb;
 				?></td>
 			</tr>
 			<tr>
-				<td><?php _e( 'Number Transient Options', 'pronamic_client' ); ?></td>
+				<th scope="row">
+					<?php _e( 'Number Transient Options', 'pronamic_client' ); ?>
+				</th>
 				<td><?php
 
 				$query = "SELECT COUNT( option_id ) FROM $wpdb->options WHERE option_name LIKE '_transient_%';";
