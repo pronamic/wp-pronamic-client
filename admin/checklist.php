@@ -19,7 +19,7 @@
                 <?php echo $language; ?>
 			</td>
 			<td>
-				&#9745;
+				<span class="dashicons dashicons-yes"></span>
 			</td>
 		</tr>
 		<tr>
@@ -30,7 +30,7 @@
                 <?php echo $isDutch ? 'true' : 'false'; ?>
 			</td>
 			<td>
-				<?php echo $isDutch ? '&#9745;' : ''; ?>
+				<?php echo $isDutch ? '<span class="dashicons dashicons-yes"></span>' : ''; ?>
 			</td>
 		</tr>
 		<tr>
@@ -42,11 +42,11 @@
 			</td>
 			<td>
 				<?php if ( $isDutch && 'Europe/Amsterdam' === $timezone ) : ?>
-					&#9745;
+					<span class="dashicons dashicons-yes"></span>
 				<?php elseif ( $isDutch ) : ?>
-					&#9744;
+					
 				<?php else : ?>
-					&#9744;
+					
 				<?php endif; ?>
 			</td>
 		</tr>
@@ -58,7 +58,7 @@
 				<?php echo $blogPublic; ?>
 			</td>
 			<td>
-				<?php echo $blogPublic ? '&#9745;' : '&#9744;'; ?>
+				<?php echo $blogPublic ? '<span class="dashicons dashicons-yes"></span>' : ''; ?>
 			</td>
 		</tr>
 		<tr>
@@ -69,7 +69,7 @@
                 <?php echo $categoryBase; ?>
 			</td>
 			<td>
-				<?php echo ( $isDutch && 'categorie' === $categoryBase ) ? '&#9745;' : '&#9744;'; ?>
+				<?php echo ( $isDutch && 'categorie' === $categoryBase ) ? '<span class="dashicons dashicons-yes"></span>' : ''; ?>
 			</td>
 		</tr>
 		<tr>
@@ -87,7 +87,7 @@
                 <?php echo $hasWpHeadFunction ? 'true' : 'false'; ?>
 			</td>
 			<td>
-				<?php echo $hasWpHeadFunction ? '&#9745;' : '&#9744;'; ?>
+				<?php echo $hasWpHeadFunction ? '<span class="dashicons dashicons-yes"></span>' : ''; ?>
 			</td>
 		</tr>
 		<tr>
@@ -105,7 +105,7 @@
                 <?php echo $hasWpFooterFunction ? 'true' : 'false'; ?>
 			</td>
 			<td>
-				<?php echo $hasWpFooterFunction ? '&#9745;' : '&#9744;'; ?>
+				<?php echo $hasWpFooterFunction ? '<span class="dashicons dashicons-yes"></span>' : ''; ?>
 			</td>
 		</tr>
 	</table>
@@ -171,7 +171,7 @@
 					<?php echo $data['name']; ?>
 				</td>
 				<td>
-					<?php echo is_plugin_active( $file ) ? '&#9745;' : '&#9744;'; ?>
+					<?php echo is_plugin_active( $file ) ? '<span class="dashicons dashicons-yes"></span>' : ''; ?>
 				</td>
 				<td>
 					<?php
