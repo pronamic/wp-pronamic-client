@@ -30,6 +30,7 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 = 1.2.8 =
 *	Tweak - Added ABSPATH to the admin status page.
+*	Tweak - Updated Adminer to version 4.2.1.
 
 = 1.2.7 =
 *	Tweak - Updated Adminer to version 4.2.0.
