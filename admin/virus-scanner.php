@@ -12,9 +12,9 @@ if ( 'delete' === $action ) {
 
 ?>
 <div class="wrap">
-	<h2><?php echo get_admin_page_title(); ?></h2>
+	<h1><?php echo get_admin_page_title(); ?></h1>
 
-	<h3><?php _e( 'Uploads', 'pronamic_client' ); ?></h3>
+	<h2><?php _e( 'Uploads', 'pronamic_client' ); ?></h2>
 
 	<?php
 

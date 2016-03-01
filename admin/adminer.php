@@ -6,14 +6,14 @@ $adminer_url = plugins_url( 'vendor/adminer/adminer.php', $plugin->file );
 
 ?>
 <div class="wrap">
-	<h2><?php echo get_admin_page_title(); ?></h2>
+	<h1><?php echo get_admin_page_title(); ?></h1>
 
 	<form method="post" action="<?php echo esc_attr( $adminer_url ); ?>" target="_blank">
 		<div id="dashboard-widgets-wrap">
 				<div class="metabox-holder columns-2" id="dashboard-widgets">
 					<div class="postbox-container" id="postbox-container-1">
 						<div class="postbox">
-							<h3 class="hndle"><span>Snel inloggen</span></h3>
+							<h2 class="hndle"><span>Snel inloggen</span></h2>
 		
 							<div class="inside">
 							    <form target="_blank" method="post" action="https://login.twinfield.com/default.aspx">

@@ -6,7 +6,7 @@ global $wpdb;
 
 ?>
 <div class="wrap">
-	<h2><?php echo get_admin_page_title(); ?></h2>
+	<h1><?php echo get_admin_page_title(); ?></h1>
 
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
