@@ -28,6 +28,13 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= 1.3.0 =
+*	Tweak - Changed admin h2 elements to h1 elements.
+*	Tweak - Changed admin h3 elements to h2 elements.
+*	Tweak - Added total size of autoload options on status page.
+*	Tweak - Added total size of transient options on status page.
+*	Tweak - Added the `time` and `current_time` to status page.
+
 = 1.2.9 =
 *	Tweak - Improved status and checklist page.
 
