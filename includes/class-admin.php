@@ -81,7 +81,6 @@ class Pronamic_WP_ClientPlugin_Admin {
 			// 0 // position
 		);
 
-		// @see _add_post_type_submenus()
 		// @see wp-admin/menu.php
 		add_submenu_page(
 			'pronamic_client', // parent slug
@@ -92,7 +91,6 @@ class Pronamic_WP_ClientPlugin_Admin {
 			array( $this, 'page_status' ) // function
 		);
 
-		// @see _add_post_type_submenus()
 		// @see wp-admin/menu.php
 		add_submenu_page(
 			'pronamic_client', // parent slug
@@ -103,7 +101,6 @@ class Pronamic_WP_ClientPlugin_Admin {
 			array( $this, 'page_checklist' ) // function
 		);
 
-		// @see _add_post_type_submenus()
 		// @see wp-admin/menu.php
 		add_submenu_page(
 			'pronamic_client', // parent slug

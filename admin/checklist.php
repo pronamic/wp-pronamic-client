@@ -403,7 +403,7 @@
 
 							<?php
 
-							$searchUrl = add_query_arg(
+							$search_url = add_query_arg(
 								array(
 									'tab'  => 'search',
 									'type' => 'term',
@@ -413,8 +413,8 @@
 							);
 
 							?>
-							<a href="<?php echo $searchUrl; ?>">
-								<?php _e( 'Search Plugin', 'pronamic_client' ); ?>
+							<a href="<?php echo esc_attr( $search_url ); ?>">
+								<?php esc_html_e( 'Search Plugin', 'pronamic_client' ); ?>
 							</a>
 
 						<?php endif; ?>

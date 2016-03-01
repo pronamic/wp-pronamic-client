@@ -205,14 +205,14 @@ global $wpdb;
 
 				$query = "SELECT COUNT( option_id ) FROM $wpdb->options WHERE autoload = 'yes';";
 
-				echo $wpdb->get_var( $query );
+				echo $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
 				?></td>
 				<td><?php
 
 				$query = "SELECT SUM( LENGTH( option_value ) ) FROM $wpdb->options WHERE autoload = 'yes';";
 
-				echo size_format( $wpdb->get_var( $query ) );
+				echo size_format( $wpdb->get_var( $query ) ); // WPCS: unprepared SQL ok.
 
 				?></td>
 			</tr>
@@ -224,14 +224,14 @@ global $wpdb;
 
 				$query = "SELECT COUNT( option_id ) FROM $wpdb->options WHERE option_name LIKE '_transient_%';";
 
-				echo $wpdb->get_var( $query );
+				echo $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
 				?></td>
 				<td><?php
 
 				$query = "SELECT SUM( LENGTH( option_value ) ) FROM $wpdb->options WHERE option_name LIKE '_transient_%';";
 
-				echo size_format( $wpdb->get_var( $query ) );
+				echo size_format( $wpdb->get_var( $query ) ); // WPCS: unprepared SQL ok.
 
 				?></td>
 		</tbody>
