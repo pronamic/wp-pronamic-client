@@ -80,6 +80,22 @@ global $wpdb;
 					<?php echo esc_html( ABSPATH ); ?>
 				</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					<code>current_time</code>
+				</th>
+				<td>
+					<?php echo esc_html( current_time( DATE_RFC2822 ) ); ?>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<code>time</code>
+				</th>
+				<td>
+					<?php echo esc_html( date( DATE_RFC2822 ) ); ?>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 
@@ -174,7 +190,7 @@ global $wpdb;
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'Performance', 'pronamic_client' ); ?></th>
+				<th colspan="3"><?php _e( 'Performance', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -192,6 +208,13 @@ global $wpdb;
 				echo $wpdb->get_var( $query );
 
 				?></td>
+				<td><?php
+
+				$query = "SELECT SUM( LENGTH( option_value ) ) FROM $wpdb->options WHERE autoload = 'yes';";
+
+				echo size_format( $wpdb->get_var( $query ) );
+
+				?></td>
 			</tr>
 			<tr>
 				<th scope="row">
@@ -202,6 +225,13 @@ global $wpdb;
 				$query = "SELECT COUNT( option_id ) FROM $wpdb->options WHERE option_name LIKE '_transient_%';";
 
 				echo $wpdb->get_var( $query );
+
+				?></td>
+				<td><?php
+
+				$query = "SELECT SUM( LENGTH( option_value ) ) FROM $wpdb->options WHERE option_name LIKE '_transient_%';";
+
+				echo size_format( $wpdb->get_var( $query ) );
 
 				?></td>
 		</tbody>
