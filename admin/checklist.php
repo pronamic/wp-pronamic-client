@@ -1,5 +1,5 @@
 <div class="wrap">
-	<h2><?php echo get_admin_page_title(); ?></h2>
+	<h1><?php echo get_admin_page_title(); ?></h1>
 
 	<?php
 
@@ -98,6 +98,8 @@
 				'SCRIPT_DEBUG',
 				'SAVEQUERIES',
 				'JETPACK_DEV_DEBUG',
+				'WP_MEMORY_LIMIT',
+				'WP_MAX_MEMORY_LIMIT',
 			);
 
 			foreach ( $constants as $constant ) : ?>
@@ -401,7 +403,7 @@
 
 							<?php
 
-							$searchUrl = add_query_arg(
+							$search_url = add_query_arg(
 								array(
 									'tab'  => 'search',
 									'type' => 'term',
@@ -411,8 +413,8 @@
 							);
 
 							?>
-							<a href="<?php echo $searchUrl; ?>">
-								<?php _e( 'Search Plugin', 'pronamic_client' ); ?>
+							<a href="<?php echo esc_attr( $search_url ); ?>">
+								<?php esc_html_e( 'Search Plugin', 'pronamic_client' ); ?>
 							</a>
 
 						<?php endif; ?>

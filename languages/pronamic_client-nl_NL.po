@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
-"Report-Msgid-Bugs-To: http://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2015-05-28 12:16:13+00:00\n"
-"PO-Revision-Date: 2015-05-28 14:17+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-client\n"
+"POT-Creation-Date: 2016-03-01 08:54:17+00:00\n"
+"PO-Revision-Date: 2016-03-01 09:54+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -59,67 +59,67 @@ msgstr "Categoriebasis"
 msgid "Config"
 msgstr "Configuratie"
 
-#: admin/checklist.php:128 admin/extensions.php:67
+#: admin/checklist.php:130 admin/extensions.php:67
 msgid "Theme"
 msgstr "Thema"
 
-#: admin/checklist.php:142 admin/checklist.php:159
+#: admin/checklist.php:144 admin/checklist.php:161
 msgid "Function %s in %s"
 msgstr "Functie %s in %s"
 
-#: admin/checklist.php:147 admin/checklist.php:164 admin/checklist.php:183
-#: admin/checklist.php:202 admin/checklist.php:233 admin/checklist.php:278
-#: admin/checklist.php:308 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:149 admin/checklist.php:166 admin/checklist.php:185
+#: admin/checklist.php:204 admin/checklist.php:235 admin/checklist.php:280
+#: admin/checklist.php:310 admin/status.php:48 admin/status.php:56
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/checklist.php:147 admin/checklist.php:164 admin/checklist.php:183
-#: admin/checklist.php:202 admin/checklist.php:233 admin/checklist.php:278
-#: admin/checklist.php:308 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:149 admin/checklist.php:166 admin/checklist.php:185
+#: admin/checklist.php:204 admin/checklist.php:235 admin/checklist.php:280
+#: admin/checklist.php:310 admin/status.php:48 admin/status.php:56
 msgid "No"
 msgstr "Nee"
 
-#: admin/checklist.php:174
+#: admin/checklist.php:176
 msgid "Theme Support HTML5"
 msgstr "Thema support HTML5"
 
-#: admin/checklist.php:193
+#: admin/checklist.php:195
 msgid "Theme Support Title Tag"
 msgstr "Thema support titel tag"
 
-#: admin/checklist.php:211
+#: admin/checklist.php:213
 msgid "Users"
 msgstr "Gebruikers"
 
-#: admin/checklist.php:224
+#: admin/checklist.php:226
 msgid "WordPress user 'pronamic'"
 msgstr "WordPress gebruiker 'pronamic'"
 
-#: admin/checklist.php:246
+#: admin/checklist.php:248
 msgid "WordPress user 'pronamic' email 'info@pronamic.nl'"
 msgstr "WordPress gebruiker 'pronamic' e-mail 'info@pronamic.nl'"
 
-#: admin/checklist.php:269
+#: admin/checklist.php:271
 msgid "WordPress user role 'manager'"
 msgstr "WordPress gebruikersrol 'manager'"
 
-#: admin/checklist.php:287
+#: admin/checklist.php:289
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: admin/checklist.php:299
+#: admin/checklist.php:301
 msgid "Gravity Forms Output HTML5"
 msgstr "Gravity Forms output HTML5"
 
-#: admin/checklist.php:318
+#: admin/checklist.php:320
 msgid "Gravity Forms Currency"
 msgstr "Gravity Forms valuta"
 
-#: admin/checklist.php:383 admin/extensions.php:4 admin/status.php:122
+#: admin/checklist.php:385 admin/extensions.php:4 admin/status.php:138
 msgid "Plugins"
 msgstr "Plugins"
 
-#: admin/checklist.php:415
+#: admin/checklist.php:417
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
@@ -239,51 +239,51 @@ msgstr "Max Upload Size"
 msgid "Absolute Path"
 msgstr "Absolute pad"
 
-#: admin/status.php:89
+#: admin/status.php:105
 msgid "Hosting"
 msgstr "Hosting"
 
-#: admin/status.php:96
+#: admin/status.php:112
 msgid "Web Server Info"
 msgstr "Web Server Info"
 
-#: admin/status.php:102
+#: admin/status.php:118
 msgid "PHP Version"
 msgstr "PHP-versie"
 
-#: admin/status.php:110
+#: admin/status.php:126
 msgid "MySQL Version"
 msgstr "MySQL versie"
 
-#: admin/status.php:145
+#: admin/status.php:161
 msgid "Visit plugin homepage"
 msgstr "Bezoek plugin homepagina"
 
-#: admin/status.php:148
+#: admin/status.php:164
 msgid "by"
 msgstr "door"
 
-#: admin/status.php:148
+#: admin/status.php:164
 msgid "version"
 msgstr "versie"
 
-#: admin/status.php:157
+#: admin/status.php:173
 msgid "Number Plugins"
 msgstr "Aantal plugins"
 
-#: admin/status.php:165
+#: admin/status.php:181
 msgid "Installed Plugins"
 msgstr "Geïnstalleerde plugins"
 
-#: admin/status.php:177
+#: admin/status.php:193
 msgid "Performance"
 msgstr "Prestatie"
 
-#: admin/status.php:186
+#: admin/status.php:202
 msgid "Number Autoload Options"
 msgstr "Aantal autoload opties"
 
-#: admin/status.php:198
+#: admin/status.php:221
 msgid "Number Transient Options"
 msgstr "Aantal transient opties"
 

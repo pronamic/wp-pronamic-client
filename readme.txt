@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 4.2.2
-Stable tag: 1.2.9
+Stable tag: 1.3.0
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,14 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.3.0 =
+*	Tweak - Changed admin h2 elements to h1 elements.
+*	Tweak - Changed admin h3 elements to h2 elements.
+*	Tweak - Added total size of autoload options on status page.
+*	Tweak - Added total size of transient options on status page.
+*	Tweak - Added the `time` and `current_time` to status page.
+*	Tweak - Updated Adminer from 4.2.1 to 4.2.4.
 
 = 1.2.9 =
 *	Tweak - Improved status and checklist page.

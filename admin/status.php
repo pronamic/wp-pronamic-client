@@ -6,7 +6,7 @@ global $wpdb;
 
 ?>
 <div class="wrap">
-	<h2><?php echo get_admin_page_title(); ?></h2>
+	<h1><?php echo get_admin_page_title(); ?></h1>
 
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
@@ -78,6 +78,22 @@ global $wpdb;
 				</th>
 				<td>
 					<?php echo esc_html( ABSPATH ); ?>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<code>current_time</code>
+				</th>
+				<td>
+					<?php echo esc_html( current_time( DATE_RFC2822 ) ); ?>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<code>time</code>
+				</th>
+				<td>
+					<?php echo esc_html( date( DATE_RFC2822 ) ); ?>
 				</td>
 			</tr>
 		</tbody>
@@ -174,7 +190,7 @@ global $wpdb;
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'Performance', 'pronamic_client' ); ?></th>
+				<th colspan="3"><?php _e( 'Performance', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -189,7 +205,14 @@ global $wpdb;
 
 				$query = "SELECT COUNT( option_id ) FROM $wpdb->options WHERE autoload = 'yes';";
 
-				echo $wpdb->get_var( $query );
+				echo $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
+
+				?></td>
+				<td><?php
+
+				$query = "SELECT SUM( LENGTH( option_value ) ) FROM $wpdb->options WHERE autoload = 'yes';";
+
+				echo size_format( $wpdb->get_var( $query ) ); // WPCS: unprepared SQL ok.
 
 				?></td>
 			</tr>
@@ -201,7 +224,14 @@ global $wpdb;
 
 				$query = "SELECT COUNT( option_id ) FROM $wpdb->options WHERE option_name LIKE '_transient_%';";
 
-				echo $wpdb->get_var( $query );
+				echo $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
+
+				?></td>
+				<td><?php
+
+				$query = "SELECT SUM( LENGTH( option_value ) ) FROM $wpdb->options WHERE option_name LIKE '_transient_%';";
+
+				echo size_format( $wpdb->get_var( $query ) ); // WPCS: unprepared SQL ok.
 
 				?></td>
 		</tbody>

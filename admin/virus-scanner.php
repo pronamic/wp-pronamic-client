@@ -4,33 +4,33 @@ $delete = filter_input( INPUT_GET, 'delete', FILTER_SANITIZE_STRING );
 
 $action = filter_input( INPUT_POST, 'action2', FILTER_SANITIZE_STRING );
 
-$filesToDelete = array();
+$files_to_delete = array();
 
 if ( 'delete' === $action ) {
-	$filesToDelete = filter_input( INPUT_POST, 'files', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+	$files_to_delete = filter_input( INPUT_POST, 'files', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
 }
 
 ?>
 <div class="wrap">
-	<h2><?php echo get_admin_page_title(); ?></h2>
+	<h1><?php echo get_admin_page_title(); ?></h1>
 
-	<h3><?php _e( 'Uploads', 'pronamic_client' ); ?></h3>
+	<h2><?php _e( 'Uploads', 'pronamic_client' ); ?></h2>
 
 	<?php
 
-	$uploadDir = wp_upload_dir();
-	$baseDir = $uploadDir['basedir'];
+	$upload_dir = wp_upload_dir();
+	$base_dir   = $upload_dir['basedir'];
 
 	$directories = array(
-		$baseDir
+		$base_dir,
 	);
 
 	foreach ( $directories as $dir ) :
 		if ( is_dir( $dir ) ) :
 
-			$rdi      = new RecursiveDirectoryIterator( $dir );
-			$dirsOnly = new ParentIterator( $rdi );
-			$iter     = new RecursiveIteratorIterator( $dirsOnly, RecursiveIteratorIterator::CHILD_FIRST );
+			$rdi       = new RecursiveDirectoryIterator( $dir );
+			$dirs_only = new ParentIterator( $rdi );
+			$iter      = new RecursiveIteratorIterator( $dirs_only, RecursiveIteratorIterator::CHILD_FIRST );
 
 			?>
 			<form method="post" action="">
@@ -66,9 +66,9 @@ if ( 'delete' === $action ) {
 
 							<?php
 
-							$infectionFiles = glob( '{' . $key . '/*.php,' . $key . '/.htaccess}', GLOB_BRACE );
+							$infection_files = glob( '{' . $key . '/*.php,' . $key . '/.htaccess}', GLOB_BRACE );
 
-							foreach ( $infectionFiles as $filename ) : ?>
+							foreach ( $infection_files as $filename ) : ?>
 
 								<tr>
 									<th class="check-column" scope="row">
@@ -83,7 +83,7 @@ if ( 'delete' === $action ) {
 									<td>
 										<?php
 
-										if ( $delete === $filename || in_array( $filename, $filesToDelete ) ) {
+										if ( $delete === $filename || in_array( $filename, $files_to_delete, true ) ) {
 											unlink( $filename );
 
 											echo 'Deleted';

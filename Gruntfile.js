@@ -11,7 +11,12 @@ module.exports = function( grunt ) {
 					'-lf': null
 				}
 			},
-			all: [ '**/*.php' ]
+			all: [
+				'**/*.php',
+				'!adminer/**',
+				'!deploy/**',
+				'!node_modules/**'
+			]
 		},
 
 		// PHP Code Sniffer
@@ -25,7 +30,8 @@ module.exports = function( grunt ) {
 				],
 			},
 			options: {
-				standard: 'phpcs.ruleset.xml'
+				standard: 'phpcs.ruleset.xml',
+				showSniffCodes: true
 			}
 		},
 
