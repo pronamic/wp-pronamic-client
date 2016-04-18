@@ -82,7 +82,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 				'plugins' => json_encode( $pronamic_plugins ),
 			) );
 
-			$url = 'http://api.pronamic.eu/plugins/update-check/1.1/';
+			$url = 'https://api.pronamic.eu/plugins/update-check/1.1/';
 
 			$raw_response = wp_remote_post( $url, $options );
 
@@ -137,7 +137,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 				'themes' => json_encode( $themes ),
 			) );
 
-			$url = 'http://api.pronamic.eu/themes/update-check/1.1/';
+			$url = 'https://api.pronamic.eu/themes/update-check/1.1/';
 
 			$raw_response = wp_remote_post( $url, $options );
 
