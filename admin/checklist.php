@@ -94,6 +94,7 @@
 			<?php
 
 			$constants = array(
+				'WPLANG',
 				'WP_DEBUG',
 				'SCRIPT_DEBUG',
 				'SAVEQUERIES',
