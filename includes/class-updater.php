@@ -29,11 +29,40 @@ class Pronamic_WP_ClientPlugin_Updater {
 	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
 		$this->plugin = $plugin;
 
+		// Actions
+		add_action( 'admin_init', array( $this, 'admin_init' ) );
+
 		// Filters
 		add_filter( 'plugins_api', array( $this, 'plugins_api' ), 10, 3 );
 
-		add_filter( 'pre_set_site_transient_update_plugins', array( $this, 'transient_update_plugins_filter' ) );
-		add_filter( 'pre_set_site_transient_update_themes', array( $this, 'transient_update_themes_filter' ) );
+		// Transients
+		$transient_update_plugins = 'update_plugins';
+		$transient_update_themes  = 'update_themes';
+
+		add_filter( 'pre_set_site_transient_' . $transient_update_plugins, array( $this, 'transient_update_plugins_filter' ) );
+		add_filter( 'pre_set_site_transient_' . $transient_update_themes, array( $this, 'transient_update_themes_filter' ) );
+
+		add_filter( 'delete_site_transient_' . $transient_update_plugins, array( $this, 'force_check' ) );
+		add_filter( 'delete_site_transient_' . $transient_update_themes, array( $this, 'force_check' ) );
+	}
+
+	/**
+	 * Admin initialize.
+	 */
+	public function admin_init() {
+		$force_check = filter_input( INPUT_GET, 'force-check', FILTER_VALIDATE_BOOLEAN );
+
+		if ( $force_check ) {
+			$this->force_check();
+		}
+	}
+
+	/**
+	 * Force check.
+	 */
+	public function force_check() {
+		update_option( 'pronamic_client_plugins_update_check_timestamp', '', false );
+		update_option( 'pronamic_client_themes_update_check_timestamp', '', false );
 	}
 
 	/**
@@ -67,6 +96,48 @@ class Pronamic_WP_ClientPlugin_Updater {
 	//////////////////////////////////////////////////
 
 	/**
+	 * Request plugins update check.
+	 */
+	private function request_plugins_update_check() {
+		$pronamic_plugins = pronamic_client_get_plugins();
+
+		$options = $this->get_http_api_options( array(
+			'plugins' => json_encode( $pronamic_plugins ),
+		) );
+
+		$url = 'https://api.pronamic.eu/plugins/update-check/1.1/';
+
+		$raw_response = wp_remote_post( $url, $options );
+
+		if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
+			return false;
+		}
+
+		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+
+		return $response;
+	}
+
+	/**
+	 * Get plugins update check.
+	 */
+	private function get_plugins_update_check() {
+		$timestamp = get_option( 'pronamic_client_plugins_update_check_timestamp' );
+		$response  = get_option( 'pronamic_client_plugins_update_check_response' );
+
+		if ( $timestamp > strtotime( '-1 day' ) && is_array( $response ) ) {
+			return $response;
+		}
+
+		$response = $this->request_plugins_update_check();
+
+		update_option( 'pronamic_client_plugins_update_check_timestamp', time(), false );
+		update_option( 'pronamic_client_plugins_update_check_response', $response, false );
+
+		return $response;
+	}
+
+	/**
 	 * Transient update plugins filter
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/3.7/wp-includes/option.php#L1030
@@ -76,21 +147,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 */
 	public function transient_update_plugins_filter( $update_plugins ) {
 		if ( is_object( $update_plugins ) && isset( $update_plugins->response ) && is_array( $update_plugins->response ) ) {
-			$pronamic_plugins = pronamic_client_get_plugins();
-
-			$options = $this->get_http_api_options( array(
-				'plugins' => json_encode( $pronamic_plugins ),
-			) );
-
-			$url = 'https://api.pronamic.eu/plugins/update-check/1.1/';
-
-			$raw_response = wp_remote_post( $url, $options );
-
-			if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
-				return $update_plugins;
-			}
-
-			$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+			$response = $this->get_plugins_update_check();
 
 			if ( is_array( $response ) && isset( $response['plugins'] ) ) {
 				foreach ( $response['plugins'] as &$plugin ) {
@@ -106,6 +163,64 @@ class Pronamic_WP_ClientPlugin_Updater {
 	}
 
 	/**
+	 * Request themes update check.
+	 */
+	private function request_themes_update_check() {
+		$pronamic_themes = pronamic_client_get_themes();
+
+		$themes = array();
+
+		foreach ( $pronamic_themes as $theme ) {
+			$checked[ $theme->get_stylesheet() ] = $theme->get( 'Version' );
+
+			$themes[ $theme->get_stylesheet() ] = array(
+				'Name'       => $theme->get( 'Name' ),
+				'Title'      => $theme->get( 'Name' ),
+				'Version'    => $theme->get( 'Version' ),
+				'Author'     => $theme->get( 'Author' ),
+				'Author URI' => $theme->get( 'AuthorURI' ),
+				'Template'   => $theme->get_template(),
+				'Stylesheet' => $theme->get_stylesheet(),
+			);
+		}
+
+		$options = $this->get_http_api_options( array(
+			'themes' => json_encode( $themes ),
+		) );
+
+		$url = 'https://api.pronamic.eu/themes/update-check/1.1/';
+
+		$raw_response = wp_remote_post( $url, $options );
+
+		if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
+			return false;
+		}
+
+		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+
+		return $response;
+	}
+
+	/**
+	 * Get themes update check.
+	 */
+	private function get_themes_update_check() {
+		$timestamp = get_option( 'pronamic_client_themes_update_check_timestamp' );
+		$response  = get_option( 'pronamic_client_themes_update_check_response' );
+
+		if ( $timestamp > strtotime( '-1 day' ) && is_array( $response ) ) {
+			return $response;
+		}
+
+		$response = $this->request_themes_update_check();
+
+		update_option( 'pronamic_client_themes_update_check_timestamp', time(), false );
+		update_option( 'pronamic_client_themes_update_check_response', $response, false );
+
+		return $response;
+	}
+
+	/**
 	 * Transient update themes filter
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/3.7/wp-includes/option.php#L1030
@@ -115,37 +230,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 */
 	public function transient_update_themes_filter( $update_themes ) {
 		if ( is_object( $update_themes ) && isset( $update_themes->response ) && is_array( $update_themes->response ) ) {
-			$pronamic_themes = pronamic_client_get_themes();
-
-			$themes = array();
-
-			foreach ( $pronamic_themes as $theme ) {
-				$checked[ $theme->get_stylesheet() ] = $theme->get( 'Version' );
-
-				$themes[ $theme->get_stylesheet() ] = array(
-					'Name'       => $theme->get( 'Name' ),
-					'Title'      => $theme->get( 'Name' ),
-					'Version'    => $theme->get( 'Version' ),
-					'Author'     => $theme->get( 'Author' ),
-					'Author URI' => $theme->get( 'AuthorURI' ),
-					'Template'   => $theme->get_template(),
-					'Stylesheet' => $theme->get_stylesheet(),
-				);
-			}
-
-			$options = $this->get_http_api_options( array(
-				'themes' => json_encode( $themes ),
-			) );
-
-			$url = 'https://api.pronamic.eu/themes/update-check/1.1/';
-
-			$raw_response = wp_remote_post( $url, $options );
-
-			if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
-				return $update_themes;
-			}
-
-			$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+			$response = $this->get_themes_update_check();
 
 			if ( is_array( $response ) && isset( $response['themes'] ) ) {
 				$update_themes->response = array_merge( $update_themes->response, $response['themes'] );
