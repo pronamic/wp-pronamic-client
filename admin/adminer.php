@@ -16,9 +16,9 @@ $adminer_url = plugins_url( 'vendor/adminer/adminer.php', $plugin->file );
 							<h2 class="hndle"><span>Snel inloggen</span></h2>
 		
 							<div class="inside">
-							    <form target="_blank" method="post" action="https://login.twinfield.com/default.aspx">
-							        <p>
-							        	<a target="_blank" href="<?php echo esc_attr( $adminer_url ); ?>"><?php _e( 'Adminer', 'pronamic_client' ); ?></a>
+								<form target="_blank" method="post" action="https://login.twinfield.com/default.aspx">
+									<p>
+										<a target="_blank" href="<?php echo esc_attr( $adminer_url ); ?>"><?php _e( 'Adminer', 'pronamic_client' ); ?></a>
 
 										<input type="hidden" name="auth[driver]" value="server" />
 										<input type="hidden" name="auth[server]" value="<?php echo esc_attr( DB_HOST ); ?>" />
@@ -28,7 +28,7 @@ $adminer_url = plugins_url( 'vendor/adminer/adminer.php', $plugin->file );
 		
 										<?php submit_button( __( 'Login', 'pronamic_client' ), 'primary', 'submit', false ); ?>
 									</p>
-							    </form>
+								</form>
 							</div>
 						</div>
 					</div>

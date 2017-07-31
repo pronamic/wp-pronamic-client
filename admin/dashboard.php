@@ -6,7 +6,7 @@
 			<div class="postbox-container" id="postbox-container-1">
 				<div class="meta-box-sortables">
 					<div class="postbox">
-						<h2 class="hndle"><span><?php _e( 'Support', 'pronamic_client' ); ?></span></h2>
+						<h2 class="hndle"><span><?php esc_html_e( 'Support', 'pronamic_client' ); ?></span></h2>
 
 						<div class="inside">
 							<?php include 'dashboard/support.php'; ?>
@@ -14,7 +14,7 @@
 					</div>
 
 					<div class="postbox">
-						<h2 class="hndle"><span><?php _e( 'Adminer', 'pronamic_client' ); ?></span></h2>
+						<h2 class="hndle"><span><?php esc_html_e( 'Adminer', 'pronamic_client' ); ?></span></h2>
 
 						<div class="inside">
 							<?php include 'dashboard/adminer.php'; ?>
@@ -26,7 +26,7 @@
 			<div class="postbox-container" id="postbox-container-2">
 				<div class="meta-box-sortables">
 					<div class="postbox">
-						<h2 class="hndle"><span><?php _e( 'Pronamic.nl News', 'pronamic_client' ); ?></span></h2>
+						<h2 class="hndle"><span><?php esc_html_e( 'Pronamic.nl News', 'pronamic_client' ); ?></span></h2>
 
 						<div class="inside">
 							<?php
@@ -47,7 +47,7 @@
 			<div class="postbox-container" id="postbox-container-3">
 				<div class="meta-box-sortables">
 					<div class="postbox">
-						<h2 class="hndle"><span><?php _e( 'Pronamic.eu News', 'pronamic_client' ); ?></span></h2>
+						<h2 class="hndle"><span><?php esc_html_e( 'Pronamic.eu News', 'pronamic_client' ); ?></span></h2>
 
 						<div class="inside">
 							<?php

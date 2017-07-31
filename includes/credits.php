@@ -6,10 +6,13 @@
  * @return string
  */
 function pronamic_client_get_credits() {
+	/* translators: %s: credits text */
 	return sprintf( '<span id="pronamic-credits">%s</span>',
+		/* translators: %s: Pronamic */
 		sprintf( __( 'Concept and realisation by %s', 'pronamic_client' ),
-			sprintf( '<a href="%s" title="%s" rel="developer">%s</a>',
-				esc_attr( __( 'http://pronamic.eu/', 'pronamic_client' ) ),
+			/* translators: 1: https://www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic */
+			sprintf( '<a href="%1$s" title="%2$s" rel="developer">%3$s</a>',
+				esc_attr( __( 'https://www.pronamic.eu/', 'pronamic_client' ) ),
 				esc_attr( __( 'Pronamic - Internet, marketing & WordPress specialist', 'pronamic_client' ) ),
 				__( 'Pronamic', 'pronamic_client' )
 			)

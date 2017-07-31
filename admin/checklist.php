@@ -142,7 +142,16 @@
 
 				?>
 				<th scope="row">
-					<?php printf( __( 'Function %s in %s', 'pronamic_client' ), '<code>wp_head();</code>', '<code>header.php</code>' ); ?>
+					<?php
+
+					printf(
+						/* translators: 1: name, 2: filename */
+						__( 'Function %1$s in %2$s', 'pronamic_client' ),
+						'<code>wp_head();</code>',
+						'<code>header.php</code>'
+					);
+
+					?>
 				</th>
 				<td>
 					<span class="dashicons dashicons-<?php echo esc_attr( $has_wp_head_function ? 'yes' : 'no' ); ?>"></span>
@@ -159,7 +168,16 @@
 
 				?>
 				<th scope="row">
-					<?php printf( __( 'Function %s in %s', 'pronamic_client' ), '<code>wp_footer();</code>', '<code>footer.php</code>' ); ?>
+					<?php
+
+					printf(
+						/* translators: 1: name, 2: filename */
+						__( 'Function %1$s in %2$s', 'pronamic_client' ),
+						'<code>wp_footer();</code>',
+						'<code>footer.php</code>'
+					);
+
+					?>
 				</th>
 				<td>
 					<span class="dashicons dashicons-<?php echo esc_attr( $has_wp_footer_function ? 'yes' : 'no' ); ?>"></span>

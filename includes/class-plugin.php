@@ -82,16 +82,20 @@ class Pronamic_WP_ClientPlugin_Plugin {
 			$wp_admin_bar->add_menu( array(
 				'id'    => 'pronamic',
 				'title' => __( 'Pronamic', 'pronamic_client' ),
-				'href'  => __( 'http://pronamic.eu/', 'pronamic_client' ),
-				'meta'  => array( 'target' => '_blank' ),
+				'href'  => __( 'https://www.pronamic.eu/', 'pronamic_client' ),
+				'meta'  => array(
+					'target' => '_blank',
+				),
 			) );
 
 			$wp_admin_bar->add_menu(array(
 				'parent' => 'pronamic',
 				'id'     => 'pronamic_contact',
 				'title'  => __( 'Contact', 'pronamic_client' ),
-				'href'   => __( 'http://pronamic.eu/contact/', 'pronamic_client' ),
-				'meta'   => array( 'target' => '_blank' ),
+				'href'   => __( 'https://www.pronamic.eu/contact/', 'pronamic_client' ),
+				'meta'   => array(
+					'target' => '_blank',
+				),
 			) );
 		}
 	}

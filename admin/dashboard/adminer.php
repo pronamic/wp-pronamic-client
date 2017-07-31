@@ -19,7 +19,7 @@ $adminer_url = plugins_url( 'adminer/index.php', $plugin->file );
 		$auth->db         = DB_NAME;
 		$auth->cookiehash = COOKIEHASH;
 
-		$auth = base64_encode( json_encode( $auth ) );
+		$auth = base64_encode( wp_json_encode( $auth ) );
 
 		?>
 		<input type="hidden" name="pronamic_auth" value="<?php echo esc_attr( $auth ); ?>" />

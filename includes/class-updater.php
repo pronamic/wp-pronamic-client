@@ -128,7 +128,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 		$pronamic_plugins = pronamic_client_get_plugins();
 
 		$options = $this->get_http_api_options( array(
-			'plugins' => json_encode( $pronamic_plugins ),
+			'plugins' => wp_json_encode( $pronamic_plugins ),
 		) );
 
 		$url = 'https://api.pronamic.eu/plugins/update-check/1.2/';
@@ -192,7 +192,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 		}
 
 		$options = $this->get_http_api_options( array(
-			'themes' => json_encode( $themes ),
+			'themes' => wp_json_encode( $themes ),
 		) );
 
 		$url = 'https://api.pronamic.eu/themes/update-check/1.2/';

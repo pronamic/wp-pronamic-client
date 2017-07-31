@@ -11,7 +11,7 @@ global $wpdb;
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'WordPres', 'pronamic_client' ); ?></th>
+				<th colspan="2"><?php esc_html_e( 'WordPres', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -137,6 +137,7 @@ global $wpdb;
 					<?php
 
 					printf(
+						/* translators: %s: seconds */
 						__( '%s seconds', 'pronamic_client' ),
 						'<code>' . esc_html( ini_get( 'max_execution_time' ) ) . '</code>'
 					);
