@@ -30,7 +30,11 @@ class Pronamic_WP_ClientPlugin_Updater {
 		$this->plugin = $plugin;
 
 		// Actions
+		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
+
+		add_action( 'pronamic_update_plugins', array( $this, 'update_check_plugins' ) );
+		add_action( 'pronamic_update_themes', array( $this, 'update_check_themes' ) );
 
 		// Filters
 		add_filter( 'plugins_api', array( $this, 'plugins_api' ), 10, 3 );
@@ -41,9 +45,20 @@ class Pronamic_WP_ClientPlugin_Updater {
 
 		add_filter( 'pre_set_site_transient_' . $transient_update_plugins, array( $this, 'transient_update_plugins_filter' ) );
 		add_filter( 'pre_set_site_transient_' . $transient_update_themes, array( $this, 'transient_update_themes_filter' ) );
+	}
 
-		add_filter( 'delete_site_transient_' . $transient_update_plugins, array( $this, 'force_check' ) );
-		add_filter( 'delete_site_transient_' . $transient_update_themes, array( $this, 'force_check' ) );
+	/**
+	 * Initialize.
+	 */
+	public function init() {
+		// @see https://github.com/WordPress/WordPress/blob/4.8/wp-includes/update.php#L680-L694
+		if ( ! wp_next_scheduled( 'pronamic_update_plugins' ) ) {
+			wp_schedule_event( time(), 'twicedaily', 'pronamic_update_plugins' );
+		}
+
+		if ( ! wp_next_scheduled( 'pronamic_update_themes' ) ) {
+			wp_schedule_event( time(), 'twicedaily', 'pronamic_update_themes' );
+		}
 	}
 
 	/**
@@ -53,16 +68,27 @@ class Pronamic_WP_ClientPlugin_Updater {
 		$force_check = filter_input( INPUT_GET, 'force-check', FILTER_VALIDATE_BOOLEAN );
 
 		if ( $force_check ) {
-			$this->force_check();
+			$this->update_check_plugins();
+			$this->update_check_themes();
 		}
 	}
 
 	/**
-	 * Force check.
+	 * Update check plugins.
 	 */
-	public function force_check() {
-		update_option( 'pronamic_client_plugins_update_check_timestamp', '', false );
-		update_option( 'pronamic_client_themes_update_check_timestamp', '', false );
+	public function update_check_plugins() {
+		$response = $this->request_plugins_update_check();
+
+		update_option( 'pronamic_client_plugins_update_check_response', $response, false );
+	}
+
+	/**
+	 * Update check themes.
+	 */
+	public function update_check_themes() {
+		$response = $this->request_themes_update_check();
+
+		update_option( 'pronamic_client_themes_update_check_response', $response, false );
 	}
 
 	/**
@@ -105,34 +131,15 @@ class Pronamic_WP_ClientPlugin_Updater {
 			'plugins' => json_encode( $pronamic_plugins ),
 		) );
 
-		$url = 'https://api.pronamic.eu/plugins/update-check/1.1/';
+		$url = 'https://api.pronamic.eu/plugins/update-check/1.2/';
 
 		$raw_response = wp_remote_post( $url, $options );
 
-		if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
+		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) { // WPCS: loose comparison ok.
 			return false;
 		}
 
 		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
-
-		return $response;
-	}
-
-	/**
-	 * Get plugins update check.
-	 */
-	private function get_plugins_update_check() {
-		$timestamp = get_option( 'pronamic_client_plugins_update_check_timestamp' );
-		$response  = get_option( 'pronamic_client_plugins_update_check_response' );
-
-		if ( $timestamp > strtotime( '-1 day' ) && is_array( $response ) ) {
-			return $response;
-		}
-
-		$response = $this->request_plugins_update_check();
-
-		update_option( 'pronamic_client_plugins_update_check_timestamp', time(), false );
-		update_option( 'pronamic_client_plugins_update_check_response', $response, false );
 
 		return $response;
 	}
@@ -147,7 +154,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 */
 	public function transient_update_plugins_filter( $update_plugins ) {
 		if ( is_object( $update_plugins ) && isset( $update_plugins->response ) && is_array( $update_plugins->response ) ) {
-			$response = $this->get_plugins_update_check();
+			$response = get_option( 'pronamic_client_plugins_update_check_response' );
 
 			if ( is_array( $response ) && isset( $response['plugins'] ) ) {
 				foreach ( $response['plugins'] as &$plugin ) {
@@ -188,34 +195,15 @@ class Pronamic_WP_ClientPlugin_Updater {
 			'themes' => json_encode( $themes ),
 		) );
 
-		$url = 'https://api.pronamic.eu/themes/update-check/1.1/';
+		$url = 'https://api.pronamic.eu/themes/update-check/1.2/';
 
 		$raw_response = wp_remote_post( $url, $options );
 
-		if ( is_wp_error( $raw_response ) || 200 !== wp_remote_retrieve_response_code( $raw_response ) ) {
+		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) { // WPCS: loose comparison ok.
 			return false;
 		}
 
 		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
-
-		return $response;
-	}
-
-	/**
-	 * Get themes update check.
-	 */
-	private function get_themes_update_check() {
-		$timestamp = get_option( 'pronamic_client_themes_update_check_timestamp' );
-		$response  = get_option( 'pronamic_client_themes_update_check_response' );
-
-		if ( $timestamp > strtotime( '-1 day' ) && is_array( $response ) ) {
-			return $response;
-		}
-
-		$response = $this->request_themes_update_check();
-
-		update_option( 'pronamic_client_themes_update_check_timestamp', time(), false );
-		update_option( 'pronamic_client_themes_update_check_response', $response, false );
 
 		return $response;
 	}
@@ -230,7 +218,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 */
 	public function transient_update_themes_filter( $update_themes ) {
 		if ( is_object( $update_themes ) && isset( $update_themes->response ) && is_array( $update_themes->response ) ) {
-			$response = $this->get_themes_update_check();
+			$response = get_option( 'pronamic_client_themes_update_check_response' );
 
 			if ( is_array( $response ) && isset( $response['themes'] ) ) {
 				$update_themes->response = array_merge( $update_themes->response, $response['themes'] );
