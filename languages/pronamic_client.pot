@@ -1,14 +1,14 @@
-# Copyright (C) 2016 Pronamic
+# Copyright (C) 2017 Pronamic
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.3.0\n"
+"Project-Id-Version: Pronamic Client 1.3.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2016-03-01 08:54:17+00:00\n"
+"POT-Creation-Date: 2017-07-31 14:15:03+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2017-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 0.5.4\n"
@@ -57,67 +57,67 @@ msgstr ""
 msgid "Config"
 msgstr ""
 
-#: admin/checklist.php:130 admin/extensions.php:67
+#: admin/checklist.php:131 admin/extensions.php:67
 msgid "Theme"
 msgstr ""
 
-#: admin/checklist.php:144 admin/checklist.php:161
+#: admin/checklist.php:145 admin/checklist.php:162
 msgid "Function %s in %s"
 msgstr ""
 
-#: admin/checklist.php:149 admin/checklist.php:166 admin/checklist.php:185
-#: admin/checklist.php:204 admin/checklist.php:235 admin/checklist.php:280
-#: admin/checklist.php:310 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:150 admin/checklist.php:167 admin/checklist.php:186
+#: admin/checklist.php:205 admin/checklist.php:236 admin/checklist.php:281
+#: admin/checklist.php:311 admin/status.php:48 admin/status.php:56
 msgid "Yes"
 msgstr ""
 
-#: admin/checklist.php:149 admin/checklist.php:166 admin/checklist.php:185
-#: admin/checklist.php:204 admin/checklist.php:235 admin/checklist.php:280
-#: admin/checklist.php:310 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:150 admin/checklist.php:167 admin/checklist.php:186
+#: admin/checklist.php:205 admin/checklist.php:236 admin/checklist.php:281
+#: admin/checklist.php:311 admin/status.php:48 admin/status.php:56
 msgid "No"
 msgstr ""
 
-#: admin/checklist.php:176
+#: admin/checklist.php:177
 msgid "Theme Support HTML5"
 msgstr ""
 
-#: admin/checklist.php:195
+#: admin/checklist.php:196
 msgid "Theme Support Title Tag"
 msgstr ""
 
-#: admin/checklist.php:213
+#: admin/checklist.php:214
 msgid "Users"
 msgstr ""
 
-#: admin/checklist.php:226
+#: admin/checklist.php:227
 msgid "WordPress user 'pronamic'"
 msgstr ""
 
-#: admin/checklist.php:248
+#: admin/checklist.php:249
 msgid "WordPress user 'pronamic' email 'info@pronamic.nl'"
 msgstr ""
 
-#: admin/checklist.php:271
+#: admin/checklist.php:272
 msgid "WordPress user role 'manager'"
 msgstr ""
 
-#: admin/checklist.php:289
+#: admin/checklist.php:290
 msgid "Gravity Forms"
 msgstr ""
 
-#: admin/checklist.php:301
+#: admin/checklist.php:302
 msgid "Gravity Forms Output HTML5"
 msgstr ""
 
-#: admin/checklist.php:320
+#: admin/checklist.php:321
 msgid "Gravity Forms Currency"
 msgstr ""
 
-#: admin/checklist.php:385 admin/extensions.php:4 admin/status.php:138
+#: admin/checklist.php:386 admin/extensions.php:4 admin/status.php:152
 msgid "Plugins"
 msgstr ""
 
-#: admin/checklist.php:417
+#: admin/checklist.php:418
 msgid "Search Plugin"
 msgstr ""
 
@@ -225,10 +225,6 @@ msgstr ""
 msgid "Debug Mode"
 msgstr ""
 
-#: admin/status.php:64
-msgid "Default"
-msgstr ""
-
 #: admin/status.php:69
 msgid "Max Upload Size"
 msgstr ""
@@ -253,35 +249,43 @@ msgstr ""
 msgid "MySQL Version"
 msgstr ""
 
-#: admin/status.php:161
+#: admin/status.php:134
+msgid "Maximum Execution Time"
+msgstr ""
+
+#: admin/status.php:140
+msgid "%s seconds"
+msgstr ""
+
+#: admin/status.php:175
 msgid "Visit plugin homepage"
 msgstr ""
 
-#: admin/status.php:164
+#: admin/status.php:178
 msgid "by"
 msgstr ""
 
-#: admin/status.php:164
+#: admin/status.php:178
 msgid "version"
 msgstr ""
 
-#: admin/status.php:173
+#: admin/status.php:187
 msgid "Number Plugins"
 msgstr ""
 
-#: admin/status.php:181
+#: admin/status.php:195
 msgid "Installed Plugins"
 msgstr ""
 
-#: admin/status.php:193
+#: admin/status.php:207
 msgid "Performance"
 msgstr ""
 
-#: admin/status.php:202
+#: admin/status.php:216
 msgid "Number Autoload Options"
 msgstr ""
 
-#: admin/status.php:221
+#: admin/status.php:235
 msgid "Number Transient Options"
 msgstr ""
 
@@ -321,39 +325,39 @@ msgstr ""
 msgid "Pronamic"
 msgstr ""
 
-#: includes/class-admin.php:88
+#: includes/class-admin.php:87
 msgid "Pronamic Status"
 msgstr ""
 
-#: includes/class-admin.php:89
+#: includes/class-admin.php:88
 msgid "Status"
 msgstr ""
 
-#: includes/class-admin.php:99
+#: includes/class-admin.php:97
 msgid "Pronamic Checklist"
 msgstr ""
 
-#: includes/class-admin.php:100
+#: includes/class-admin.php:98
 msgid "Checklist"
 msgstr ""
 
-#: includes/class-admin.php:110
+#: includes/class-admin.php:107
 msgid "Pronamic Virus Scanner"
 msgstr ""
 
-#: includes/class-admin.php:111
+#: includes/class-admin.php:108
 msgid "Virus Scanner"
 msgstr ""
 
-#: includes/class-admin.php:119
+#: includes/class-admin.php:116
 msgid "Pronamic Extensions"
 msgstr ""
 
-#: includes/class-admin.php:120
+#: includes/class-admin.php:117
 msgid "Extensions"
 msgstr ""
 
-#: includes/class-admin.php:135
+#: includes/class-admin.php:132
 msgid "Browse…"
 msgstr ""
 

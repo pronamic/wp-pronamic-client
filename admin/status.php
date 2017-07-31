@@ -11,14 +11,14 @@ global $wpdb;
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'WordPres', 'pronamic_client' ); ?></th>
+				<th colspan="2"><?php esc_html_e( 'WordPres', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
 		<tbody>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Home URL', 'pronamic_client' ); ?>
+					<?php esc_html_e( 'Home URL', 'pronamic_client' ); ?>
 				</th>
 				<td>
 					<?php echo home_url(); ?>
@@ -26,7 +26,7 @@ global $wpdb;
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Site URL', 'pronamic_client' ); ?>
+					<?php esc_html_e( 'Site URL', 'pronamic_client' ); ?>
 				</th>
 				<td>
 					<?php echo site_url(); ?>
@@ -34,15 +34,15 @@ global $wpdb;
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Version', 'pronamic_client' ); ?>
+					<?php esc_html_e( 'Version', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php bloginfo( 'version' ); ?>
+					<code><?php bloginfo( 'version' ); ?></code>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Multisite', 'pronamic_client' ); ?>
+					<?php esc_html_e( 'Multisite', 'pronamic_client' ); ?>
 				</th>
 				<td>
 					<?php echo is_multisite() ? __( 'Yes', 'pronamic_client' ): __( 'No', 'pronamic_client' ); ?>
@@ -50,7 +50,7 @@ global $wpdb;
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Debug Mode', 'pronamic_client' ); ?>
+					<?php esc_html_e( 'Debug Mode', 'pronamic_client' ); ?>
 				</th>
 				<td>
 					<?php echo defined( 'WP_DEBUG' ) && WP_DEBUG ?  __( 'Yes', 'pronamic_client' ) : __( 'No', 'pronamic_client' ); ?>
@@ -58,15 +58,15 @@ global $wpdb;
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Language', 'pronamic_client' ); ?>
+					<?php esc_html_e( 'Language', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php echo defined( 'WPLANG' ) && WPLANG ? WPLANG : __( 'Default', 'pronamic_client' ); ?>
+					<code><?php echo esc_html( get_locale() ); ?></code>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Max Upload Size','pronamic_client' ); ?>
+					<?php esc_html_e( 'Max Upload Size','pronamic_client' ); ?>
 				</th>
 				<td>
 					<?php echo size_format( wp_max_upload_size() ); ?>
@@ -74,10 +74,10 @@ global $wpdb;
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Absolute Path','pronamic_client' ); ?>
+					<?php esc_html_e( 'Absolute Path','pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php echo esc_html( ABSPATH ); ?>
+					<code><?php echo esc_html( ABSPATH ); ?></code>
 				</td>
 			</tr>
 			<tr>
@@ -109,27 +109,42 @@ global $wpdb;
 		<tbody>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Web Server Info', 'pronamic_client' ); ?>
+					<?php esc_html_e( 'Web Server Info', 'pronamic_client' ); ?>
 				</th>
 				<td><?php echo esc_html( filter_input( INPUT_SERVER, 'SERVER_SOFTWARE', FILTER_SANITIZE_STRING ) ); ?></td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'PHP Version', 'pronamic_client' ); ?>
+					<?php esc_html_e( 'PHP Version', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php echo esc_html( phpversion() ); ?>
+					<code><?php echo esc_html( phpversion() ); ?></code>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'MySQL Version', 'pronamic_client' ); ?>
+					<?php esc_html_e( 'MySQL Version', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php echo esc_html( $wpdb->db_version() ); ?>
+					<code><?php echo esc_html( $wpdb->db_version() ); ?></code>
 				</td>
 			</tr>
-		</tbody>
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'Maximum Execution Time', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<?php
+
+					printf(
+						/* translators: %s: seconds */
+						__( '%s seconds', 'pronamic_client' ),
+						'<code>' . esc_html( ini_get( 'max_execution_time' ) ) . '</code>'
+					);
+
+					?>
+				</td>
+			</tr>
 	</table>
 
 	<table class="pronamic-status-table widefat striped" cellspacing="0">

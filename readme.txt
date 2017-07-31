@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 4.2.2
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.3.1 =
+*	Improved updater.
+*	Updated Adminer to version 4.3.1.
 
 = 1.3.0 =
 *	Tweak - Changed admin h2 elements to h1 elements.

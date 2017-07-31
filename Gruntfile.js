@@ -6,16 +6,12 @@ module.exports = function( grunt ) {
 
 		// PHPLint
 		phplint: {
-			options: {
-				phpArgs: {
-					'-lf': null
-				}
-			},
 			all: [
 				'**/*.php',
 				'!adminer/**',
 				'!deploy/**',
-				'!node_modules/**'
+				'!node_modules/**',
+				'!vendor/**'
 			]
 		},
 
@@ -26,10 +22,12 @@ module.exports = function( grunt ) {
 					'**/*.php',
 					'!adminer/**',
 					'!deploy/**',
-					'!node_modules/**'
+					'!node_modules/**',
+					'!vendor/**'
 				],
 			},
 			options: {
+				bin: 'vendor/bin/phpcs',
 				standard: 'phpcs.ruleset.xml',
 				showSniffCodes: true
 			}
@@ -60,7 +58,11 @@ module.exports = function( grunt ) {
 					cwd: '',
 					domainPath: 'languages',
 					type: 'wp-plugin',
-					exclude: [ 'deploy/.*', 'node_modules/.*' ],
+					exclude: [
+						'deploy/.*',
+						'node_modules/.*',
+						'vendor/.*'
+					],
 				}
 			}
 		},
@@ -92,6 +94,7 @@ module.exports = function( grunt ) {
 					'!deploy/**',
 					'!node_modules/**',
 					'!tests/**',
+					'!vendor/**',
 					'!wp-content/**'
 				],
 				expand: true
@@ -108,6 +111,7 @@ module.exports = function( grunt ) {
 					'!composer.lock',
 					'!Gruntfile.js',
 					'!package.json',
+					'!package-lock.json',
 					'!phpunit.xml',
 					'!phpunit.xml.dist',
 					'!phpcs.ruleset.xml',
@@ -117,6 +121,7 @@ module.exports = function( grunt ) {
 					'!documentation/**',
 					'!node_modules/**',
 					'!tests/**',
+					'!vendor/**',
 					'!wp-content/**',
 				],
 				dest: 'deploy/latest',
