@@ -13,7 +13,7 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'WordPres', 'pronamic_client' ); ?></th>
+				<th colspan="2"><?php _e( 'WordPress', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -103,7 +103,8 @@
 				'WP_MAX_MEMORY_LIMIT',
 			);
 
-			foreach ( $constants as $constant ) : ?>
+			foreach ( $constants as $constant ) :
+			?>
 
 				<tr>
 					<th scope="row">
@@ -237,8 +238,8 @@
 			<tr>
 				<?php
 
-				$user_pronamic      = get_user_by( 'login', 'pronamic' );
-				$has_user_pronamic  = false !== $user_pronamic;
+				$user_pronamic     = get_user_by( 'login', 'pronamic' );
+				$has_user_pronamic = false !== $user_pronamic;
 
 				?>
 				<th scope="row">
@@ -358,31 +359,31 @@
 			'slug' => 'google-analytics-for-wordpress',
 			'name' => 'Google Analytics for WordPress',
 		),
-		'wordpress-seo/wp-seo.php' => array(
+		'wordpress-seo/wp-seo.php'                        => array(
 			'slug' => 'wordpress-seo',
 			'name' => 'WordPress SEO by Yoast',
 		),
-		'gravityforms/gravityforms.php' => array(
+		'gravityforms/gravityforms.php'                   => array(
 			'slug' => 'gravityforms',
 			'name' => 'Gravity Forms',
 		),
-		'gravityforms-nl/gravityforms-nl.php' => array(
+		'gravityforms-nl/gravityforms-nl.php'             => array(
 			'slug' => 'gravityforms-nl',
 			'name' => 'Gravity Forms (nl)',
 		),
-		'akismet/akismet.php' => array(
+		'akismet/akismet.php'                             => array(
 			'slug' => 'akismet',
 			'name' => 'Akismet',
 		),
-		'iwp-client/init.php' => array(
+		'iwp-client/init.php'                             => array(
 			'slug' => 'iwp-client',
 			'name' => 'InfiniteWP Client',
 		),
-		'jetpack/jetpack.php' => array(
+		'jetpack/jetpack.php'                             => array(
 			'slug' => 'jetpack',
 			'name' => 'Jetpack by WordPress.com',
 		),
-		'sucuri-scanner/sucuri.php' => array(
+		'sucuri-scanner/sucuri.php'                       => array(
 			'slug' => 'sucuri-scanner',
 			'name' => 'Sucuri Scanner',
 		),
@@ -390,7 +391,7 @@
 			'slug' => 'regenerate-thumbnails',
 			'name' => 'Regenerate Thumbnails',
 		),
-		'posts-to-posts/posts-to-posts.php' => array(
+		'posts-to-posts/posts-to-posts.php'               => array(
 			'slug' => 'posts-to-posts',
 			'name' => 'Posts 2 Posts',
 		),

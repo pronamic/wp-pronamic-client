@@ -68,7 +68,8 @@ if ( 'delete' === $action ) {
 
 							$infection_files = glob( '{' . $key . '/*.php,' . $key . '/.htaccess}', GLOB_BRACE );
 
-							foreach ( $infection_files as $filename ) : ?>
+							foreach ( $infection_files as $filename ) :
+							?>
 
 								<tr>
 									<th class="check-column" scope="row">
@@ -87,7 +88,8 @@ if ( 'delete' === $action ) {
 											unlink( $filename );
 
 											echo 'Deleted';
-										} else { ?>
+										} else {
+										?>
 
 										<a href="<?php echo add_query_arg( 'delete', $filename, 'admin.php?page=pronamic_client_virus_scanner' ); ?>">
 											<?php _e( 'Delete', 'pronamic_client' ); ?>
@@ -115,7 +117,9 @@ if ( 'delete' === $action ) {
 				</div>
 			</form>
 
-		<?php endif;
+		<?php
+		endif;
 
-	endforeach; ?>
+	endforeach;
+	?>
 </div>

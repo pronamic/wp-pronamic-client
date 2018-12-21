@@ -11,7 +11,7 @@ global $wpdb;
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php esc_html_e( 'WordPres', 'pronamic_client' ); ?></th>
+				<th colspan="2"><?php esc_html_e( 'WordPress', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -45,7 +45,7 @@ global $wpdb;
 					<?php esc_html_e( 'Multisite', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php echo is_multisite() ? __( 'Yes', 'pronamic_client' ): __( 'No', 'pronamic_client' ); ?>
+					<?php echo is_multisite() ? __( 'Yes', 'pronamic_client' ) : __( 'No', 'pronamic_client' ); ?>
 				</td>
 			</tr>
 			<tr>
@@ -53,7 +53,7 @@ global $wpdb;
 					<?php esc_html_e( 'Debug Mode', 'pronamic_client' ); ?>
 				</th>
 				<td>
-					<?php echo defined( 'WP_DEBUG' ) && WP_DEBUG ?  __( 'Yes', 'pronamic_client' ) : __( 'No', 'pronamic_client' ); ?>
+					<?php echo defined( 'WP_DEBUG' ) && WP_DEBUG ? __( 'Yes', 'pronamic_client' ) : __( 'No', 'pronamic_client' ); ?>
 				</td>
 			</tr>
 			<tr>
@@ -66,7 +66,7 @@ global $wpdb;
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php esc_html_e( 'Max Upload Size','pronamic_client' ); ?>
+					<?php esc_html_e( 'Max Upload Size', 'pronamic_client' ); ?>
 				</th>
 				<td>
 					<?php echo size_format( wp_max_upload_size() ); ?>
@@ -74,7 +74,7 @@ global $wpdb;
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php esc_html_e( 'Absolute Path','pronamic_client' ); ?>
+					<?php esc_html_e( 'Absolute Path', 'pronamic_client' ); ?>
 				</th>
 				<td>
 					<code><?php echo esc_html( ABSPATH ); ?></code>
@@ -165,15 +165,15 @@ global $wpdb;
 		}
 
 		foreach ( $active_plugins as $plugin ) {
-			$plugin_data = @get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin );
-			$dirname = dirname( $plugin );
+			$plugin_data    = @get_plugin_data( WP_PLUGIN_DIR . '/' . $plugin );
+			$dirname        = dirname( $plugin );
 			$version_string = '';
 
 			if ( ! empty( $plugin_data['Name'] ) ) {
 				$plugin_name = $plugin_data['Name'];
 
 				if ( ! empty( $plugin_data['PluginURI'] ) ) {
-					$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . __( 'Visit plugin homepage' , 'pronamic_client' ) . '">' . $plugin_name . '</a>';
+					$plugin_name = '<a href="' . esc_url( $plugin_data['PluginURI'] ) . '" title="' . __( 'Visit plugin homepage', 'pronamic_client' ) . '">' . $plugin_name . '</a>';
 				}
 
 				$plugins[] = $plugin_name . ' ' . __( 'by', 'pronamic_client' ) . ' ' . $plugin_data['Author'] . ' ' . __( 'version', 'pronamic_client' ) . ' ' . $plugin_data['Version'] . $version_string;
@@ -216,39 +216,47 @@ global $wpdb;
 				<th scope="row">
 					<?php _e( 'Number Autoload Options', 'pronamic_client' ); ?>
 				</th>
-				<td><?php
+				<td>
+				<?php
 
 				$query = "SELECT COUNT( option_id ) FROM $wpdb->options WHERE autoload = 'yes';";
 
 				echo $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
-				?></td>
-				<td><?php
+				?>
+				</td>
+				<td>
+				<?php
 
 				$query = "SELECT SUM( LENGTH( option_value ) ) FROM $wpdb->options WHERE autoload = 'yes';";
 
 				echo size_format( $wpdb->get_var( $query ) ); // WPCS: unprepared SQL ok.
 
-				?></td>
+				?>
+				</td>
 			</tr>
 			<tr>
 				<th scope="row">
 					<?php _e( 'Number Transient Options', 'pronamic_client' ); ?>
 				</th>
-				<td><?php
+				<td>
+				<?php
 
 				$query = "SELECT COUNT( option_id ) FROM $wpdb->options WHERE option_name LIKE '_transient_%';";
 
 				echo $wpdb->get_var( $query ); // WPCS: unprepared SQL ok.
 
-				?></td>
-				<td><?php
+				?>
+				</td>
+				<td>
+				<?php
 
 				$query = "SELECT SUM( LENGTH( option_value ) ) FROM $wpdb->options WHERE option_name LIKE '_transient_%';";
 
 				echo size_format( $wpdb->get_var( $query ) ); // WPCS: unprepared SQL ok.
 
-				?></td>
+				?>
+				</td>
 		</tbody>
 	</table>
 </div>

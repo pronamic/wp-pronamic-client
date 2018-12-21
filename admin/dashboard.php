@@ -9,7 +9,7 @@
 						<h2 class="hndle"><span><?php esc_html_e( 'Support', 'pronamic_client' ); ?></span></h2>
 
 						<div class="inside">
-							<?php include 'dashboard/support.php'; ?>
+							<?php require 'dashboard/support.php'; ?>
 						</div>
 					</div>
 
@@ -17,7 +17,7 @@
 						<h2 class="hndle"><span><?php esc_html_e( 'Adminer', 'pronamic_client' ); ?></span></h2>
 
 						<div class="inside">
-							<?php include 'dashboard/adminer.php'; ?>
+							<?php require 'dashboard/adminer.php'; ?>
 						</div>
 					</div>
 				</div>
@@ -31,12 +31,15 @@
 						<div class="inside">
 							<?php
 
-							wp_widget_rss_output( 'http://feeds.feedburner.com/pronamic', array(
-								'link'  => __( 'http://www.pronamic.eu/', 'pronamic_client' ),
-								'url'   => 'http://feeds.feedburner.com/pronamic',
-								'title' => __( 'Pronamic News', 'pronamic_client' ),
-								'items' => 5,
-							) );
+							wp_widget_rss_output(
+								'http://feeds.feedburner.com/pronamic',
+								array(
+									'link'  => __( 'http://www.pronamic.eu/', 'pronamic_client' ),
+									'url'   => 'http://feeds.feedburner.com/pronamic',
+									'title' => __( 'Pronamic News', 'pronamic_client' ),
+									'items' => 5,
+								)
+							);
 
 							?>
 						</div>
@@ -52,12 +55,15 @@
 						<div class="inside">
 							<?php
 
-							wp_widget_rss_output( 'http://feeds.feedburner.com/pronamic-en', array(
-								'link'  => __( 'http://www.pronamic.eu/', 'pronamic_client' ),
-								'url'   => 'http://feeds.feedburner.com/pronamic',
-								'title' => __( 'Pronamic News', 'pronamic_client' ),
-								'items' => 5,
-							) );
+							wp_widget_rss_output(
+								'http://feeds.feedburner.com/pronamic-en',
+								array(
+									'link'  => __( 'http://www.pronamic.eu/', 'pronamic_client' ),
+									'url'   => 'http://feeds.feedburner.com/pronamic',
+									'title' => __( 'Pronamic News', 'pronamic_client' ),
+									'items' => 5,
+								)
+							);
 
 							?>
 						</div>
