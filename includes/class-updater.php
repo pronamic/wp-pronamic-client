@@ -79,6 +79,10 @@ class Pronamic_WP_ClientPlugin_Updater {
 	public function update_check_plugins() {
 		$response = $this->request_plugins_update_check();
 
+		if ( false === $response ) {
+			return;
+		}
+
 		update_option( 'pronamic_client_plugins_update_check_response', $response, false );
 	}
 
@@ -87,6 +91,10 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 */
 	public function update_check_themes() {
 		$response = $this->request_themes_update_check();
+
+		if ( false === $response ) {
+			return;
+		}
 
 		update_option( 'pronamic_client_themes_update_check_response', $response, false );
 	}
@@ -126,6 +134,10 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 */
 	private function request_plugins_update_check() {
 		$pronamic_plugins = pronamic_client_get_plugins();
+
+		if ( false === $pronamic_plugins ) {
+			return false;
+		}
 
 		$options = $this->get_http_api_options(
 			array(
@@ -176,6 +188,10 @@ class Pronamic_WP_ClientPlugin_Updater {
 	 */
 	private function request_themes_update_check() {
 		$pronamic_themes = pronamic_client_get_themes();
+
+		if ( false === $pronamic_themes ) {
+			return false;
+		}
 
 		$themes = array();
 
