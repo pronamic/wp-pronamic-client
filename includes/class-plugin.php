@@ -138,6 +138,8 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	 * @link https://github.com/Automattic/jetpack/blob/6.8.1/class.jetpack-jitm.php#L21-L31
 	 * @link https://github.com/Automattic/jetpack/blob/6.8.1/class.jetpack.php#L665
 	 *
+	 * @since 1.3.2
+	 *
 	 * @param bool $show_jitm Whether to show just in time messages.
 	 * @return bool False if current user login is 'pronamic', otherwise the passed in value.
 	 */
