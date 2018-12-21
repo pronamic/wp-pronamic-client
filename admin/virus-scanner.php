@@ -79,7 +79,7 @@ if ( 'delete' === $action ) {
 									<td><?php echo size_format( filesize( $filename ) ); ?></td>
 									<td><?php echo date_i18n( __( 'F j, Y g:i a', 'pronamic_client' ), filectime( $filename ) ); ?></td>
 									<td>
-										<textarea cols="60" rows="4" readonly="readonly"><?php echo esc_html( file_get_contents( $filename ) ); ?></textarea>
+										<textarea cols="60" rows="4" readonly="readonly"><?php echo esc_html( file_get_contents( $filename, true ) ); ?></textarea>
 									</td>
 									<td>
 										<?php

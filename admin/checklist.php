@@ -138,7 +138,7 @@
 				<?php
 
 				$header_file          = get_template_directory() . '/header.php';
-				$header_file_content  = file_get_contents( $header_file );
+				$header_file_content  = file_get_contents( $header_file, true );
 				$has_wp_head_function = strpos( $header_file_content, 'wp_head();' );
 
 				?>
@@ -164,7 +164,7 @@
 				<?php
 
 				$footer_file            = get_template_directory() . '/footer.php';
-				$footer_file_content    = file_get_contents( $footer_file );
+				$footer_file_content    = file_get_contents( $footer_file, true );
 				$has_wp_footer_function = strpos( $footer_file_content, 'wp_footer();' );
 
 				?>
@@ -416,7 +416,7 @@
 					</th>
 					<td>
 						<?php if ( is_plugin_active( $file ) ) : ?>
-						
+
 							<span class="dashicons dashicons-yes"></span>
 
 						<?php else : ?>
