@@ -126,11 +126,16 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 *
 	 * @param string $hook
 	 */
-	function admin_enqueue_scripts( $hook ) {
+	public function admin_enqueue_scripts( $hook ) {
 		wp_register_script( 'proanmic-client-media', plugins_url( 'admin/js/media.js', $this->plugin->file ) );
-		wp_localize_script( 'proanmic-client-media', 'pronamicClientMedia', array(
-			'browseText' => __( 'Browse…', 'pronamic_client' ),
-		) );
+
+		wp_localize_script(
+			'proanmic-client-media',
+			'pronamicClientMedia',
+			array(
+				'browseText' => __( 'Browse…', 'pronamic_client' ),
+			)
+		);
 
 		wp_register_style( 'proanmic-client-admin', plugins_url( 'admin/css/admin.css', $this->plugin->file ) );
 

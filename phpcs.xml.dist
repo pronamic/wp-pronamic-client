@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+
+<ruleset name="Pronamic Client">
+	<config name="minimum_supported_wp_version" value="4.7" />
+
+	<config name="testVersion" value="5.3-99.0" />
+
+	<file>.</file>
+
+	<arg name="colors"/>
+	<arg name="extensions" value="php" />
+	<arg value="sp" />
+
+	<exclude-pattern>adminer/adminer.php</exclude-pattern>
+	<exclude-pattern>deploy/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>wordpress/*</exclude-pattern>
+
+	<rule ref="WordPress">
+		<exclude name="Squiz.Commenting" />
+
+		<exclude name="WordPress.DB.DirectDatabaseQuery.DirectQuery" />
+		<exclude name="WordPress.DB.DirectDatabaseQuery.NoCaching" />
+
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter" />
+		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion" />
+
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+
+		<exclude name="WordPress.PHP.NoSilencedErrors.Discouraged" />
+
+		<exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped" />
+		<exclude name="WordPress.Security.EscapeOutput.UnsafePrintingFunction" />
+
+		<exclude name="WordPress.WP.GlobalVariablesOverride.OverrideProhibited" />
+	</rule>
+</ruleset>

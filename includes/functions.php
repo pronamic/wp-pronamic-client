@@ -3,9 +3,14 @@
 /**
  * Get Pronamic plugins
  *
- * @return array
+ * @link https://developer.wordpress.org/reference/functions/get_plugins/
+ * @return array|false
  */
 function pronamic_client_get_plugins() {
+	if ( ! function_exists( 'get_plugins' ) ) {
+		return false;
+	}
+
 	$pronamic_plugins = array();
 
 	$plugins = get_plugins();
@@ -25,6 +30,10 @@ function pronamic_client_get_plugins() {
  * @return array
  */
 function pronamic_client_get_themes() {
+	if ( ! function_exists( 'wp_get_themes' ) ) {
+		return false;
+	}
+
 	$pronamic_themes = array();
 
 	$themes = wp_get_themes();

@@ -11,7 +11,7 @@ $adminer_url = plugins_url( 'adminer/index.php', $plugin->file );
 
 		<?php
 
-		$auth = new stdClass();
+		$auth             = new stdClass();
 		$auth->driver     = 'server';
 		$auth->server     = DB_HOST;
 		$auth->username   = DB_USER;

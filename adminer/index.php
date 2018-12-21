@@ -47,4 +47,4 @@ function adminer_object() {
 /**
  * Include Adminer
  */
-include 'adminer.php';
+require 'adminer.php';

@@ -45,6 +45,8 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		// Filters
 		add_filter( 'wp_headers', array( $this, 'wp_headers' ) );
 
+		add_filter( 'jetpack_just_in_time_msgs', array( $this, 'disable_jetpack_just_in_time_msgs_for_pronamic' ), 50 );
+
 		// Admin
 		if ( is_admin() ) {
 			Pronamic_WP_ClientPlugin_Admin::get_instance( $this );
@@ -79,24 +81,28 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		if ( current_user_can( 'pronamic_client' ) ) {
 			global $wp_admin_bar;
 
-			$wp_admin_bar->add_menu( array(
-				'id'    => 'pronamic',
-				'title' => __( 'Pronamic', 'pronamic_client' ),
-				'href'  => __( 'https://www.pronamic.eu/', 'pronamic_client' ),
-				'meta'  => array(
-					'target' => '_blank',
-				),
-			) );
+			$wp_admin_bar->add_menu(
+				array(
+					'id'    => 'pronamic',
+					'title' => __( 'Pronamic', 'pronamic_client' ),
+					'href'  => __( 'https://www.pronamic.eu/', 'pronamic_client' ),
+					'meta'  => array(
+						'target' => '_blank',
+					),
+				)
+			);
 
-			$wp_admin_bar->add_menu(array(
-				'parent' => 'pronamic',
-				'id'     => 'pronamic_contact',
-				'title'  => __( 'Contact', 'pronamic_client' ),
-				'href'   => __( 'https://www.pronamic.eu/contact/', 'pronamic_client' ),
-				'meta'   => array(
-					'target' => '_blank',
-				),
-			) );
+			$wp_admin_bar->add_menu(
+				array(
+					'parent' => 'pronamic',
+					'id'     => 'pronamic_contact',
+					'title'  => __( 'Contact', 'pronamic_client' ),
+					'href'   => __( 'https://www.pronamic.eu/contact/', 'pronamic_client' ),
+					'meta'   => array(
+						'target' => '_blank',
+					),
+				)
+			);
 		}
 	}
 
@@ -124,6 +130,27 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	 */
 	public function display( $file ) {
 		include plugin_dir_path( $this->file ) . $file;
+	}
+
+	/**
+	 * Disable Jetpack just in time messages for Pronamic user.
+	 *
+	 * @link https://github.com/Automattic/jetpack/blob/6.8.1/class.jetpack-jitm.php#L21-L31
+	 * @link https://github.com/Automattic/jetpack/blob/6.8.1/class.jetpack.php#L665
+	 *
+	 * @since 1.3.2
+	 *
+	 * @param bool $show_jitm Whether to show just in time messages.
+	 * @return bool False if current user login is 'pronamic', otherwise the passed in value.
+	 */
+	public function disable_jetpack_just_in_time_msgs_for_pronamic( $show_jitm ) {
+		$user = wp_get_current_user();
+
+		if ( 'pronamic' === $user->user_login ) {
+			return false;
+		}
+
+		return $show_jitm;
 	}
 
 	//////////////////////////////////////////////////

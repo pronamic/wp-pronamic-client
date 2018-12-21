@@ -2,8 +2,8 @@
 Contributors: pronamic, remcotolsma 
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
-Tested up to: 4.2.2
-Stable tag: 1.3.1
+Tested up to: 5.0.2
+Stable tag: 1.3.2
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.3.2 =
+*	Updated Adminer to version 4.7.0.
+*	Fixed `PHP Fatal error: Uncaught Error: Call to undefined function get_plugins()` errors.
+*	Disable Jetpack just in time messages for Pronamic user.
 
 = 1.3.1 =
 *	Improved updater.
