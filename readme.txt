@@ -28,6 +28,11 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 == Changelog ==
 
+= 1.3.2 =
+*	Updated Adminer to version 4.7.0.
+*	Fixed `PHP Fatal error: Uncaught Error: Call to undefined function get_plugins()` errors.
+*	Disable Jetpack just in time messages for Pronamic user.
+
 = 1.3.1 =
 *	Improved updater.
 *	Updated Adminer to version 4.3.1.
