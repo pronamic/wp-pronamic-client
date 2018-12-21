@@ -1,9 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2016-03-01 08:54:17+00:00\n"
-"PO-Revision-Date: 2017-07-31 16:48+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
+"client\n"
+"POT-Creation-Date: 2018-12-21 12:07:40+00:00\n"
+"PO-Revision-Date: 2018-12-21 13:11+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -24,8 +25,8 @@ msgid "Login"
 msgstr "Inloggen"
 
 #: admin/checklist.php:16 admin/status.php:14
-msgid "WordPres"
-msgstr "WordPres"
+msgid "WordPress"
+msgstr "WordPress"
 
 #: admin/checklist.php:23 admin/status.php:61
 msgid "Language"
@@ -59,85 +60,91 @@ msgstr "Categoriebasis"
 msgid "Config"
 msgstr "Configuratie"
 
-#: admin/checklist.php:130 admin/extensions.php:67
+#: admin/checklist.php:132 admin/extensions.php:69
 msgid "Theme"
 msgstr "Thema"
 
-#: admin/checklist.php:144 admin/checklist.php:161
-msgid "Function %s in %s"
-msgstr "Functie %s in %s"
+#. translators: 1: name, 2: filename
+#: admin/checklist.php:150 admin/checklist.php:176
+msgid "Function %1$s in %2$s"
+msgstr "Functie %1$s in %2$s"
 
-#: admin/checklist.php:149 admin/checklist.php:166 admin/checklist.php:185
-#: admin/checklist.php:204 admin/checklist.php:235 admin/checklist.php:280
-#: admin/checklist.php:310 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:160 admin/checklist.php:186 admin/checklist.php:205
+#: admin/checklist.php:224 admin/checklist.php:255 admin/checklist.php:300
+#: admin/checklist.php:330 admin/status.php:48 admin/status.php:56
 msgid "Yes"
 msgstr "Ja"
 
-#: admin/checklist.php:149 admin/checklist.php:166 admin/checklist.php:185
-#: admin/checklist.php:204 admin/checklist.php:235 admin/checklist.php:280
-#: admin/checklist.php:310 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:160 admin/checklist.php:186 admin/checklist.php:205
+#: admin/checklist.php:224 admin/checklist.php:255 admin/checklist.php:300
+#: admin/checklist.php:330 admin/status.php:48 admin/status.php:56
 msgid "No"
 msgstr "Nee"
 
-#: admin/checklist.php:176
+#: admin/checklist.php:196
 msgid "Theme Support HTML5"
 msgstr "Thema support HTML5"
 
-#: admin/checklist.php:195
+#: admin/checklist.php:215
 msgid "Theme Support Title Tag"
 msgstr "Thema support titel tag"
 
-#: admin/checklist.php:213
+#: admin/checklist.php:233
 msgid "Users"
 msgstr "Gebruikers"
 
-#: admin/checklist.php:226
+#: admin/checklist.php:246
 msgid "WordPress user 'pronamic'"
 msgstr "WordPress gebruiker 'pronamic'"
 
-#: admin/checklist.php:248
+#: admin/checklist.php:268
 msgid "WordPress user 'pronamic' email 'info@pronamic.nl'"
 msgstr "WordPress gebruiker 'pronamic' e-mail 'info@pronamic.nl'"
 
-#: admin/checklist.php:271
+#: admin/checklist.php:291
 msgid "WordPress user role 'manager'"
 msgstr "WordPress gebruikersrol 'manager'"
 
-#: admin/checklist.php:289
+#: admin/checklist.php:309
 msgid "Gravity Forms"
 msgstr "Gravity Forms"
 
-#: admin/checklist.php:301
+#: admin/checklist.php:321
 msgid "Gravity Forms Output HTML5"
 msgstr "Gravity Forms output HTML5"
 
-#: admin/checklist.php:320
+#: admin/checklist.php:340
 msgid "Gravity Forms Currency"
 msgstr "Gravity Forms valuta"
 
-#: admin/checklist.php:385 admin/extensions.php:4 admin/status.php:138
+#: admin/checklist.php:405 admin/extensions.php:4 admin/status.php:153
 msgid "Plugins"
 msgstr "Plugins"
 
-#: admin/checklist.php:417
+#: admin/checklist.php:437
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
-#: admin/dashboard/support.php:2 admin/includes/dashboard.php:11
+#. translators: %s: e-mail link
+#: admin/dashboard/support.php:6 admin/includes/dashboard.php:15
 msgid "E-mail: %s"
 msgstr "E-mail: %s"
 
-#: admin/dashboard/support.php:2 admin/includes/dashboard.php:11
+#: admin/dashboard/support.php:9 admin/includes/dashboard.php:18
 msgid "support@pronamic.eu"
 msgstr "support@pronamic.nl"
 
-#: admin/dashboard/support.php:3 admin/includes/dashboard.php:12
+#. translators: %s: website link
+#: admin/dashboard/support.php:17 admin/includes/dashboard.php:26
 msgid "Website: %s"
 msgstr "Website: %s"
 
-#. Author URI of the plugin/theme
-msgid "http://www.pronamic.eu/"
-msgstr "http://www.pronamic.nl/"
+#. translators: 1: https:www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic
+#: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
+#: admin/includes/dashboard.php:43 includes/class-plugin.php:88
+#: includes/credits.php:18
+msgid "https://www.pronamic.eu/"
+msgstr "https://www.pronamic.nl/"
 
 #: admin/dashboard.php:9 admin/includes/dashboard.php:8
 msgid "Support"
@@ -147,47 +154,46 @@ msgstr "Support"
 msgid "Pronamic.nl News"
 msgstr "Pronamic.nl nieuws"
 
-#: admin/dashboard.php:37 admin/dashboard.php:58
-#: admin/includes/dashboard.php:22
+#. Author URI of the plugin/theme
+msgid "http://www.pronamic.eu/"
+msgstr "http://www.pronamic.nl/"
+
+#: admin/dashboard.php:39 admin/dashboard.php:63
+#: admin/includes/dashboard.php:45
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
-#: admin/dashboard.php:50
+#: admin/dashboard.php:53
 msgid "Pronamic.eu News"
 msgstr "Pronamic.eu nieuws"
 
-#: admin/extensions.php:13
+#: admin/extensions.php:14
 msgid "No Pronamic plugins found."
 msgstr "Geen Pronamic plugins gevonden."
 
-#: admin/extensions.php:21
+#: admin/extensions.php:22
 msgid "Plugin"
 msgstr "Plugin"
 
-#: admin/extensions.php:22 admin/extensions.php:68
+#: admin/extensions.php:23 admin/extensions.php:70
 msgid "Author"
 msgstr "Auteur"
 
-#: admin/extensions.php:23 admin/extensions.php:69 admin/status.php:37
+#: admin/extensions.php:24 admin/extensions.php:71 admin/status.php:37
 msgid "Version"
 msgstr "Versie"
 
-#: admin/extensions.php:50
+#: admin/extensions.php:51
 msgid "Themes"
 msgstr "Thema's"
 
-#: admin/extensions.php:59
+#: admin/extensions.php:61
 msgid "No Pronamic themes found."
 msgstr "Geen Pronamic thema's gevonden."
 
-#: admin/includes/dashboard.php:15
+#: admin/includes/dashboard.php:36
 msgid "News"
 msgstr "Nieuws"
-
-#: admin/includes/dashboard.php:20 includes/class-plugin.php:85
-#: includes/credits.php:12
-msgid "http://pronamic.eu/"
-msgstr "http://pronamic.nl/"
 
 #: admin/includes/field-dropdown-gravityforms.php:19
 msgid "You don't have any Gravity Forms forms."
@@ -197,7 +203,7 @@ msgstr "Je hebt momenteel geen Gravity Forms formulieren."
 msgid "&mdash; Select a form &mdash;"
 msgstr "&mdash; Selecteer een formulier &mdash;"
 
-#: admin/includes/field-dropdown-pages.php:15
+#: admin/includes/field-dropdown-pages.php:16
 msgid "&mdash; Select a page &mdash;"
 msgstr "&mdash; Selecteer een pagina &mdash;"
 
@@ -227,10 +233,6 @@ msgstr "Multisite"
 msgid "Debug Mode"
 msgstr "Debug mode"
 
-#: admin/status.php:64
-msgid "Default"
-msgstr "Standaard"
-
 #: admin/status.php:69
 msgid "Max Upload Size"
 msgstr "Max Upload Size"
@@ -255,35 +257,44 @@ msgstr "PHP-versie"
 msgid "MySQL Version"
 msgstr "MySQL versie"
 
-#: admin/status.php:161
+#: admin/status.php:134
+msgid "Maximum Execution Time"
+msgstr "Maximale uitvoeringstijd"
+
+#. translators: %s: seconds
+#: admin/status.php:141
+msgid "%s seconds"
+msgstr "%s seconden"
+
+#: admin/status.php:176
 msgid "Visit plugin homepage"
 msgstr "Bezoek plugin homepagina"
 
-#: admin/status.php:164
+#: admin/status.php:179
 msgid "by"
 msgstr "door"
 
-#: admin/status.php:164
+#: admin/status.php:179
 msgid "version"
 msgstr "versie"
 
-#: admin/status.php:173
+#: admin/status.php:188
 msgid "Number Plugins"
 msgstr "Aantal plugins"
 
-#: admin/status.php:181
+#: admin/status.php:196
 msgid "Installed Plugins"
 msgstr "Geïnstalleerde plugins"
 
-#: admin/status.php:193
+#: admin/status.php:208
 msgid "Performance"
 msgstr "Prestatie"
 
-#: admin/status.php:202
+#: admin/status.php:217
 msgid "Number Autoload Options"
 msgstr "Aantal autoload opties"
 
-#: admin/status.php:221
+#: admin/status.php:240
 msgid "Number Transient Options"
 msgstr "Aantal transient opties"
 
@@ -307,15 +318,15 @@ msgstr "Datum"
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/virus-scanner.php:49 admin/virus-scanner.php:109
+#: admin/virus-scanner.php:49 admin/virus-scanner.php:111
 msgid "Actions"
 msgstr "Acties"
 
-#: admin/virus-scanner.php:79
+#: admin/virus-scanner.php:80
 msgid "F j, Y g:i a"
 msgstr "j F Y H:i "
 
-#: admin/virus-scanner.php:93 admin/virus-scanner.php:110
+#: admin/virus-scanner.php:95 admin/virus-scanner.php:112
 msgid "Delete"
 msgstr "Verwijder"
 
@@ -323,55 +334,56 @@ msgstr "Verwijder"
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: includes/class-admin.php:88
+#: includes/class-admin.php:87
 msgid "Pronamic Status"
 msgstr "Pronamic status"
 
-#: includes/class-admin.php:89
+#: includes/class-admin.php:88
 msgid "Status"
 msgstr "Status"
 
-#: includes/class-admin.php:99
+#: includes/class-admin.php:97
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: includes/class-admin.php:100
+#: includes/class-admin.php:98
 msgid "Checklist"
 msgstr "Checklist"
 
-#: includes/class-admin.php:110
+#: includes/class-admin.php:107
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: includes/class-admin.php:111
+#: includes/class-admin.php:108
 msgid "Virus Scanner"
 msgstr "Virusscanner"
 
-#: includes/class-admin.php:119
+#: includes/class-admin.php:116
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: includes/class-admin.php:120
+#: includes/class-admin.php:117
 msgid "Extensions"
 msgstr "Extensies"
 
-#: includes/class-admin.php:135
+#: includes/class-admin.php:136
 msgid "Browse…"
 msgstr "Bladeren…"
 
-#: includes/class-plugin.php:92
+#: includes/class-plugin.php:99
 msgid "Contact"
 msgstr "Contact"
 
-#: includes/class-plugin.php:93
-msgid "http://pronamic.eu/contact/"
-msgstr "http://pronamic.nl/contact/"
+#: includes/class-plugin.php:100
+msgid "https://www.pronamic.eu/contact/"
+msgstr "https://www.pronamic.nl/contact/"
 
-#: includes/credits.php:10
+#. translators: %s: Pronamic
+#: includes/credits.php:14
 msgid "Concept and realisation by %s"
 msgstr "Concept en realisatie door %s"
 
-#: includes/credits.php:13
+#: includes/credits.php:19
 msgid "Pronamic - Internet, marketing & WordPress specialist"
 msgstr "Pronamic - Internet, marketing & WordPress specialist"
 
@@ -387,10 +399,16 @@ msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
-#: includes/class-plugin.php:109
+#: includes/class-plugin.php:119
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
+
+#~ msgid "http://pronamic.eu/"
+#~ msgstr "http://pronamic.nl/"
+
+#~ msgid "Default"
+#~ msgstr "Standaard"
 
 #~ msgid "Function wp_head() in header.php"
 #~ msgstr "Functie wp_head() in header.php"
@@ -429,8 +447,10 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Support License Key"
 #~ msgstr "Support licentiecode"
 
-#~ msgid "The license key is used for access to automatic upgrades and support."
-#~ msgstr "De licentiecode wordt gebruikt voor automatische upgrades en support."
+#~ msgid ""
+#~ "The license key is used for access to automatic upgrades and support."
+#~ msgstr ""
+#~ "De licentiecode wordt gebruikt voor automatische upgrades en support."
 
 #~ msgid "Installation Status"
 #~ msgstr "Installatie status"
@@ -456,8 +476,11 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "iDEAL Pages Generator"
 #~ msgstr "iDEAL pagina's generator"
 
-#~ msgid "This page allows you to easily create pages for each iDEAL payment status."
-#~ msgstr "Via deze pagina kunt u eenvoudig pagina's aanmaken voor de verschillende iDEAL betalingsstatussen."
+#~ msgid ""
+#~ "This page allows you to easily create pages for each iDEAL payment status."
+#~ msgstr ""
+#~ "Via deze pagina kunt u eenvoudig pagina's aanmaken voor de verschillende "
+#~ "iDEAL betalingsstatussen."
 
 #~ msgid "iDEAL"
 #~ msgstr "iDEAL"
@@ -471,7 +494,8 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "error"
 #~ msgstr "fout"
 
-#~ msgid "<p>Unfortunately an error has occurred during your iDEAL payment.</p>"
+#~ msgid ""
+#~ "<p>Unfortunately an error has occurred during your iDEAL payment.</p>"
 #~ msgstr "<p>Helaas is er een fout opgetreden tijdens uw iDEAL betaling.</p>"
 
 #~ msgid "iDEAL payment canceled"
@@ -638,8 +662,12 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Live"
 #~ msgstr "Live"
 
-#~ msgid "Unfortunately we could not generate a certificate resource from the given CSR (Certificate Signing Request)."
-#~ msgstr "Helaas konden we geen certificaat resource generen vanuit de opgeven CSR (Certificate Signing Request)."
+#~ msgid ""
+#~ "Unfortunately we could not generate a certificate resource from the given "
+#~ "CSR (Certificate Signing Request)."
+#~ msgstr ""
+#~ "Helaas konden we geen certificaat resource generen vanuit de opgeven CSR "
+#~ "(Certificate Signing Request)."
 
 #~ msgid "Unfortunately we could not generate a private key."
 #~ msgstr "We konden helaas niet een privé sleutel genereren."
@@ -656,8 +684,12 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Variant"
 #~ msgstr "Variant"
 
-#~ msgid "You receive the merchant ID (also known as: acceptant ID) from your iDEAL provider."
-#~ msgstr "Je ontvangt de winkelier ID (ook wel: merchant ID of acceptant ID) van je iDEAL provider."
+#~ msgid ""
+#~ "You receive the merchant ID (also known as: acceptant ID) from your iDEAL "
+#~ "provider."
+#~ msgstr ""
+#~ "Je ontvangt de winkelier ID (ook wel: merchant ID of acceptant ID) van je "
+#~ "iDEAL provider."
 
 #~ msgid "You receive the sub ID from your iDEAL provider, the default is: %s."
 #~ msgstr "Je ontvangt de sub ID van je iDEAL provider, standaard is dit: %s."
@@ -665,8 +697,12 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Hash Key"
 #~ msgstr "Hash sleutel"
 
-#~ msgid "You configure the hash key (also known as: key or secret key) in the iDEAL dashboard of your iDEAL provider."
-#~ msgstr "Je configureert de hash sleutel (ook wel: sleutel of geheime sleutel) in het iDEAL dashboard van je iDEAL provider."
+#~ msgid ""
+#~ "You configure the hash key (also known as: key or secret key) in the "
+#~ "iDEAL dashboard of your iDEAL provider."
+#~ msgstr ""
+#~ "Je configureert de hash sleutel (ook wel: sleutel of geheime sleutel) in "
+#~ "het iDEAL dashboard van je iDEAL provider."
 
 #~ msgid "Private Key Password"
 #~ msgstr "Privé sleutel wachtwoord"
@@ -689,8 +725,12 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Number Days Valid"
 #~ msgstr "Aantal dagen geldig"
 
-#~ msgid "specify the length of time for which the generated certificate will be valid, in days. "
-#~ msgstr "specificieer hoelang de gegenereerde certificaat geldig moet zijn in dagen."
+#~ msgid ""
+#~ "specify the length of time for which the generated certificate will be "
+#~ "valid, in days. "
+#~ msgstr ""
+#~ "specificieer hoelang de gegenereerde certificaat geldig moet zijn in "
+#~ "dagen."
 
 #~ msgid "Country"
 #~ msgstr "Land"
@@ -728,11 +768,23 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "eg, YOUR name"
 #~ msgstr "bijvoorbeeld, uw naam"
 
-#~ msgid "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill in the domainname of your website."
-#~ msgstr "Heb je een iDEAL abonnement bij de Rabobank of ING bank, vul dan de domeinnaam van deze website in."
+#~ msgid ""
+#~ "Do you have an iDEAL subscription with Rabobank or ING Bank, please fill "
+#~ "in the domainname of your website."
+#~ msgstr ""
+#~ "Heb je een iDEAL abonnement bij de Rabobank of ING bank, vul dan de "
+#~ "domeinnaam van deze website in."
 
-#~ msgid "Do you have an iDEAL subscription with ABN AMRO, please fill in \"ideal_<strong>company</strong>\", where \"company\" is your company name (as specified in the request for the subscription). The value must not exceed 25 characters."
-#~ msgstr "Heb je een iDEAL abonnement bij ABN AMRO, vul dan \"ideal_<strong>bedrijf</strong>\", waar \"bedrijf\" is uw bedrijfsnaam (zoals opgegevens bij de aanvraag van iDEAL). De waarde moet niet langer zijn dan 25 tekens."
+#~ msgid ""
+#~ "Do you have an iDEAL subscription with ABN AMRO, please fill in "
+#~ "\"ideal_<strong>company</strong>\", where \"company\" is your company "
+#~ "name (as specified in the request for the subscription). The value must "
+#~ "not exceed 25 characters."
+#~ msgstr ""
+#~ "Heb je een iDEAL abonnement bij ABN AMRO, vul dan "
+#~ "\"ideal_<strong>bedrijf</strong>\", waar \"bedrijf\" is uw bedrijfsnaam "
+#~ "(zoals opgegevens bij de aanvraag van iDEAL). De waarde moet niet langer "
+#~ "zijn dan 25 tekens."
 
 #~ msgid "Generate"
 #~ msgstr "Genereer"
@@ -820,11 +872,22 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "&mdash; Select configuration &mdash; "
 #~ msgstr "&mdash; Selecteer configuratie &mdash;"
 
-#~ msgid "Maximum number of charachters is 32, you should also consider the use of variables Gravity Forms. An generated description that is longer than 32 characters will be automatically truncated."
-#~ msgstr "Maximum aantal tekens 32 is, hou daarbij ook rekening met het gebruik van Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan 32 tekens zal automatisch worden afgekapt."
+#~ msgid ""
+#~ "Maximum number of charachters is 32, you should also consider the use of "
+#~ "variables Gravity Forms. An generated description that is longer than 32 "
+#~ "characters will be automatically truncated."
+#~ msgstr ""
+#~ "Maximum aantal tekens 32 is, hou daarbij ook rekening met het gebruik van "
+#~ "Gravity Forms variabelen. Een gegeneerde beschrijving die langer is dan "
+#~ "32 tekens zal automatisch worden afgekapt."
 
-#~ msgid "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = <code>{form_id}</code>, Form Title = <code>{form_title}</code>"
-#~ msgstr "Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, Formulier ID = <code>{form_id}</code>, Formulier titel = <code>{form_title}</code>"
+#~ msgid ""
+#~ "Merge Tag Examples: Entry Id = <code>{entry_id}</code>, Form Id = "
+#~ "<code>{form_id}</code>, Form Title = <code>{form_title}</code>"
+#~ msgstr ""
+#~ "Samenvoegen tag voorbeelden: Inzending ID = <code>{entry_id}</code>, "
+#~ "Formulier ID = <code>{form_id}</code>, Formulier titel = "
+#~ "<code>{form_title}</code>"
 
 #~ msgid "iDEAL Condition"
 #~ msgstr "iDEAL conditie"
@@ -841,8 +904,12 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "is not"
 #~ msgstr "is niet"
 
-#~ msgid "To create a condition, your form must have a drop down, checkbox or multiple choice field."
-#~ msgstr "Om een conditie in te stellen moet je formulier een selectieveld, selectievakje of meerkeuzeveld bevatten."
+#~ msgid ""
+#~ "To create a condition, your form must have a drop down, checkbox or "
+#~ "multiple choice field."
+#~ msgstr ""
+#~ "Om een conditie in te stellen moet je formulier een selectieveld, "
+#~ "selectievakje of meerkeuzeveld bevatten."
 
 #~ msgid "Status Links"
 #~ msgstr "Status koppelingen"
@@ -886,8 +953,13 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Update user role"
 #~ msgstr "Update gebruikersrol"
 
-#~ msgid "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free payments of %d, you should enter an valid license key on the %s."
-#~ msgstr "<strong>Pronamic iDEAL beperkt:</strong> U heeft het maximaal aantal gratis betalingen van %d overschreden, u dient een geldige licentie sleutel in te voeren op de %s."
+#~ msgid ""
+#~ "<strong>Pronamic iDEAL limited:</strong> You exceeded the maximum free "
+#~ "payments of %d, you should enter an valid license key on the %s."
+#~ msgstr ""
+#~ "<strong>Pronamic iDEAL beperkt:</strong> U heeft het maximaal aantal "
+#~ "gratis betalingen van %d overschreden, u dient een geldige licentie "
+#~ "sleutel in te voeren op de %s."
 
 #~ msgid "iDEAL settings page"
 #~ msgstr "iDEAL instellingen pagina"
@@ -956,13 +1028,22 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgstr "iDEAL inschakelen"
 
 #~ msgid "This controls the title which the user sees during checkout."
-#~ msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
+#~ msgstr ""
+#~ "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
 
-#~ msgid "Give the customer instructions for paying via iDEAL, and let them know that their order won't be shipping until the money is received."
-#~ msgstr "Geef de klant instructies voor het betalen via iDEAL, en laat hen weten dat hun bestelling niet zal worden verstuurd totdat het geld is ontvangen."
+#~ msgid ""
+#~ "Give the customer instructions for paying via iDEAL, and let them know "
+#~ "that their order won't be shipping until the money is received."
+#~ msgstr ""
+#~ "Geef de klant instructies voor het betalen via iDEAL, en laat hen weten "
+#~ "dat hun bestelling niet zal worden verstuurd totdat het geld is ontvangen."
 
-#~ msgid "With iDEAL you can easily pay online in the secure environment of your own bank."
-#~ msgstr "Via iDEAL kunt u vertrouwd, veilig en gemakkelijk online betalen via de veilige omgeving van uw eigen bank."
+#~ msgid ""
+#~ "With iDEAL you can easily pay online in the secure environment of your "
+#~ "own bank."
+#~ msgstr ""
+#~ "Via iDEAL kunt u vertrouwd, veilig en gemakkelijk online betalen via de "
+#~ "veilige omgeving van uw eigen bank."
 
 #~ msgid "Select an iDEAL configuration."
 #~ msgstr "Selecteer een iDEAL configuratie."
@@ -970,8 +1051,12 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Choose your bank"
 #~ msgstr "Kies uw bank"
 
-#~ msgid "Paying with iDEAL is not possible. Please try again later or pay another way."
-#~ msgstr "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of betaal op een andere manier."
+#~ msgid ""
+#~ "Paying with iDEAL is not possible. Please try again later or pay another "
+#~ "way."
+#~ msgstr ""
+#~ "Betalen met iDEAL is nu niet mogelijk. Probeer het later nogmaals of "
+#~ "betaal op een andere manier."
 
 #~ msgid "Order %s"
 #~ msgstr "Bestelling %s"
@@ -982,11 +1067,18 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Awaiting iDEAL payment"
 #~ msgstr "In afwachting van iDEAL betaling"
 
-#~ msgid "We are awaiting your payment, to pay for this order please use the following link: <a href=\"%s\">Pay</a>"
-#~ msgstr "Wij wachten op uw betaling, om te betalen voor deze bestelling kunt u de volgende link gebruiken: <a href=\"%s\">Betalen</a>"
+#~ msgid ""
+#~ "We are awaiting your payment, to pay for this order please use the "
+#~ "following link: <a href=\"%s\">Pay</a>"
+#~ msgstr ""
+#~ "Wij wachten op uw betaling, om te betalen voor deze bestelling kunt u de "
+#~ "volgende link gebruiken: <a href=\"%s\">Betalen</a>"
 
-#~ msgid "Thank you for your order, please click the button below to pay with iDEAL."
-#~ msgstr "Hartelijk dank voor uw bestelling, klik dan op de onderstaande knop om te betalen met iDEAL."
+#~ msgid ""
+#~ "Thank you for your order, please click the button below to pay with iDEAL."
+#~ msgstr ""
+#~ "Hartelijk dank voor uw bestelling, klik dan op de onderstaande knop om te "
+#~ "betalen met iDEAL."
 
 #~ msgid "Shipping"
 #~ msgstr "Verzending"
@@ -1040,7 +1132,8 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgstr "Jigoshop"
 
 #~ msgid "This controls the description which the user sees during checkout."
-#~ msgstr "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
+#~ msgstr ""
+#~ "Hiermee beheert u de titel die gebruikers zien tijdens het afrekenen."
 
 #~ msgid "Pending iDEAL payment."
 #~ msgstr "In afwachting van iDEAL betaling."
@@ -1048,8 +1141,11 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Delete iDEAL plugin"
 #~ msgstr "Verwijder iDEAL plugin"
 
-#~ msgid "Warning! This will delete all iDEAL configurations, payments and options."
-#~ msgstr "Waarschuwing! Deze operatie verwijderd alle iDEAL configuraties, betalingen en opties."
+#~ msgid ""
+#~ "Warning! This will delete all iDEAL configurations, payments and options."
+#~ msgstr ""
+#~ "Waarschuwing! Deze operatie verwijderd alle iDEAL configuraties, "
+#~ "betalingen en opties."
 
 #~ msgid "Uninstall"
 #~ msgstr "Verwijder"
@@ -1241,8 +1337,12 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "Donate $10, $20 or $50!"
 #~ msgstr "Doneer $10, $20 of $50!"
 
-#~ msgid "This plugin has cost us countless hours of work, if you use it, please donate a token of your appreciation!"
-#~ msgstr "Het ons veel uren werken gekost om deze plugin te ontwikkelen, als je het gebruikt, doneer a.u.b. voor je waardering!"
+#~ msgid ""
+#~ "This plugin has cost us countless hours of work, if you use it, please "
+#~ "donate a token of your appreciation!"
+#~ msgstr ""
+#~ "Het ons veel uren werken gekost om deze plugin te ontwikkelen, als je het "
+#~ "gebruikt, doneer a.u.b. voor je waardering!"
 
 #~ msgid "Latest news from Pronamic"
 #~ msgstr "Laatste nieuws van Pronamic"

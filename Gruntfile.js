@@ -11,7 +11,8 @@ module.exports = function( grunt ) {
 				'!adminer/**',
 				'!deploy/**',
 				'!node_modules/**',
-				'!vendor/**'
+				'!vendor/**',
+				'!wordpress/**'
 			]
 		},
 
@@ -23,12 +24,13 @@ module.exports = function( grunt ) {
 					'!adminer/**',
 					'!deploy/**',
 					'!node_modules/**',
-					'!vendor/**'
+					'!vendor/**',
+					'!wordpress/**'
 				],
 			},
 			options: {
 				bin: 'vendor/bin/phpcs',
-				standard: 'phpcs.ruleset.xml',
+				standard: 'phpcs.xml.dist',
 				showSniffCodes: true
 			}
 		},
@@ -61,7 +63,8 @@ module.exports = function( grunt ) {
 					exclude: [
 						'deploy/.*',
 						'node_modules/.*',
-						'vendor/.*'
+						'vendor/.*',
+						'wordpress/.*'
 					],
 				}
 			}
@@ -95,7 +98,8 @@ module.exports = function( grunt ) {
 					'!node_modules/**',
 					'!tests/**',
 					'!vendor/**',
-					'!wp-content/**'
+					'!wp-content/**',
+					'!wordpress/**'
 				],
 				expand: true
 			}
@@ -123,6 +127,7 @@ module.exports = function( grunt ) {
 					'!tests/**',
 					'!vendor/**',
 					'!wp-content/**',
+					'!wordpress/**'
 				],
 				dest: 'deploy/latest',
 				expand: true
