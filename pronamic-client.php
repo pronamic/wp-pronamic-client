@@ -23,7 +23,6 @@ $dir = plugin_dir_path( __FILE__ );
 require_once $dir . 'includes/class-plugin.php';
 require_once $dir . 'includes/class-updater.php';
 require_once $dir . 'includes/class-admin.php';
-require_once $dir . 'includes/class-security-headers.php';
 
 /**
  * Bootstrap

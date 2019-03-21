@@ -54,9 +54,6 @@ class Pronamic_WP_ClientPlugin_Plugin {
 
 		// Updater
 		$this->updater = Pronamic_WP_ClientPlugin_Updater::get_instance( $this );
-
-		// Headers
-		$this->headers = Pronamic_WP_ClientPlugin_SecurityHeaders::get_instance( $this );
 	}
 
 	//////////////////////////////////////////////////
