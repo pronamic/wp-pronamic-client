@@ -119,6 +119,15 @@ class Pronamic_WP_ClientPlugin_Admin {
 			'pronamic_client_extensions', // menu slug
 			array( $this, 'page_extensions' ) // function
 		);
+
+		add_submenu_page(
+			'pronamic_client', // parent slug
+			__( 'Settings', 'pronamic_client' ), // page title
+			__( 'Settings', 'pronamic_client' ), // menu title
+			'pronamic_client', // capability
+			'pronamic_client_settings', // menu slug
+			array( $this, 'page_settings' ) // function
+		);
 	}
 
 	/**
@@ -204,6 +213,13 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	public function page_extensions() {
 		$this->plugin->display( 'admin/extensions.php' );
+	}
+
+	/**
+	 * Page settings
+	 */
+	public function page_settings() {
+		$this->plugin->display( 'admin/settings.php' );
 	}
 
 	//////////////////////////////////////////////////

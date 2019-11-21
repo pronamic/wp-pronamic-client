@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
 "client\n"
-"POT-Creation-Date: 2018-12-21 12:07:40+00:00\n"
-"PO-Revision-Date: 2018-12-21 13:11+0100\n"
-"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
+"POT-Creation-Date: 2019-11-21 14:00:27+00:00\n"
+"PO-Revision-Date: 2019-11-21 15:01+0100\n"
+"Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 2.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/adminer.php:21 admin/dashboard/adminer.php:10 admin/dashboard.php:17
@@ -117,11 +117,11 @@ msgstr "Gravity Forms output HTML5"
 msgid "Gravity Forms Currency"
 msgstr "Gravity Forms valuta"
 
-#: admin/checklist.php:405 admin/extensions.php:4 admin/status.php:153
+#: admin/checklist.php:401 admin/extensions.php:4 admin/status.php:153
 msgid "Plugins"
 msgstr "Plugins"
 
-#: admin/checklist.php:437
+#: admin/checklist.php:433
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
@@ -141,7 +141,7 @@ msgstr "Website: %s"
 
 #. translators: 1: https:www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic
 #: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
-#: admin/includes/dashboard.php:43 includes/class-plugin.php:88
+#: admin/includes/dashboard.php:43 includes/class-plugin.php:93
 #: includes/credits.php:18
 msgid "https://www.pronamic.eu/"
 msgstr "https://www.pronamic.nl/"
@@ -366,17 +366,29 @@ msgstr "Pronamic extensies"
 msgid "Extensions"
 msgstr "Extensies"
 
-#: includes/class-admin.php:136
+#: includes/class-admin.php:125 includes/class-admin.php:126
+msgid "Settings"
+msgstr "Instellingen"
+
+#: includes/class-admin.php:145
 msgid "Browse…"
 msgstr "Bladeren…"
 
-#: includes/class-plugin.php:99
+#: includes/class-plugin.php:104
 msgid "Contact"
 msgstr "Contact"
 
-#: includes/class-plugin.php:100
+#: includes/class-plugin.php:105
 msgid "https://www.pronamic.eu/contact/"
 msgstr "https://www.pronamic.nl/contact/"
+
+#: includes/class-settings.php:54
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/class-settings.php:61
+msgid "PHPMailer Sender"
+msgstr "PHPMailer afzender"
 
 #. translators: %s: Pronamic
 #: includes/credits.php:14
@@ -392,17 +404,20 @@ msgid "Pronamic Client"
 msgstr "Pronamic Client"
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.pronamic.eu/plugins/pronamic-client/"
-msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
+msgid "https://www.pronamic.eu/plugins/pronamic-client/"
+msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
 
 #. Description of the plugin/theme
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
-#: includes/class-plugin.php:119
+#: includes/class-plugin.php:124
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
+
+#~ msgid "http://www.pronamic.eu/plugins/pronamic-client/"
+#~ msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
 
 #~ msgid "http://pronamic.eu/"
 #~ msgstr "http://pronamic.nl/"
@@ -972,9 +987,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "Payments"
 #~ msgstr "Betalingen"
-
-#~ msgid "Settings"
-#~ msgstr "Instellingen"
 
 #~ msgid "Pages Generator"
 #~ msgstr "Pagina's generator"
