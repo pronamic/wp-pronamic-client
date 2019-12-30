@@ -185,6 +185,14 @@
 			</tr>
 			<tr>
 				<th scope="row">
+					<?php esc_html_e( 'mail-tester.com/spf-dkim-check', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<a href="https://www.mail-tester.com/spf-dkim-check">https://www.mail-tester.com/spf-dkim-check</a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
 					<?php esc_html_e( 'Dig (DNS lookup) - G Suite toolbox', 'pronamic_client' ); ?>
 				</th>
 				<td>
@@ -197,6 +205,22 @@
 				</th>
 				<td>
 					<a href="https://www.kitterman.com/spf/validate.html">https://www.kitterman.com/spf/validate.html</a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'dmarcian\'s SPF Record Checker', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<a href="https://dmarcian.com/spf-survey/">https://dmarcian.com/spf-survey/</a>
+				</td>
+			</tr>
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'DMARC Analyzer - DKIM record Checker', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<a href="https://www.dmarcanalyzer.com/dkim/dkim-check/">https://www.dmarcanalyzer.com/dkim/dkim-check/</a>
 				</td>
 			</tr>
 		</tbody>
