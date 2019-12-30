@@ -64,9 +64,9 @@
 					$reflection_wp_mail = new ReflectionFunction( 'wp_mail' );
 
 					printf(
-						__( 'In <code>%s</code> on line <code>%s</code>.', 'pronamic_client' ),
-						$reflection_wp_mail->getFileName(),
-						$reflection_wp_mail->getStartLine()
+						__( 'In %s on line %s.', 'pronamic_client' ),
+						'<code>' . $reflection_wp_mail->getFileName() . '</code>',
+						'<code>' . $reflection_wp_mail->getStartLine() . '</code>'
 					);
 
 					?>

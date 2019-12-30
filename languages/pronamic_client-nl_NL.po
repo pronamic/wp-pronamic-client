@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
 "client\n"
-"POT-Creation-Date: 2019-11-21 14:00:27+00:00\n"
-"PO-Revision-Date: 2019-11-21 15:01+0100\n"
-"Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
+"POT-Creation-Date: 2019-12-30 12:35:39+00:00\n"
+"PO-Revision-Date: 2019-12-30 13:35+0100\n"
+"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/adminer.php:21 admin/dashboard/adminer.php:10 admin/dashboard.php:17
@@ -166,6 +166,98 @@ msgstr "Pronamic nieuws"
 #: admin/dashboard.php:53
 msgid "Pronamic.eu News"
 msgstr "Pronamic.eu nieuws"
+
+#: admin/email.php:14
+msgid "Current mail settings"
+msgstr "Huidige e-mailinstellingen"
+
+#: admin/email.php:20
+msgid "SendMail path (UNIX)"
+msgstr "SendMail-pad (UNIX)"
+
+#: admin/email.php:28
+msgid "SMTP server (Windows)"
+msgstr "SMTP-server (Windows)"
+
+#: admin/email.php:36
+msgid "SMTP port (Windows)"
+msgstr "SMTP-poort (Windows)"
+
+#: admin/email.php:44
+msgid "Add X-header"
+msgstr "X-header toevoegen"
+
+#: admin/email.php:55
+msgid "Function %s location"
+msgstr "Functie %s locatie"
+
+#: admin/email.php:67
+msgid "In %s on line %s."
+msgstr "In %s op regel %s."
+
+#: admin/email.php:78
+msgid "Send a test email"
+msgstr "Verstuur een test email"
+
+#: admin/email.php:88
+msgid "The test email has not been sent by WordPress."
+msgstr "De test-e-mail is niet verzonden door WordPress."
+
+#: admin/email.php:98
+msgid ""
+"The test email has been sent by WordPress. Please note this does not mean it "
+"has been delivered."
+msgstr ""
+"De test-e-mail is verzonden door WordPress. Let op: dit betekent niet dat "
+"het is afgeleverd."
+
+#: admin/email.php:108
+msgid ""
+"Use a service like %s to test if this WordPress installation is sending "
+"emails."
+msgstr ""
+"Gebruik een service zoals %s om te testen of deze WordPress-installatie e-"
+"mails verzendt."
+
+#: admin/email.php:124
+msgid "Send To"
+msgstr "Verstuur naar"
+
+#: admin/email.php:142
+msgid "Send test email"
+msgstr "Verstuur test e-mail"
+
+#: admin/email.php:160
+msgid "Tools"
+msgstr "Gereedschap"
+
+#: admin/email.php:166
+msgid "Title"
+msgstr "Titel"
+
+#: admin/email.php:169
+msgid "Link"
+msgstr "Link"
+
+#: admin/email.php:172
+msgid "Description"
+msgstr "Beschrijving"
+
+#: admin/email.php:180
+msgid "mail-tester.com"
+msgstr "mail-tester.com"
+
+#: admin/email.php:186
+msgid "A snappy little tool by MailPoet & AcyMailing."
+msgstr "Een pittig klein hulpmiddel van MailPoet & AcyMailing."
+
+#: admin/email.php:191
+msgid "Dig (DNS lookup) - G Suite toolbox"
+msgstr "Dig (DNS lookup) - G Suite toolbox"
+
+#: admin/email.php:202
+msgid "SPF Record Testing Tools"
+msgstr "SPF Record Testing Tools"
 
 #: admin/extensions.php:14
 msgid "No Pronamic plugins found."
@@ -330,47 +422,68 @@ msgstr "j F Y H:i "
 msgid "Delete"
 msgstr "Verwijder"
 
+#: includes/class-admin.php:94
+msgid "Test email from %s"
+msgstr "Test e-mail van %s"
+
+#: includes/class-admin.php:99
+msgid ""
+"This test email proves that your WordPress installation at %s can send "
+"emails."
+msgstr ""
+"Deze test-e-mail bewijst dat je WordPress-installatie op %s e-mails kan "
+"verzenden."
+
+#: includes/class-admin.php:107
+msgid "Sent: %s"
+msgstr "Verzonden: %s"
+
 #. Author of the plugin/theme
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: includes/class-admin.php:87
+#: includes/class-admin.php:156
 msgid "Pronamic Status"
 msgstr "Pronamic status"
 
-#: includes/class-admin.php:88
+#: includes/class-admin.php:157
 msgid "Status"
 msgstr "Status"
 
-#: includes/class-admin.php:97
+#: includes/class-admin.php:166
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: includes/class-admin.php:98
+#: includes/class-admin.php:167
 msgid "Checklist"
 msgstr "Checklist"
 
-#: includes/class-admin.php:107
+#: includes/class-admin.php:176
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: includes/class-admin.php:108
+#: includes/class-admin.php:177
 msgid "Virus Scanner"
 msgstr "Virusscanner"
 
-#: includes/class-admin.php:116
+#: includes/class-admin.php:185
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: includes/class-admin.php:117
+#: includes/class-admin.php:186
 msgid "Extensions"
 msgstr "Extensies"
 
-#: includes/class-admin.php:125 includes/class-admin.php:126
+#: includes/class-admin.php:194 includes/class-admin.php:195
+#: includes/class-settings.php:54
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/class-admin.php:203 includes/class-admin.php:204
 msgid "Settings"
 msgstr "Instellingen"
 
-#: includes/class-admin.php:145
+#: includes/class-admin.php:223
 msgid "Browse…"
 msgstr "Bladeren…"
 
@@ -382,13 +495,17 @@ msgstr "Contact"
 msgid "https://www.pronamic.eu/contact/"
 msgstr "https://www.pronamic.nl/contact/"
 
-#: includes/class-settings.php:54
-msgid "Email"
-msgstr "E-mail"
-
 #: includes/class-settings.php:61
 msgid "PHPMailer Sender"
 msgstr "PHPMailer afzender"
+
+#: includes/class-settings.php:69
+msgid ""
+"Optionally set a PHPMailer Sender e-mail address to, for example, resolve "
+"SPF neutral notifications such as: %s."
+msgstr ""
+"Stel optioneel een PHPMailer afzender e-mailadres in om bijvoorbeeld SPF-"
+"neutrale meldingen op te lossen, zoals: %s."
 
 #. translators: %s: Pronamic
 #: includes/credits.php:14
@@ -404,8 +521,8 @@ msgid "Pronamic Client"
 msgstr "Pronamic Client"
 
 #. Plugin URI of the plugin/theme
-msgid "https://www.pronamic.eu/plugins/pronamic-client/"
-msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
+msgid "http://www.pronamic.eu/plugins/pronamic-client/"
+msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
 
 #. Description of the plugin/theme
 msgid "WordPress plugin for Pronamic clients."
@@ -416,8 +533,18 @@ msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
-#~ msgid "http://www.pronamic.eu/plugins/pronamic-client/"
-#~ msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
+#~ msgid ""
+#~ "Optionally set a PHPMailer Sender e-mail address to, for example, resolve "
+#~ "SPF neutral notifications such as: %s"
+#~ msgstr ""
+#~ "Stel optioneel een PHPMailer afzender e-mailadres in om bijvoorbeeld SPF-"
+#~ "neutrale meldingen op te lossen, zoals: %s."
+
+#~ msgid "In <code>%s</code> on line <code>%s</code>."
+#~ msgstr "In <code>%s</code> on line <code>%s</code>."
+
+#~ msgid "https://www.pronamic.eu/plugins/pronamic-client/"
+#~ msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
 
 #~ msgid "http://pronamic.eu/"
 #~ msgstr "http://pronamic.nl/"
@@ -549,9 +676,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "<p>The payment process is successfully completed.</p>"
 #~ msgstr "<p>Het betalingsproces is succesvol voltooid.</p>"
 
-#~ msgid "Title"
-#~ msgstr "Titel"
-
 #~ msgid "Slug"
 #~ msgstr "Slug"
 
@@ -578,9 +702,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "Transaction ID"
 #~ msgstr "Transactie ID"
-
-#~ msgid "Description"
-#~ msgstr "Beschrijving"
 
 #~ msgid "Amount"
 #~ msgstr "Bedrag"

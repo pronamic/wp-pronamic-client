@@ -65,14 +65,13 @@ class Pronamic_WP_ClientPlugin_Settings {
 			array(
 				'label_for' => 'pronamic_client_phpmailer_sender',
 				'classes'   => 'regular-text',
-				'description' => nl2br( sprintf(
-					__( 'Optionally set a PHPMailer Sender e-mail address to, for example, resolve SPF neutral notifications such as:
-						%s', 'pronamic_client' ),
+				'description' => sprintf(
+					__( 'Optionally set a PHPMailer Sender e-mail address to, for example, resolve SPF neutral notifications such as: %s.', 'pronamic_client' ),
 					sprintf(
-						'<code>%s</code>',
+						'<br /><code>%s</code>',
 						'spf=neutral (●●●●●●●●.●●●: ●.●.●.● is neither permitted nor denied by best guess record for domain of ●●●●●●●●@●●●●●●●●.●●●) smtp.mailfrom=●●●●●●●●@●●●●●●●●.●●●'
 					)
-				) )
+				)
 			)
 		);
 	}
