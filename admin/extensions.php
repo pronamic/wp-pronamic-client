@@ -8,7 +8,7 @@
 	$pronamic_plugins = pronamic_client_get_plugins();
 
 	if ( empty( $pronamic_plugins ) ) :
-	?>
+		?>
 
 		<p>
 			<?php _e( 'No Pronamic plugins found.', 'pronamic_client' ); ?>
@@ -55,7 +55,7 @@
 	$pronamic_themes = pronamic_client_get_themes();
 
 	if ( empty( $pronamic_themes ) ) :
-	?>
+		?>
 
 		<p>
 			<?php _e( 'No Pronamic themes found.', 'pronamic_client' ); ?>

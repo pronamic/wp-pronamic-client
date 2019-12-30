@@ -104,7 +104,7 @@
 			);
 
 			foreach ( $constants as $constant ) :
-			?>
+				?>
 
 				<tr>
 					<th scope="row">

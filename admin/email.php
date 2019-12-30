@@ -49,7 +49,7 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php 
+					<?php
 
 					printf(
 						__( 'Function %s location', 'pronamic_client' ),
@@ -64,7 +64,7 @@
 					$reflection_wp_mail = new ReflectionFunction( 'wp_mail' );
 
 					printf(
-						__( 'In %s on line %s.', 'pronamic_client' ),
+						__( 'In %1$s on line %2$s.', 'pronamic_client' ),
 						'<code>' . $reflection_wp_mail->getFileName() . '</code>',
 						'<code>' . $reflection_wp_mail->getStartLine() . '</code>'
 					);
@@ -81,7 +81,8 @@
 
 	$message = filter_input( INPUT_GET, 'message', FILTER_SANITIZE_STRING );
 
-	if ( 'pronamic_client_test_email_sent_no' === $message ) : ?>
+	if ( 'pronamic_client_test_email_sent_no' === $message ) :
+		?>
 
 		<div class="error">
 			<p>
@@ -89,9 +90,11 @@
 			</p>
 		</div>
 
-	<?php endif; 
+		<?php
+	endif;
 
-	if ( 'pronamic_client_test_email_sent_yes' === $message ) : ?>
+	if ( 'pronamic_client_test_email_sent_yes' === $message ) :
+		?>
 
 		<div class="updated">
 			<p>
