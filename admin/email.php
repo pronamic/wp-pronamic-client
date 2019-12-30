@@ -171,9 +171,6 @@
 				<th scope="col">
 					<?php esc_html_e( 'Link', 'pronamic_client' ); ?>
 				</th>
-				<th scope="col">
-					<?php esc_html_e( 'Description', 'pronamic_client' ); ?>
-				</th>
 			</tr>
 		</thead>
 
@@ -185,9 +182,6 @@
 				<td>
 					<a href="https://www.mail-tester.com/">https://www.mail-tester.com/</a>
 				</td>
-				<td>
-					<?php esc_html_e( 'A snappy little tool by MailPoet & AcyMailing.', 'pronamic_client' ); ?>
-				</td>
 			</tr>
 			<tr>
 				<th scope="row">
@@ -196,9 +190,6 @@
 				<td>
 					<a href="https://toolbox.googleapps.com/apps/dig/">https://toolbox.googleapps.com/apps/dig/</a>
 				</td>
-				<td>
-					
-				</td>
 			</tr>
 			<tr>
 				<th scope="row">
@@ -206,9 +197,6 @@
 				</th>
 				<td>
 					<a href="https://www.kitterman.com/spf/validate.html">https://www.kitterman.com/spf/validate.html</a>
-				</td>
-				<td>
-					
 				</td>
 			</tr>
 		</tbody>
