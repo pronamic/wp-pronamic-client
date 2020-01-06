@@ -153,31 +153,11 @@ class Pronamic_WP_ClientPlugin_Admin {
 		// @see wp-admin/menu.php
 		add_submenu_page(
 			'pronamic_client', // parent slug
-			__( 'Pronamic Status', 'pronamic_client' ), // page title
-			__( 'Status', 'pronamic_client' ), // menu title
-			'pronamic_client', // capability
-			'pronamic_client_status', // menu slug
-			array( $this, 'page_status' ) // function
-		);
-
-		// @see wp-admin/menu.php
-		add_submenu_page(
-			'pronamic_client', // parent slug
 			__( 'Pronamic Checklist', 'pronamic_client' ), // page title
 			__( 'Checklist', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_checklist', // menu slug
 			array( $this, 'page_checklist' ) // function
-		);
-
-		// @see wp-admin/menu.php
-		add_submenu_page(
-			'pronamic_client', // parent slug
-			__( 'Pronamic Virus Scanner', 'pronamic_client' ), // page title
-			__( 'Virus Scanner', 'pronamic_client' ), // menu title
-			'pronamic_client', // capability
-			'pronamic_client_virus_scanner', // menu slug
-			array( $this, 'page_virus_scanner' ) // function
 		);
 
 		add_submenu_page(
@@ -187,6 +167,16 @@ class Pronamic_WP_ClientPlugin_Admin {
 			'pronamic_client', // capability
 			'pronamic_client_extensions', // menu slug
 			array( $this, 'page_extensions' ) // function
+		);
+
+		// @see wp-admin/menu.php
+		add_submenu_page(
+			'pronamic_client', // parent slug
+			__( 'Pronamic Virus Scanner', 'pronamic_client' ), // page title
+			__( 'Scanner', 'pronamic_client' ), // menu title
+			'pronamic_client', // capability
+			'pronamic_client_virus_scanner', // menu slug
+			array( $this, 'page_virus_scanner' ) // function
 		);
 
 		add_submenu_page(
@@ -263,13 +253,6 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	public function page_dashboard() {
 		$this->plugin->display( 'admin/dashboard.php' );
-	}
-
-	/**
-	 * Page status
-	 */
-	public function page_status() {
-		$this->plugin->display( 'admin/status.php' );
 	}
 
 	/**
