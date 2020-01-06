@@ -152,6 +152,11 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	 * @return bool False if current user login is 'pronamic', otherwise the passed in value.
 	 */
 	public function disable_jetpack_just_in_time_msgs_for_pronamic( $show_jitm ) {
+		// Prevent fatal error if  plugin is network activated.
+		if ( ! function_exists( '\wp_get_current_user' ) ) {
+			return $show_jitm;
+		}
+
 		$user = wp_get_current_user();
 
 		if ( 'pronamic' === $user->user_login ) {
