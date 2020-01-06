@@ -1,5 +1,10 @@
 <?php
 
+// Prevent direct file access.
+if ( ! defined( '\ABSPATH' ) ) {
+	exit;
+}
+
 $delete = filter_input( INPUT_GET, 'delete', FILTER_SANITIZE_STRING );
 
 $action = filter_input( INPUT_POST, 'action2', FILTER_SANITIZE_STRING );
