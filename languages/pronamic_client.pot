@@ -2,7 +2,7 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.3.2\n"
+"Project-Id-Version: Pronamic Client 1.4.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wp-pronamic-client\n"
 "POT-Creation-Date: 2020-01-07 10:52:15+00:00\n"
