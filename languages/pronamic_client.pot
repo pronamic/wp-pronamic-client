@@ -1,32 +1,24 @@
-# Copyright (C) 2019 Pronamic
+# Copyright (C) 2020 Pronamic
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client 1.3.2\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wp-pronamic-client\n"
-"POT-Creation-Date: 2019-12-30 12:35:39+00:00\n"
+"POT-Creation-Date: 2020-01-07 10:52:15+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: admin/adminer.php:21 admin/dashboard/adminer.php:10 admin/dashboard.php:17
-msgid "Adminer"
-msgstr ""
-
-#: admin/adminer.php:29 admin/dashboard/adminer.php:27
-msgid "Login"
-msgstr ""
-
-#: admin/checklist.php:16 admin/status.php:14
+#: admin/checklist.php:16
 msgid "WordPress"
 msgstr ""
 
-#: admin/checklist.php:23 admin/status.php:61
+#: admin/checklist.php:23
 msgid "Language"
 msgstr ""
 
@@ -69,13 +61,13 @@ msgstr ""
 
 #: admin/checklist.php:160 admin/checklist.php:186 admin/checklist.php:205
 #: admin/checklist.php:224 admin/checklist.php:255 admin/checklist.php:300
-#: admin/checklist.php:330 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:330
 msgid "Yes"
 msgstr ""
 
 #: admin/checklist.php:160 admin/checklist.php:186 admin/checklist.php:205
 #: admin/checklist.php:224 admin/checklist.php:255 admin/checklist.php:300
-#: admin/checklist.php:330 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:330
 msgid "No"
 msgstr ""
 
@@ -115,12 +107,20 @@ msgstr ""
 msgid "Gravity Forms Currency"
 msgstr ""
 
-#: admin/checklist.php:401 admin/extensions.php:4 admin/status.php:153
+#: admin/checklist.php:401 admin/extensions.php:4
 msgid "Plugins"
 msgstr ""
 
 #: admin/checklist.php:433
 msgid "Search Plugin"
+msgstr ""
+
+#: admin/dashboard/adminer.php:10 admin/dashboard.php:17
+msgid "Adminer"
+msgstr ""
+
+#: admin/dashboard/adminer.php:27
+msgid "Login"
 msgstr ""
 
 #: admin/dashboard/support.php:6 admin/includes/dashboard.php:15
@@ -138,7 +138,7 @@ msgid "Website: %s"
 msgstr ""
 
 #: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
-#: admin/includes/dashboard.php:43 includes/class-plugin.php:93
+#: admin/includes/dashboard.php:43 includes/class-plugin.php:96
 #: includes/credits.php:18
 #. translators: 1: https:www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic
 msgid "https://www.pronamic.eu/"
@@ -185,72 +185,79 @@ msgstr ""
 msgid "Add X-header"
 msgstr ""
 
-#: admin/email.php:55
+#: admin/email.php:56
+#. translators: %s: <code>wp_mail()</code>
 msgid "Function %s location"
 msgstr ""
 
-#: admin/email.php:67
-msgid "In %s on line %s."
+#: admin/email.php:69
+#. translators: 1: filename, 2: line
+msgid "In %1$s on line %2$s."
 msgstr ""
 
-#: admin/email.php:78
+#: admin/email.php:80
 msgid "Send a test email"
 msgstr ""
 
-#: admin/email.php:88
+#: admin/email.php:91
 msgid "The test email has not been sent by WordPress."
 msgstr ""
 
-#: admin/email.php:98
+#: admin/email.php:103
 msgid ""
 "The test email has been sent by WordPress. Please note this does not mean "
 "it has been delivered."
 msgstr ""
 
-#: admin/email.php:108
+#: admin/email.php:114
+#. translators: %s: <a href="https:www.mail-tester.com">mail-tester.com</a>
 msgid ""
 "Use a service like %s to test if this WordPress installation is sending "
 "emails."
 msgstr ""
 
-#: admin/email.php:124
+#: admin/email.php:130
 msgid "Send To"
 msgstr ""
 
-#: admin/email.php:142
+#: admin/email.php:148
 msgid "Send test email"
 msgstr ""
 
-#: admin/email.php:160
+#: admin/email.php:166
 msgid "Tools"
 msgstr ""
 
-#: admin/email.php:166
+#: admin/email.php:172
 msgid "Title"
 msgstr ""
 
-#: admin/email.php:169
+#: admin/email.php:175
 msgid "Link"
 msgstr ""
 
-#: admin/email.php:172
-msgid "Description"
-msgstr ""
-
-#: admin/email.php:180
+#: admin/email.php:183
 msgid "mail-tester.com"
 msgstr ""
 
-#: admin/email.php:186
-msgid "A snappy little tool by MailPoet & AcyMailing."
+#: admin/email.php:191
+msgid "mail-tester.com/spf-dkim-check"
 msgstr ""
 
-#: admin/email.php:191
+#: admin/email.php:199
 msgid "Dig (DNS lookup) - G Suite toolbox"
 msgstr ""
 
-#: admin/email.php:202
+#: admin/email.php:207
 msgid "SPF Record Testing Tools"
+msgstr ""
+
+#: admin/email.php:215
+msgid "dmarcian's SPF Record Checker"
+msgstr ""
+
+#: admin/email.php:223
+msgid "DMARC Analyzer - DKIM record Checker"
 msgstr ""
 
 #: admin/extensions.php:14
@@ -265,7 +272,7 @@ msgstr ""
 msgid "Author"
 msgstr ""
 
-#: admin/extensions.php:24 admin/extensions.php:71 admin/status.php:37
+#: admin/extensions.php:24 admin/extensions.php:71
 msgid "Version"
 msgstr ""
 
@@ -303,130 +310,52 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: admin/status.php:21
-msgid "Home URL"
-msgstr ""
-
-#: admin/status.php:29
-msgid "Site URL"
-msgstr ""
-
-#: admin/status.php:45
-msgid "Multisite"
-msgstr ""
-
-#: admin/status.php:53
-msgid "Debug Mode"
-msgstr ""
-
-#: admin/status.php:69
-msgid "Max Upload Size"
-msgstr ""
-
-#: admin/status.php:77
-msgid "Absolute Path"
-msgstr ""
-
-#: admin/status.php:105
-msgid "Hosting"
-msgstr ""
-
-#: admin/status.php:112
-msgid "Web Server Info"
-msgstr ""
-
-#: admin/status.php:118
-msgid "PHP Version"
-msgstr ""
-
-#: admin/status.php:126
-msgid "MySQL Version"
-msgstr ""
-
-#: admin/status.php:134
-msgid "Maximum Execution Time"
-msgstr ""
-
-#: admin/status.php:141
-#. translators: %s: seconds
-msgid "%s seconds"
-msgstr ""
-
-#: admin/status.php:176
-msgid "Visit plugin homepage"
-msgstr ""
-
-#: admin/status.php:179
-msgid "by"
-msgstr ""
-
-#: admin/status.php:179
-msgid "version"
-msgstr ""
-
-#: admin/status.php:188
-msgid "Number Plugins"
-msgstr ""
-
-#: admin/status.php:196
-msgid "Installed Plugins"
-msgstr ""
-
-#: admin/status.php:208
-msgid "Performance"
-msgstr ""
-
-#: admin/status.php:217
-msgid "Number Autoload Options"
-msgstr ""
-
-#: admin/status.php:240
-msgid "Number Transient Options"
-msgstr ""
-
-#: admin/virus-scanner.php:17
+#: admin/virus-scanner.php:22
 msgid "Uploads"
 msgstr ""
 
-#: admin/virus-scanner.php:45
+#: admin/virus-scanner.php:50
 msgid "File"
 msgstr ""
 
-#: admin/virus-scanner.php:46
+#: admin/virus-scanner.php:51
 msgid "Size"
 msgstr ""
 
-#: admin/virus-scanner.php:47
+#: admin/virus-scanner.php:52
 msgid "Date"
 msgstr ""
 
-#: admin/virus-scanner.php:48
+#: admin/virus-scanner.php:53
 msgid "Content"
 msgstr ""
 
-#: admin/virus-scanner.php:49 admin/virus-scanner.php:111
+#: admin/virus-scanner.php:54 admin/virus-scanner.php:116
 msgid "Actions"
 msgstr ""
 
-#: admin/virus-scanner.php:80
+#: admin/virus-scanner.php:85
 msgid "F j, Y g:i a"
 msgstr ""
 
-#: admin/virus-scanner.php:95 admin/virus-scanner.php:112
+#: admin/virus-scanner.php:100 admin/virus-scanner.php:117
 msgid "Delete"
 msgstr ""
 
-#: includes/class-admin.php:94
+#: includes/class-admin.php:95
+#. translators: %s: site url
 msgid "Test email from %s"
 msgstr ""
 
-#: includes/class-admin.php:99
+#: includes/class-admin.php:101
+#. translators: %s: site url
 msgid ""
 "This test email proves that your WordPress installation at %s can send "
 "emails."
 msgstr ""
 
-#: includes/class-admin.php:107
+#: includes/class-admin.php:110
+#. translators: %s: sent date
 msgid "Sent: %s"
 msgstr ""
 
@@ -434,64 +363,82 @@ msgstr ""
 msgid "Pronamic"
 msgstr ""
 
-#: includes/class-admin.php:156
-msgid "Pronamic Status"
-msgstr ""
-
-#: includes/class-admin.php:157
-msgid "Status"
-msgstr ""
-
-#: includes/class-admin.php:166
+#: includes/class-admin.php:159
 msgid "Pronamic Checklist"
 msgstr ""
 
-#: includes/class-admin.php:167
+#: includes/class-admin.php:160
 msgid "Checklist"
 msgstr ""
 
-#: includes/class-admin.php:176
-msgid "Pronamic Virus Scanner"
-msgstr ""
-
-#: includes/class-admin.php:177
-msgid "Virus Scanner"
-msgstr ""
-
-#: includes/class-admin.php:185
+#: includes/class-admin.php:168
 msgid "Pronamic Extensions"
 msgstr ""
 
-#: includes/class-admin.php:186
+#: includes/class-admin.php:169
 msgid "Extensions"
 msgstr ""
 
-#: includes/class-admin.php:194 includes/class-admin.php:195
+#: includes/class-admin.php:178
+msgid "Pronamic Virus Scanner"
+msgstr ""
+
+#: includes/class-admin.php:179
+msgid "Scanner"
+msgstr ""
+
+#: includes/class-admin.php:187 includes/class-admin.php:188
 #: includes/class-settings.php:54
 msgid "Email"
 msgstr ""
 
-#: includes/class-admin.php:203 includes/class-admin.php:204
+#: includes/class-admin.php:196 includes/class-admin.php:197
 msgid "Settings"
 msgstr ""
 
-#: includes/class-admin.php:223
+#: includes/class-admin.php:216
 msgid "Browse…"
 msgstr ""
 
-#: includes/class-plugin.php:104
+#: includes/class-plugin.php:107
 msgid "Contact"
 msgstr ""
 
-#: includes/class-plugin.php:105
+#: includes/class-plugin.php:108
 msgid "https://www.pronamic.eu/contact/"
+msgstr ""
+
+#: includes/class-scripts.php:75
+msgid "Scripts"
+msgstr ""
+
+#: includes/class-scripts.php:83
+msgid "Header"
+msgstr ""
+
+#: includes/class-scripts.php:96
+msgid "Body open"
+msgstr ""
+
+#: includes/class-scripts.php:105
+#. translators: 1: hook
+msgid "Your theme needs support for the %1$s hook."
+msgstr ""
+
+#: includes/class-scripts.php:114
+msgid "Footer"
+msgstr ""
+
+#: includes/class-scripts.php:183
+msgid "There is already an analytics plugin active."
 msgstr ""
 
 #: includes/class-settings.php:61
 msgid "PHPMailer Sender"
 msgstr ""
 
-#: includes/class-settings.php:69
+#: includes/class-settings.php:70
+#. translators: %s: <code>spf=neutral...</code>
 msgid ""
 "Optionally set a PHPMailer Sender e-mail address to, for example, resolve "
 "SPF neutral notifications such as: %s."
@@ -518,7 +465,7 @@ msgstr ""
 msgid "WordPress plugin for Pronamic clients."
 msgstr ""
 
-#: includes/class-plugin.php:124
+#: includes/class-plugin.php:127
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr ""
