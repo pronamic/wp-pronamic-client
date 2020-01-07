@@ -63,6 +63,78 @@ class Pronamic_WP_ClientPlugin_Admin {
 
 			exit;
 		}
+
+		// Test email.
+		if ( filter_has_var( INPUT_POST, 'pronamic_client_send_test_email' ) ) {
+			$this->maybe_send_test_email();
+		}
+	}
+
+	/**
+	 * Maybe send test email.
+	 *
+	 * @link https://developer.wordpress.org/reference/functions/wp_nonce_field/
+	 * @link https://developer.wordpress.org/reference/functions/wp_mail/
+	 * @link https://plugins.trac.wordpress.org/browser/check-email/trunk/check-email.php#L73
+	 */
+	private function maybe_send_test_email() {
+		$nonce = filter_input( INPUT_POST, 'pronamic_client_send_test_email_nonce', FILTER_SANITIZE_STRING );
+
+		if ( ! wp_verify_nonce( $nonce, 'pronamic_client_send_test_email' ) ) {
+			return;
+		}
+
+		$to = filter_input( INPUT_POST, 'pronamic_client_test_email_to', FILTER_VALIDATE_EMAIL );
+
+		if ( empty( $to ) ) {
+			return;
+		}
+
+		$subject = sprintf(
+			/* translators: %s: site url */
+			__( 'Test email from %s', 'pronamic_client' ),
+			get_bloginfo( 'url' )
+		);
+
+		$message = sprintf(
+			/* translators: %s: site url */
+			__( 'This test email proves that your WordPress installation at %s can send emails.', 'pronamic_client' ),
+			get_bloginfo( 'url' )
+		);
+
+		$message .= "\r\n";
+		$message .= "\r\n";
+
+		$message .= sprintf(
+			/* translators: %s: sent date */
+			__( 'Sent: %s', 'pronamic_client' ),
+			date( 'r' )
+		);
+
+		$result = wp_mail( $to, $subject, $message );
+
+		/**
+		 * Redirect.
+		 *
+		 * @link https://developer.wordpress.org/reference/functions/admin_url/
+		 * @link https://developer.wordpress.org/reference/functions/wp_get_referer/
+		 * @link https://developer.wordpress.org/reference/functions/wp_safe_redirect/
+		 * @link https://github.com/WordPress/WordPress/blob/5.3/wp-admin/includes/misc.php#L1204-L1230
+		 * @link https://developer.wordpress.org/reference/functions/wp_removable_query_args/
+		 */
+		$location = admin_url( 'admin.php' );
+
+		$location = add_query_arg(
+			array(
+				'page'    => 'pronamic_client_email',
+				'message' => 'pronamic_client_test_email_sent_' . ( $result ? 'yes' : 'no' ),
+			),
+			$location
+		);
+
+		wp_safe_redirect( $location );
+
+		exit;
 	}
 
 	//////////////////////////////////////////////////
@@ -84,31 +156,11 @@ class Pronamic_WP_ClientPlugin_Admin {
 		// @see wp-admin/menu.php
 		add_submenu_page(
 			'pronamic_client', // parent slug
-			__( 'Pronamic Status', 'pronamic_client' ), // page title
-			__( 'Status', 'pronamic_client' ), // menu title
-			'pronamic_client', // capability
-			'pronamic_client_status', // menu slug
-			array( $this, 'page_status' ) // function
-		);
-
-		// @see wp-admin/menu.php
-		add_submenu_page(
-			'pronamic_client', // parent slug
 			__( 'Pronamic Checklist', 'pronamic_client' ), // page title
 			__( 'Checklist', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_checklist', // menu slug
 			array( $this, 'page_checklist' ) // function
-		);
-
-		// @see wp-admin/menu.php
-		add_submenu_page(
-			'pronamic_client', // parent slug
-			__( 'Pronamic Virus Scanner', 'pronamic_client' ), // page title
-			__( 'Virus Scanner', 'pronamic_client' ), // menu title
-			'pronamic_client', // capability
-			'pronamic_client_virus_scanner', // menu slug
-			array( $this, 'page_virus_scanner' ) // function
 		);
 
 		add_submenu_page(
@@ -118,6 +170,34 @@ class Pronamic_WP_ClientPlugin_Admin {
 			'pronamic_client', // capability
 			'pronamic_client_extensions', // menu slug
 			array( $this, 'page_extensions' ) // function
+		);
+
+		// @see wp-admin/menu.php
+		add_submenu_page(
+			'pronamic_client', // parent slug
+			__( 'Pronamic Virus Scanner', 'pronamic_client' ), // page title
+			__( 'Scanner', 'pronamic_client' ), // menu title
+			'pronamic_client', // capability
+			'pronamic_client_virus_scanner', // menu slug
+			array( $this, 'page_virus_scanner' ) // function
+		);
+
+		add_submenu_page(
+			'pronamic_client', // parent slug
+			__( 'Email', 'pronamic_client' ), // page title
+			__( 'Email', 'pronamic_client' ), // menu title
+			'pronamic_client', // capability
+			'pronamic_client_email', // menu slug
+			array( $this, 'page_email' ) // function
+		);
+
+		add_submenu_page(
+			'pronamic_client', // parent slug
+			__( 'Settings', 'pronamic_client' ), // page title
+			__( 'Settings', 'pronamic_client' ), // menu title
+			'pronamic_client', // capability
+			'pronamic_client_settings', // menu slug
+			array( $this, 'page_settings' ) // function
 		);
 	}
 
@@ -179,13 +259,6 @@ class Pronamic_WP_ClientPlugin_Admin {
 	}
 
 	/**
-	 * Page status
-	 */
-	public function page_status() {
-		$this->plugin->display( 'admin/status.php' );
-	}
-
-	/**
 	 * Page virus scanner
 	 */
 	public function page_virus_scanner() {
@@ -204,6 +277,20 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 */
 	public function page_extensions() {
 		$this->plugin->display( 'admin/extensions.php' );
+	}
+
+	/**
+	 * Page email
+	 */
+	public function page_email() {
+		$this->plugin->display( 'admin/email.php' );
+	}
+
+	/**
+	 * Page settings
+	 */
+	public function page_settings() {
+		$this->plugin->display( 'admin/settings.php' );
 	}
 
 	//////////////////////////////////////////////////

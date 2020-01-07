@@ -42,10 +42,18 @@ class Pronamic_WP_ClientPlugin_Plugin {
 
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 100 );
 
+		add_action( 'phpmailer_init', array( $this, 'phpmailer_sender' ) );
+
 		// Filters
 		add_filter( 'wp_headers', array( $this, 'wp_headers' ) );
 
 		add_filter( 'jetpack_just_in_time_msgs', array( $this, 'disable_jetpack_just_in_time_msgs_for_pronamic' ), 50 );
+
+		// Settings
+		$this->settings = Pronamic_WP_ClientPlugin_Settings::get_instance( $this );
+
+		// Scripts
+		$this->scripts = Pronamic_WP_ClientPlugin_Scripts::get_instance( $this );
 
 		// Admin
 		if ( is_admin() ) {
@@ -144,6 +152,11 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	 * @return bool False if current user login is 'pronamic', otherwise the passed in value.
 	 */
 	public function disable_jetpack_just_in_time_msgs_for_pronamic( $show_jitm ) {
+		// Prevent fatal error if  plugin is network activated.
+		if ( ! function_exists( '\wp_get_current_user' ) ) {
+			return $show_jitm;
+		}
+
 		$user = wp_get_current_user();
 
 		if ( 'pronamic' === $user->user_login ) {
@@ -151,6 +164,35 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		}
 
 		return $show_jitm;
+	}
+
+	/**
+	 * Set PHPMailer sender.
+	 *
+	 * @since 1.4.0
+	 *
+	 * @param PHPMailer $phpmailer PHPMailer object.
+	 *
+	 * @return PHPMailer
+	 */
+	public function phpmailer_sender( $phpmailer ) {
+		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+		if ( ! empty( $phpmailer->Sender ) ) {
+			return;
+		}
+
+		$phpmailer_sender = get_option( 'pronamic_client_phpmailer_sender' );
+
+		if ( empty( $phpmailer_sender ) ) {
+			return;
+		}
+
+		if ( ! filter_var( $phpmailer_sender, FILTER_VALIDATE_EMAIL ) ) {
+			return;
+		}
+
+		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+		$phpmailer->Sender = $phpmailer_sender;
 	}
 
 	//////////////////////////////////////////////////

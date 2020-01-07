@@ -149,7 +149,8 @@ class Pronamic_WP_ClientPlugin_Updater {
 
 		$raw_response = wp_remote_post( $url, $options );
 
-		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) { // WPCS: loose comparison ok.
+		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) {
 			return false;
 		}
 
@@ -219,7 +220,8 @@ class Pronamic_WP_ClientPlugin_Updater {
 
 		$raw_response = wp_remote_post( $url, $options );
 
-		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) { // WPCS: loose comparison ok.
+		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
+		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) {
 			return false;
 		}
 

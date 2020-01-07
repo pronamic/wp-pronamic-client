@@ -104,7 +104,7 @@
 			);
 
 			foreach ( $constants as $constant ) :
-			?>
+				?>
 
 				<tr>
 					<th scope="row">
@@ -354,7 +354,7 @@
 
 	<?php
 
-	$plugins = array(
+	$plugin_suggestions = array(
 		'google-analytics-for-wordpress/googleanalytics.php' => array(
 			'slug' => 'google-analytics-for-wordpress',
 			'name' => 'Google Analytics for WordPress',
@@ -379,10 +379,6 @@
 			'slug' => 'iwp-client',
 			'name' => 'InfiniteWP Client',
 		),
-		'jetpack/jetpack.php'                             => array(
-			'slug' => 'jetpack',
-			'name' => 'Jetpack by WordPress.com',
-		),
 		'sucuri-scanner/sucuri.php'                       => array(
 			'slug' => 'sucuri-scanner',
 			'name' => 'Sucuri Scanner',
@@ -391,9 +387,9 @@
 			'slug' => 'regenerate-thumbnails',
 			'name' => 'Regenerate Thumbnails',
 		),
-		'posts-to-posts/posts-to-posts.php'               => array(
-			'slug' => 'posts-to-posts',
-			'name' => 'Posts 2 Posts',
+		'wp-rocket/wp-rocket.php'                         => array(
+			'slug' => 'wp-rocket',
+			'name' => 'WP Rocket',
 		),
 	);
 
@@ -402,13 +398,13 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="3"><?php _e( 'Plugins', 'pronamic_client' ); ?></td>
+				<th colspan="3"><?php _e( 'Plugins', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
 		<tbody>
 
-			<?php foreach ( $plugins as $file => $data ) : ?>
+			<?php foreach ( $plugin_suggestions as $file => $data ) : ?>
 
 				<tr>
 					<th scope="row">

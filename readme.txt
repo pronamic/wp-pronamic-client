@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 5.0.2
-Stable tag: 1.3.2
+Stable tag: 1.4.0
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,14 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.4.0 =
+*	Added email test page.
+*	Added setting for PHPMailer sender.
+*	Added scripts integration.
+*	Fixed error when network activated.
+*	Updated Adminer to version 4.7.5.
+*	Removed status page in favor of Site Health.
 
 = 1.3.2 =
 *	Updated Adminer to version 4.7.0.

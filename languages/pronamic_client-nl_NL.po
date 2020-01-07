@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
 "client\n"
-"POT-Creation-Date: 2018-12-21 12:07:40+00:00\n"
-"PO-Revision-Date: 2018-12-21 13:11+0100\n"
+"POT-Creation-Date: 2020-01-07 10:52:15+00:00\n"
+"PO-Revision-Date: 2020-01-07 12:00+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -13,22 +13,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 1.7.4\n"
+"X-Generator: Poedit 2.2.4\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-#: admin/adminer.php:21 admin/dashboard/adminer.php:10 admin/dashboard.php:17
-msgid "Adminer"
-msgstr "Adminer"
-
-#: admin/adminer.php:29 admin/dashboard/adminer.php:27
-msgid "Login"
-msgstr "Inloggen"
-
-#: admin/checklist.php:16 admin/status.php:14
+#: admin/checklist.php:16
 msgid "WordPress"
 msgstr "WordPress"
 
-#: admin/checklist.php:23 admin/status.php:61
+#: admin/checklist.php:23
 msgid "Language"
 msgstr "Taal"
 
@@ -71,13 +63,13 @@ msgstr "Functie %1$s in %2$s"
 
 #: admin/checklist.php:160 admin/checklist.php:186 admin/checklist.php:205
 #: admin/checklist.php:224 admin/checklist.php:255 admin/checklist.php:300
-#: admin/checklist.php:330 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:330
 msgid "Yes"
 msgstr "Ja"
 
 #: admin/checklist.php:160 admin/checklist.php:186 admin/checklist.php:205
 #: admin/checklist.php:224 admin/checklist.php:255 admin/checklist.php:300
-#: admin/checklist.php:330 admin/status.php:48 admin/status.php:56
+#: admin/checklist.php:330
 msgid "No"
 msgstr "Nee"
 
@@ -117,13 +109,21 @@ msgstr "Gravity Forms output HTML5"
 msgid "Gravity Forms Currency"
 msgstr "Gravity Forms valuta"
 
-#: admin/checklist.php:405 admin/extensions.php:4 admin/status.php:153
+#: admin/checklist.php:401 admin/extensions.php:4
 msgid "Plugins"
 msgstr "Plugins"
 
-#: admin/checklist.php:437
+#: admin/checklist.php:433
 msgid "Search Plugin"
 msgstr "Zoek plugin"
+
+#: admin/dashboard/adminer.php:10 admin/dashboard.php:17
+msgid "Adminer"
+msgstr "Adminer"
+
+#: admin/dashboard/adminer.php:27
+msgid "Login"
+msgstr "Inloggen"
 
 #. translators: %s: e-mail link
 #: admin/dashboard/support.php:6 admin/includes/dashboard.php:15
@@ -141,7 +141,7 @@ msgstr "Website: %s"
 
 #. translators: 1: https:www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic
 #: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
-#: admin/includes/dashboard.php:43 includes/class-plugin.php:88
+#: admin/includes/dashboard.php:43 includes/class-plugin.php:96
 #: includes/credits.php:18
 msgid "https://www.pronamic.eu/"
 msgstr "https://www.pronamic.nl/"
@@ -167,6 +167,106 @@ msgstr "Pronamic nieuws"
 msgid "Pronamic.eu News"
 msgstr "Pronamic.eu nieuws"
 
+#: admin/email.php:14
+msgid "Current mail settings"
+msgstr "Huidige e-mailinstellingen"
+
+#: admin/email.php:20
+msgid "SendMail path (UNIX)"
+msgstr "SendMail-pad (UNIX)"
+
+#: admin/email.php:28
+msgid "SMTP server (Windows)"
+msgstr "SMTP-server (Windows)"
+
+#: admin/email.php:36
+msgid "SMTP port (Windows)"
+msgstr "SMTP-poort (Windows)"
+
+#: admin/email.php:44
+msgid "Add X-header"
+msgstr "X-header toevoegen"
+
+#. translators: %s: <code>wp_mail()</code>
+#: admin/email.php:56
+msgid "Function %s location"
+msgstr "Functie %s locatie"
+
+#. translators: 1: filename, 2: line
+#: admin/email.php:69
+msgid "In %1$s on line %2$s."
+msgstr "In %1$s op regel %2$s."
+
+#: admin/email.php:80
+msgid "Send a test email"
+msgstr "Verstuur een test email"
+
+#: admin/email.php:91
+msgid "The test email has not been sent by WordPress."
+msgstr "De test-e-mail is niet verzonden door WordPress."
+
+#: admin/email.php:103
+msgid ""
+"The test email has been sent by WordPress. Please note this does not mean it "
+"has been delivered."
+msgstr ""
+"De test-e-mail is verzonden door WordPress. Let op: dit betekent niet dat "
+"het is afgeleverd."
+
+#. translators: %s: <a href="https:www.mail-tester.com">mail-tester.com</a>
+#: admin/email.php:114
+msgid ""
+"Use a service like %s to test if this WordPress installation is sending "
+"emails."
+msgstr ""
+"Gebruik een service zoals %s om te testen of deze WordPress-installatie e-"
+"mails verzendt."
+
+#: admin/email.php:130
+msgid "Send To"
+msgstr "Verstuur naar"
+
+#: admin/email.php:148
+msgid "Send test email"
+msgstr "Verstuur test e-mail"
+
+#: admin/email.php:166
+msgid "Tools"
+msgstr "Gereedschap"
+
+#: admin/email.php:172
+msgid "Title"
+msgstr "Titel"
+
+#: admin/email.php:175
+msgid "Link"
+msgstr "Link"
+
+#: admin/email.php:183
+msgid "mail-tester.com"
+msgstr "mail-tester.com"
+
+#: admin/email.php:191
+#| msgid "mail-tester.com"
+msgid "mail-tester.com/spf-dkim-check"
+msgstr "mail-tester.com/spf-dkim-check"
+
+#: admin/email.php:199
+msgid "Dig (DNS lookup) - G Suite toolbox"
+msgstr "Dig (DNS lookup) - G Suite toolbox"
+
+#: admin/email.php:207
+msgid "SPF Record Testing Tools"
+msgstr "SPF Record Testing Tools"
+
+#: admin/email.php:215
+msgid "dmarcian's SPF Record Checker"
+msgstr "dmarcian's SPF Record Checker"
+
+#: admin/email.php:223
+msgid "DMARC Analyzer - DKIM record Checker"
+msgstr "DMARC Analyzer - DKIM record Checker"
+
 #: admin/extensions.php:14
 msgid "No Pronamic plugins found."
 msgstr "Geen Pronamic plugins gevonden."
@@ -179,7 +279,7 @@ msgstr "Plugin"
 msgid "Author"
 msgstr "Auteur"
 
-#: admin/extensions.php:24 admin/extensions.php:71 admin/status.php:37
+#: admin/extensions.php:24 admin/extensions.php:71
 msgid "Version"
 msgstr "Versie"
 
@@ -217,166 +317,143 @@ msgstr "Selecteer media"
 msgid "Select"
 msgstr "Selecteer"
 
-#: admin/status.php:21
-msgid "Home URL"
-msgstr "Home URL"
-
-#: admin/status.php:29
-msgid "Site URL"
-msgstr "Site URL"
-
-#: admin/status.php:45
-msgid "Multisite"
-msgstr "Multisite"
-
-#: admin/status.php:53
-msgid "Debug Mode"
-msgstr "Debug mode"
-
-#: admin/status.php:69
-msgid "Max Upload Size"
-msgstr "Max Upload Size"
-
-#: admin/status.php:77
-msgid "Absolute Path"
-msgstr "Absolute pad"
-
-#: admin/status.php:105
-msgid "Hosting"
-msgstr "Hosting"
-
-#: admin/status.php:112
-msgid "Web Server Info"
-msgstr "Web Server Info"
-
-#: admin/status.php:118
-msgid "PHP Version"
-msgstr "PHP-versie"
-
-#: admin/status.php:126
-msgid "MySQL Version"
-msgstr "MySQL versie"
-
-#: admin/status.php:134
-msgid "Maximum Execution Time"
-msgstr "Maximale uitvoeringstijd"
-
-#. translators: %s: seconds
-#: admin/status.php:141
-msgid "%s seconds"
-msgstr "%s seconden"
-
-#: admin/status.php:176
-msgid "Visit plugin homepage"
-msgstr "Bezoek plugin homepagina"
-
-#: admin/status.php:179
-msgid "by"
-msgstr "door"
-
-#: admin/status.php:179
-msgid "version"
-msgstr "versie"
-
-#: admin/status.php:188
-msgid "Number Plugins"
-msgstr "Aantal plugins"
-
-#: admin/status.php:196
-msgid "Installed Plugins"
-msgstr "Geïnstalleerde plugins"
-
-#: admin/status.php:208
-msgid "Performance"
-msgstr "Prestatie"
-
-#: admin/status.php:217
-msgid "Number Autoload Options"
-msgstr "Aantal autoload opties"
-
-#: admin/status.php:240
-msgid "Number Transient Options"
-msgstr "Aantal transient opties"
-
-#: admin/virus-scanner.php:17
+#: admin/virus-scanner.php:22
 msgid "Uploads"
 msgstr "Uploads"
 
-#: admin/virus-scanner.php:45
+#: admin/virus-scanner.php:50
 msgid "File"
 msgstr "Bestand"
 
-#: admin/virus-scanner.php:46
+#: admin/virus-scanner.php:51
 msgid "Size"
 msgstr "Grootte"
 
-#: admin/virus-scanner.php:47
+#: admin/virus-scanner.php:52
 msgid "Date"
 msgstr "Datum"
 
-#: admin/virus-scanner.php:48
+#: admin/virus-scanner.php:53
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/virus-scanner.php:49 admin/virus-scanner.php:111
+#: admin/virus-scanner.php:54 admin/virus-scanner.php:116
 msgid "Actions"
 msgstr "Acties"
 
-#: admin/virus-scanner.php:80
+#: admin/virus-scanner.php:85
 msgid "F j, Y g:i a"
 msgstr "j F Y H:i "
 
-#: admin/virus-scanner.php:95 admin/virus-scanner.php:112
+#: admin/virus-scanner.php:100 admin/virus-scanner.php:117
 msgid "Delete"
 msgstr "Verwijder"
+
+#. translators: %s: site url
+#: includes/class-admin.php:95
+msgid "Test email from %s"
+msgstr "Test e-mail van %s"
+
+#. translators: %s: site url
+#: includes/class-admin.php:101
+msgid ""
+"This test email proves that your WordPress installation at %s can send "
+"emails."
+msgstr ""
+"Deze test-e-mail bewijst dat je WordPress-installatie op %s e-mails kan "
+"verzenden."
+
+#. translators: %s: sent date
+#: includes/class-admin.php:110
+msgid "Sent: %s"
+msgstr "Verzonden: %s"
 
 #. Author of the plugin/theme
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: includes/class-admin.php:87
-msgid "Pronamic Status"
-msgstr "Pronamic status"
-
-#: includes/class-admin.php:88
-msgid "Status"
-msgstr "Status"
-
-#: includes/class-admin.php:97
+#: includes/class-admin.php:159
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: includes/class-admin.php:98
+#: includes/class-admin.php:160
 msgid "Checklist"
 msgstr "Checklist"
 
-#: includes/class-admin.php:107
-msgid "Pronamic Virus Scanner"
-msgstr "Pronamic virusscanner"
-
-#: includes/class-admin.php:108
-msgid "Virus Scanner"
-msgstr "Virusscanner"
-
-#: includes/class-admin.php:116
+#: includes/class-admin.php:168
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: includes/class-admin.php:117
+#: includes/class-admin.php:169
 msgid "Extensions"
 msgstr "Extensies"
 
-#: includes/class-admin.php:136
+#: includes/class-admin.php:178
+msgid "Pronamic Virus Scanner"
+msgstr "Pronamic virusscanner"
+
+#: includes/class-admin.php:179
+msgid "Scanner"
+msgstr "Scanner"
+
+#: includes/class-admin.php:187 includes/class-admin.php:188
+#: includes/class-settings.php:54
+msgid "Email"
+msgstr "E-mail"
+
+#: includes/class-admin.php:196 includes/class-admin.php:197
+msgid "Settings"
+msgstr "Instellingen"
+
+#: includes/class-admin.php:216
 msgid "Browse…"
 msgstr "Bladeren…"
 
-#: includes/class-plugin.php:99
+#: includes/class-plugin.php:107
 msgid "Contact"
 msgstr "Contact"
 
-#: includes/class-plugin.php:100
+#: includes/class-plugin.php:108
 msgid "https://www.pronamic.eu/contact/"
 msgstr "https://www.pronamic.nl/contact/"
+
+#: includes/class-scripts.php:75
+msgid "Scripts"
+msgstr "Scripts"
+
+#: includes/class-scripts.php:83
+msgid "Header"
+msgstr "Header"
+
+#: includes/class-scripts.php:96
+msgid "Body open"
+msgstr "Body open"
+
+#. translators: 1: hook
+#: includes/class-scripts.php:105
+msgid "Your theme needs support for the %1$s hook."
+msgstr "Het thema vereist ondersteuning van de %1$s hook."
+
+#: includes/class-scripts.php:114
+msgid "Footer"
+msgstr "Footer"
+
+#: includes/class-scripts.php:183
+msgid "There is already an analytics plugin active."
+msgstr "Er is al een plugin voor analytics actief."
+
+#: includes/class-settings.php:61
+msgid "PHPMailer Sender"
+msgstr "PHPMailer afzender"
+
+#. translators: %s: <code>spf=neutral...</code>
+#: includes/class-settings.php:70
+msgid ""
+"Optionally set a PHPMailer Sender e-mail address to, for example, resolve "
+"SPF neutral notifications such as: %s."
+msgstr ""
+"Stel optioneel een PHPMailer afzender e-mailadres in om bijvoorbeeld SPF-"
+"neutrale meldingen op te lossen, zoals: %s."
 
 #. translators: %s: Pronamic
 #: includes/credits.php:14
@@ -399,10 +476,95 @@ msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
-#: includes/class-plugin.php:119
+#: includes/class-plugin.php:127
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
+
+#~ msgid "Description"
+#~ msgstr "Beschrijving"
+
+#~ msgid "A snappy little tool by MailPoet & AcyMailing."
+#~ msgstr "Een pittig klein hulpmiddel van MailPoet & AcyMailing."
+
+#~ msgid "Home URL"
+#~ msgstr "Home URL"
+
+#~ msgid "Site URL"
+#~ msgstr "Site URL"
+
+#~ msgid "Multisite"
+#~ msgstr "Multisite"
+
+#~ msgid "Debug Mode"
+#~ msgstr "Debug mode"
+
+#~ msgid "Max Upload Size"
+#~ msgstr "Max Upload Size"
+
+#~ msgid "Absolute Path"
+#~ msgstr "Absolute pad"
+
+#~ msgid "Hosting"
+#~ msgstr "Hosting"
+
+#~ msgid "Web Server Info"
+#~ msgstr "Web Server Info"
+
+#~ msgid "PHP Version"
+#~ msgstr "PHP-versie"
+
+#~ msgid "MySQL Version"
+#~ msgstr "MySQL versie"
+
+#~ msgid "Maximum Execution Time"
+#~ msgstr "Maximale uitvoeringstijd"
+
+#~ msgid "%s seconds"
+#~ msgstr "%s seconden"
+
+#~ msgid "Visit plugin homepage"
+#~ msgstr "Bezoek plugin homepagina"
+
+#~ msgid "by"
+#~ msgstr "door"
+
+#~ msgid "version"
+#~ msgstr "versie"
+
+#~ msgid "Number Plugins"
+#~ msgstr "Aantal plugins"
+
+#~ msgid "Installed Plugins"
+#~ msgstr "Geïnstalleerde plugins"
+
+#~ msgid "Performance"
+#~ msgstr "Prestatie"
+
+#~ msgid "Number Autoload Options"
+#~ msgstr "Aantal autoload opties"
+
+#~ msgid "Number Transient Options"
+#~ msgstr "Aantal transient opties"
+
+#~ msgid "Pronamic Status"
+#~ msgstr "Pronamic status"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid ""
+#~ "Optionally set a PHPMailer Sender e-mail address to, for example, resolve "
+#~ "SPF neutral notifications such as: %s"
+#~ msgstr ""
+#~ "Stel optioneel een PHPMailer afzender e-mailadres in om bijvoorbeeld SPF-"
+#~ "neutrale meldingen op te lossen, zoals: %s."
+
+#~ msgid "In <code>%s</code> on line <code>%s</code>."
+#~ msgstr "In <code>%s</code> on line <code>%s</code>."
+
+#~ msgid "https://www.pronamic.eu/plugins/pronamic-client/"
+#~ msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
 
 #~ msgid "http://pronamic.eu/"
 #~ msgstr "http://pronamic.nl/"
@@ -534,9 +696,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 #~ msgid "<p>The payment process is successfully completed.</p>"
 #~ msgstr "<p>Het betalingsproces is succesvol voltooid.</p>"
 
-#~ msgid "Title"
-#~ msgstr "Titel"
-
 #~ msgid "Slug"
 #~ msgstr "Slug"
 
@@ -563,9 +722,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "Transaction ID"
 #~ msgstr "Transactie ID"
-
-#~ msgid "Description"
-#~ msgstr "Beschrijving"
 
 #~ msgid "Amount"
 #~ msgstr "Bedrag"
@@ -972,9 +1128,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "Payments"
 #~ msgstr "Betalingen"
-
-#~ msgid "Settings"
-#~ msgstr "Instellingen"
 
 #~ msgid "Pages Generator"
 #~ msgstr "Pagina's generator"

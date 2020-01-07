@@ -1,5 +1,10 @@
 <?php
 
+// Prevent direct file access.
+if ( ! defined( '\ABSPATH' ) ) {
+	exit;
+}
+
 $delete = filter_input( INPUT_GET, 'delete', FILTER_SANITIZE_STRING );
 
 $action = filter_input( INPUT_POST, 'action2', FILTER_SANITIZE_STRING );
@@ -69,7 +74,7 @@ if ( 'delete' === $action ) {
 							$infection_files = glob( '{' . $key . '/*.php,' . $key . '/.htaccess}', GLOB_BRACE );
 
 							foreach ( $infection_files as $filename ) :
-							?>
+								?>
 
 								<tr>
 									<th class="check-column" scope="row">
@@ -89,7 +94,7 @@ if ( 'delete' === $action ) {
 
 											echo 'Deleted';
 										} else {
-										?>
+											?>
 
 										<a href="<?php echo add_query_arg( 'delete', $filename, 'admin.php?page=pronamic_client_virus_scanner' ); ?>">
 											<?php _e( 'Delete', 'pronamic_client' ); ?>
@@ -117,7 +122,7 @@ if ( 'delete' === $action ) {
 				</div>
 			</form>
 
-		<?php
+			<?php
 		endif;
 
 	endforeach;
