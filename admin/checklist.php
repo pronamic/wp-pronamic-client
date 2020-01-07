@@ -398,7 +398,7 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="3"><?php _e( 'Plugins', 'pronamic_client' ); ?></td>
+				<th colspan="3"><?php _e( 'Plugins', 'pronamic_client' ); ?></th>
 			</tr>
 		</thead>
 
