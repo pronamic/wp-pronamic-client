@@ -52,6 +52,7 @@
 					<?php
 
 					printf(
+						/* translators: %s: <code>wp_mail()</code> */
 						__( 'Function %s location', 'pronamic_client' ),
 						'<code>wp_mail()</code>'
 					);
@@ -64,6 +65,7 @@
 					$reflection_wp_mail = new ReflectionFunction( 'wp_mail' );
 
 					printf(
+						/* translators: 1: filename, 2: line */
 						__( 'In %1$s on line %2$s.', 'pronamic_client' ),
 						'<code>' . $reflection_wp_mail->getFileName() . '</code>',
 						'<code>' . $reflection_wp_mail->getStartLine() . '</code>'
@@ -108,6 +110,7 @@
 		<?php
 
 		printf(
+			/* translators: %s: <a href="https://www.mail-tester.com">mail-tester.com</a> */
 			__( 'Use a service like %s to test if this WordPress installation is sending emails.', 'pronamic_client' ),
 			sprintf(
 				'<a href="%s">%s</a>',

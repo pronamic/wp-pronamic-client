@@ -354,7 +354,7 @@
 
 	<?php
 
-	$plugins = array(
+	$plugin_suggestions = array(
 		'google-analytics-for-wordpress/googleanalytics.php' => array(
 			'slug' => 'google-analytics-for-wordpress',
 			'name' => 'Google Analytics for WordPress',
@@ -404,7 +404,7 @@
 
 		<tbody>
 
-			<?php foreach ( $plugins as $file => $data ) : ?>
+			<?php foreach ( $plugin_suggestions as $file => $data ) : ?>
 
 				<tr>
 					<th scope="row">

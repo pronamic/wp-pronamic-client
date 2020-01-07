@@ -1,8 +1,8 @@
 <?php
 
-$plugin = Pronamic_WP_ClientPlugin_Plugin::get_instance();
+$pronamic_client = Pronamic_WP_ClientPlugin_Plugin::get_instance();
 
-$adminer_url = plugins_url( 'adminer/index.php', $plugin->file );
+$adminer_url = plugins_url( 'adminer/index.php', $pronamic_client->file );
 
 ?>
 <form target="_blank" method="post" action="<?php echo esc_attr( $adminer_url ); ?>">

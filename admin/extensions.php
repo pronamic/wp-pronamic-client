@@ -27,17 +27,17 @@
 
 			<tbody>
 
-				<?php foreach ( $pronamic_plugins as $plugin ) : ?>
+				<?php foreach ( $pronamic_plugins as $pronamic_plugin ) : ?>
 
 					<tr>
 						<td>
-							<?php echo $plugin['Name']; ?>
+							<?php echo $pronamic_plugin['Name']; ?>
 						</td>
 						<td>
-							<?php echo $plugin['Author']; ?>
+							<?php echo $pronamic_plugin['Author']; ?>
 						</td>
 						<td>
-							<?php echo $plugin['Version']; ?>
+							<?php echo $pronamic_plugin['Version']; ?>
 						</td>
 					</tr>
 

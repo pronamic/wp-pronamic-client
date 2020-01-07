@@ -176,7 +176,7 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	 * @return PHPMailer
 	 */
 	public function phpmailer_sender( $phpmailer ) {
-		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		if ( ! empty( $phpmailer->Sender ) ) {
 			return;
 		}
@@ -191,7 +191,7 @@ class Pronamic_WP_ClientPlugin_Plugin {
 			return;
 		}
 
-		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.NotSnakeCaseMemberVar
+		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
 		$phpmailer->Sender = $phpmailer_sender;
 	}
 

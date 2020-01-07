@@ -91,11 +91,13 @@ class Pronamic_WP_ClientPlugin_Admin {
 		}
 
 		$subject = sprintf(
+			/* translators: %s: site url */
 			__( 'Test email from %s', 'pronamic_client' ),
 			get_bloginfo( 'url' )
 		);
 
 		$message = sprintf(
+			/* translators: %s: site url */
 			__( 'This test email proves that your WordPress installation at %s can send emails.', 'pronamic_client' ),
 			get_bloginfo( 'url' )
 		);
@@ -104,6 +106,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 		$message .= "\r\n";
 
 		$message .= sprintf(
+			/* translators: %s: sent date */
 			__( 'Sent: %s', 'pronamic_client' ),
 			date( 'r' )
 		);

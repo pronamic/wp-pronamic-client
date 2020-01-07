@@ -66,6 +66,7 @@ class Pronamic_WP_ClientPlugin_Settings {
 				'label_for'   => 'pronamic_client_phpmailer_sender',
 				'classes'     => 'regular-text',
 				'description' => sprintf(
+					/* translators: %s: <code>spf=neutral...</code> */
 					__( 'Optionally set a PHPMailer Sender e-mail address to, for example, resolve SPF neutral notifications such as: %s.', 'pronamic_client' ),
 					sprintf(
 						'<br /><code>%s</code>',
