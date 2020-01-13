@@ -7,11 +7,11 @@ if ( ! defined( '\ABSPATH' ) ) {
 
 $delete = filter_input( INPUT_GET, 'delete', FILTER_SANITIZE_STRING );
 
-$action = filter_input( INPUT_POST, 'action2', FILTER_SANITIZE_STRING );
+$pronamic_client_action = filter_input( INPUT_POST, 'action2', FILTER_SANITIZE_STRING );
 
 $files_to_delete = array();
 
-if ( 'delete' === $action ) {
+if ( 'delete' === $pronamic_client_action ) {
 	$files_to_delete = filter_input( INPUT_POST, 'files', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
 }
 
