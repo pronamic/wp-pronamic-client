@@ -52,8 +52,8 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		// Settings
 		$this->settings = Pronamic_WP_ClientPlugin_Settings::get_instance( $this );
 
-		// Scripts
-		$this->scripts = Pronamic_WP_ClientPlugin_Scripts::get_instance( $this );
+		// Tracking
+		$this->tracking = Pronamic_WP_ClientPlugin_Tracking::get_instance( $this );
 
 		// Admin
 		if ( is_admin() ) {
