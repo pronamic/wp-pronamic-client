@@ -108,7 +108,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 		$message .= sprintf(
 			/* translators: %s: sent date */
 			__( 'Sent: %s', 'pronamic_client' ),
-			date( 'r' )
+			\gmdate( 'r' )
 		);
 
 		$result = wp_mail( $to, $subject, $message );
