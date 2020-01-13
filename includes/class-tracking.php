@@ -90,8 +90,8 @@ class Pronamic_WP_ClientPlugin_Tracking {
 			'pronamic_client',
 			'pronamic_client_tracking',
 			array(
-				'label_for' => 'pronamic_client_tracking_gtm_code',
-				'classes'   => 'regular-text',
+				'label_for'   => 'pronamic_client_tracking_gtm_code',
+				'classes'     => 'regular-text',
 				'description' => sprintf(
 					/* translators: 1: hook */
 					esc_html__( 'Your theme needs support for the %1$s hook.', 'pronamic_client' ),
