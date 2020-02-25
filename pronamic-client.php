@@ -18,15 +18,7 @@ License: GPL
 GitHub URI: https://github.com/pronamic/wp-pronamic-client
 */
 
-$dir = plugin_dir_path( __FILE__ );
-
-require_once $dir . 'includes/class-plugin.php';
-require_once $dir . 'includes/class-updater.php';
-require_once $dir . 'includes/class-admin.php';
-require_once $dir . 'includes/class-settings.php';
-require_once $dir . 'includes/class-akismet-module.php';
-require_once $dir . 'includes/class-google-analytics-module.php';
-require_once $dir . 'includes/class-google-tag-manager-module.php';
+require __DIR__ . '/vendor/autoload.php';
 
 /**
  * Bootstrap

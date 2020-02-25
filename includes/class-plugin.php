@@ -30,11 +30,6 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		$this->file     = $file;
 		$this->dir_path = plugin_dir_path( $file );
 
-		// Includes
-		foreach ( glob( $this->dir_path . 'includes/*.php' ) as $filename ) {
-			require_once $filename;
-		}
-
 		// Actions
 		add_action( 'init', array( $this, 'init' ) );
 

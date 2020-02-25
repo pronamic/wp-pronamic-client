@@ -1,5 +1,21 @@
 {
     "name": "pronamic/pronamic-client",
+    "autoload": {
+        "files": [
+            "includes/class-admin.php",
+            "includes/class-akismet-module.php",
+            "includes/class-google-analytics-module.php",
+            "includes/class-google-tag-manager-module.php",
+            "includes/class-jetpack-module.php",
+            "includes/class-phpmailer-module.php",
+            "includes/class-plugin.php",
+            "includes/class-settings.php",
+            "includes/class-updater.php",
+            "includes/credits.php",
+            "includes/functions.php",
+            "includes/version.php"
+        ]
+    },
     "require": {},
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
