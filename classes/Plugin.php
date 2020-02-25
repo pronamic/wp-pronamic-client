@@ -1,6 +1,8 @@
 <?php
 
-class Pronamic_WP_ClientPlugin_Plugin {
+namespace Pronamic\WordPress\PronamicClient;
+
+class Plugin {
 	/**
 	 * Instance of this class.
 	 *
@@ -40,20 +42,20 @@ class Pronamic_WP_ClientPlugin_Plugin {
 
 		// Modules.
 		$this->modules = array(
-			'akismet'            => Pronamic_WP_ClientPlugin_AkismetModule::get_instance( $this ),
-			'google-analytics'   => Pronamic_WP_ClientPlugin_GoogleAnalyticsModule::get_instance( $this ),
-			'google-tag-manager' => Pronamic_WP_ClientPlugin_GoogleTagManagerModule::get_instance( $this ),
-			'jetpack'            => Pronamic_WP_ClientPlugin_JetpackModule::get_instance( $this ),
-			'phpmailer'          => Pronamic_WP_ClientPlugin_PhpMailerModule::get_instance( $this ),
+			'akismet'            => AkismetModule::get_instance( $this ),
+			'google-analytics'   => GoogleAnalyticsModule::get_instance( $this ),
+			'google-tag-manager' => GoogleTagManagerModule::get_instance( $this ),
+			'jetpack'            => JetpackModule::get_instance( $this ),
+			'phpmailer'          => PhpMailerModule::get_instance( $this ),
 		);
 
 		// Admin
 		if ( is_admin() ) {
-			Pronamic_WP_ClientPlugin_Admin::get_instance( $this );
+			Admin::get_instance( $this );
 		}
 
 		// Updater
-		$this->updater = Pronamic_WP_ClientPlugin_Updater::get_instance( $this );
+		$this->updater = Updater::get_instance( $this );
 	}
 
 	/**

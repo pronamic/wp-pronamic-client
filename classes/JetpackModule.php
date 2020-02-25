@@ -1,28 +1,30 @@
 <?php
 
-class Pronamic_WP_ClientPlugin_JetpackModule {
+namespace Pronamic\WordPress\PronamicClient;
+
+class JetpackModule {
 	/**
 	 * Instance of this class.
 	 *
 	 * @since 1.4.0
 	 *
-	 * @var Pronamic_WP_ClientPlugin_Tracking
+	 * @var Tracking
 	 */
 	protected static $instance = null;
 
 	/**
 	 * Plugin
 	 *
-	 * @var Pronamic_WP_ClientPlugin_Plugin
+	 * @var Plugin
 	 */
 	private $plugin;
 
 	/**
 	 * Constructs and initialize updater
 	 *
-	 * @param Pronamic_WP_ClientPlugin_Plugin $plugin
+	 * @param Plugin $plugin
 	 */
-	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
+	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		\add_filter( 'jetpack_just_in_time_msgs', array( $this, 'disable_jetpack_just_in_time_msgs_for_pronamic' ), 50 );

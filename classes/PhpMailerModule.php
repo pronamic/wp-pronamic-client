@@ -1,19 +1,21 @@
 <?php
 
-class Pronamic_WP_ClientPlugin_PhpMailerModule {
+namespace Pronamic\WordPress\PronamicClient;
+
+class PhpMailerModule {
 	/**
 	 * Instance of this class.
 	 *
 	 * @since 1.4.0
 	 *
-	 * @var Pronamic_WP_ClientPlugin_Tracking
+	 * @var Tracking
 	 */
 	protected static $instance = null;
 
 	/**
 	 * Plugin
 	 *
-	 * @var Pronamic_WP_ClientPlugin_Plugin
+	 * @var Plugin
 	 */
 	private $plugin;
 
@@ -27,9 +29,9 @@ class Pronamic_WP_ClientPlugin_PhpMailerModule {
 	/**
 	 * Constructs and initialize updater
 	 *
-	 * @param Pronamic_WP_ClientPlugin_Plugin $plugin
+	 * @param Plugin $plugin
 	 */
-	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
+	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Init.
@@ -80,7 +82,7 @@ class Pronamic_WP_ClientPlugin_PhpMailerModule {
 			function( $args ) {
 				$args['type'] = 'email';
 
-				Pronamic_WP_ClientPlugin_Admin::input_text( $args );
+				Admin::input_text( $args );
 			},
 			'pronamic_client',
 			'pronamic_client_email',

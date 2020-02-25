@@ -1,6 +1,8 @@
 <?php
 
-class Pronamic_WP_ClientPlugin_Admin {
+namespace Pronamic\WordPress\PronamicClient;
+
+class Admin {
 	/**
 	 * Instance of this class.
 	 *
@@ -15,7 +17,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	/**
 	 * Plugin
 	 *
-	 * @var Pronamic_WP_ClientPlugin_Plugin
+	 * @var Plugin
 	 */
 	private $plugin;
 
@@ -24,7 +26,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	/**
 	 * Constructs and initialize admin
 	 */
-	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
+	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Includes
@@ -423,7 +425,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 *
 	 * @return object A single instance of this class.
 	 */
-	public static function get_instance( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
+	public static function get_instance( Plugin $plugin ) {
 		// If the single instance hasn't been set, set it now.
 		if ( null === self::$instance ) {
 			self::$instance = new self( $plugin );

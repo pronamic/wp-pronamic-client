@@ -23,4 +23,4 @@ require __DIR__ . '/vendor/autoload.php';
 /**
  * Bootstrap
  */
-Pronamic_WP_ClientPlugin_Plugin::get_instance( __FILE__ );
+\Pronamic\WordPress\PronamicClient\Plugin::get_instance( __FILE__ );

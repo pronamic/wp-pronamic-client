@@ -1,6 +1,6 @@
 <?php
 
-$pronamic_client = Pronamic_WP_ClientPlugin_Plugin::get_instance();
+$pronamic_client = \Pronamic\WordPress\PronamicClient\Plugin::get_instance();
 
 $adminer_url = plugins_url( 'adminer/index.php', $pronamic_client->file );
 
