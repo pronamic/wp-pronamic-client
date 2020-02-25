@@ -24,7 +24,9 @@ require_once $dir . 'includes/class-plugin.php';
 require_once $dir . 'includes/class-updater.php';
 require_once $dir . 'includes/class-admin.php';
 require_once $dir . 'includes/class-settings.php';
-require_once $dir . 'includes/class-tracking.php';
+require_once $dir . 'includes/class-akismet-module.php';
+require_once $dir . 'includes/class-google-analytics-module.php';
+require_once $dir . 'includes/class-google-tag-manager-module.php';
 
 /**
  * Bootstrap
