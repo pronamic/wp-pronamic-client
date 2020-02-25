@@ -200,7 +200,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 			'pronamic_client', // capability
 			'pronamic_client', // menu slug
 			array( $this, 'page_dashboard' ), // function
-			$this->get_menu_icon_url(), // icon URL
+			$this->get_menu_icon_url() // icon URL
 			// 0 // position
 		);
 
