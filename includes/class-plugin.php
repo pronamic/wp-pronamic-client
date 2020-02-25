@@ -31,8 +31,6 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		$this->dir_path = plugin_dir_path( $file );
 
 		// Actions
-		add_action( 'init', array( $this, 'init' ) );
-
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 100 );
@@ -56,15 +54,6 @@ class Pronamic_WP_ClientPlugin_Plugin {
 
 		// Updater
 		$this->updater = Pronamic_WP_ClientPlugin_Updater::get_instance( $this );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Initialize
-	 */
-	public function init() {
-
 	}
 
 	/**
