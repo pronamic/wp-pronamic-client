@@ -81,7 +81,7 @@ class Pronamic_WP_ClientPlugin_GoogleTagManagerModule {
 			'pronamic_client_google_tag_manager_container_id',
 			\__( 'Google Tag Manager Container ID', 'pronamic_client' ),
 			function( $args ) {
-				Pronamic_WP_ClientPlugin_Settings::input_text( $args );
+				Pronamic_WP_ClientPlugin_Admin::input_text( $args );
 			},
 			'pronamic_client',
 			'pronamic_client_google_tag_manager',

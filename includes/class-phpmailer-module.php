@@ -80,7 +80,7 @@ class Pronamic_WP_ClientPlugin_PhpMailerModule {
 			function( $args ) {
 				$args['type'] = 'email';
 
-				Pronamic_WP_ClientPlugin_Settings::input_text( $args );
+				Pronamic_WP_ClientPlugin_Admin::input_text( $args );
 			},
 			'pronamic_client',
 			'pronamic_client_email',

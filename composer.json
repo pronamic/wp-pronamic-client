@@ -9,7 +9,6 @@
             "includes/class-jetpack-module.php",
             "includes/class-phpmailer-module.php",
             "includes/class-plugin.php",
-            "includes/class-settings.php",
             "includes/class-updater.php",
             "includes/credits.php",
             "includes/functions.php",

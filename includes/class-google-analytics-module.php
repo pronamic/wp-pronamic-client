@@ -80,7 +80,7 @@ class Pronamic_WP_ClientPlugin_GoogleAnalyticsModule {
 			'pronamic_client_google_analytics_tracking_id',
 			\__( 'Google Analytics Tracking ID', 'pronamic_client' ),
 			function( $args ) {
-				Pronamic_WP_ClientPlugin_Settings::input_text( $args );
+				Pronamic_WP_ClientPlugin_Admin::input_text( $args );
 			},
 			'pronamic_client',
 			'pronamic_client_google_analytics',
