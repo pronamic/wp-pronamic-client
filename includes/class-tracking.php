@@ -25,15 +25,23 @@ class Pronamic_WP_ClientPlugin_Tracking {
 	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
+		// Init
 		add_action( 'init', array( $this, 'init' ) );
 		add_action( 'admin_init', array( $this, 'admin_init' ) );
 
+		// Admin
 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+		
+		// GA
+		if ( get_option( 'pronamic_client_google_analytics_id' ) ) {
+			add_action( 'wp_head', array( $this, 'ga_header' ) );
+		}
 
-		add_action( 'wp_head', array( $this, 'ga_header' ) );
-		add_action( 'wp_head', array( $this, 'gtm_header' ) );
-		add_action( 'wp_body_open', array( $this, 'gtm_body_open' ) );
+		// GTM
+		if ( get_option( 'pronamic_client_google_tag_manager_container_id' ) ) {
+			add_action( 'wp_head', array( $this, 'gtm_header' ) );
+			add_action( 'wp_body_open', array( $this, 'gtm_body_open' ) );
+		}
 	}
 
 	/**
@@ -42,7 +50,7 @@ class Pronamic_WP_ClientPlugin_Tracking {
 	public function init() {
 		register_setting(
 			'pronamic_client',
-			'pronamic_client_tracking_ga_code',
+			'pronamic_client_google_analytics_id',
 			array(
 				'type' => 'string',
 			)
@@ -50,7 +58,7 @@ class Pronamic_WP_ClientPlugin_Tracking {
 
 		register_setting(
 			'pronamic_client',
-			'pronamic_client_tracking_gtm_code',
+			'pronamic_client_google_tag_manager_container_id',
 			array(
 				'type' => 'string',
 			)
@@ -71,27 +79,27 @@ class Pronamic_WP_ClientPlugin_Tracking {
 
 		// GA Code
 		add_settings_field(
-			'pronamic_client_tracking_ga_code',
+			'pronamic_client_google_analytics_id',
 			__( 'GA Code', 'pronamic_client' ),
 			array( $this, 'input_text' ),
 			'pronamic_client',
 			'pronamic_client_tracking',
 			array(
-				'label_for' => 'pronamic_client_tracking_ga_code',
+				'label_for' => 'pronamic_client_google_analytics_id',
 				'classes'   => 'regular-text',
 			)
 		);
 
 		// GTM Code
 		add_settings_field(
-			'pronamic_client_tracking_gtm_code',
+			'pronamic_client_google_tag_manager_container_id',
 			__( 'GTM Code', 'pronamic_client' ),
 			array( $this, 'input_text' ),
 			'pronamic_client',
 			'pronamic_client_tracking',
 			array(
-				'label_for'   => 'pronamic_client_tracking_gtm_code',
-				'classes'     => 'regular-text',
+				'label_for' => 'pronamic_client_google_tag_manager_container_id',
+				'classes'   => 'regular-text',
 				'description' => sprintf(
 					/* translators: 1: hook */
 					esc_html__( 'Your theme needs support for the %1$s hook.', 'pronamic_client' ),
@@ -196,19 +204,19 @@ class Pronamic_WP_ClientPlugin_Tracking {
 	 * GA header.
 	 */
 	public function ga_header() {
-		if ( ! get_option( 'pronamic_client_tracking_ga_code' ) ) {
+		if ( ! get_option( 'pronamic_client_google_analytics_id' ) ) {
 			return;
 		}
 
 		?>
 		<!-- Global site tag (gtag.js) - Google Analytics -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( get_option( 'pronamic_client_tracking_ga_code' ) ); ?>"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo esc_attr( get_option( 'pronamic_client_google_analytics_id' ) ); ?>"></script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
 		  function gtag(){dataLayer.push(arguments);}
 		  gtag('js', new Date());
 
-		  gtag('config', '<?php echo esc_attr( get_option( 'pronamic_client_tracking_ga_code' ) ); ?>');
+		  gtag('config', '<?php echo esc_attr( get_option( 'pronamic_client_google_analytics_id' ) ); ?>');
 		</script>
 
 		<?php
@@ -218,7 +226,7 @@ class Pronamic_WP_ClientPlugin_Tracking {
 	 * GTM header.
 	 */
 	public function gtm_header() {
-		if ( ! get_option( 'pronamic_client_tracking_gtm_code' ) ) {
+		if ( ! get_option( 'pronamic_client_google_tag_manager_container_id' ) ) {
 			return;
 		}
 
@@ -228,7 +236,7 @@ class Pronamic_WP_ClientPlugin_Tracking {
 		new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 		j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-		})(window,document,'script','dataLayer','<?php echo esc_attr( get_option( 'pronamic_client_tracking_gtm_code' ) ); ?>');</script>
+		})(window,document,'script','dataLayer','<?php echo esc_attr( get_option( 'pronamic_client_google_tag_manager_container_id' ) ); ?>');</script>
 		<!-- End Google Tag Manager -->
 
 		<?php
@@ -238,13 +246,13 @@ class Pronamic_WP_ClientPlugin_Tracking {
 	 * GTM body open.
 	 */
 	public function gtm_body_open() {
-		if ( ! get_option( 'pronamic_client_tracking_gtm_code' ) ) {
+		if ( ! get_option( 'pronamic_client_google_tag_manager_container_id' ) ) {
 			return;
 		}
 
 		?>
 		<!-- Google Tag Manager (noscript) -->
-		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo esc_attr( get_option( 'pronamic_client_tracking_gtm_code' ) ); ?>"
+		<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=<?php echo esc_attr( get_option( 'pronamic_client_google_tag_manager_container_id' ) ); ?>"
 		height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 		<!-- End Google Tag Manager (noscript) -->
 
