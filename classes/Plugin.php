@@ -1,6 +1,8 @@
 <?php
 
-class Pronamic_WP_ClientPlugin_Plugin {
+namespace Pronamic\WordPress\PronamicClient;
+
+class Plugin {
 	/**
 	 * Instance of this class.
 	 *
@@ -30,47 +32,30 @@ class Pronamic_WP_ClientPlugin_Plugin {
 		$this->file     = $file;
 		$this->dir_path = plugin_dir_path( $file );
 
-		// Includes
-		foreach ( glob( $this->dir_path . 'includes/*.php' ) as $filename ) {
-			require_once $filename;
-		}
-
 		// Actions
-		add_action( 'init', array( $this, 'init' ) );
-
 		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
 
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 100 );
 
-		add_action( 'phpmailer_init', array( $this, 'phpmailer_sender' ) );
-
 		// Filters
 		add_filter( 'wp_headers', array( $this, 'wp_headers' ) );
 
-		add_filter( 'jetpack_just_in_time_msgs', array( $this, 'disable_jetpack_just_in_time_msgs_for_pronamic' ), 50 );
-
-		// Settings
-		$this->settings = Pronamic_WP_ClientPlugin_Settings::get_instance( $this );
-
-		// Scripts
-		$this->scripts = Pronamic_WP_ClientPlugin_Scripts::get_instance( $this );
+		// Modules.
+		$this->modules = array(
+			'akismet'            => AkismetModule::get_instance( $this ),
+			'google-analytics'   => GoogleAnalyticsModule::get_instance( $this ),
+			'google-tag-manager' => GoogleTagManagerModule::get_instance( $this ),
+			'jetpack'            => JetpackModule::get_instance( $this ),
+			'phpmailer'          => PhpMailerModule::get_instance( $this ),
+		);
 
 		// Admin
 		if ( is_admin() ) {
-			Pronamic_WP_ClientPlugin_Admin::get_instance( $this );
+			Admin::get_instance( $this );
 		}
 
 		// Updater
-		$this->updater = Pronamic_WP_ClientPlugin_Updater::get_instance( $this );
-	}
-
-	//////////////////////////////////////////////////
-
-	/**
-	 * Initialize
-	 */
-	public function init() {
-
+		$this->updater = Updater::get_instance( $this );
 	}
 
 	/**
@@ -138,61 +123,6 @@ class Pronamic_WP_ClientPlugin_Plugin {
 	 */
 	public function display( $file ) {
 		include plugin_dir_path( $this->file ) . $file;
-	}
-
-	/**
-	 * Disable Jetpack just in time messages for Pronamic user.
-	 *
-	 * @link https://github.com/Automattic/jetpack/blob/6.8.1/class.jetpack-jitm.php#L21-L31
-	 * @link https://github.com/Automattic/jetpack/blob/6.8.1/class.jetpack.php#L665
-	 *
-	 * @since 1.3.2
-	 *
-	 * @param bool $show_jitm Whether to show just in time messages.
-	 * @return bool False if current user login is 'pronamic', otherwise the passed in value.
-	 */
-	public function disable_jetpack_just_in_time_msgs_for_pronamic( $show_jitm ) {
-		// Prevent fatal error if  plugin is network activated.
-		if ( ! function_exists( '\wp_get_current_user' ) ) {
-			return $show_jitm;
-		}
-
-		$user = wp_get_current_user();
-
-		if ( 'pronamic' === $user->user_login ) {
-			return false;
-		}
-
-		return $show_jitm;
-	}
-
-	/**
-	 * Set PHPMailer sender.
-	 *
-	 * @since 1.4.0
-	 *
-	 * @param PHPMailer $phpmailer PHPMailer object.
-	 *
-	 * @return PHPMailer
-	 */
-	public function phpmailer_sender( $phpmailer ) {
-		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
-		if ( ! empty( $phpmailer->Sender ) ) {
-			return;
-		}
-
-		$phpmailer_sender = get_option( 'pronamic_client_phpmailer_sender' );
-
-		if ( empty( $phpmailer_sender ) ) {
-			return;
-		}
-
-		if ( ! filter_var( $phpmailer_sender, FILTER_VALIDATE_EMAIL ) ) {
-			return;
-		}
-
-		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
-		$phpmailer->Sender = $phpmailer_sender;
 	}
 
 	//////////////////////////////////////////////////

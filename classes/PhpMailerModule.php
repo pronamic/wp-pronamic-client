@@ -1,33 +1,53 @@
 <?php
 
-class Pronamic_WP_ClientPlugin_Settings {
+namespace Pronamic\WordPress\PronamicClient;
+
+class PhpMailerModule {
 	/**
 	 * Instance of this class.
 	 *
 	 * @since 1.4.0
 	 *
-	 * @var Pronamic_WP_ClientPlugin_Settings
+	 * @var Tracking
 	 */
 	protected static $instance = null;
 
 	/**
 	 * Plugin
 	 *
-	 * @var Pronamic_WP_ClientPlugin_Plugin
+	 * @var Plugin
 	 */
 	private $plugin;
 
 	/**
+	 * Sender.
+	 *
+	 * @var string
+	 */
+	private $sender;
+
+	/**
 	 * Constructs and initialize updater
 	 *
-	 * @param Pronamic_WP_ClientPlugin_Plugin $plugin
+	 * @param Plugin $plugin
 	 */
-	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
+	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
-		add_action( 'init', array( $this, 'init' ) );
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		// Init.
+		\add_action( 'init', array( $this, 'init' ) );
+
+		// Admin.
+		if ( \is_admin() ) {
+			\add_action( 'admin_init', array( $this, 'admin_init' ), 20 );
+		}
+
+		// Sender.
+		$this->sender = \get_option( 'pronamic_client_phpmailer_sender' );
+
+		if ( ! empty( $this->sender ) ) {
+			add_action( 'phpmailer_init', array( $this, 'phpmailer_sender' ) );
+		}
 	}
 
 	/**
@@ -52,14 +72,18 @@ class Pronamic_WP_ClientPlugin_Settings {
 		add_settings_section(
 			'pronamic_client_email',
 			__( 'Email', 'pronamic_client' ),
-			array( $this, 'settings_section' ),
+			'__return_null',
 			'pronamic_client'
 		);
 
 		add_settings_field(
 			'pronamic_client_phpmailer_sender',
 			__( 'PHPMailer Sender', 'pronamic_client' ),
-			array( $this, 'input_text' ),
+			function( $args ) {
+				$args['type'] = 'email';
+
+				Admin::input_text( $args );
+			},
 			'pronamic_client',
 			'pronamic_client_email',
 			array(
@@ -78,65 +102,30 @@ class Pronamic_WP_ClientPlugin_Settings {
 	}
 
 	/**
-	 * Settings section.
+	 * Set PHPMailer sender.
 	 *
-	 * @param array $args Arguments.
-	 */
-	public function settings_section( $args ) {
-	}
-
-	/**
-	 * Input text.
+	 * @since 1.4.0
 	 *
-	 * @param array $args Arguments.
+	 * @param PHPMailer $phpmailer PHPMailer object.
+	 *
+	 * @return PHPMailer
 	 */
-	public function input_text( $args ) {
-		$defaults = array(
-			'type'        => 'text',
-			'classes'     => 'regular-text',
-			'description' => '',
-		);
-
-		$args = wp_parse_args( $args, $defaults );
-
-		$name  = $args['label_for'];
-		$value = get_option( $name );
-
-		$atts = array(
-			'name'  => $name,
-			'id'    => $name,
-			'type'  => $args['type'],
-			'class' => $args['classes'],
-			'value' => $value,
-		);
-
-		$html = '';
-
-		foreach ( $atts as $key => $value ) {
-			$html .= sprintf( '%s="%s" ', $key, esc_attr( $value ) );
+	public function phpmailer_sender( $phpmailer ) {
+		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+		if ( ! empty( $phpmailer->Sender ) ) {
+			return;
 		}
 
-		$html = trim( $html );
-
-		printf(
-			'<input %s />',
-			// @codingStandardsIgnoreStart
-			$html
-			// @codingStandardsIgnoreEn
-		);
-
-		if ( ! empty( $args['description'] ) ) {
-			printf(
-				'<p class="description">%s</p>',
-				wp_kses(
-					$args['description'],
-					array(
-						'br'   => array(),
-						'code' => array()
-					)
-				)
-			);
+		if ( empty( $this->sender ) ) {
+			return;
 		}
+
+		if ( ! filter_var( $this->sender, FILTER_VALIDATE_EMAIL ) ) {
+			return;
+		}
+
+		// phpcs:ignore WordPress.NamingConventions.ValidVariableName.UsedPropertyNotSnakeCase
+		$phpmailer->Sender = $this->sender;
 	}
 
 	/**

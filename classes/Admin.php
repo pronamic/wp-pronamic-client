@@ -1,6 +1,8 @@
 <?php
 
-class Pronamic_WP_ClientPlugin_Admin {
+namespace Pronamic\WordPress\PronamicClient;
+
+class Admin {
 	/**
 	 * Instance of this class.
 	 *
@@ -15,7 +17,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	/**
 	 * Plugin
 	 *
-	 * @var Pronamic_WP_ClientPlugin_Plugin
+	 * @var Plugin
 	 */
 	private $plugin;
 
@@ -24,7 +26,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	/**
 	 * Constructs and initialize admin
 	 */
-	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
+	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Includes
@@ -108,7 +110,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 		$message .= sprintf(
 			/* translators: %s: sent date */
 			__( 'Sent: %s', 'pronamic_client' ),
-			date( 'r' )
+			\gmdate( 'r' )
 		);
 
 		$result = wp_mail( $to, $subject, $message );
@@ -137,7 +139,58 @@ class Pronamic_WP_ClientPlugin_Admin {
 		exit;
 	}
 
-	//////////////////////////////////////////////////
+	/**
+	 * Get menu icon URL.
+	 *
+	 * @link https://developer.wordpress.org/reference/functions/add_menu_page/
+	 * @return string
+	 * @throws \Exception Throws exception when retrieving menu icon fails.
+	 */
+	private function get_menu_icon_url() {
+		/**
+		 * Icon URL.
+		 *
+		 * Pass a base64-encoded SVG using a data URI, which will be colored to match the color scheme.
+		 * This should begin with 'data:image/svg+xml;base64,'.
+		 *
+		 * We use a SVG image with default fill color #A0A5AA from the default admin color scheme:
+		 * https://github.com/WordPress/WordPress/blob/5.2/wp-includes/general-template.php#L4135-L4145
+		 *
+		 * The advantage of this is that users with the default admin color scheme do not see the repaint:
+		 * https://github.com/WordPress/WordPress/blob/5.2/wp-admin/js/svg-painter.js
+		 *
+		 * @link https://developer.wordpress.org/reference/functions/add_menu_page/
+		 */
+		$file = __DIR__ . '/../images/pronamic-icon-wp-admin-fresh-base.svgo-min.svg';
+
+		if ( ! \is_readable( $file ) ) {
+			throw new \Exception(
+				\sprintf(
+					'Could not read WordPress admin menu icon from file: %s.',
+					$file
+				)
+			);
+		}
+
+		$svg = \file_get_contents( $file, true );
+
+		if ( false === $svg ) {
+			throw new \Exception(
+				\sprintf(
+					'Could not read WordPress admin menu icon from file: %s.',
+					$file
+				)
+			);
+		}
+
+		$icon_url = \sprintf(
+			'data:image/svg+xml;base64,%s',
+			// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
+			\base64_encode( $svg )
+		);
+
+		return $icon_url;
+	}
 
 	/**
 	 * Admin menu
@@ -149,7 +202,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 			'pronamic_client', // capability
 			'pronamic_client', // menu slug
 			array( $this, 'page_dashboard' ), // function
-			plugins_url( 'images/icon-16x16.png', $this->plugin->file ) // icon URL
+			$this->get_menu_icon_url() // icon URL
 			// 0 // position
 		);
 
@@ -247,6 +300,60 @@ class Pronamic_WP_ClientPlugin_Admin {
 		);
 	}
 
+	/**
+	 * Input text.
+	 *
+	 * @param array $args Arguments.
+	 */
+	public static function input_text( $args ) {
+		$defaults = array(
+			'type'        => 'text',
+			'classes'     => 'regular-text',
+			'description' => '',
+		);
+
+		$args = wp_parse_args( $args, $defaults );
+
+		$name  = $args['label_for'];
+		$value = get_option( $name );
+
+		$atts = array(
+			'name'  => $name,
+			'id'    => $name,
+			'type'  => $args['type'],
+			'class' => $args['classes'],
+			'value' => $value,
+		);
+
+		$html = '';
+
+		foreach ( $atts as $key => $value ) {
+			$html .= sprintf( '%s="%s" ', $key, esc_attr( $value ) );
+		}
+
+		$html = trim( $html );
+
+		printf(
+			'<input %s />',
+			// @codingStandardsIgnoreStart
+			$html
+			// @codingStandardsIgnoreEn
+		);
+
+		if ( ! empty( $args['description'] ) ) {
+			printf(
+				'<p class="description">%s</p>',
+				wp_kses(
+					$args['description'],
+					array(
+						'br'   => array(),
+						'code' => array()
+					)
+				)
+			);
+		}
+	}
+
 	//////////////////////////////////////////////////
 	// Pages
 	//////////////////////////////////////////////////
@@ -318,7 +425,7 @@ class Pronamic_WP_ClientPlugin_Admin {
 	 *
 	 * @return object A single instance of this class.
 	 */
-	public static function get_instance( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
+	public static function get_instance( Plugin $plugin ) {
 		// If the single instance hasn't been set, set it now.
 		if ( null === self::$instance ) {
 			self::$instance = new self( $plugin );

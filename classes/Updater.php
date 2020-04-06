@@ -1,6 +1,8 @@
 <?php
 
-class Pronamic_WP_ClientPlugin_Updater {
+namespace Pronamic\WordPress\PronamicClient;
+
+class Updater {
 	/**
 	 * Instance of this class.
 	 *
@@ -15,7 +17,7 @@ class Pronamic_WP_ClientPlugin_Updater {
 	/**
 	 * Plugin
 	 *
-	 * @var Pronamic_WP_ClientPlugin_Plugin
+	 * @var Plugin
 	 */
 	private $plugin;
 
@@ -24,9 +26,9 @@ class Pronamic_WP_ClientPlugin_Updater {
 	/**
 	 * Constructs and initialize updater
 	 *
-	 * @param Pronamic_WP_ClientPlugin_Plugin $plugin
+	 * @param Plugin $plugin
 	 */
-	private function __construct( Pronamic_WP_ClientPlugin_Plugin $plugin ) {
+	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
 		// Actions

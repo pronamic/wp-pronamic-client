@@ -7,11 +7,11 @@ if ( ! defined( '\ABSPATH' ) ) {
 
 $delete = filter_input( INPUT_GET, 'delete', FILTER_SANITIZE_STRING );
 
-$action = filter_input( INPUT_POST, 'action2', FILTER_SANITIZE_STRING );
+$pronamic_client_action = filter_input( INPUT_POST, 'action2', FILTER_SANITIZE_STRING );
 
 $files_to_delete = array();
 
-if ( 'delete' === $action ) {
+if ( 'delete' === $pronamic_client_action ) {
 	$files_to_delete = filter_input( INPUT_POST, 'files', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
 }
 
@@ -40,9 +40,9 @@ if ( 'delete' === $action ) {
 			?>
 			<form method="post" action="">
 				<table cellspacing="0" class="widefat fixed">
-					<?php foreach ( array( 'thead', 'tfoot' ) as $tag ) : ?>
+					<?php foreach ( array( 'thead', 'tfoot' ) as $html_tag ) : ?>
 
-						<<?php echo $tag; ?>>
+						<<?php echo $html_tag; ?>>
 							<tr>
 								<th id="cb" class="manage-column column-cb check-column" scope="col">
 									<input type="checkbox" />
@@ -53,7 +53,7 @@ if ( 'delete' === $action ) {
 								<th scope="col"><?php _e( 'Content', 'pronamic_client' ); ?></th>
 								<th scope="col"><?php _e( 'Actions', 'pronamic_client' ); ?></th>
 							</tr>
-						</<?php echo $tag; ?>>
+						</<?php echo $html_tag; ?>>
 
 					<?php endforeach; ?>
 

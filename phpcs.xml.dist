@@ -35,4 +35,8 @@
 
 		<exclude name="WordPress.WP.GlobalVariablesOverride.OverrideProhibited" />
 	</rule>
+
+	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode">
+		<exclude-pattern>adminer/index.php</exclude-pattern>
+	</rule>
 </ruleset>
