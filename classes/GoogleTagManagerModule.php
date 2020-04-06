@@ -88,8 +88,8 @@ class GoogleTagManagerModule {
 			'pronamic_client',
 			'pronamic_client_google_tag_manager',
 			array(
-				'label_for' => 'pronamic_client_google_tag_manager_container_id',
-				'classes'   => 'regular-text',
+				'label_for'   => 'pronamic_client_google_tag_manager_container_id',
+				'classes'     => 'regular-text',
 				'description' => sprintf(
 					/* translators: 1: hook */
 					\esc_html__( 'Your theme needs support for the %1$s hook.', 'pronamic_client' ),
@@ -118,8 +118,8 @@ class GoogleTagManagerModule {
 		/**
 		 * Notices.
 		 *
-	 	 * @link https://github.com/Yoast/wordpress-seo/blob/13.1/admin/class-yoast-plugin-conflict.php#L202
-	 	 * @link https://plugins.trac.wordpress.org/browser/wk-google-analytics/tags/1.8.0/wk-ga.php#L15
+		 * @link https://github.com/Yoast/wordpress-seo/blob/13.1/admin/class-yoast-plugin-conflict.php#L202
+		 * @link https://plugins.trac.wordpress.org/browser/wk-google-analytics/tags/1.8.0/wk-ga.php#L15
 		 */
 		$this->admin_notices = array();
 

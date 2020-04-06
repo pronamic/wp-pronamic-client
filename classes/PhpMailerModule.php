@@ -45,7 +45,7 @@ class PhpMailerModule {
 		// Sender.
 		$this->sender = \get_option( 'pronamic_client_phpmailer_sender' );
 
-		if ( ! empty( $this->sender) ) {
+		if ( ! empty( $this->sender ) ) {
 			add_action( 'phpmailer_init', array( $this, 'phpmailer_sender' ) );
 		}
 	}

@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
 "client\n"
-"POT-Creation-Date: 2020-01-07 10:52:15+00:00\n"
-"PO-Revision-Date: 2020-01-07 12:00+0100\n"
+"POT-Creation-Date: 2020-04-06 09:12:59+00:00\n"
+"PO-Revision-Date: 2020-04-06 11:15+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/checklist.php:16
@@ -121,7 +121,7 @@ msgstr "Zoek plugin"
 msgid "Adminer"
 msgstr "Adminer"
 
-#: admin/dashboard/adminer.php:27
+#: admin/dashboard/adminer.php:28
 msgid "Login"
 msgstr "Inloggen"
 
@@ -141,7 +141,7 @@ msgstr "Website: %s"
 
 #. translators: 1: https:www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic
 #: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
-#: admin/includes/dashboard.php:43 includes/class-plugin.php:96
+#: admin/includes/dashboard.php:43 classes/Plugin.php:81
 #: includes/credits.php:18
 msgid "https://www.pronamic.eu/"
 msgstr "https://www.pronamic.nl/"
@@ -247,7 +247,6 @@ msgid "mail-tester.com"
 msgstr "mail-tester.com"
 
 #: admin/email.php:191
-#| msgid "mail-tester.com"
 msgid "mail-tester.com/spf-dkim-check"
 msgstr "mail-tester.com/spf-dkim-check"
 
@@ -350,12 +349,12 @@ msgid "Delete"
 msgstr "Verwijder"
 
 #. translators: %s: site url
-#: includes/class-admin.php:95
+#: classes/Admin.php:97
 msgid "Test email from %s"
 msgstr "Test e-mail van %s"
 
 #. translators: %s: site url
-#: includes/class-admin.php:101
+#: classes/Admin.php:103
 msgid ""
 "This test email proves that your WordPress installation at %s can send "
 "emails."
@@ -364,7 +363,7 @@ msgstr ""
 "verzenden."
 
 #. translators: %s: sent date
-#: includes/class-admin.php:110
+#: classes/Admin.php:112
 msgid "Sent: %s"
 msgstr "Verzonden: %s"
 
@@ -372,88 +371,92 @@ msgstr "Verzonden: %s"
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: includes/class-admin.php:159
+#: classes/Admin.php:212
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: includes/class-admin.php:160
+#: classes/Admin.php:213
 msgid "Checklist"
 msgstr "Checklist"
 
-#: includes/class-admin.php:168
+#: classes/Admin.php:221
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: includes/class-admin.php:169
+#: classes/Admin.php:222
 msgid "Extensions"
 msgstr "Extensies"
 
-#: includes/class-admin.php:178
+#: classes/Admin.php:231
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: includes/class-admin.php:179
+#: classes/Admin.php:232
 msgid "Scanner"
 msgstr "Scanner"
 
-#: includes/class-admin.php:187 includes/class-admin.php:188
-#: includes/class-settings.php:54
+#: classes/Admin.php:240 classes/Admin.php:241 classes/PhpMailerModule.php:74
 msgid "Email"
 msgstr "E-mail"
 
-#: includes/class-admin.php:196 includes/class-admin.php:197
+#: classes/Admin.php:249 classes/Admin.php:250
 msgid "Settings"
 msgstr "Instellingen"
 
-#: includes/class-admin.php:216
+#: classes/Admin.php:269
 msgid "Browse…"
 msgstr "Bladeren…"
 
-#: includes/class-plugin.php:107
-msgid "Contact"
-msgstr "Contact"
+#: classes/AkismetModule.php:57
+msgid "Sorry, you are not allowed to view this page."
+msgstr "Sorry, je mag deze pagina niet bekijken."
 
-#: includes/class-plugin.php:108
-msgid "https://www.pronamic.eu/contact/"
-msgstr "https://www.pronamic.nl/contact/"
+#: classes/GoogleAnalyticsModule.php:75
+msgid "Google Analytics"
+msgstr "Google Analytics"
 
-#: includes/class-scripts.php:75
-msgid "Scripts"
-msgstr "Scripts"
+#: classes/GoogleAnalyticsModule.php:83
+msgid "Google Analytics Tracking ID"
+msgstr "Google Analytics tracking ID"
 
-#: includes/class-scripts.php:83
-msgid "Header"
-msgstr "Header"
+#: classes/GoogleAnalyticsModule.php:131 classes/GoogleTagManagerModule.php:128
+msgid "The %1$s plugin might cause issues when used in conjunction with %2$s."
+msgstr ""
+"De %1$s plugin kan problemen veroorzaken bij gebruik in combinatie met %2$s."
 
-#: includes/class-scripts.php:96
-msgid "Body open"
-msgstr "Body open"
+#: classes/GoogleTagManagerModule.php:76
+msgid "Google Tag Manager"
+msgstr "Google Tag Manager"
+
+#: classes/GoogleTagManagerModule.php:84
+msgid "Google Tag Manager Container ID"
+msgstr "Google Tag Manager container ID"
 
 #. translators: 1: hook
-#: includes/class-scripts.php:105
+#: classes/GoogleTagManagerModule.php:95
 msgid "Your theme needs support for the %1$s hook."
 msgstr "Het thema vereist ondersteuning van de %1$s hook."
 
-#: includes/class-scripts.php:114
-msgid "Footer"
-msgstr "Footer"
-
-#: includes/class-scripts.php:183
-msgid "There is already an analytics plugin active."
-msgstr "Er is al een plugin voor analytics actief."
-
-#: includes/class-settings.php:61
+#: classes/PhpMailerModule.php:81
 msgid "PHPMailer Sender"
 msgstr "PHPMailer afzender"
 
 #. translators: %s: <code>spf=neutral...</code>
-#: includes/class-settings.php:70
+#: classes/PhpMailerModule.php:94
 msgid ""
 "Optionally set a PHPMailer Sender e-mail address to, for example, resolve "
 "SPF neutral notifications such as: %s."
 msgstr ""
 "Stel optioneel een PHPMailer afzender e-mailadres in om bijvoorbeeld SPF-"
 "neutrale meldingen op te lossen, zoals: %s."
+
+#: classes/Plugin.php:92
+msgid "Contact"
+msgstr "Contact"
+
+#: classes/Plugin.php:93
+msgid "https://www.pronamic.eu/contact/"
+msgstr "https://www.pronamic.nl/contact/"
 
 #. translators: %s: Pronamic
 #: includes/credits.php:14
@@ -476,10 +479,25 @@ msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
-#: includes/class-plugin.php:127
+#: classes/Plugin.php:112
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
+
+#~ msgid "Scripts"
+#~ msgstr "Scripts"
+
+#~ msgid "Header"
+#~ msgstr "Header"
+
+#~ msgid "Body open"
+#~ msgstr "Body open"
+
+#~ msgid "Footer"
+#~ msgstr "Footer"
+
+#~ msgid "There is already an analytics plugin active."
+#~ msgstr "Er is al een plugin voor analytics actief."
 
 #~ msgid "Description"
 #~ msgstr "Beschrijving"

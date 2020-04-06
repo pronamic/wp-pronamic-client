@@ -12,12 +12,12 @@
     },
     "require": {},
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2",
         "phpcompatibility/php-compatibility": "^9.3",
         "phpcompatibility/phpcompatibility-wp": "^2.1",
-        "roots/wordpress": "^5.3",
+        "roots/wordpress": "^5.4",
         "squizlabs/php_codesniffer": "^3.5",
         "wp-coding-standards/wpcs": "^2.2",
-        "wp-phpunit/wp-phpunit": "^5.3"
+        "wp-phpunit/wp-phpunit": "^5.4"
     }
 }

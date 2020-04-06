@@ -41,7 +41,7 @@ class GoogleAnalyticsModule {
 		if ( \is_admin() ) {
 			\add_action( 'admin_init', array( $this, 'admin_init' ), 30 );
 		}
-		
+
 		// Google Analytics Tracking ID.
 		$this->tracking_id = \get_option( 'pronamic_client_google_analytics_tracking_id' );
 
@@ -121,8 +121,8 @@ class GoogleAnalyticsModule {
 		/**
 		 * Notices.
 		 *
-	 	 * @link https://github.com/Yoast/wordpress-seo/blob/13.1/admin/class-yoast-plugin-conflict.php#L202
-	 	 * @link https://plugins.trac.wordpress.org/browser/wk-google-analytics/tags/1.8.0/wk-ga.php#L15
+		 * @link https://github.com/Yoast/wordpress-seo/blob/13.1/admin/class-yoast-plugin-conflict.php#L202
+		 * @link https://plugins.trac.wordpress.org/browser/wk-google-analytics/tags/1.8.0/wk-ga.php#L15
 		 */
 		$this->admin_notices = array();
 

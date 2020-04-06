@@ -48,7 +48,7 @@ class AkismetModule {
 			return;
 		}
 
-		$api_key = \Akismet:: get_api_key();
+		$api_key = \Akismet::get_api_key();
 
 		if ( 'fc432369b1e26b1aeb4119e2deb0be15' !== \md5( $api_key ) ) {
 			return;

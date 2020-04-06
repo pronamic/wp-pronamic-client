@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 5.3.2
-Stable tag: 1.4.0
+Stable tag: 1.5.0
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,12 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.5.0 =
+*	Added new SVG admin menu icon.
+*	Block access to Akismet stats page
+*	Added Google Analytics feature.
+*	Added Google Tag Manager feature.
 
 = 1.4.0 =
 *	Added email test page.
