@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
 "client\n"
-"POT-Creation-Date: 2020-07-07 10:28:40+00:00\n"
-"PO-Revision-Date: 2020-07-07 12:29+0200\n"
+"POT-Creation-Date: 2020-07-07 10:59:54+00:00\n"
+"PO-Revision-Date: 2020-07-07 13:00+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -376,7 +376,7 @@ msgstr "Acties"
 
 #: admin/virus-scanner.php:85
 msgid "F j, Y g:i a"
-msgstr "j F Y H:i "
+msgstr "j F Y H:i"
 
 #: admin/virus-scanner.php:100 admin/virus-scanner.php:117
 msgid "Delete"
