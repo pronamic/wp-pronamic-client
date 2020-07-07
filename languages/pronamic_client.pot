@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Pronamic Client 1.5.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wp-pronamic-client\n"
-"POT-Creation-Date: 2020-04-06 09:12:59+00:00\n"
+"POT-Creation-Date: 2020-07-07 10:28:40+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -216,47 +216,79 @@ msgid ""
 "emails."
 msgstr ""
 
-#: admin/email.php:130
+#: admin/email.php:133
+#. translators: %s: site url
+msgid "Test email from %s"
+msgstr ""
+
+#: admin/email.php:138
+#. translators: %s: site url
+msgid ""
+"This test email proves that your WordPress installation at %s can send "
+"emails."
+msgstr ""
+
+#: admin/email.php:149
+msgid "From Email"
+msgstr ""
+
+#: admin/email.php:154
+msgid "Leave empty to use WordPress default sender."
+msgstr ""
+
+#: admin/email.php:159
 msgid "Send To"
 msgstr ""
 
-#: admin/email.php:148
-msgid "Send test email"
-msgstr ""
-
-#: admin/email.php:166
-msgid "Tools"
-msgstr ""
-
-#: admin/email.php:172
-msgid "Title"
+#: admin/email.php:167
+msgid "Subject"
 msgstr ""
 
 #: admin/email.php:175
-msgid "Link"
+msgid "Message"
 msgstr ""
 
 #: admin/email.php:183
+msgid "Headers"
+msgstr ""
+
+#: admin/email.php:201
+msgid "Send test email"
+msgstr ""
+
+#: admin/email.php:219
+msgid "Tools"
+msgstr ""
+
+#: admin/email.php:225
+msgid "Title"
+msgstr ""
+
+#: admin/email.php:228
+msgid "Link"
+msgstr ""
+
+#: admin/email.php:236
 msgid "mail-tester.com"
 msgstr ""
 
-#: admin/email.php:191
+#: admin/email.php:244
 msgid "mail-tester.com/spf-dkim-check"
 msgstr ""
 
-#: admin/email.php:199
+#: admin/email.php:252
 msgid "Dig (DNS lookup) - G Suite toolbox"
 msgstr ""
 
-#: admin/email.php:207
+#: admin/email.php:260
 msgid "SPF Record Testing Tools"
 msgstr ""
 
-#: admin/email.php:215
+#: admin/email.php:268
 msgid "dmarcian's SPF Record Checker"
 msgstr ""
 
-#: admin/email.php:223
+#: admin/email.php:276
 msgid "DMARC Analyzer - DKIM record Checker"
 msgstr ""
 
@@ -342,19 +374,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: classes/Admin.php:97
-#. translators: %s: site url
-msgid "Test email from %s"
-msgstr ""
-
-#: classes/Admin.php:103
-#. translators: %s: site url
-msgid ""
-"This test email proves that your WordPress installation at %s can send "
-"emails."
-msgstr ""
-
-#: classes/Admin.php:112
+#: classes/Admin.php:123
 #. translators: %s: sent date
 msgid "Sent: %s"
 msgstr ""
@@ -363,39 +383,39 @@ msgstr ""
 msgid "Pronamic"
 msgstr ""
 
-#: classes/Admin.php:212
+#: classes/Admin.php:223
 msgid "Pronamic Checklist"
 msgstr ""
 
-#: classes/Admin.php:213
+#: classes/Admin.php:224
 msgid "Checklist"
 msgstr ""
 
-#: classes/Admin.php:221
+#: classes/Admin.php:232
 msgid "Pronamic Extensions"
 msgstr ""
 
-#: classes/Admin.php:222
+#: classes/Admin.php:233
 msgid "Extensions"
 msgstr ""
 
-#: classes/Admin.php:231
+#: classes/Admin.php:242
 msgid "Pronamic Virus Scanner"
 msgstr ""
 
-#: classes/Admin.php:232
+#: classes/Admin.php:243
 msgid "Scanner"
 msgstr ""
 
-#: classes/Admin.php:240 classes/Admin.php:241 classes/PhpMailerModule.php:74
+#: classes/Admin.php:251 classes/Admin.php:252 classes/PhpMailerModule.php:74
 msgid "Email"
 msgstr ""
 
-#: classes/Admin.php:249 classes/Admin.php:250
+#: classes/Admin.php:260 classes/Admin.php:261
 msgid "Settings"
 msgstr ""
 
-#: classes/Admin.php:269
+#: classes/Admin.php:280
 msgid "Browse…"
 msgstr ""
 

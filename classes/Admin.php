@@ -80,40 +80,51 @@ class Admin {
 	 * @link https://plugins.trac.wordpress.org/browser/check-email/trunk/check-email.php#L73
 	 */
 	private function maybe_send_test_email() {
+		if ( ! \current_user_can( 'pronamic_client' ) ) {
+			return;
+		}
+
 		$nonce = filter_input( INPUT_POST, 'pronamic_client_send_test_email_nonce', FILTER_SANITIZE_STRING );
 
 		if ( ! wp_verify_nonce( $nonce, 'pronamic_client_send_test_email' ) ) {
 			return;
 		}
 
-		$to = filter_input( INPUT_POST, 'pronamic_client_test_email_to', FILTER_VALIDATE_EMAIL );
+		$email_data = filter_input( INPUT_POST, 'pronamic_client_test_email', FILTER_UNSAFE_RAW, FILTER_REQUIRE_ARRAY );
 
-		if ( empty( $to ) ) {
+		if ( null == $email_data ) {
 			return;
 		}
 
-		$subject = sprintf(
-			/* translators: %s: site url */
-			__( 'Test email from %s', 'pronamic_client' ),
-			get_bloginfo( 'url' )
-		);
+		$email = (object) filter_var_array( $email_data, array(
+			'from'    => \FILTER_VALIDATE_EMAIL,
+			'to'      => \FILTER_VALIDATE_EMAIL,
+			'subject' => \FILTER_UNSAFE_RAW,
+			'message' => \FILTER_UNSAFE_RAW,
+			'headers' => \FILTER_UNSAFE_RAW,
+		) );
 
-		$message = sprintf(
-			/* translators: %s: site url */
-			__( 'This test email proves that your WordPress installation at %s can send emails.', 'pronamic_client' ),
-			get_bloginfo( 'url' )
-		);
+		if ( empty( $email->to ) ) {
+			return;
+		}
 
-		$message .= "\r\n";
-		$message .= "\r\n";
+		$email->headers = \explode( "\r\n", $email->headers );
 
-		$message .= sprintf(
+		if ( $email->from ) {
+			$email->headers[] = 'From: ' . $email->from;
+		}
+
+		// Extend message with date.
+		$email->message .= "\r\n";
+		$email->message .= "\r\n";
+
+		$email->message .= sprintf(
 			/* translators: %s: sent date */
 			__( 'Sent: %s', 'pronamic_client' ),
 			\gmdate( 'r' )
 		);
 
-		$result = wp_mail( $to, $subject, $message );
+		$result = wp_mail( $email->to, $email->subject, $email->message, $email->headers );
 
 		/**
 		 * Redirect.
