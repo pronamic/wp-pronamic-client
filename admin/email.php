@@ -123,14 +123,67 @@
 	</p>
 
 	<form method="post" action="">
+		<?php
+
+		$email = (object) array(
+			'from'    => '',
+			'to'      => '',
+			'subject' => \sprintf(
+				/* translators: %s: site url */
+				\__( 'Test email from %s', 'pronamic_client' ),
+				\get_bloginfo( 'url' )
+			),
+			'message' => \sprintf(
+				/* translators: %s: site url */
+				__( 'This test email proves that your WordPress installation at %s can send emails.', 'pronamic_client' ),
+				\get_bloginfo( 'url' )
+			),
+			'headers' => array(),
+		);
+
+		?>
 		<table class="form-table">
 			<tbody>
+				<tr>
+					<th scope="row">
+						<label for="pronamic_client_test_email_from"><?php esc_html_e( 'From Email', 'pronamic_client' ); ?></label>
+					</th>
+					<td>
+						<input name="pronamic_client_test_email[from]" type="email" id="pronamic_client_test_email_from" value="<?php echo \esc_attr( $email->from ); ?>" class="regular-text" />
+
+						<p class="description"><?php \esc_html_e( 'Leave empty to use WordPress default sender.', 'pronamic_client' ); ?></p>
+					</td>
+				</tr>
 				<tr>
 					<th scope="row">
 						<label for="pronamic_client_test_email_to"><?php esc_html_e( 'Send To', 'pronamic_client' ); ?></label>
 					</th>
 					<td>
-						<input name="pronamic_client_test_email_to" type="email" id="pronamic_client_test_email_to" value="" class="regular-text" />
+						<input name="pronamic_client_test_email[to]" type="email" id="pronamic_client_test_email_to" value="<?php echo \esc_attr( $email->to ); ?>" class="regular-text" required="required" />
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="pronamic_client_test_email_subject"><?php esc_html_e( 'Subject', 'pronamic_client' ); ?></label>
+					</th>
+					<td>
+						<input name="pronamic_client_test_email[subject]" type="text" id="pronamic_client_test_email_subject" value="<?php echo \esc_attr( $email->subject ); ?>" class="regular-text" required="required" />
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="pronamic_client_test_email_message"><?php esc_html_e( 'Message', 'pronamic_client' ); ?></label>
+					</th>
+					<td>
+						<textarea name="pronamic_client_test_email[message]" id="pronamic_client_test_email_message" cols="60" rows="4" required="required"><?php echo \esc_textarea( $email->message ); ?></textarea>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
+						<label for="pronamic_client_test_email_headers"><?php esc_html_e( 'Headers', 'pronamic_client' ); ?></label>
+					</th>
+					<td>
+						<textarea name="pronamic_client_test_email[headers]" id="pronamic_client_test_email_headers" cols="60" rows="4"><?php echo \esc_textarea( implode( "\r\n", $email->headers ) ); ?></textarea>
 					</td>
 				</tr>
 			</tbody>

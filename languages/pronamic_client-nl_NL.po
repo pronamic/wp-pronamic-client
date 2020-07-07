@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
 "client\n"
-"POT-Creation-Date: 2020-04-06 09:12:59+00:00\n"
-"PO-Revision-Date: 2020-04-06 11:15+0200\n"
+"POT-Creation-Date: 2020-07-07 11:03:07+00:00\n"
+"PO-Revision-Date: 2020-07-07 13:03+0200\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.3\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/checklist.php:16
@@ -222,47 +222,81 @@ msgstr ""
 "Gebruik een service zoals %s om te testen of deze WordPress-installatie e-"
 "mails verzendt."
 
-#: admin/email.php:130
+#. translators: %s: site url
+#: admin/email.php:133
+msgid "Test email from %s"
+msgstr "Test e-mail van %s"
+
+#. translators: %s: site url
+#: admin/email.php:138
+msgid ""
+"This test email proves that your WordPress installation at %s can send "
+"emails."
+msgstr ""
+"Deze test-e-mail bewijst dat je WordPress-installatie op %s e-mails kan "
+"verzenden."
+
+#: admin/email.php:149
+msgid "From Email"
+msgstr "Van e-mailadres"
+
+#: admin/email.php:154
+msgid "Leave empty to use WordPress default sender."
+msgstr "Laat leeg om de standaard afzender van WordPress te gebruiken."
+
+#: admin/email.php:159
 msgid "Send To"
 msgstr "Verstuur naar"
 
-#: admin/email.php:148
+#: admin/email.php:167
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: admin/email.php:175
+msgid "Message"
+msgstr "Bericht"
+
+#: admin/email.php:183
+msgid "Headers"
+msgstr "Headers"
+
+#: admin/email.php:201
 msgid "Send test email"
 msgstr "Verstuur test e-mail"
 
-#: admin/email.php:166
+#: admin/email.php:219
 msgid "Tools"
 msgstr "Gereedschap"
 
-#: admin/email.php:172
+#: admin/email.php:225
 msgid "Title"
 msgstr "Titel"
 
-#: admin/email.php:175
+#: admin/email.php:228
 msgid "Link"
 msgstr "Link"
 
-#: admin/email.php:183
+#: admin/email.php:236
 msgid "mail-tester.com"
 msgstr "mail-tester.com"
 
-#: admin/email.php:191
+#: admin/email.php:244
 msgid "mail-tester.com/spf-dkim-check"
 msgstr "mail-tester.com/spf-dkim-check"
 
-#: admin/email.php:199
+#: admin/email.php:252
 msgid "Dig (DNS lookup) - G Suite toolbox"
 msgstr "Dig (DNS lookup) - G Suite toolbox"
 
-#: admin/email.php:207
+#: admin/email.php:260
 msgid "SPF Record Testing Tools"
 msgstr "SPF Record Testing Tools"
 
-#: admin/email.php:215
+#: admin/email.php:268
 msgid "dmarcian's SPF Record Checker"
 msgstr "dmarcian's SPF Record Checker"
 
-#: admin/email.php:223
+#: admin/email.php:276
 msgid "DMARC Analyzer - DKIM record Checker"
 msgstr "DMARC Analyzer - DKIM record Checker"
 
@@ -342,28 +376,14 @@ msgstr "Acties"
 
 #: admin/virus-scanner.php:85
 msgid "F j, Y g:i a"
-msgstr "j F Y H:i "
+msgstr "j F Y H:i"
 
 #: admin/virus-scanner.php:100 admin/virus-scanner.php:117
 msgid "Delete"
 msgstr "Verwijder"
 
-#. translators: %s: site url
-#: classes/Admin.php:97
-msgid "Test email from %s"
-msgstr "Test e-mail van %s"
-
-#. translators: %s: site url
-#: classes/Admin.php:103
-msgid ""
-"This test email proves that your WordPress installation at %s can send "
-"emails."
-msgstr ""
-"Deze test-e-mail bewijst dat je WordPress-installatie op %s e-mails kan "
-"verzenden."
-
 #. translators: %s: sent date
-#: classes/Admin.php:112
+#: classes/Admin.php:123
 msgid "Sent: %s"
 msgstr "Verzonden: %s"
 
@@ -371,39 +391,39 @@ msgstr "Verzonden: %s"
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: classes/Admin.php:212
+#: classes/Admin.php:223
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: classes/Admin.php:213
+#: classes/Admin.php:224
 msgid "Checklist"
 msgstr "Checklist"
 
-#: classes/Admin.php:221
+#: classes/Admin.php:232
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: classes/Admin.php:222
+#: classes/Admin.php:233
 msgid "Extensions"
 msgstr "Extensies"
 
-#: classes/Admin.php:231
+#: classes/Admin.php:242
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: classes/Admin.php:232
+#: classes/Admin.php:243
 msgid "Scanner"
 msgstr "Scanner"
 
-#: classes/Admin.php:240 classes/Admin.php:241 classes/PhpMailerModule.php:74
+#: classes/Admin.php:251 classes/Admin.php:252 classes/PhpMailerModule.php:74
 msgid "Email"
 msgstr "E-mail"
 
-#: classes/Admin.php:249 classes/Admin.php:250
+#: classes/Admin.php:260 classes/Admin.php:261
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Admin.php:269
+#: classes/Admin.php:280
 msgid "Browse…"
 msgstr "Bladeren…"
 
@@ -980,9 +1000,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "Code"
 #~ msgstr "Code"
-
-#~ msgid "Message"
-#~ msgstr "Bericht"
 
 #~ msgid "Detail"
 #~ msgstr "Detail"
