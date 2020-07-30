@@ -47,6 +47,9 @@ class Updater {
 
 		add_filter( 'pre_set_site_transient_' . $transient_update_plugins, array( $this, 'transient_update_plugins_filter' ) );
 		add_filter( 'pre_set_site_transient_' . $transient_update_themes, array( $this, 'transient_update_themes_filter' ) );
+
+		add_action( 'delete_site_transient_' . $transient_update_plugins, array( $this, 'transient_delete_plugins_filter' ) );
+		add_action( 'delete_site_transient_' . $transient_update_themes, array( $this, 'transient_delete_themes_filter' ) );
 	}
 
 	/**
@@ -250,6 +253,28 @@ class Updater {
 		}
 
 		return $update_themes;
+	}
+
+	/**
+	 * Transient delete plugins filter
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/master/wp-includes/option.php#L1791-L1800
+	 *
+	 * @param string $transient
+	 */
+	public function transient_delete_plugins_filter( $transient ) {
+		delete_option( 'pronamic_client_plugins_update_check_response' );
+	}
+
+	/**
+	 * Transient delete themes filter
+	 *
+	 * @see https://github.com/WordPress/WordPress/blob/master/wp-includes/option.php#L1791-L1800
+	 *
+	 * @param string $transient
+	 */
+	public function transient_delete_themes_filter( $transient ) {
+		delete_option( 'pronamic_client_themes_update_check_response' );
 	}
 
 	//////////////////////////////////////////////////
