@@ -46,6 +46,14 @@ class Updater {
 	 * @return array
 	 */
 	public function http_response( $response, $parsed_args, $url ) {
+		if ( ! \array_key_exists( 'method', $parsed_args ) ) {
+			return $repsonse;
+		}
+
+		if ( 'POST' !== $parsed_args['method'] ) {
+			return $response;
+		}
+
 		if ( false !== strpos( $url, '//api.wordpress.org/plugins/update-check/' ) ) {
 			$response = $this->extend_response_with_pronamic( $response, $parsed_args, 'plugins' );
 		}
@@ -136,6 +144,7 @@ class Updater {
 	/**
 	 * Request plugins update check.
 	 *
+	 * @param array $parsed_args HTTP request arguments.
 	 * @return array
 	 */
 	private function request_plugins_update_check( $parsed_args ) {
@@ -168,6 +177,7 @@ class Updater {
 	/**
 	 * Request themes update check.
 	 *
+	 * @param array $parsed_args HTTP request arguments.
 	 * @return array
 	 */
 	private function request_themes_update_check( $parsed_args ) {
