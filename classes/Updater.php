@@ -32,76 +32,137 @@ class Updater {
 		$this->plugin = $plugin;
 
 		// Actions
-		add_action( 'init', array( $this, 'init' ) );
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
-
-		add_action( 'pronamic_update_plugins', array( $this, 'update_check_plugins' ) );
-		add_action( 'pronamic_update_themes', array( $this, 'update_check_themes' ) );
+		\add_action( 'admin_init', array( $this, 'admin_init' ) );
 
 		// Filters
-		add_filter( 'plugins_api', array( $this, 'plugins_api' ), 10, 3 );
+		\add_filter( 'plugins_api', array( $this, 'plugins_api' ), 10, 3 );
 
 		// Transients
 		$transient_update_plugins = 'update_plugins';
 		$transient_update_themes  = 'update_themes';
 
-		add_filter( 'pre_set_site_transient_' . $transient_update_plugins, array( $this, 'transient_update_plugins_filter' ) );
-		add_filter( 'pre_set_site_transient_' . $transient_update_themes, array( $this, 'transient_update_themes_filter' ) );
-
-		\add_action( 'delete_site_transient_' . $transient_update_plugins, array( $this, 'transient_delete_plugins_filter' ) );
-		\add_action( 'delete_site_transient_' . $transient_update_themes, array( $this, 'transient_delete_themes_filter' ) );
-	}
-
-	/**
-	 * Initialize.
-	 */
-	public function init() {
-		// @see https://github.com/WordPress/WordPress/blob/4.8/wp-includes/update.php#L680-L694
-		if ( ! wp_next_scheduled( 'pronamic_update_plugins' ) ) {
-			wp_schedule_event( time(), 'twicedaily', 'pronamic_update_plugins' );
-		}
-
-		if ( ! wp_next_scheduled( 'pronamic_update_themes' ) ) {
-			wp_schedule_event( time(), 'twicedaily', 'pronamic_update_themes' );
-		}
+		\add_filter( 'pre_set_site_transient_' . $transient_update_plugins, array( $this, 'transient_update_plugins_filter' ) );
+		\add_filter( 'pre_set_site_transient_' . $transient_update_themes, array( $this, 'transient_update_themes_filter' ) );
 	}
 
 	/**
 	 * Admin initialize.
 	 */
 	public function admin_init() {
-		$force_check = filter_input( INPUT_GET, 'force-check', FILTER_VALIDATE_BOOLEAN );
+		$force_check = \filter_input( INPUT_GET, 'force-check', FILTER_VALIDATE_BOOLEAN );
 
 		if ( $force_check ) {
-			$this->update_check_plugins();
-			$this->update_check_themes();
+			\delete_option( 'pronamic_client_plugins_update_check_response' );
+			\delete_option( 'pronamic_client_themes_update_check_response' );
 		}
 	}
 
 	/**
-	 * Update check plugins.
+	 * Time to live depends on current filter.
+	 *
+	 * @link https://github.com/WordPress/WordPress/blob/5.5/wp-includes/update.php#L297-L315
+	 * @link https://github.com/WordPress/WordPress/blob/5.5/wp-includes/update.php#L504-L522
+	 * @link https://github.com/WordPress/WordPress/blob/5.5/wp-includes/plugin.php
+	 * @return int
 	 */
-	public function update_check_plugins() {
-		$response = $this->request_plugins_update_check();
-
-		if ( false === $response ) {
-			return;
+	private function get_caching_ttl() {
+		if ( \doing_filter( 'upgrader_process_complete' ) ) {
+			return 0;
 		}
 
-		update_option( 'pronamic_client_plugins_update_check_response', $response, false );
+		if ( \doing_filter( 'load-update-core.php' ) ) {
+			return \MINUTE_IN_SECONDS;
+		}
+
+		if ( \doing_filter( 'load-update.php' ) || \doing_filter( 'load-plugins.php' ) || \doing_filter( 'load-themes.php' ) ) {
+			return \HOUR_IN_SECONDS;
+		}
+
+		if ( \wp_doing_cron() ) {
+			return 2 * \HOUR_IN_SECONDS;
+		}
+
+		return 12 * \HOUR_IN_SECONDS;
 	}
 
 	/**
-	 * Update check themes.
+	 * Get plugins update check.
+	 *
+	 * @return array{plugins: array, timestamp: int}
 	 */
-	public function update_check_themes() {
-		$response = $this->request_themes_update_check();
+	public function get_plugins_update_check() {
+		$response = array();
 
-		if ( false === $response ) {
-			return;
+		$value = \get_option( 'pronamic_client_plugins_update_check_response' );
+
+		if ( \is_array( $value ) ) {
+			$response = $value;
 		}
 
-		update_option( 'pronamic_client_themes_update_check_response', $response, false );
+		if ( \array_key_exists( 'timestamp', $response ) ) {
+			$timestamp = \intval( $response['timestamp'] );
+
+			if ( \time() - $timestamp < $this->get_caching_ttl() ) {
+				return $response;
+			}
+		}
+
+		// Update last_checked for current to prevent multiple blocking requests if request hangs.
+		$response['timestamp'] = \time();
+
+		\update_option( 'pronamic_client_plugins_update_check_response', $response, false );
+
+		$request_response = $this->request_plugins_update_check();
+
+		if ( false !== $request_response ) {
+			$response = $request_response;
+
+			$response['timestamp'] = \time();
+
+			\update_option( 'pronamic_client_plugins_update_check_response', $response, false );	
+		}
+
+		return $response;
+	}
+
+	/**
+	 * Get themes update check.
+	 *
+	 * @return array{themes: array, timestamp: int}
+	 */
+	public function get_themes_update_check() {
+		$response = array();
+
+		$value = \get_option( 'pronamic_client_themes_update_check_response' );
+
+		if ( \is_array( $value ) ) {
+			$response = $value;
+		}
+
+		if ( \array_key_exists( 'timestamp', $response ) ) {
+			$timestamp = \intval( $response['timestamp'] );
+
+			if ( \time() - $timestamp < $this->get_caching_ttl() ) {
+				return $response;
+			}
+		}
+
+		// Update last_checked for current to prevent multiple blocking requests if request hangs.
+		$response['timestamp'] = \time();
+
+		\update_option( 'pronamic_client_themes_update_check_response', $response, false );
+
+		$request_response = $this->request_themes_update_check();
+
+		if ( false !== $request_response ) {
+			$response = $request_response;
+
+			$response['timestamp'] = \time();
+
+			\update_option( 'pronamic_client_themes_update_check_response', $response, false );	
+		}
+
+		return $response;
 	}
 
 	/**
@@ -124,9 +185,9 @@ class Updater {
 	 */
 	private function get_http_api_options( $body ) {
 		$options = array(
-			'timeout'    => ( ( defined( 'DOING_CRON' ) && DOING_CRON ) ? 30 : 3 ),
+			'timeout'    => ( \wp_doing_cron() ? 30 : 3 ),
 			'body'       => $body,
-			'user-agent' => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ),
+			'user-agent' => 'WordPress/' . \get_bloginfo( 'version' ) . '; ' . \get_bloginfo( 'url' ),
 		);
 
 		return $options;
@@ -138,7 +199,7 @@ class Updater {
 	 * Request plugins update check.
 	 */
 	private function request_plugins_update_check() {
-		$pronamic_plugins = pronamic_client_get_plugins();
+		$pronamic_plugins = \pronamic_client_get_plugins();
 
 		if ( false === $pronamic_plugins ) {
 			return false;
@@ -146,43 +207,42 @@ class Updater {
 
 		$options = $this->get_http_api_options(
 			array(
-				'plugins' => wp_json_encode( $pronamic_plugins ),
+				'plugins' => \wp_json_encode( $pronamic_plugins ),
 			)
 		);
 
 		$url = 'https://api.pronamic.eu/plugins/update-check/1.2/';
 
-		$raw_response = wp_remote_post( $url, $options );
+		$raw_response = \wp_remote_post( $url, $options );
 
 		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
-		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) {
+		if ( \is_wp_error( $raw_response ) || '200' != \wp_remote_retrieve_response_code( $raw_response ) ) {
 			return false;
 		}
 
-		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+		$response = \json_decode( \wp_remote_retrieve_body( $raw_response ), true );
 
 		return $response;
 	}
 
 	/**
-	 * Transient update plugins filter
+	 * Transient update plugins filter.
 	 *
-	 * @see https://github.com/WordPress/WordPress/blob/3.7/wp-includes/option.php#L1030
-	 *
+	 * @link https://github.com/WordPress/WordPress/blob/3.7/wp-includes/option.php#L1030
 	 * @param array $update_plugins
 	 * @return array
 	 */
 	public function transient_update_plugins_filter( $update_plugins ) {
-		if ( is_object( $update_plugins ) && isset( $update_plugins->response ) && is_array( $update_plugins->response ) ) {
-			$response = get_option( 'pronamic_client_plugins_update_check_response' );
+		if ( \is_object( $update_plugins ) && isset( $update_plugins->response ) && \is_array( $update_plugins->response ) ) {
+			$response = $this->get_plugins_update_check();
 
-			if ( is_array( $response ) && isset( $response['plugins'] ) ) {
+			if ( \is_array( $response ) && \array_key_exists( 'plugins', $response ) ) {
 				foreach ( $response['plugins'] as &$plugin ) {
 					$plugin = (object) $plugin;
 				}
 				unset( $plugin );
 
-				$update_plugins->response = array_merge( $update_plugins->response, $response['plugins'] );
+				$update_plugins->response = \array_merge( $update_plugins->response, $response['plugins'] );
 			}
 		}
 
@@ -193,7 +253,7 @@ class Updater {
 	 * Request themes update check.
 	 */
 	private function request_themes_update_check() {
-		$pronamic_themes = pronamic_client_get_themes();
+		$pronamic_themes = \pronamic_client_get_themes();
 
 		if ( false === $pronamic_themes ) {
 			return false;
@@ -217,26 +277,26 @@ class Updater {
 
 		$options = $this->get_http_api_options(
 			array(
-				'themes' => wp_json_encode( $themes ),
+				'themes' => \wp_json_encode( $themes ),
 			)
 		);
 
 		$url = 'https://api.pronamic.eu/themes/update-check/1.2/';
 
-		$raw_response = wp_remote_post( $url, $options );
+		$raw_response = \wp_remote_post( $url, $options );
 
 		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
-		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) {
+		if ( \is_wp_error( $raw_response ) || '200' != \wp_remote_retrieve_response_code( $raw_response ) ) {
 			return false;
 		}
 
-		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+		$response = \json_decode( \wp_remote_retrieve_body( $raw_response ), true );
 
 		return $response;
 	}
 
 	/**
-	 * Transient update themes filter
+	 * Transient update themes filter.
 	 *
 	 * @see https://github.com/WordPress/WordPress/blob/3.7/wp-includes/option.php#L1030
 	 *
@@ -244,42 +304,16 @@ class Updater {
 	 * @return array
 	 */
 	public function transient_update_themes_filter( $update_themes ) {
-		if ( is_object( $update_themes ) && isset( $update_themes->response ) && is_array( $update_themes->response ) ) {
-			$response = get_option( 'pronamic_client_themes_update_check_response' );
+		if ( \is_object( $update_themes ) && isset( $update_themes->response ) && \is_array( $update_themes->response ) ) {
+			$response = $this->get_themes_update_check();
 
-			if ( is_array( $response ) && isset( $response['themes'] ) ) {
-				$update_themes->response = array_merge( $update_themes->response, $response['themes'] );
+			if ( \is_array( $response ) && \array_key_exists( 'themes', $response ) ) {
+				$update_themes->response = \array_merge( $update_themes->response, $response['themes'] );
 			}
 		}
 
 		return $update_themes;
 	}
-
-	/**
-	 * Transient delete plugins filter.
-	 *
-	 * @link https://github.com/WordPress/WordPress/blob/5.4/wp-includes/update.php#L798-L811
-	 * @link https://github.com/WordPress/WordPress/blob/5.4/wp-admin/includes/plugin.php#L2228-L2240
-	 * @link https://github.com/WordPress/WordPress/blob/4.5/wp-includes/option.php#L1490-L1499
-	 * @param string $transient Transient name.
-	 */
-	public function transient_delete_plugins_filter( $transient ) {
-		\delete_option( 'pronamic_client_plugins_update_check_response' );
-	}
-
-	/**
-	 * Transient delete themes filter.
-	 *
-	 * @link https://github.com/WordPress/WordPress/blob/5.4/wp-includes/update.php#L798-L811
-	 * @link https://github.com/WordPress/WordPress/blob/5.4/wp-includes/theme.php#L130-L144
-	 * @link https://github.com/WordPress/WordPress/blob/4.5/wp-includes/option.php#L1490-L1499
-	 * @param string $transient Transient name.
-	 */
-	public function transient_delete_themes_filter( $transient ) {
-		\delete_option( 'pronamic_client_themes_update_check_response' );
-	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Return an instance of this class.
