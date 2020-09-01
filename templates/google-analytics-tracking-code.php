@@ -3,7 +3,18 @@
  * Google Analytics tracking code.
  *
  * @link https://support.google.com/analytics/answer/1008080?hl=en
+ * @link https://developers.google.com/gtagjs/devguide/configure
  */
+
+$additional_config_info = (object) array(
+	/**
+	 * IP addresses of hits sent to Google Analytics are anonymized
+	 * by default in the Pronamic Client plugin.
+	 *
+	 * @link https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization
+	 */
+	'anonymize_ip' => true,
+);
 
 ?>
 
@@ -16,7 +27,7 @@
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', <?php echo \wp_json_encode( $tracking_id ); ?>);
+  gtag('config', <?php echo \wp_json_encode( $tracking_id ); ?>, <?php echo \wp_json_encode( $additional_config_info ); ?> );
 </script>
 
 <!-- / Google Analytics by Pronamic -->

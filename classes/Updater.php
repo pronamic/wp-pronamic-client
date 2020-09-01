@@ -31,77 +31,80 @@ class Updater {
 	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		// Actions
-		add_action( 'init', array( $this, 'init' ) );
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		\add_filter( 'http_response', array( $this, 'http_response' ), 10, 3 );
 
-		add_action( 'pronamic_update_plugins', array( $this, 'update_check_plugins' ) );
-		add_action( 'pronamic_update_themes', array( $this, 'update_check_themes' ) );
-
-		// Filters
-		add_filter( 'plugins_api', array( $this, 'plugins_api' ), 10, 3 );
-
-		// Transients
-		$transient_update_plugins = 'update_plugins';
-		$transient_update_themes  = 'update_themes';
-
-		add_filter( 'pre_set_site_transient_' . $transient_update_plugins, array( $this, 'transient_update_plugins_filter' ) );
-		add_filter( 'pre_set_site_transient_' . $transient_update_themes, array( $this, 'transient_update_themes_filter' ) );
-
-		\add_action( 'delete_site_transient_' . $transient_update_plugins, array( $this, 'transient_delete_plugins_filter' ) );
-		\add_action( 'delete_site_transient_' . $transient_update_themes, array( $this, 'transient_delete_themes_filter' ) );
+		\add_filter( 'plugins_api', array( $this, 'plugins_api' ), 10, 3 );
 	}
 
 	/**
-	 * Initialize.
+	 * HTTP Response.
+	 *
+	 * @link https://github.com/WordPress/WordPress/blob/5.5/wp-includes/class-http.php#L437-L446
+	 * @param array  $response    HTTP response.
+	 * @param array  $parsed_args HTTP request arguments.
+	 * @param string $url         The request URL.
+	 * @return array
 	 */
-	public function init() {
-		// @see https://github.com/WordPress/WordPress/blob/4.8/wp-includes/update.php#L680-L694
-		if ( ! wp_next_scheduled( 'pronamic_update_plugins' ) ) {
-			wp_schedule_event( time(), 'twicedaily', 'pronamic_update_plugins' );
+	public function http_response( $response, $parsed_args, $url ) {
+		if ( ! \array_key_exists( 'method', $parsed_args ) ) {
+			return $repsonse;
 		}
 
-		if ( ! wp_next_scheduled( 'pronamic_update_themes' ) ) {
-			wp_schedule_event( time(), 'twicedaily', 'pronamic_update_themes' );
+		if ( 'POST' !== $parsed_args['method'] ) {
+			return $response;
 		}
+
+		if ( false !== strpos( $url, '//api.wordpress.org/plugins/update-check/' ) ) {
+			$response = $this->extend_response_with_pronamic( $response, $parsed_args, 'plugins' );
+		}
+
+		if ( false !== strpos( $url, '//api.wordpress.org/themes/update-check/' ) ) {
+			$response = $this->extend_response_with_pronamic( $response, $parsed_args, 'themes' );
+		}
+
+		return $response;
 	}
 
 	/**
-	 * Admin initialize.
+	 * Extends WordPress.org API repsonse with Pronamic API response.
+	 *
+	 * @param array $response    HTTP response.
+	 * @param array $parsed_args HTTP request arguments.
+	 * @return array
 	 */
-	public function admin_init() {
-		$force_check = filter_input( INPUT_GET, 'force-check', FILTER_VALIDATE_BOOLEAN );
+	public function extend_response_with_pronamic( $response, $parsed_args, $type ) {
+		$data = \json_decode( \wp_remote_retrieve_body( $response ), true );
 
-		if ( $force_check ) {
-			$this->update_check_plugins();
-			$this->update_check_themes();
-		}
-	}
-
-	/**
-	 * Update check plugins.
-	 */
-	public function update_check_plugins() {
-		$response = $this->request_plugins_update_check();
-
-		if ( false === $response ) {
-			return;
+		if ( ! is_array( $data ) ) {
+			return $response;
 		}
 
-		update_option( 'pronamic_client_plugins_update_check_response', $response, false );
-	}
+		$pronamic_data = false;
 
-	/**
-	 * Update check themes.
-	 */
-	public function update_check_themes() {
-		$response = $this->request_themes_update_check();
+		switch ( $type ) {
+			case 'plugins':
+				$pronamic_data = $this->request_plugins_update_check( $parsed_args );
 
-		if ( false === $response ) {
-			return;
+				break;			
+			case 'themes':
+				$pronamic_data = $this->request_themes_update_check( $parsed_args );
+
+				break;
 		}
 
-		update_option( 'pronamic_client_themes_update_check_response', $response, false );
+		if ( false === $pronamic_data ) {
+			return $response;
+		}
+
+		if ( ! array_key_exists( $type, $data ) ) {
+			$data[ $type ] = array();
+		}
+
+		$data[ $type ] = array_merge( $data[ $type ], $pronamic_data[ $type ] );
+
+		$response['body'] = \wp_json_encode( $data );
+
+		return $response;
 	}
 
 	/**
@@ -114,86 +117,71 @@ class Updater {
 		return $result;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Get the HTTP API options
+	 * Remote post.
 	 *
-	 * @param array $body
+	 * @param string $url         URL to retrieve.
+	 * @param array  $args        Request arguments.
+	 * @param array  $parsed_args Parsed request arguments.
 	 * @return array
 	 */
-	private function get_http_api_options( $body ) {
-		$options = array(
-			'timeout'    => ( ( defined( 'DOING_CRON' ) && DOING_CRON ) ? 30 : 3 ),
-			'body'       => $body,
-			'user-agent' => 'WordPress/' . get_bloginfo( 'version' ) . '; ' . get_bloginfo( 'url' ),
+	private function remote_post( $url, $args, $parsed_args ) {
+		$keys = array(
+			'timeout',
+			'user-agent',
+			'headers',
 		);
 
-		return $options;
-	}
+		foreach ( $keys as $key ) {
+			if ( \array_key_exists( $key, $parsed_args ) ) {
+				$args[ $key ] = $parsed_args[ $key ];
+			}
+		}
 
-	//////////////////////////////////////////////////
+		return \wp_remote_post( $url, $args );
+	}
 
 	/**
 	 * Request plugins update check.
+	 *
+	 * @param array $parsed_args HTTP request arguments.
+	 * @return array
 	 */
-	private function request_plugins_update_check() {
-		$pronamic_plugins = pronamic_client_get_plugins();
+	private function request_plugins_update_check( $parsed_args ) {
+		$pronamic_plugins = \pronamic_client_get_plugins();
 
 		if ( false === $pronamic_plugins ) {
 			return false;
 		}
 
-		$options = $this->get_http_api_options(
+		$raw_response = $this->remote_post(
+			'https://api.pronamic.eu/plugins/update-check/1.2/',
 			array(
-				'plugins' => wp_json_encode( $pronamic_plugins ),
-			)
+				'body' => array(
+					'plugins' => \wp_json_encode( $pronamic_plugins ),
+				),
+			),
+			$parsed_args
 		);
 
-		$url = 'https://api.pronamic.eu/plugins/update-check/1.2/';
-
-		$raw_response = wp_remote_post( $url, $options );
-
 		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
-		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) {
+		if ( \is_wp_error( $raw_response ) || '200' != \wp_remote_retrieve_response_code( $raw_response ) ) {
 			return false;
 		}
 
-		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+		$response = \json_decode( \wp_remote_retrieve_body( $raw_response ), true );
 
 		return $response;
 	}
 
 	/**
-	 * Transient update plugins filter
+	 * Request themes update check.
 	 *
-	 * @see https://github.com/WordPress/WordPress/blob/3.7/wp-includes/option.php#L1030
-	 *
-	 * @param array $update_plugins
+	 * @param array $parsed_args HTTP request arguments.
 	 * @return array
 	 */
-	public function transient_update_plugins_filter( $update_plugins ) {
-		if ( is_object( $update_plugins ) && isset( $update_plugins->response ) && is_array( $update_plugins->response ) ) {
-			$response = get_option( 'pronamic_client_plugins_update_check_response' );
-
-			if ( is_array( $response ) && isset( $response['plugins'] ) ) {
-				foreach ( $response['plugins'] as &$plugin ) {
-					$plugin = (object) $plugin;
-				}
-				unset( $plugin );
-
-				$update_plugins->response = array_merge( $update_plugins->response, $response['plugins'] );
-			}
-		}
-
-		return $update_plugins;
-	}
-
-	/**
-	 * Request themes update check.
-	 */
-	private function request_themes_update_check() {
-		$pronamic_themes = pronamic_client_get_themes();
+	private function request_themes_update_check( $parsed_args ) {
+		$pronamic_themes = \pronamic_client_get_themes();
 
 		if ( false === $pronamic_themes ) {
 			return false;
@@ -202,8 +190,6 @@ class Updater {
 		$themes = array();
 
 		foreach ( $pronamic_themes as $theme ) {
-			$checked[ $theme->get_stylesheet() ] = $theme->get( 'Version' );
-
 			$themes[ $theme->get_stylesheet() ] = array(
 				'Name'       => $theme->get( 'Name' ),
 				'Title'      => $theme->get( 'Name' ),
@@ -215,71 +201,25 @@ class Updater {
 			);
 		}
 
-		$options = $this->get_http_api_options(
+		$raw_response = $this->remote_post(
+			'https://api.pronamic.eu/themes/update-check/1.2/',
 			array(
-				'themes' => wp_json_encode( $themes ),
-			)
+				'body' => array(
+					'themes' => \wp_json_encode( $themes ),
+				),
+			),
+			$parsed_args
 		);
 
-		$url = 'https://api.pronamic.eu/themes/update-check/1.2/';
-
-		$raw_response = wp_remote_post( $url, $options );
-
 		// phpcs:ignore WordPress.PHP.StrictComparisons.LooseComparison
-		if ( is_wp_error( $raw_response ) || '200' != wp_remote_retrieve_response_code( $raw_response ) ) {
+		if ( \is_wp_error( $raw_response ) || '200' != \wp_remote_retrieve_response_code( $raw_response ) ) {
 			return false;
 		}
 
-		$response = json_decode( wp_remote_retrieve_body( $raw_response ), true );
+		$response = \json_decode( \wp_remote_retrieve_body( $raw_response ), true );
 
 		return $response;
 	}
-
-	/**
-	 * Transient update themes filter
-	 *
-	 * @see https://github.com/WordPress/WordPress/blob/3.7/wp-includes/option.php#L1030
-	 *
-	 * @param array $update_themes
-	 * @return array
-	 */
-	public function transient_update_themes_filter( $update_themes ) {
-		if ( is_object( $update_themes ) && isset( $update_themes->response ) && is_array( $update_themes->response ) ) {
-			$response = get_option( 'pronamic_client_themes_update_check_response' );
-
-			if ( is_array( $response ) && isset( $response['themes'] ) ) {
-				$update_themes->response = array_merge( $update_themes->response, $response['themes'] );
-			}
-		}
-
-		return $update_themes;
-	}
-
-	/**
-	 * Transient delete plugins filter.
-	 *
-	 * @link https://github.com/WordPress/WordPress/blob/5.4/wp-includes/update.php#L798-L811
-	 * @link https://github.com/WordPress/WordPress/blob/5.4/wp-admin/includes/plugin.php#L2228-L2240
-	 * @link https://github.com/WordPress/WordPress/blob/4.5/wp-includes/option.php#L1490-L1499
-	 * @param string $transient Transient name.
-	 */
-	public function transient_delete_plugins_filter( $transient ) {
-		\delete_option( 'pronamic_client_plugins_update_check_response' );
-	}
-
-	/**
-	 * Transient delete themes filter.
-	 *
-	 * @link https://github.com/WordPress/WordPress/blob/5.4/wp-includes/update.php#L798-L811
-	 * @link https://github.com/WordPress/WordPress/blob/5.4/wp-includes/theme.php#L130-L144
-	 * @link https://github.com/WordPress/WordPress/blob/4.5/wp-includes/option.php#L1490-L1499
-	 * @param string $transient Transient name.
-	 */
-	public function transient_delete_themes_filter( $transient ) {
-		\delete_option( 'pronamic_client_themes_update_check_response' );
-	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Return an instance of this class.
