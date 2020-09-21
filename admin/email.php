@@ -146,20 +146,20 @@
 			<tbody>
 				<tr>
 					<th scope="row">
+						<label for="pronamic_client_test_email_to"><?php esc_html_e( 'Send To', 'pronamic_client' ); ?></label>
+					</th>
+					<td>
+						<input name="pronamic_client_test_email[to]" type="email" id="pronamic_client_test_email_to" value="<?php echo \esc_attr( $email->to ); ?>" class="regular-text" required="required"/>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row">
 						<label for="pronamic_client_test_email_from"><?php esc_html_e( 'From Email', 'pronamic_client' ); ?></label>
 					</th>
 					<td>
 						<input name="pronamic_client_test_email[from]" type="email" id="pronamic_client_test_email_from" value="<?php echo \esc_attr( $email->from ); ?>" class="regular-text" />
 
 						<p class="description"><?php \esc_html_e( 'Leave empty to use WordPress default sender.', 'pronamic_client' ); ?></p>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row">
-						<label for="pronamic_client_test_email_to"><?php esc_html_e( 'Send To', 'pronamic_client' ); ?></label>
-					</th>
-					<td>
-						<input name="pronamic_client_test_email[to]" type="email" id="pronamic_client_test_email_to" value="<?php echo \esc_attr( $email->to ); ?>" class="regular-text" required="required" />
 					</td>
 				</tr>
 				<tr>
