@@ -11,19 +11,18 @@ $adminer_url = plugins_url( 'adminer/index.php', $pronamic_client->file );
 
 		<?php
 
-		$auth             = new stdClass();
-		$auth->driver     = 'server';
-		$auth->server     = DB_HOST;
-		$auth->username   = DB_USER;
-		$auth->password   = DB_PASSWORD;
-		$auth->db         = DB_NAME;
-		$auth->cookiehash = COOKIEHASH;
-
-		// phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_encode
-		$auth = base64_encode( wp_json_encode( $auth ) );
+		/**
+		 * Adminer authentication.
+		 *
+		 * @link https://github.com/vrana/adminer/blob/v4.7.7/adminer/include/auth.inc.php#L51-L75
+		 */
 
 		?>
-		<input type="hidden" name="pronamic_auth" value="<?php echo esc_attr( $auth ); ?>" />
+		<input type="hidden" name="auth[driver]" value="server">
+		<input type="hidden" name="auth[server]" value="<?php echo esc_attr( DB_HOST ); ?>">
+		<input type="hidden" name="auth[username]" value="<?php echo esc_attr( DB_USER ); ?>">
+		<input type="hidden" name="auth[password]" value="<?php echo esc_attr( DB_PASSWORD ); ?>">
+		<input type="hidden" name="auth[db]" value="<?php echo esc_attr( DB_NAME ); ?>">
 
 		<?php submit_button( __( 'Login', 'pronamic_client' ), 'primary', 'submit', false ); ?>
 	</p>
