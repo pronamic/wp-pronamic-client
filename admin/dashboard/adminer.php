@@ -8,7 +8,9 @@ $adminer_url = plugins_url( 'adminer/index.php', $pronamic_client->file );
 <form target="_blank" method="post" action="<?php echo esc_attr( $adminer_url ); ?>">
 	<p>
 		<a target="_blank" href="<?php echo esc_attr( $adminer_url ); ?>"><?php _e( 'Adminer', 'pronamic_client' ); ?></a>
+	</p>
 
+	<p>
 		<?php
 
 		/**
