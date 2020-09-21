@@ -12,16 +12,12 @@ class Admin {
 	 */
 	protected static $instance = null;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Plugin
 	 *
 	 * @var Plugin
 	 */
 	private $plugin;
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initialize admin
@@ -43,8 +39,6 @@ class Admin {
 
 		add_action( 'wp_dashboard_setup', array( $this, 'dashboard_setup' ) );
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Admin initialize
@@ -92,17 +86,20 @@ class Admin {
 
 		$email_data = filter_input( INPUT_POST, 'pronamic_client_test_email', FILTER_UNSAFE_RAW, FILTER_REQUIRE_ARRAY );
 
-		if ( null == $email_data ) {
+		if ( null === $email_data ) {
 			return;
 		}
 
-		$email = (object) filter_var_array( $email_data, array(
-			'from'    => \FILTER_VALIDATE_EMAIL,
-			'to'      => \FILTER_VALIDATE_EMAIL,
-			'subject' => \FILTER_UNSAFE_RAW,
-			'message' => \FILTER_UNSAFE_RAW,
-			'headers' => \FILTER_UNSAFE_RAW,
-		) );
+		$email = (object) filter_var_array(
+			$email_data,
+			array(
+				'from'    => \FILTER_VALIDATE_EMAIL,
+				'to'      => \FILTER_VALIDATE_EMAIL,
+				'subject' => \FILTER_UNSAFE_RAW,
+				'message' => \FILTER_UNSAFE_RAW,
+				'headers' => \FILTER_UNSAFE_RAW,
+			)
+		);
 
 		if ( empty( $email->to ) ) {
 			return;
@@ -298,8 +295,6 @@ class Admin {
 		$this->plugin->display( 'admin/page-options.php' );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Dashboard setup
 	 */
@@ -365,10 +360,6 @@ class Admin {
 		}
 	}
 
-	//////////////////////////////////////////////////
-	// Pages
-	//////////////////////////////////////////////////
-
 	/**
 	 * Page index
 	 */
@@ -411,10 +402,6 @@ class Admin {
 		$this->plugin->display( 'admin/settings.php' );
 	}
 
-	//////////////////////////////////////////////////
-	// Upgrade
-	//////////////////////////////////////////////////
-
 	/**
 	 * Upgrade
 	 */
@@ -424,10 +411,6 @@ class Admin {
 		$wp_roles->add_cap( 'administrator', 'pronamic_client' );
 		$wp_roles->add_cap( 'editor', 'pronamic_client' );
 	}
-
-	//////////////////////////////////////////////////
-	// Singleton
-	//////////////////////////////////////////////////
 
 	/**
 	 * Return an instance of this class.
