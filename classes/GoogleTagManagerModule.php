@@ -125,6 +125,7 @@ class GoogleTagManagerModule {
 
 		foreach ( $conflicts as $plugin ) {
 			$this->admin_notices[] = \sprintf(
+				/* translators: %1: <em>conflicting plugin name</em>, 2: Pronamic Client */
 				\__( 'The %1$s plugin might cause issues when used in conjunction with %2$s.', 'pronamic_client' ),
 				'<em>' . $plugin . '</em>',
 				'Pronamic Client'

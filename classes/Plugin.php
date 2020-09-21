@@ -12,16 +12,12 @@ class Plugin {
 	 */
 	protected static $instance = null;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Plugin file
 	 *
 	 * @var string
 	 */
 	public $file;
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initialize Pronamic WordPress Extensions plugin
@@ -65,8 +61,6 @@ class Plugin {
 		load_plugin_textdomain( 'pronamic_client', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Admin bar menu
 	 */
@@ -99,8 +93,6 @@ class Plugin {
 		}
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * WordPress headers
 	 *
@@ -114,18 +106,14 @@ class Plugin {
 		return $headers;
 	}
 
-	//////////////////////////////////////////////////
-
 	/**
-	 * Display/iinclude the specified file
+	 * Display/include the specified file
 	 *
 	 * @param string $file
 	 */
 	public function display( $file ) {
 		include plugin_dir_path( $this->file ) . $file;
 	}
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Return an instance of this class.

@@ -27,6 +27,7 @@
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion" />
 
 		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
 
 		<exclude name="WordPress.PHP.NoSilencedErrors.Discouraged" />
 
@@ -39,4 +40,12 @@
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode">
 		<exclude-pattern>adminer/index.php</exclude-pattern>
 	</rule>
+
+    <rule ref="WordPress.WP.EnqueuedResources.NonEnqueuedScript">
+        <exclude-pattern>templates/google-analytics-tracking-code.php</exclude-pattern>
+    </rule>
+
+    <rule ref="WordPress.WhiteSpace.PrecisionAlignment">
+        <exclude-pattern>templates/google-analytics-tracking-code.php</exclude-pattern>
+    </rule>
 </ruleset>

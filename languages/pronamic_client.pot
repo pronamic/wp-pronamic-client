@@ -2,10 +2,10 @@
 # This file is distributed under the GPL.
 msgid ""
 msgstr ""
-"Project-Id-Version: Pronamic Client 1.7.0\n"
+"Project-Id-Version: Pronamic Client 1.8.0\n"
 "Report-Msgid-Bugs-To: "
 "https://wordpress.org/support/plugin/wp-pronamic-client\n"
-"POT-Creation-Date: 2020-09-01 12:25:44+00:00\n"
+"POT-Creation-Date: 2020-09-21 22:20:23+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -115,11 +115,11 @@ msgstr ""
 msgid "Search Plugin"
 msgstr ""
 
-#: admin/dashboard/adminer.php:10 admin/dashboard.php:17
+#: admin/dashboard/adminer.php:10 admin/dashboard.php:20
 msgid "Adminer"
 msgstr ""
 
-#: admin/dashboard/adminer.php:28
+#: admin/dashboard/adminer.php:29
 msgid "Login"
 msgstr ""
 
@@ -138,17 +138,17 @@ msgid "Website: %s"
 msgstr ""
 
 #: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
-#: admin/includes/dashboard.php:43 classes/Plugin.php:81
+#: admin/includes/dashboard.php:43 classes/Plugin.php:75
 #: includes/credits.php:18
 #. translators: 1: https:www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic
 msgid "https://www.pronamic.eu/"
 msgstr ""
 
-#: admin/dashboard.php:9 admin/includes/dashboard.php:8
+#: admin/dashboard.php:10 admin/includes/dashboard.php:8
 msgid "Support"
 msgstr ""
 
-#: admin/dashboard.php:29
+#: admin/dashboard.php:34
 msgid "Pronamic.nl News"
 msgstr ""
 
@@ -156,12 +156,12 @@ msgstr ""
 msgid "http://www.pronamic.eu/"
 msgstr ""
 
-#: admin/dashboard.php:39 admin/dashboard.php:63
+#: admin/dashboard.php:45 admin/dashboard.php:71
 #: admin/includes/dashboard.php:45
 msgid "Pronamic News"
 msgstr ""
 
-#: admin/dashboard.php:53
+#: admin/dashboard.php:60
 msgid "Pronamic.eu News"
 msgstr ""
 
@@ -229,15 +229,15 @@ msgid ""
 msgstr ""
 
 #: admin/email.php:149
+msgid "Send To"
+msgstr ""
+
+#: admin/email.php:157
 msgid "From Email"
 msgstr ""
 
-#: admin/email.php:154
+#: admin/email.php:162
 msgid "Leave empty to use WordPress default sender."
-msgstr ""
-
-#: admin/email.php:159
-msgid "Send To"
 msgstr ""
 
 #: admin/email.php:167
@@ -374,7 +374,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: classes/Admin.php:123
+#: classes/Admin.php:120
 #. translators: %s: sent date
 msgid "Sent: %s"
 msgstr ""
@@ -383,39 +383,39 @@ msgstr ""
 msgid "Pronamic"
 msgstr ""
 
-#: classes/Admin.php:223
+#: classes/Admin.php:220
 msgid "Pronamic Checklist"
 msgstr ""
 
-#: classes/Admin.php:224
+#: classes/Admin.php:221
 msgid "Checklist"
 msgstr ""
 
-#: classes/Admin.php:232
+#: classes/Admin.php:229
 msgid "Pronamic Extensions"
 msgstr ""
 
-#: classes/Admin.php:233
+#: classes/Admin.php:230
 msgid "Extensions"
 msgstr ""
 
-#: classes/Admin.php:242
+#: classes/Admin.php:239
 msgid "Pronamic Virus Scanner"
 msgstr ""
 
-#: classes/Admin.php:243
+#: classes/Admin.php:240
 msgid "Scanner"
 msgstr ""
 
-#: classes/Admin.php:251 classes/Admin.php:252 classes/PhpMailerModule.php:74
+#: classes/Admin.php:248 classes/Admin.php:249 classes/PhpMailerModule.php:74
 msgid "Email"
 msgstr ""
 
-#: classes/Admin.php:260 classes/Admin.php:261
+#: classes/Admin.php:257 classes/Admin.php:258
 msgid "Settings"
 msgstr ""
 
-#: classes/Admin.php:280
+#: classes/Admin.php:277
 msgid "Browse…"
 msgstr ""
 
@@ -431,7 +431,8 @@ msgstr ""
 msgid "Google Analytics Tracking ID"
 msgstr ""
 
-#: classes/GoogleAnalyticsModule.php:131 classes/GoogleTagManagerModule.php:128
+#: classes/GoogleAnalyticsModule.php:132 classes/GoogleTagManagerModule.php:129
+#. translators: %1: <em>conflicting plugin name</em>, 2: Pronamic Client
 msgid "The %1$s plugin might cause issues when used in conjunction with %2$s."
 msgstr ""
 
@@ -459,11 +460,11 @@ msgid ""
 "SPF neutral notifications such as: %s."
 msgstr ""
 
-#: classes/Plugin.php:92
+#: classes/Plugin.php:86
 msgid "Contact"
 msgstr ""
 
-#: classes/Plugin.php:93
+#: classes/Plugin.php:87
 msgid "https://www.pronamic.eu/contact/"
 msgstr ""
 
@@ -481,14 +482,14 @@ msgid "Pronamic Client"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.pronamic.eu/plugins/pronamic-client/"
+msgid "https://www.pronamic.eu/plugins/pronamic-client/"
 msgstr ""
 
 #. Description of the plugin/theme
 msgid "WordPress plugin for Pronamic clients."
 msgstr ""
 
-#: classes/Plugin.php:112
+#: classes/Plugin.php:104
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr ""

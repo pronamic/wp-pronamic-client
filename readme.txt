@@ -2,8 +2,8 @@
 Contributors: pronamic, remcotolsma 
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
-Tested up to: 5.3.2
-Stable tag: 1.7.0
+Tested up to: 5.5.1
+Stable tag: 1.8.0
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,12 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.8.0 =
+*	Fixed Google Analytics script tag.
+*	Fixed headers of boxes on dashboard page.
+*	Updated email test page fields.
+*	Simplified authentication.
 
 = 1.7.0 =
 *	The Pronamic plugins and themes updater now works more like WordPress core.

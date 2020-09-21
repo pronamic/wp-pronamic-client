@@ -21,7 +21,7 @@ $additional_config_info = (object) array(
 <!-- Google Analytics by Pronamic -->
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="<?php echo \esc_url( $url ); ?>">"></script>
+<script async src="<?php echo \esc_url( $url ); ?>"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

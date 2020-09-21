@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
 "client\n"
-"POT-Creation-Date: 2020-09-01 11:08:40+00:00\n"
-"PO-Revision-Date: 2020-09-01 14:25+0200\n"
-"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
+"POT-Creation-Date: 2020-09-21 22:20:23+00:00\n"
+"PO-Revision-Date: 2020-09-22 00:21+0200\n"
+"Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -117,11 +117,11 @@ msgstr "Plugins"
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
-#: admin/dashboard/adminer.php:10 admin/dashboard.php:17
+#: admin/dashboard/adminer.php:10 admin/dashboard.php:20
 msgid "Adminer"
 msgstr "Adminer"
 
-#: admin/dashboard/adminer.php:28
+#: admin/dashboard/adminer.php:29
 msgid "Login"
 msgstr "Inloggen"
 
@@ -141,16 +141,16 @@ msgstr "Website: %s"
 
 #. translators: 1: https:www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic
 #: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
-#: admin/includes/dashboard.php:43 classes/Plugin.php:81
+#: admin/includes/dashboard.php:43 classes/Plugin.php:75
 #: includes/credits.php:18
 msgid "https://www.pronamic.eu/"
 msgstr "https://www.pronamic.nl/"
 
-#: admin/dashboard.php:9 admin/includes/dashboard.php:8
+#: admin/dashboard.php:10 admin/includes/dashboard.php:8
 msgid "Support"
 msgstr "Support"
 
-#: admin/dashboard.php:29
+#: admin/dashboard.php:34
 msgid "Pronamic.nl News"
 msgstr "Pronamic.nl nieuws"
 
@@ -158,12 +158,12 @@ msgstr "Pronamic.nl nieuws"
 msgid "http://www.pronamic.eu/"
 msgstr "http://www.pronamic.nl/"
 
-#: admin/dashboard.php:39 admin/dashboard.php:63
+#: admin/dashboard.php:45 admin/dashboard.php:71
 #: admin/includes/dashboard.php:45
 msgid "Pronamic News"
 msgstr "Pronamic nieuws"
 
-#: admin/dashboard.php:53
+#: admin/dashboard.php:60
 msgid "Pronamic.eu News"
 msgstr "Pronamic.eu nieuws"
 
@@ -237,16 +237,16 @@ msgstr ""
 "verzenden."
 
 #: admin/email.php:149
+msgid "Send To"
+msgstr "Verstuur naar"
+
+#: admin/email.php:157
 msgid "From Email"
 msgstr "Van e-mailadres"
 
-#: admin/email.php:154
+#: admin/email.php:162
 msgid "Leave empty to use WordPress default sender."
 msgstr "Laat leeg om de standaard afzender van WordPress te gebruiken."
-
-#: admin/email.php:159
-msgid "Send To"
-msgstr "Verstuur naar"
 
 #: admin/email.php:167
 msgid "Subject"
@@ -383,7 +383,7 @@ msgid "Delete"
 msgstr "Verwijder"
 
 #. translators: %s: sent date
-#: classes/Admin.php:123
+#: classes/Admin.php:120
 msgid "Sent: %s"
 msgstr "Verzonden: %s"
 
@@ -391,39 +391,39 @@ msgstr "Verzonden: %s"
 msgid "Pronamic"
 msgstr "Pronamic"
 
-#: classes/Admin.php:223
+#: classes/Admin.php:220
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: classes/Admin.php:224
+#: classes/Admin.php:221
 msgid "Checklist"
 msgstr "Checklist"
 
-#: classes/Admin.php:232
+#: classes/Admin.php:229
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: classes/Admin.php:233
+#: classes/Admin.php:230
 msgid "Extensions"
 msgstr "Extensies"
 
-#: classes/Admin.php:242
+#: classes/Admin.php:239
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: classes/Admin.php:243
+#: classes/Admin.php:240
 msgid "Scanner"
 msgstr "Scanner"
 
-#: classes/Admin.php:251 classes/Admin.php:252 classes/PhpMailerModule.php:74
+#: classes/Admin.php:248 classes/Admin.php:249 classes/PhpMailerModule.php:74
 msgid "Email"
 msgstr "E-mail"
 
-#: classes/Admin.php:260 classes/Admin.php:261
+#: classes/Admin.php:257 classes/Admin.php:258
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Admin.php:280
+#: classes/Admin.php:277
 msgid "Browse…"
 msgstr "Bladeren…"
 
@@ -439,7 +439,8 @@ msgstr "Google Analytics"
 msgid "Google Analytics Tracking ID"
 msgstr "Google Analytics tracking ID"
 
-#: classes/GoogleAnalyticsModule.php:131 classes/GoogleTagManagerModule.php:128
+#. translators: %1: <em>conflicting plugin name</em>, 2: Pronamic Client
+#: classes/GoogleAnalyticsModule.php:132 classes/GoogleTagManagerModule.php:129
 msgid "The %1$s plugin might cause issues when used in conjunction with %2$s."
 msgstr ""
 "De %1$s plugin kan problemen veroorzaken bij gebruik in combinatie met %2$s."
@@ -470,11 +471,11 @@ msgstr ""
 "Stel optioneel een PHPMailer afzender e-mailadres in om bijvoorbeeld SPF-"
 "neutrale meldingen op te lossen, zoals: %s."
 
-#: classes/Plugin.php:92
+#: classes/Plugin.php:86
 msgid "Contact"
 msgstr "Contact"
 
-#: classes/Plugin.php:93
+#: classes/Plugin.php:87
 msgid "https://www.pronamic.eu/contact/"
 msgstr "https://www.pronamic.nl/contact/"
 
@@ -492,17 +493,20 @@ msgid "Pronamic Client"
 msgstr "Pronamic Client"
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.pronamic.eu/plugins/pronamic-client/"
-msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
+msgid "https://www.pronamic.eu/plugins/pronamic-client/"
+msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
 
 #. Description of the plugin/theme
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
-#: classes/Plugin.php:112
+#: classes/Plugin.php:104
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
+
+#~ msgid "http://www.pronamic.eu/plugins/pronamic-client/"
+#~ msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
 
 #~ msgid "Scripts"
 #~ msgstr "Scripts"
@@ -600,9 +604,6 @@ msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "In <code>%s</code> on line <code>%s</code>."
 #~ msgstr "In <code>%s</code> on line <code>%s</code>."
-
-#~ msgid "https://www.pronamic.eu/plugins/pronamic-client/"
-#~ msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
 
 #~ msgid "http://pronamic.eu/"
 #~ msgstr "http://pronamic.nl/"

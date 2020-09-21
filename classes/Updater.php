@@ -12,16 +12,12 @@ class Updater {
 	 */
 	protected static $instance = null;
 
-	//////////////////////////////////////////////////
-
 	/**
 	 * Plugin
 	 *
 	 * @var Plugin
 	 */
 	private $plugin;
-
-	//////////////////////////////////////////////////
 
 	/**
 	 * Constructs and initialize updater
@@ -85,7 +81,7 @@ class Updater {
 			case 'plugins':
 				$pronamic_data = $this->request_plugins_update_check( $parsed_args );
 
-				break;			
+				break;
 			case 'themes':
 				$pronamic_data = $this->request_themes_update_check( $parsed_args );
 
