@@ -43,6 +43,7 @@ class Plugin {
 			'google-tag-manager' => GoogleTagManagerModule::get_instance( $this ),
 			'jetpack'            => JetpackModule::get_instance( $this ),
 			'phpmailer'          => PhpMailerModule::get_instance( $this ),
+			'scripts'            => ScriptsModule::get_instance( $this ),
 		);
 
 		// Admin
