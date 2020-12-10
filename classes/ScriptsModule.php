@@ -21,7 +21,7 @@ class ScriptsModule {
 		$this->plugin = $plugin;
 
 		// Actions
-		add_action( 'wp_print_scripts', array( $this, 'patch_swipebox' ) );
+		\add_action( 'wp_print_scripts', array( $this, 'patch_swipebox' ) );
 	}
 
 	/**
@@ -39,7 +39,7 @@ class ScriptsModule {
 			return;
 		}
 
-		$min = SCRIPT_DEBUG ? '' : '.min';
+		$min = \SCRIPT_DEBUG ? '' : '.min';
 
 		\wp_deregister_script( 'swipebox' );
 
