@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 5.5.1
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.8.2 =
+*	Patch "Easy SwipeBox" plugin.
 
 = 1.8.1 =
 *	Patch Swipebox.
