@@ -40,7 +40,7 @@
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-compress": "^1.6.0",
     "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-jshint": "^2.1.0",
+    "grunt-contrib-jshint": "^3.0.0",
     "grunt-contrib-uglify": "~5.0.0",
     "grunt-git": "^1.0.14",
     "grunt-phpcs": "^0.4.0",
