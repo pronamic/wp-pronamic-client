@@ -4,7 +4,7 @@ Plugin Name: Pronamic Client
 Plugin URI: https://www.pronamic.eu/plugins/pronamic-client/
 Description: WordPress plugin for Pronamic clients.
 
-Version: 1.8.3
+Version: 1.8.4
 Requires at least: 3.0
 
 Author: Pronamic

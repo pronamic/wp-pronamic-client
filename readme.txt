@@ -2,8 +2,8 @@
 Contributors: pronamic, remcotolsma 
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
-Tested up to: 5.5.1
-Stable tag: 1.8.3
+Tested up to: 5.6.1
+Stable tag: 1.8.4
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.8.4 =
+*	Fixed PHP warning `array_merge(): Expected parameter 2 to be an array, null given`.
 
 = 1.8.3 =
 *	Updated Adminer to 4.7.8 for MySQL and English only.
