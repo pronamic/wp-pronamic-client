@@ -96,7 +96,9 @@ class Updater {
 			$data[ $type ] = array();
 		}
 
-		$data[ $type ] = array_merge( $data[ $type ], $pronamic_data[ $type ] );
+		if ( \is_array( $pronamic_data[ $type ] ) ) {
+			$data[ $type ] = array_merge( $data[ $type ], $pronamic_data[ $type ] );
+		}
 
 		$response['body'] = \wp_json_encode( $data );
 
