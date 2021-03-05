@@ -67,7 +67,7 @@ class ScriptsModule {
 
 			\wp_register_script(
 				$handle,
-				\plugins_url( '../assets/swipebox/js/jquery.swipebox' . $min . '.js', __FILE__ ),
+				\plugins_url( '../packages/mho79/swipebox/1.4.4/js/jquery.swipebox' . $min . '.js', __FILE__ ),
 				array( 'jquery' ),
 				'mho79-1.4.4',
 				true
