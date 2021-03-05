@@ -279,6 +279,14 @@
 					<a href="https://www.dmarcanalyzer.com/dkim/dkim-check/">https://www.dmarcanalyzer.com/dkim/dkim-check/</a>
 				</td>
 			</tr>
+			<tr>
+				<th scope="row">
+					<?php esc_html_e( 'DKIMValidator — DKIM, SPF, SpamAssassin validator', 'pronamic_client' ); ?>
+				</th>
+				<td>
+					<a href="https://dkimvalidator.com/">https://dkimvalidator.com/</a>
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
