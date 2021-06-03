@@ -21,6 +21,7 @@ class ScriptsModule {
 
 		// Actions
 		\add_action( 'wp_print_scripts', array( $this, 'patch_swipebox' ) );
+		\add_action( 'wp_print_scripts', array( $this, 'patch_bootstrap' ) );
 	}
 
 	/**
@@ -39,6 +40,8 @@ class ScriptsModule {
 	 * @return void
 	 */
 	public function patch_swipebox() {
+		$min = \SCRIPT_DEBUG ? '' : '.min';
+
 		$handles = array(
 			/**
 			 * Pronamic themes register with the handle name 'swipebox':
@@ -60,18 +63,44 @@ class ScriptsModule {
 			return \wp_script_is( $handle );
 		} );
 
-		$min = \SCRIPT_DEBUG ? '' : '.min';
-
 		foreach ( $handles as $handle ) {
 			\wp_deregister_script( $handle );
 
 			\wp_register_script(
 				$handle,
-				\plugins_url( '../assets/swipebox/js/jquery.swipebox' . $min . '.js', __FILE__ ),
+				\plugins_url( '../packages/mho79/swipebox/1.4.4/js/jquery.swipebox' . $min . '.js', __FILE__ ),
 				array( 'jquery' ),
 				'mho79-1.4.4',
 				true
 			);
+		}
+	}
+
+	/**
+	 * Patch Bootstrap.
+	 *
+	 * @link https://github.com/twbs/bootstrap/releases/tag/v3.3.7
+	 */
+	public function patch_bootstrap() {
+		$min = \SCRIPT_DEBUG ? '' : '.min';
+
+		$handles = array(
+			'bootstrap',
+		);
+
+		$scripts = \wp_scripts();
+
+		foreach ( $handles as $handle ) {
+			if ( ! \array_key_exists( $handle, $scripts->registered ) ) {
+				continue;
+			}
+
+			$script = $scripts->registered[ $handle ];
+
+			if ( \version_compare( $script->ver, '3.3', '>=' ) && \version_compare( $script->ver, '3.3.6', '<=' ) ) {
+				$script->ver = '3.3.7';
+				$script->src = \plugins_url( '../packages/twbs/bootstrap/3.3.7/js/bootstrap' . $min . '.js', __FILE__ );
+			}
 		}
 	}
 

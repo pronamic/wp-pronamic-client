@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
 "client\n"
-"POT-Creation-Date: 2020-09-21 22:20:23+00:00\n"
-"PO-Revision-Date: 2020-09-22 00:21+0200\n"
-"Last-Translator: Reüel van der Steege <reuel@pronamic.nl>\n"
+"POT-Creation-Date: 2021-06-03 11:15:00+00:00\n"
+"PO-Revision-Date: 2021-06-03 13:15+0200\n"
+"Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.4.3\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #: admin/checklist.php:16
@@ -141,7 +141,7 @@ msgstr "Website: %s"
 
 #. translators: 1: https:www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic
 #: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
-#: admin/includes/dashboard.php:43 classes/Plugin.php:75
+#: admin/includes/dashboard.php:43 classes/Plugin.php:76
 #: includes/credits.php:18
 msgid "https://www.pronamic.eu/"
 msgstr "https://www.pronamic.nl/"
@@ -299,6 +299,10 @@ msgstr "dmarcian's SPF Record Checker"
 #: admin/email.php:276
 msgid "DMARC Analyzer - DKIM record Checker"
 msgstr "DMARC Analyzer - DKIM record Checker"
+
+#: admin/email.php:284
+msgid "DKIMValidator — DKIM, SPF, SpamAssassin validator"
+msgstr "DKIMValidator — DKIM, SPF, SpamAssassin validator"
 
 #: admin/extensions.php:14
 msgid "No Pronamic plugins found."
@@ -471,11 +475,11 @@ msgstr ""
 "Stel optioneel een PHPMailer afzender e-mailadres in om bijvoorbeeld SPF-"
 "neutrale meldingen op te lossen, zoals: %s."
 
-#: classes/Plugin.php:86
+#: classes/Plugin.php:87
 msgid "Contact"
 msgstr "Contact"
 
-#: classes/Plugin.php:87
+#: classes/Plugin.php:88
 msgid "https://www.pronamic.eu/contact/"
 msgstr "https://www.pronamic.nl/contact/"
 
@@ -500,7 +504,7 @@ msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
-#: classes/Plugin.php:104
+#: classes/Plugin.php:105
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
