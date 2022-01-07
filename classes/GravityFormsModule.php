@@ -6,8 +6,6 @@ class GravityFormsModule {
 	/**
 	 * Instance of this class.
 	 *
-	 * @since 1.4.0
-	 *
 	 * @var GravityFormsModule
 	 */
 	protected static $instance = null;
@@ -32,6 +30,8 @@ class GravityFormsModule {
 
 	/**
 	 * Setup.
+	 * 
+	 * @return void
 	 */
 	private function setup() {
 		if ( ! \is_admin() ) {
@@ -45,6 +45,7 @@ class GravityFormsModule {
 	 * Plugins loaded.
 	 * 
 	 * @link https://developer.wordpress.org/reference/hooks/plugins_loaded/
+	 * @return void
 	 */
 	public function plugins_loaded() {
 		if ( ! \class_exists( '\GFForms' ) ) {
@@ -90,8 +91,6 @@ class GravityFormsModule {
 
 	/**
 	 * Return an instance of this class.
-	 *
-	 * @since 1.1.0
 	 *
 	 * @return object A single instance of this class.
 	 */

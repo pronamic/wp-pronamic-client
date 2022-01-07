@@ -6,8 +6,6 @@ class YoastModule {
 	/**
 	 * Instance of this class.
 	 *
-	 * @since 1.4.0
-	 *
 	 * @var YoastModule
 	 */
 	protected static $instance = null;
@@ -75,7 +73,6 @@ class YoastModule {
 	/**
 	 * Return an instance of this class.
 	 *
-	 * @since 1.1.0
 	 * @return object A single instance of this class.
 	 */
 	public static function get_instance( $plugin = false ) {

@@ -58,7 +58,9 @@ class Plugin {
 	}
 
 	/**
-	 * Plugins loaded
+	 * Plugins loaded.
+	 *
+	 * @return void
 	 */
 	public function plugins_loaded() {
 		load_plugin_textdomain( 'pronamic_client', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
