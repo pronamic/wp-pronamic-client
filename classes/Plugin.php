@@ -41,9 +41,11 @@ class Plugin {
 			'akismet'            => AkismetModule::get_instance( $this ),
 			'google-analytics'   => GoogleAnalyticsModule::get_instance( $this ),
 			'google-tag-manager' => GoogleTagManagerModule::get_instance( $this ),
+			'gravityforms'       => GravityFormsModule::get_instance( $this ),
 			'jetpack'            => JetpackModule::get_instance( $this ),
 			'phpmailer'          => PhpMailerModule::get_instance( $this ),
 			'scripts'            => ScriptsModule::get_instance( $this ),
+			'yoast'              => YoastModule::get_instance( $this ),
 		);
 
 		// Admin
@@ -56,7 +58,9 @@ class Plugin {
 	}
 
 	/**
-	 * Plugins loaded
+	 * Plugins loaded.
+	 *
+	 * @return void
 	 */
 	public function plugins_loaded() {
 		load_plugin_textdomain( 'pronamic_client', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
