@@ -41,6 +41,7 @@ class Plugin {
 			'akismet'            => AkismetModule::get_instance( $this ),
 			'google-analytics'   => GoogleAnalyticsModule::get_instance( $this ),
 			'google-tag-manager' => GoogleTagManagerModule::get_instance( $this ),
+			'gravityforms'       => GravityFormsModule::get_instance( $this ),
 			'jetpack'            => JetpackModule::get_instance( $this ),
 			'phpmailer'          => PhpMailerModule::get_instance( $this ),
 			'scripts'            => ScriptsModule::get_instance( $this ),
