@@ -110,9 +110,9 @@ class YoastModule {
 		<script type="text/javascript">
 			( function( open ) {
 				XMLHttpRequest.prototype.open = function( method, url ) {
-					const url_object = new URL( url );
+					if ( url.startsWith( 'https://my.yoast.com/' ) ) {
+						const url_object = new URL( url );
 
-					if ( 'my.yoast.com' === url_object.host ) {
 						url_object.searchParams.set( 'site', <?php echo \wp_json_encode( PRONAMIC_CLIENT_YOAST_URL ); ?> );
 
 						arguments[1] = url_object.toString();
