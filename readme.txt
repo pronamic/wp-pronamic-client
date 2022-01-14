@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 5.6.1
-Stable tag: 1.9.1
+Stable tag: 1.9.2
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.9.2 =
+*   Only override `XMLHttpRequest.prototype.open` on post edit screen.
 
 = 1.9.1 =
 *   Fixed morphology feature not working error.
