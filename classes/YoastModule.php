@@ -38,7 +38,15 @@ class YoastModule {
 			return;
 		}
 
+		if ( ! \defined( 'PRONAMIC_CLIENT_YOAST_URL' ) ) {
+			\define( 'PRONAMIC_CLIENT_YOAST_URL', 'https://yoast.com' );
+		}
+
 		\add_filter( 'http_request_args', array( $this, 'http_request_args' ), 1000, 2 );
+
+		if ( \is_admin() ) {
+			\add_action( 'admin_print_scripts', array( $this, 'admin_print_scripts' ) );
+		}
 	}
 
 	/**
@@ -65,9 +73,38 @@ class YoastModule {
 			return $parsed_args;
 		}
 
-		$parsed_args['body']['url'] = 'https://yoast.com/';
+		$parsed_args['body']['url'] = PRONAMIC_CLIENT_YOAST_URL;
 
 		return $parsed_args;
+	}
+
+	/**
+	 * Admin print scripts.
+	 * 
+	 * @since 1.9.1
+	 * @link https://stackoverflow.com/questions/7775767/javascript-overriding-xmlhttprequest-open
+	 * @link https://developer.mozilla.org/en-US/docs/Web/API/URL
+	 * @link https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams
+	 * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/arguments
+	 */
+	public function admin_print_scripts() {
+		?>
+		<script type="text/javascript">
+			( function( open ) {
+				XMLHttpRequest.prototype.open = function( method, url ) {
+					const url_object = new URL( url );
+
+					if ( 'my.yoast.com' === url_object.host ) {
+						url_object.searchParams.set( 'site', <?php echo \wp_json_encode( PRONAMIC_CLIENT_YOAST_URL ); ?> );
+
+						arguments[1] = url_object.toString();
+					}
+
+					open.apply( this, arguments );
+				}
+			} )( XMLHttpRequest.prototype.open );
+		</script>
+		<?php
 	}
 
 	/**
