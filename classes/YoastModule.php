@@ -52,6 +52,7 @@ class YoastModule {
 	/**
 	 * Current screen.
 	 * 
+	 * @since 1.9.2
 	 * @link https://developer.wordpress.org/reference/hooks/current_screen/
 	 * @param \WP_Screen $screen Screen.
 	 * @return void
