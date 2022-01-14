@@ -45,8 +45,25 @@ class YoastModule {
 		\add_filter( 'http_request_args', array( $this, 'http_request_args' ), 1000, 2 );
 
 		if ( \is_admin() ) {
-			\add_action( 'admin_print_scripts', array( $this, 'admin_print_scripts' ) );
+			\add_action( 'current_screen', array( $this, 'current_screen' ) );
 		}
+	}
+
+	/**
+	 * Current screen.
+	 * 
+	 * @link https://developer.wordpress.org/reference/hooks/current_screen/
+	 * @param \WP_Screen $screen Screen.
+	 * @return void
+	 */
+	public function current_screen( $screen ) {
+		if ( 'post' !== $screen->base ) {
+			return;
+		}
+
+		$hook_suffix = 'post.php';
+
+		\add_action( 'admin_print_scripts-' . $hook_suffix, array( $this, 'admin_print_scripts' ) );
 	}
 
 	/**
@@ -100,7 +117,7 @@ class YoastModule {
 						arguments[1] = url_object.toString();
 					}
 
-					open.apply( this, arguments );
+					return open.apply( this, arguments );
 				}
 			} )( XMLHttpRequest.prototype.open );
 		</script>
