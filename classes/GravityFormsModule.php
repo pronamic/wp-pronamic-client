@@ -30,7 +30,7 @@ class GravityFormsModule {
 
 	/**
 	 * Setup.
-	 * 
+	 *
 	 * @return void
 	 */
 	private function setup() {
@@ -43,7 +43,7 @@ class GravityFormsModule {
 
 	/**
 	 * Plugins loaded.
-	 * 
+	 *
 	 * @link https://developer.wordpress.org/reference/hooks/plugins_loaded/
 	 * @return void
 	 */
@@ -57,7 +57,7 @@ class GravityFormsModule {
 
 	/**
 	 * Current screen.
-	 * 
+	 *
 	 * @link https://developer.wordpress.org/reference/hooks/current_screen/
 	 * @param \WP_Screen $screen Screen.
 	 * @return void
@@ -78,7 +78,7 @@ class GravityFormsModule {
 
 	/**
 	 * Admin print styles.
-	 * 
+	 *
 	 * @link https://developer.wordpress.org/reference/hooks/admin_print_styles-hook_suffix/
 	 * @link https://developer.wordpress.org/reference/hooks/admin_print_styles/
 	 * @return void

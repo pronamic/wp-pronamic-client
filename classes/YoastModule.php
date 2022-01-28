@@ -30,7 +30,7 @@ class YoastModule {
 
 	/**
 	 * Plugins loaded.
-	 * 
+	 *
 	 * @return void
 	 */
 	public function plugins_loaded() {
@@ -51,7 +51,7 @@ class YoastModule {
 
 	/**
 	 * Current screen.
-	 * 
+	 *
 	 * @since 1.9.2
 	 * @link https://developer.wordpress.org/reference/hooks/current_screen/
 	 * @param \WP_Screen $screen Screen.
@@ -69,7 +69,7 @@ class YoastModule {
 
 	/**
 	 * HTTP request arguments.
-	 * 
+	 *
 	 * @param array  $parsed_args Arguments.
 	 * @param string $url         URL.
 	 * @return array
@@ -98,7 +98,7 @@ class YoastModule {
 
 	/**
 	 * Admin print scripts.
-	 * 
+	 *
 	 * @since 1.9.1
 	 * @link https://stackoverflow.com/questions/7775767/javascript-overriding-xmlhttprequest-open
 	 * @link https://developer.mozilla.org/en-US/docs/Web/API/URL
