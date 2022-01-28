@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 5.6.1
-Stable tag: 1.9.3
+Stable tag: 1.9.4
 
 WordPress plugin for Pronamic clients.
 
@@ -27,6 +27,9 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.9.4 =
+*   Also override `XMLHttpRequest.prototype.open` on SEO workouts screen.
 
 = 1.9.3 =
 *   Check if URL startsWith with specific URL, instead of `URL( url ).host` for relative URLs support.

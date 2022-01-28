@@ -45,11 +45,13 @@ class ScriptsModule {
 		$handles = array(
 			/**
 			 * Pronamic themes register with the handle name 'swipebox':
+			 *
 			 * @link https://gitlab.com/pronamic-themes/timmy/-/blob/ed073aa2876e2b0ba9582201d0378a253193edb1/classes/class-scripts.php#L65-72
 			 */
 			'swipebox',
 			/**
 			 * WordPress plugin 'Easy SwipeBox' register with the handle name 'easy-swipebox':
+			 *
 			 * @link https://github.com/leopuleo/easy-swipebox/blob/1.1.1/public/class-easy-swipebox-public.php#L135-L148
 			 * @link https://github.com/leopuleo/easy-swipebox/blob/1.1.1/includes/class-easy-swipebox.php#L109
 			 */
@@ -59,9 +61,12 @@ class ScriptsModule {
 		/**
 		 * Filter the enqueued scripts.
 		 */
-		$handles = \array_filter( $handles, function( $handle ) {
-			return \wp_script_is( $handle );
-		} );
+		$handles = \array_filter(
+			$handles,
+			function( $handle ) {
+				return \wp_script_is( $handle );
+			}
+		);
 
 		foreach ( $handles as $handle ) {
 			\wp_deregister_script( $handle );
