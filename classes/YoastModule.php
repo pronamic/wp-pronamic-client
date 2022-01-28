@@ -58,13 +58,18 @@ class YoastModule {
 	 * @return void
 	 */
 	public function current_screen( $screen ) {
-		if ( 'post' !== $screen->base ) {
+		if ( ! in_array(
+			$screen->base,
+			array(
+				'post',
+				'seo_page_wpseo_workouts',
+			),
+			true
+		) ) {
 			return;
 		}
 
-		$hook_suffix = 'post.php';
-
-		\add_action( 'admin_print_scripts-' . $hook_suffix, array( $this, 'admin_print_scripts' ) );
+		\add_action( 'admin_print_scripts', array( $this, 'admin_print_scripts' ) );
 	}
 
 	/**
