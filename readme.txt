@@ -2,22 +2,19 @@
 Contributors: pronamic, remcotolsma 
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
-Tested up to: 5.6.1
-Stable tag: 1.9.5
+Tested up to: 6.0
+Stable tag: 1.9.6
 
 WordPress plugin for Pronamic clients.
 
 == Description ==
 
-The Pronamic CLient plugin is a handy plugin for all WordPress users who use 
-plugins or themes developed by Pronamic. It contains an checklist, virus scanner
-and an Pronamic extensions overview list.
+The Pronamic Client plugin is a handy plugin for all WordPress users who use plugins or themes developed by Pronamic. It contains an checklist, virus scanner and an Pronamic extensions overview list.
 
 
 == Installation ==
 
-Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your 
-WordPress installation and then activate the Plugin from Plugins page.
+Extract the zip file and just drop the contents in the wp-content/plugins/ directory of your WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Screenshots ==
@@ -27,6 +24,10 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 
 == Changelog ==
+
+= 1.9.6 =
+*	Tested up to WordPress `6.0`.
+*	Improved the `readme.txt` file.
 
 = 1.9.5 =
 *   Removed the 'Links' section from the `readme.txt` file.
