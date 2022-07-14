@@ -189,15 +189,3 @@ WordPress installation and then activate the Plugin from Plugins page.
 
 = 0.1 =
 *	Initial release.
-
-
-== Links ==
-
-*	[Pronamic](http://pronamic.eu/)
-*	[Remco Tolsma](http://remcotolsma.nl/)
-*	[Markdown's Syntax Documentation][markdown syntax]
-*	[Special Characters for HTML  & XHTML](http://www.mistywindow.com/reference/html-characters.php)
-*	[Adminer](http://www.adminer.org/)
-
-[markdown syntax]: http://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
