@@ -44,6 +44,7 @@ class Plugin {
 			'gravityforms'       => GravityFormsModule::get_instance( $this ),
 			'jetpack'            => JetpackModule::get_instance( $this ),
 			'phpmailer'          => PhpMailerModule::get_instance( $this ),
+			'query-monitor'      => QueryMonitorModule::get_instance( $this ),
 			'scripts'            => ScriptsModule::get_instance( $this ),
 			'yoast'              => YoastModule::get_instance( $this ),
 		);
