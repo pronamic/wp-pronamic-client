@@ -33,6 +33,8 @@ class Plugin {
 
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 100 );
 
+		add_action( 'pronamic_credits', 'pronamic_client_credits' );
+
 		// Filters
 		add_filter( 'wp_headers', array( $this, 'wp_headers' ) );
 

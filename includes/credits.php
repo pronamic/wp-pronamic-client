@@ -29,5 +29,3 @@ function pronamic_client_get_credits() {
 function pronamic_client_credits() {
 	echo pronamic_client_get_credits();
 }
-
-add_action( 'pronamic_credits', 'pronamic_client_credits' );
