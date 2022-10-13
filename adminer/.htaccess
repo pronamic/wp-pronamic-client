@@ -2,3 +2,13 @@
 	Order Allow,Deny
 	Deny from all
 </Files>
+
+<Files index.php>
+	<IfModule !mod_authz_core.c>
+		Allow from all
+	</IfModule>
+
+	<IfModule mod_authz_core.c>
+		Require all granted
+	</IfModule>
+</Files>
