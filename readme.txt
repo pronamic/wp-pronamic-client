@@ -2,8 +2,8 @@
 Contributors: pronamic, remcotolsma 
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
-Tested up to: 6.0
-Stable tag: 1.9.6
+Tested up to: 6.1
+Stable tag: 1.9.7
 
 WordPress plugin for Pronamic clients.
 
@@ -24,6 +24,10 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 
 
 == Changelog ==
+
+= 1.9.7 =
+*	Improved support with SiteGround Security plugin.
+*	Query Monitor plugin locale is forced to 'en_US'.
 
 = 1.9.6 =
 *	Tested up to WordPress `6.0`.

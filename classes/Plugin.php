@@ -33,6 +33,8 @@ class Plugin {
 
 		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 100 );
 
+		add_action( 'pronamic_credits', 'pronamic_client_credits' );
+
 		// Filters
 		add_filter( 'wp_headers', array( $this, 'wp_headers' ) );
 
@@ -44,6 +46,7 @@ class Plugin {
 			'gravityforms'       => GravityFormsModule::get_instance( $this ),
 			'jetpack'            => JetpackModule::get_instance( $this ),
 			'phpmailer'          => PhpMailerModule::get_instance( $this ),
+			'query-monitor'      => QueryMonitorModule::get_instance( $this ),
 			'scripts'            => ScriptsModule::get_instance( $this ),
 			'yoast'              => YoastModule::get_instance( $this ),
 		);
