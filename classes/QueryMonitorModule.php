@@ -36,7 +36,7 @@ class QueryMonitorModule {
 	public function plugins_loaded() {
 		/**
 		 * Check if Query Monitor is active.
-		 * 
+		 *
 		 * @link https://github.com/johnbillion/query-monitor/blob/60da795c040e0f08850891c74a36b2f566cee14d/query-monitor.php#L36
 		 */
 		if ( ! \defined( 'QM_VERSION' ) ) {
@@ -48,7 +48,7 @@ class QueryMonitorModule {
 
 	/**
 	 * For English for Query Monitor plugin.
-	 * 
+	 *
 	 * @link https://github.com/johnbillion/query-monitor/blob/60da795c040e0f08850891c74a36b2f566cee14d/classes/QueryMonitor.php#L162-L167
 	 * @link https://github.com/WordPress/wordpress-develop/blob/2bb5679d666474d024352fa53f07344affef7e69/src/wp-includes/l10n.php#L69-L71
 	 * @param string $locale The plugin's current locale.
@@ -62,7 +62,7 @@ class QueryMonitorModule {
 
 		return 'en_US';
 	}
-	
+
 
 	/**
 	 * Return an instance of this class.
