@@ -63,6 +63,7 @@ class YoastModule {
 			array(
 				'post',
 				'seo_page_wpseo_workouts',
+				'toplevel_page_wpseo_dashboard',
 			),
 			true
 		) ) {
