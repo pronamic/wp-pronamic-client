@@ -62,6 +62,7 @@ class YoastModule {
 			$screen->base,
 			array(
 				'post',
+				'seo_page_wpseo_tools',
 				'seo_page_wpseo_workouts',
 				'toplevel_page_wpseo_dashboard',
 			),
