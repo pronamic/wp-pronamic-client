@@ -81,7 +81,8 @@
 
 	<?php
 
-	$message = filter_input( INPUT_GET, 'message', FILTER_SANITIZE_STRING );
+	// phpcs:ignore WordPress.Security.NonceVerification
+	$message = array_key_exists( 'message', $_GET ) ? \sanitize_text_field( \wp_unslash( $_GET['message'] ) ) : '';
 
 	if ( 'pronamic_client_test_email_sent_no' === $message ) :
 		?>

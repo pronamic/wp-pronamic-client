@@ -36,11 +36,13 @@ class AkismetModule {
 	 * @link https://plugins.trac.wordpress.org/browser/akismet/tags/4.1.3/class.akismet-admin.php#L890
 	 */
 	public function admin_init() {
-		if ( 'akismet-key-config' !== \filter_input( INPUT_GET, 'page', FILTER_SANITIZE_STRING ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification
+		if ( ! array_key_exists( 'page', $_GET ) || 'akismet-key-config' !== \sanitize_text_field( \wp_unslash( $_GET['page'] ) ) ) {
 			return;
 		}
 
-		if ( 'stats' !== \filter_input( INPUT_GET, 'view', FILTER_SANITIZE_STRING ) ) {
+		// phpcs:ignore WordPress.Security.NonceVerification
+		if ( ! array_key_exists( 'view', $_GET ) || 'stats' !== \sanitize_text_field( \wp_unslash( $_GET['view'] ) ) ) {
 			return;
 		}
 

@@ -5,14 +5,18 @@ if ( ! defined( '\ABSPATH' ) ) {
 	exit;
 }
 
-$delete = filter_input( INPUT_GET, 'delete', FILTER_SANITIZE_STRING );
+$files_to_delete = [];
 
-$pronamic_client_action = filter_input( INPUT_POST, 'action2', FILTER_SANITIZE_STRING );
+$nonce = array_key_exists( 'pronamic_client_nonce', $_POST ) ? \sanitize_text_field( \wp_unslash( $_POST['pronamic_client_nonce'] ) ) : null;
 
-$files_to_delete = array();
+if ( null !== $nonce && \wp_verify_nonce( $nonce, 'pronamic_client_scanner_delete_files' ) ) {
+	$delete = array_key_exists( 'delete', $_POST ) ? \sanitize_text_field( \wp_unslash( $_POST['delete'] ) ) : null;
 
-if ( 'delete' === $pronamic_client_action ) {
-	$files_to_delete = filter_input( INPUT_POST, 'files', FILTER_SANITIZE_STRING, FILTER_REQUIRE_ARRAY );
+	$pronamic_client_action = array_key_exists( 'action2', $_POST ) ? \sanitize_text_field( \wp_unslash( $_POST['action2'] ) ) : null;
+
+	if ( 'delete' === $pronamic_client_action && array_key_exists( 'files', $_POST ) ) {
+		$files_to_delete = filter_var( $_POST['files'], \FILTER_UNSAFE_RAW, FILTER_REQUIRE_ARRAY );
+	}
 }
 
 ?>
@@ -112,6 +116,12 @@ if ( 'delete' === $pronamic_client_action ) {
 
 				<div class="tablenav bottom">
 					<div class="alignleft actions">
+						<?php
+
+						wp_nonce_field( 'pronamic_client_scanner_delete_files', 'pronamic_client_nonce' );
+
+						?>
+
 						<select name="action2">
 							<option selected="selected" value="-1"><?php _e( 'Actions', 'pronamic_client' ); ?></option>
 							<option value="delete"><?php _e( 'Delete', 'pronamic_client' ); ?></option>

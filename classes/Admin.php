@@ -78,7 +78,11 @@ class Admin {
 			return;
 		}
 
-		$nonce = filter_input( INPUT_POST, 'pronamic_client_send_test_email_nonce', FILTER_SANITIZE_STRING );
+		if ( ! array_key_exists( 'pronamic_client_send_test_email_nonce', $_POST ) ) {
+			return;
+		}
+
+		$nonce = \sanitize_text_field( \wp_unslash( $_POST['pronamic_client_send_test_email_nonce'] ) );
 
 		if ( ! wp_verify_nonce( $nonce, 'pronamic_client_send_test_email' ) ) {
 			return;
