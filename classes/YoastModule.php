@@ -65,6 +65,7 @@ class YoastModule {
 				'seo_page_wpseo_tools',
 				'seo_page_wpseo_workouts',
 				'toplevel_page_wpseo_dashboard',
+				'wpseo_tools',
 			),
 			true
 		) ) {
