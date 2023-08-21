@@ -126,7 +126,7 @@
 	<form method="post" action="">
 		<?php
 
-		$email = (object) array(
+		$email = (object) [
 			'from'    => '',
 			'to'      => '',
 			'subject' => \sprintf(
@@ -139,8 +139,8 @@
 				__( 'This test email proves that your WordPress installation at %s can send emails.', 'pronamic_client' ),
 				\get_bloginfo( 'url' )
 			),
-			'headers' => array(),
-		);
+			'headers' => [],
+		];
 
 		?>
 		<table class="form-table">

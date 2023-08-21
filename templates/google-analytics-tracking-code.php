@@ -6,7 +6,7 @@
  * @link https://developers.google.com/gtagjs/devguide/configure
  */
 
-$additional_config_info = (object) array(
+$additional_config_info = (object) [
 	/**
 	 * IP addresses of hits sent to Google Analytics are anonymized
 	 * by default in the Pronamic Client plugin.
@@ -14,7 +14,7 @@ $additional_config_info = (object) array(
 	 * @link https://developers.google.com/analytics/devguides/collection/gtagjs/ip-anonymization
 	 */
 	'anonymize_ip' => true,
-);
+];
 
 ?>
 

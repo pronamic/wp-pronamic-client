@@ -27,7 +27,7 @@ class JetpackModule {
 	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		\add_filter( 'jetpack_just_in_time_msgs', array( $this, 'disable_jetpack_just_in_time_msgs_for_pronamic' ), 50 );
+		\add_filter( 'jetpack_just_in_time_msgs', [ $this, 'disable_jetpack_just_in_time_msgs_for_pronamic' ], 50 );
 	}
 
 	/**

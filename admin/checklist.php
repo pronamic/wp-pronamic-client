@@ -93,7 +93,7 @@
 		<tbody>
 			<?php
 
-			$constants = array(
+			$constants = [
 				'WPLANG',
 				'WP_DEBUG',
 				'SCRIPT_DEBUG',
@@ -101,7 +101,7 @@
 				'JETPACK_DEV_DEBUG',
 				'WP_MEMORY_LIMIT',
 				'WP_MAX_MEMORY_LIMIT',
-			);
+			];
 
 			foreach ( $constants as $constant ) :
 				?>
@@ -354,44 +354,44 @@
 
 	<?php
 
-	$plugin_suggestions = array(
-		'google-analytics-for-wordpress/googleanalytics.php' => array(
+	$plugin_suggestions = [
+		'google-analytics-for-wordpress/googleanalytics.php' => [
 			'slug' => 'google-analytics-for-wordpress',
 			'name' => 'Google Analytics for WordPress',
-		),
-		'wordpress-seo/wp-seo.php'                        => array(
+		],
+		'wordpress-seo/wp-seo.php'                        => [
 			'slug' => 'wordpress-seo',
 			'name' => 'WordPress SEO by Yoast',
-		),
-		'gravityforms/gravityforms.php'                   => array(
+		],
+		'gravityforms/gravityforms.php'                   => [
 			'slug' => 'gravityforms',
 			'name' => 'Gravity Forms',
-		),
-		'gravityforms-nl/gravityforms-nl.php'             => array(
+		],
+		'gravityforms-nl/gravityforms-nl.php'             => [
 			'slug' => 'gravityforms-nl',
 			'name' => 'Gravity Forms (nl)',
-		),
-		'akismet/akismet.php'                             => array(
+		],
+		'akismet/akismet.php'                             => [
 			'slug' => 'akismet',
 			'name' => 'Akismet',
-		),
-		'iwp-client/init.php'                             => array(
+		],
+		'iwp-client/init.php'                             => [
 			'slug' => 'iwp-client',
 			'name' => 'InfiniteWP Client',
-		),
-		'sucuri-scanner/sucuri.php'                       => array(
+		],
+		'sucuri-scanner/sucuri.php'                       => [
 			'slug' => 'sucuri-scanner',
 			'name' => 'Sucuri Scanner',
-		),
-		'regenerate-thumbnails/regenerate-thumbnails.php' => array(
+		],
+		'regenerate-thumbnails/regenerate-thumbnails.php' => [
 			'slug' => 'regenerate-thumbnails',
 			'name' => 'Regenerate Thumbnails',
-		),
-		'wp-rocket/wp-rocket.php'                         => array(
+		],
+		'wp-rocket/wp-rocket.php'                         => [
 			'slug' => 'wp-rocket',
 			'name' => 'WP Rocket',
-		),
-	);
+		],
+	];
 
 	?>
 
@@ -420,16 +420,16 @@
 							<?php
 
 							$search_url = add_query_arg(
-								array(
+								[
 									'tab'  => 'search',
 									'type' => 'term',
 									's'    => $data['slug'],
-								),
+								],
 								'plugin-install.php'
 							);
 
 							?>
-							<a href="<?php echo esc_attr( $search_url ); ?>">
+							<a href="<?php echo esc_url( $search_url ); ?>">
 								<?php esc_html_e( 'Search Plugin', 'pronamic_client' ); ?>
 							</a>
 

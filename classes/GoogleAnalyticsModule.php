@@ -35,20 +35,20 @@ class GoogleAnalyticsModule {
 		$this->plugin = $plugin;
 
 		// Init.
-		\add_action( 'init', array( $this, 'init' ) );
+		\add_action( 'init', [ $this, 'init' ] );
 
 		// Admin.
 		if ( \is_admin() ) {
-			\add_action( 'admin_init', array( $this, 'admin_init' ), 30 );
+			\add_action( 'admin_init', [ $this, 'admin_init' ], 30 );
 		}
 
 		// Google Analytics Tracking ID.
 		$this->tracking_id = \get_option( 'pronamic_client_google_analytics_tracking_id' );
 
 		if ( ! empty( $this->tracking_id ) ) {
-			\add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+			\add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
 
-			\add_action( 'wp_head', array( $this, 'head' ), 1 );
+			\add_action( 'wp_head', [ $this, 'head' ], 1 );
 		}
 	}
 
@@ -59,9 +59,9 @@ class GoogleAnalyticsModule {
 		\register_setting(
 			'pronamic_client',
 			'pronamic_client_google_analytics_tracking_id',
-			array(
+			[
 				'type' => 'string',
-			)
+			]
 		);
 	}
 
@@ -86,10 +86,10 @@ class GoogleAnalyticsModule {
 			},
 			'pronamic_client',
 			'pronamic_client_google_analytics',
-			array(
+			[
 				'label_for' => 'pronamic_client_google_analytics_tracking_id',
 				'classes'   => 'regular-text',
-			)
+			]
 		);
 	}
 
@@ -97,7 +97,7 @@ class GoogleAnalyticsModule {
 	 * Plugins loaded.
 	 */
 	public function plugins_loaded() {
-		$conflicts = array();
+		$conflicts = [];
 
 		/**
 		 * Google Analytics for WordPress (By MonsterInsights).
@@ -124,7 +124,7 @@ class GoogleAnalyticsModule {
 		 * @link https://github.com/Yoast/wordpress-seo/blob/13.1/admin/class-yoast-plugin-conflict.php#L202
 		 * @link https://plugins.trac.wordpress.org/browser/wk-google-analytics/tags/1.8.0/wk-ga.php#L15
 		 */
-		$this->admin_notices = array();
+		$this->admin_notices = [];
 
 		foreach ( $conflicts as $plugin ) {
 			$this->admin_notices[] = \sprintf(
@@ -135,7 +135,7 @@ class GoogleAnalyticsModule {
 			);
 		}
 
-		\add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+		\add_action( 'admin_notices', [ $this, 'admin_notices' ] );
 	}
 
 	/**

@@ -38,7 +38,7 @@ class GravityFormsModule {
 			return;
 		}
 
-		\add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+		\add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
 	}
 
 	/**
@@ -52,7 +52,7 @@ class GravityFormsModule {
 			return;
 		}
 
-		\add_action( 'current_screen', array( $this, 'current_screen' ) );
+		\add_action( 'current_screen', [ $this, 'current_screen' ] );
 	}
 
 	/**
@@ -73,7 +73,7 @@ class GravityFormsModule {
 			return;
 		}
 
-		\add_action( 'admin_print_styles-' . $screen->id, array( $this, 'admin_print_styles' ) );
+		\add_action( 'admin_print_styles-' . $screen->id, [ $this, 'admin_print_styles' ] );
 	}
 
 	/**

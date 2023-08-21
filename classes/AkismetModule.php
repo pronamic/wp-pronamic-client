@@ -27,7 +27,7 @@ class AkismetModule {
 	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		\add_action( 'admin_init', array( $this, 'admin_init' ) );
+		\add_action( 'admin_init', [ $this, 'admin_init' ] );
 	}
 
 	/**

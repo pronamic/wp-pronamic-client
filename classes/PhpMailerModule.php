@@ -35,18 +35,18 @@ class PhpMailerModule {
 		$this->plugin = $plugin;
 
 		// Init.
-		\add_action( 'init', array( $this, 'init' ) );
+		\add_action( 'init', [ $this, 'init' ] );
 
 		// Admin.
 		if ( \is_admin() ) {
-			\add_action( 'admin_init', array( $this, 'admin_init' ), 20 );
+			\add_action( 'admin_init', [ $this, 'admin_init' ], 20 );
 		}
 
 		// Sender.
 		$this->sender = \get_option( 'pronamic_client_phpmailer_sender' );
 
 		if ( ! empty( $this->sender ) ) {
-			add_action( 'phpmailer_init', array( $this, 'phpmailer_sender' ) );
+			add_action( 'phpmailer_init', [ $this, 'phpmailer_sender' ] );
 		}
 	}
 
@@ -57,10 +57,10 @@ class PhpMailerModule {
 		register_setting(
 			'pronamic_client',
 			'pronamic_client_phpmailer_sender',
-			array(
+			[
 				'type'              => 'string',
 				'sanitize_callback' => 'sanitize_text_field',
-			)
+			]
 		);
 	}
 
@@ -86,7 +86,7 @@ class PhpMailerModule {
 			},
 			'pronamic_client',
 			'pronamic_client_email',
-			array(
+			[
 				'label_for'   => 'pronamic_client_phpmailer_sender',
 				'classes'     => 'regular-text',
 				'description' => sprintf(
@@ -97,7 +97,7 @@ class PhpMailerModule {
 						'spf=neutral (●●●●●●●●.●●●: ●.●.●.● is neither permitted nor denied by best guess record for domain of ●●●●●●●●@●●●●●●●●.●●●) smtp.mailfrom=●●●●●●●●@●●●●●●●●.●●●'
 					)
 				),
-			)
+			]
 		);
 	}
 

@@ -35,21 +35,21 @@ class GoogleTagManagerModule {
 		$this->plugin = $plugin;
 
 		// Init.
-		\add_action( 'init', array( $this, 'init' ) );
+		\add_action( 'init', [ $this, 'init' ] );
 
 		// Admin.
 		if ( \is_admin() ) {
-			\add_action( 'admin_init', array( $this, 'admin_init' ), 40 );
+			\add_action( 'admin_init', [ $this, 'admin_init' ], 40 );
 		}
 
 		// Google Tag Manager Container ID.
 		$this->container_id = \get_option( 'pronamic_client_google_tag_manager_container_id' );
 
 		if ( ! empty( $this->container_id ) ) {
-			\add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+			\add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
 
-			\add_action( 'wp_head', array( $this, 'head' ), 1 );
-			\add_action( 'wp_body_open', array( $this, 'body_open' ), 1 );
+			\add_action( 'wp_head', [ $this, 'head' ], 1 );
+			\add_action( 'wp_body_open', [ $this, 'body_open' ], 1 );
 		}
 	}
 
@@ -60,9 +60,9 @@ class GoogleTagManagerModule {
 		\register_setting(
 			'pronamic_client',
 			'pronamic_client_google_tag_manager_container_id',
-			array(
+			[
 				'type' => 'string',
-			)
+			]
 		);
 	}
 
@@ -87,7 +87,7 @@ class GoogleTagManagerModule {
 			},
 			'pronamic_client',
 			'pronamic_client_google_tag_manager',
-			array(
+			[
 				'label_for'   => 'pronamic_client_google_tag_manager_container_id',
 				'classes'     => 'regular-text',
 				'description' => sprintf(
@@ -95,7 +95,7 @@ class GoogleTagManagerModule {
 					\esc_html__( 'Your theme needs support for the %1$s hook.', 'pronamic_client' ),
 					'<code>wp_body_open</code>'
 				),
-			)
+			]
 		);
 	}
 
@@ -103,7 +103,7 @@ class GoogleTagManagerModule {
 	 * Plugins loaded.
 	 */
 	public function plugins_loaded() {
-		$conflicts = array();
+		$conflicts = [];
 
 		/**
 		 * Google Tag Manager for WordPress (By Thomas Geiger).
@@ -121,7 +121,7 @@ class GoogleTagManagerModule {
 		 * @link https://github.com/Yoast/wordpress-seo/blob/13.1/admin/class-yoast-plugin-conflict.php#L202
 		 * @link https://plugins.trac.wordpress.org/browser/wk-google-analytics/tags/1.8.0/wk-ga.php#L15
 		 */
-		$this->admin_notices = array();
+		$this->admin_notices = [];
 
 		foreach ( $conflicts as $plugin ) {
 			$this->admin_notices[] = \sprintf(
@@ -132,7 +132,7 @@ class GoogleTagManagerModule {
 			);
 		}
 
-		\add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+		\add_action( 'admin_notices', [ $this, 'admin_notices' ] );
 	}
 
 	/**

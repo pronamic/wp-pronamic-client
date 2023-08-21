@@ -30,9 +30,9 @@ if ( null !== $nonce && \wp_verify_nonce( $nonce, 'pronamic_client_scanner_delet
 	$upload_dir = wp_upload_dir();
 	$base_dir   = $upload_dir['basedir'];
 
-	$directories = array(
+	$directories = [
 		$base_dir,
-	);
+	];
 
 	foreach ( $directories as $dir ) :
 		if ( is_dir( $dir ) ) :
@@ -44,7 +44,7 @@ if ( null !== $nonce && \wp_verify_nonce( $nonce, 'pronamic_client_scanner_delet
 			?>
 			<form method="post" action="">
 				<table cellspacing="0" class="widefat fixed">
-					<?php foreach ( array( 'thead', 'tfoot' ) as $html_tag ) : ?>
+					<?php foreach ( [ 'thead', 'tfoot' ] as $html_tag ) : ?>
 
 						<<?php echo $html_tag; ?>>
 							<tr>

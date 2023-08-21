@@ -29,17 +29,17 @@ class Plugin {
 		$this->dir_path = plugin_dir_path( $file );
 
 		// Actions
-		add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+		add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
 
-		add_action( 'admin_bar_menu', array( $this, 'admin_bar_menu' ), 100 );
+		add_action( 'admin_bar_menu', [ $this, 'admin_bar_menu' ], 100 );
 
 		add_action( 'pronamic_credits', 'pronamic_client_credits' );
 
 		// Filters
-		add_filter( 'wp_headers', array( $this, 'wp_headers' ) );
+		add_filter( 'wp_headers', [ $this, 'wp_headers' ] );
 
 		// Modules.
-		$this->modules = array(
+		$this->modules = [
 			'akismet'            => AkismetModule::get_instance( $this ),
 			'google-analytics'   => GoogleAnalyticsModule::get_instance( $this ),
 			'google-tag-manager' => GoogleTagManagerModule::get_instance( $this ),
@@ -49,7 +49,7 @@ class Plugin {
 			'query-monitor'      => QueryMonitorModule::get_instance( $this ),
 			'scripts'            => ScriptsModule::get_instance( $this ),
 			'yoast'              => YoastModule::get_instance( $this ),
-		);
+		];
 
 		// Admin
 		if ( is_admin() ) {
@@ -77,26 +77,26 @@ class Plugin {
 			global $wp_admin_bar;
 
 			$wp_admin_bar->add_menu(
-				array(
+				[
 					'id'    => 'pronamic',
 					'title' => __( 'Pronamic', 'pronamic_client' ),
 					'href'  => __( 'https://www.pronamic.eu/', 'pronamic_client' ),
-					'meta'  => array(
+					'meta'  => [
 						'target' => '_blank',
-					),
-				)
+					],
+				]
 			);
 
 			$wp_admin_bar->add_menu(
-				array(
+				[
 					'parent' => 'pronamic',
 					'id'     => 'pronamic_contact',
 					'title'  => __( 'Contact', 'pronamic_client' ),
 					'href'   => __( 'https://www.pronamic.eu/contact/', 'pronamic_client' ),
-					'meta'   => array(
+					'meta'   => [
 						'target' => '_blank',
-					),
-				)
+					],
+				]
 			);
 		}
 	}

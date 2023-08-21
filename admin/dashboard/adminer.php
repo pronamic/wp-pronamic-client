@@ -5,9 +5,9 @@ $pronamic_client = \Pronamic\WordPress\PronamicClient\Plugin::get_instance();
 $adminer_url = plugins_url( 'adminer/', $pronamic_client->file );
 
 ?>
-<form target="_blank" method="post" action="<?php echo esc_attr( $adminer_url ); ?>">
+<form target="_blank" method="post" action="<?php echo esc_url( $adminer_url ); ?>">
 	<p>
-		<a target="_blank" href="<?php echo esc_attr( $adminer_url ); ?>"><?php _e( 'Adminer', 'pronamic_client' ); ?></a>
+		<a target="_blank" href="<?php echo esc_url( $adminer_url ); ?>"><?php _e( 'Adminer', 'pronamic_client' ); ?></a>
 	</p>
 
 	<p>

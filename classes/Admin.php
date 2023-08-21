@@ -31,13 +31,13 @@ class Admin {
 		}
 
 		// Actions
-		add_action( 'admin_init', array( $this, 'admin_init' ) );
+		add_action( 'admin_init', [ $this, 'admin_init' ] );
 
-		add_action( 'admin_menu', array( $this, 'admin_menu' ) );
+		add_action( 'admin_menu', [ $this, 'admin_menu' ] );
 
-		add_action( 'admin_enqueue_scripts', array( $this, 'admin_enqueue_scripts' ) );
+		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
 
-		add_action( 'wp_dashboard_setup', array( $this, 'dashboard_setup' ) );
+		add_action( 'wp_dashboard_setup', [ $this, 'dashboard_setup' ] );
 	}
 
 	/**
@@ -96,13 +96,13 @@ class Admin {
 
 		$email = (object) filter_var_array(
 			$email_data,
-			array(
+			[
 				'from'    => \FILTER_VALIDATE_EMAIL,
 				'to'      => \FILTER_VALIDATE_EMAIL,
 				'subject' => \FILTER_UNSAFE_RAW,
 				'message' => \FILTER_UNSAFE_RAW,
 				'headers' => \FILTER_UNSAFE_RAW,
-			)
+			]
 		);
 
 		if ( empty( $email->to ) ) {
@@ -139,10 +139,10 @@ class Admin {
 		$location = admin_url( 'admin.php' );
 
 		$location = add_query_arg(
-			array(
+			[
 				'page'    => 'pronamic_client_email',
 				'message' => 'pronamic_client_test_email_sent_' . ( $result ? 'yes' : 'no' ),
-			),
+			],
 			$location
 		);
 
@@ -213,7 +213,7 @@ class Admin {
 			__( 'Pronamic', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client', // menu slug
-			array( $this, 'page_dashboard' ), // function
+			[ $this, 'page_dashboard' ], // function
 			$this->get_menu_icon_url() // icon URL
 			// 0 // position
 		);
@@ -225,7 +225,7 @@ class Admin {
 			__( 'Checklist', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_checklist', // menu slug
-			array( $this, 'page_checklist' ) // function
+			[ $this, 'page_checklist' ] // function
 		);
 
 		add_submenu_page(
@@ -234,7 +234,7 @@ class Admin {
 			__( 'Extensions', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_extensions', // menu slug
-			array( $this, 'page_extensions' ) // function
+			[ $this, 'page_extensions' ] // function
 		);
 
 		// @see wp-admin/menu.php
@@ -244,7 +244,7 @@ class Admin {
 			__( 'Scanner', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_virus_scanner', // menu slug
-			array( $this, 'page_virus_scanner' ) // function
+			[ $this, 'page_virus_scanner' ] // function
 		);
 
 		add_submenu_page(
@@ -253,7 +253,7 @@ class Admin {
 			__( 'Email', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_email', // menu slug
-			array( $this, 'page_email' ) // function
+			[ $this, 'page_email' ] // function
 		);
 
 		add_submenu_page(
@@ -262,7 +262,7 @@ class Admin {
 			__( 'Settings', 'pronamic_client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_settings', // menu slug
-			array( $this, 'page_settings' ) // function
+			[ $this, 'page_settings' ] // function
 		);
 	}
 
@@ -277,9 +277,9 @@ class Admin {
 		wp_localize_script(
 			'proanmic-client-media',
 			'pronamicClientMedia',
-			array(
+			[
 				'browseText' => __( 'Browse…', 'pronamic_client' ),
-			)
+			]
 		);
 
 		wp_register_style( 'proanmic-client-admin', plugins_url( 'admin/css/admin.css', $this->plugin->file ) );
@@ -316,24 +316,24 @@ class Admin {
 	 * @param array $args Arguments.
 	 */
 	public static function input_text( $args ) {
-		$defaults = array(
+		$defaults = [
 			'type'        => 'text',
 			'classes'     => 'regular-text',
 			'description' => '',
-		);
+		];
 
 		$args = wp_parse_args( $args, $defaults );
 
 		$name  = $args['label_for'];
 		$value = get_option( $name );
 
-		$atts = array(
+		$atts = [
 			'name'  => $name,
 			'id'    => $name,
 			'type'  => $args['type'],
 			'class' => $args['classes'],
 			'value' => $value,
-		);
+		];
 
 		$html = '';
 

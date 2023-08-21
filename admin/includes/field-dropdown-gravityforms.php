@@ -9,7 +9,7 @@ if ( ! function_exists( 'pronamic_field_dropdown_gravityforms' ) ) {
 	function pronamic_field_dropdown_gravityforms( $args ) {
 		$name = $args['label_for'];
 
-		$forms = array();
+		$forms = [];
 
 		if ( method_exists( 'RGFormsModel', 'get_forms' ) ) {
 			$forms = RGFormsModel::get_forms();

@@ -27,9 +27,9 @@ class Updater {
 	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		\add_filter( 'http_response', array( $this, 'http_response' ), 10, 3 );
+		\add_filter( 'http_response', [ $this, 'http_response' ], 10, 3 );
 
-		\add_filter( 'plugins_api', array( $this, 'plugins_api' ), 10, 3 );
+		\add_filter( 'plugins_api', [ $this, 'plugins_api' ], 10, 3 );
 	}
 
 	/**
@@ -93,7 +93,7 @@ class Updater {
 		}
 
 		if ( ! array_key_exists( $type, $data ) ) {
-			$data[ $type ] = array();
+			$data[ $type ] = [];
 		}
 
 		if ( \is_array( $pronamic_data[ $type ] ) ) {
@@ -124,11 +124,11 @@ class Updater {
 	 * @return array
 	 */
 	private function remote_post( $url, $args, $parsed_args ) {
-		$keys = array(
+		$keys = [
 			'timeout',
 			'user-agent',
 			'headers',
-		);
+		];
 
 		foreach ( $keys as $key ) {
 			if ( \array_key_exists( $key, $parsed_args ) ) {
@@ -154,11 +154,11 @@ class Updater {
 
 		$raw_response = $this->remote_post(
 			'https://api.pronamic.eu/plugins/update-check/1.2/',
-			array(
-				'body' => array(
+			[
+				'body' => [
 					'plugins' => \wp_json_encode( $pronamic_plugins ),
-				),
-			),
+				],
+			],
 			$parsed_args
 		);
 
@@ -185,10 +185,10 @@ class Updater {
 			return false;
 		}
 
-		$themes = array();
+		$themes = [];
 
 		foreach ( $pronamic_themes as $theme ) {
-			$themes[ $theme->get_stylesheet() ] = array(
+			$themes[ $theme->get_stylesheet() ] = [
 				'Name'       => $theme->get( 'Name' ),
 				'Title'      => $theme->get( 'Name' ),
 				'Version'    => $theme->get( 'Version' ),
@@ -196,16 +196,16 @@ class Updater {
 				'Author URI' => $theme->get( 'AuthorURI' ),
 				'Template'   => $theme->get_template(),
 				'Stylesheet' => $theme->get_stylesheet(),
-			);
+			];
 		}
 
 		$raw_response = $this->remote_post(
 			'https://api.pronamic.eu/themes/update-check/1.2/',
-			array(
-				'body' => array(
+			[
+				'body' => [
 					'themes' => \wp_json_encode( $themes ),
-				),
-			),
+				],
+			],
 			$parsed_args
 		);
 

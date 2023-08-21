@@ -25,7 +25,7 @@ class YoastModule {
 	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		\add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+		\add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
 	}
 
 	/**
@@ -42,10 +42,10 @@ class YoastModule {
 			\define( 'PRONAMIC_CLIENT_YOAST_URL', 'https://yoast.com' );
 		}
 
-		\add_filter( 'http_request_args', array( $this, 'http_request_args' ), 1000, 2 );
+		\add_filter( 'http_request_args', [ $this, 'http_request_args' ], 1000, 2 );
 
 		if ( \is_admin() ) {
-			\add_action( 'current_screen', array( $this, 'current_screen' ) );
+			\add_action( 'current_screen', [ $this, 'current_screen' ] );
 		}
 	}
 
@@ -60,19 +60,19 @@ class YoastModule {
 	public function current_screen( $screen ) {
 		if ( ! in_array(
 			$screen->base,
-			array(
+			[
 				'post',
 				'seo_page_wpseo_tools',
 				'seo_page_wpseo_workouts',
 				'toplevel_page_wpseo_dashboard',
 				'wpseo_tools',
-			),
+			],
 			true
 		) ) {
 			return;
 		}
 
-		\add_action( 'admin_print_scripts', array( $this, 'admin_print_scripts' ) );
+		\add_action( 'admin_print_scripts', [ $this, 'admin_print_scripts' ] );
 	}
 
 	/**

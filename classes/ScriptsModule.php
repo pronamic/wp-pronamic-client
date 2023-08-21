@@ -20,8 +20,8 @@ class ScriptsModule {
 		$this->plugin = $plugin;
 
 		// Actions
-		\add_action( 'wp_print_scripts', array( $this, 'patch_swipebox' ) );
-		\add_action( 'wp_print_scripts', array( $this, 'patch_bootstrap' ) );
+		\add_action( 'wp_print_scripts', [ $this, 'patch_swipebox' ] );
+		\add_action( 'wp_print_scripts', [ $this, 'patch_bootstrap' ] );
 	}
 
 	/**
@@ -42,7 +42,7 @@ class ScriptsModule {
 	public function patch_swipebox() {
 		$min = \SCRIPT_DEBUG ? '' : '.min';
 
-		$handles = array(
+		$handles = [
 			/**
 			 * Pronamic themes register with the handle name 'swipebox':
 			 *
@@ -56,7 +56,7 @@ class ScriptsModule {
 			 * @link https://github.com/leopuleo/easy-swipebox/blob/1.1.1/includes/class-easy-swipebox.php#L109
 			 */
 			'easy-swipebox',
-		);
+		];
 
 		/**
 		 * Filter the enqueued scripts.
@@ -74,7 +74,7 @@ class ScriptsModule {
 			\wp_register_script(
 				$handle,
 				\plugins_url( '../packages/mho79/swipebox/1.4.4/js/jquery.swipebox' . $min . '.js', __FILE__ ),
-				array( 'jquery' ),
+				[ 'jquery' ],
 				'mho79-1.4.4',
 				true
 			);
@@ -89,9 +89,9 @@ class ScriptsModule {
 	public function patch_bootstrap() {
 		$min = \SCRIPT_DEBUG ? '' : '.min';
 
-		$handles = array(
+		$handles = [
 			'bootstrap',
-		);
+		];
 
 		$scripts = \wp_scripts();
 

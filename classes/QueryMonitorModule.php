@@ -25,7 +25,7 @@ class QueryMonitorModule {
 	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		\add_action( 'plugins_loaded', array( $this, 'plugins_loaded' ) );
+		\add_action( 'plugins_loaded', [ $this, 'plugins_loaded' ] );
 	}
 
 	/**
@@ -43,7 +43,7 @@ class QueryMonitorModule {
 			return;
 		}
 
-		\add_filter( 'plugin_locale', array( $this, 'plugin_locale' ), 10, 2 );
+		\add_filter( 'plugin_locale', [ $this, 'plugin_locale' ], 10, 2 );
 	}
 
 	/**

@@ -11,7 +11,7 @@ function pronamic_client_get_plugins() {
 		return false;
 	}
 
-	$pronamic_plugins = array();
+	$pronamic_plugins = [];
 
 	$plugins = get_plugins();
 
@@ -34,7 +34,7 @@ function pronamic_client_get_themes() {
 		return false;
 	}
 
-	$pronamic_themes = array();
+	$pronamic_themes = [];
 
 	$themes = wp_get_themes();
 

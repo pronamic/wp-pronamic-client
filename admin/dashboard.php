@@ -39,12 +39,12 @@
 
 							wp_widget_rss_output(
 								'https://feeds.feedburner.com/pronamic',
-								array(
+								[
 									'link'  => __( 'https://www.pronamic.eu/', 'pronamic_client' ),
 									'url'   => 'https://feeds.feedburner.com/pronamic',
 									'title' => __( 'Pronamic News', 'pronamic_client' ),
 									'items' => 5,
-								)
+								]
 							);
 
 							?>
@@ -65,12 +65,12 @@
 
 							wp_widget_rss_output(
 								'https://feeds.feedburner.com/pronamic-en',
-								array(
+								[
 									'link'  => __( 'https://www.pronamic.eu/', 'pronamic_client' ),
 									'url'   => 'https://feeds.feedburner.com/pronamic',
 									'title' => __( 'Pronamic News', 'pronamic_client' ),
 									'items' => 5,
-								)
+								]
 							);
 
 							?>
