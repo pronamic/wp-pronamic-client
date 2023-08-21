@@ -1,5 +1,5 @@
 === Pronamic Client ===
-Contributors: pronamic, remcotolsma 
+Contributors: pronamic, remcotolsma
 Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
 Requires at least: 3.0
 Tested up to: 6.1
@@ -24,6 +24,10 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 
 
 == Changelog ==
+
+= 1.9.8 =
+*	Update feed URLs.
+*	Also override on SEO tools page.
 
 = 1.9.7 =
 *	Improved support with SiteGround Security plugin.
@@ -191,7 +195,7 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 *	Added bulk delete function to the virusscanner.
 *	Added check for wp_title('') in header.php.
 *	Improved some translations.
- 
+
 = 0.1.1 =
 *	Added the "Sucuri Scanner" plugin to the checklist.
 
