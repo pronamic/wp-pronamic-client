@@ -1,5 +1,5 @@
-# Deploy
-/deploy/
+# Build
+/build/
 
 # Eclipse
 /.buildpath

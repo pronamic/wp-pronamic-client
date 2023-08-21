@@ -4,5 +4,8 @@
 # Node.js (https://nodejs.org/)
 /node_modules/
 
+# PHP error logs
+/php_errors.log
+
 # Project
 /build/
