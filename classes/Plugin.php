@@ -20,6 +20,27 @@ class Plugin {
 	public $file;
 
 	/**
+	 * Plugin directory path.
+	 *
+	 * @var string
+	 */
+	public $dir_path;
+
+	/**
+	 * Modules.
+	 *
+	 * @var array
+	 */
+	public $modules;
+
+	/**
+	 * Updater.
+	 *
+	 * @var Updater
+	 */
+	public $updater;
+
+	/**
 	 * Constructs and initialize Pronamic WordPress Extensions plugin
 	 *
 	 * @param string $file

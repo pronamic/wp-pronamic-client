@@ -12,6 +12,13 @@ class ScriptsModule {
 	protected static $instance = null;
 
 	/**
+	 * Plugin.
+	 *
+	 * @var Plugin
+	 */
+	public $plugin;
+
+	/**
 	 * Constructs scripts module.
 	 *
 	 * @param Plugin $plugin
