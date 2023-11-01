@@ -31,3 +31,5 @@ require __DIR__ . '/vendor/autoload_packages.php';
  * Bootstrap
  */
 \Pronamic\WordPress\PronamicClient\Plugin::get_instance( __FILE__ );
+
+\Pronamic\WordPress\Updater\Plugin::instance()->setup();
