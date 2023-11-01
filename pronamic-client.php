@@ -33,3 +33,5 @@ require __DIR__ . '/vendor/autoload_packages.php';
 \Pronamic\WordPress\PronamicClient\Plugin::get_instance( __FILE__ );
 
 \Pronamic\WordPress\Updater\Plugin::instance()->setup();
+
+\Pronamic\MollieUserAgent\Plugin::instance()->setup();
