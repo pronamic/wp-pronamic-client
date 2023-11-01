@@ -83,7 +83,7 @@ class YoastModule {
 	 * @return array
 	 */
 	public function http_request_args( $parsed_args, $url ) {
-		if ( 0 !== \strncmp( $url, 'https://my.yoast.com/', 21 ) ) {
+		if ( ! \str_starts_with( $url, 'https://my.yoast.com/' ) ) {
 			return $parsed_args;
 		}
 
