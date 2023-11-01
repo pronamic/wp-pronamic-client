@@ -34,13 +34,6 @@ class Plugin {
 	public $modules;
 
 	/**
-	 * Updater.
-	 *
-	 * @var Updater
-	 */
-	public $updater;
-
-	/**
 	 * Constructs and initialize Pronamic WordPress Extensions plugin
 	 *
 	 * @param string $file
@@ -76,9 +69,6 @@ class Plugin {
 		if ( is_admin() ) {
 			Admin::get_instance( $this );
 		}
-
-		// Updater
-		$this->updater = Updater::get_instance( $this );
 	}
 
 	/**

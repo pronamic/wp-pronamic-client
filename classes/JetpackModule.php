@@ -20,7 +20,7 @@ class JetpackModule {
 	private $plugin;
 
 	/**
-	 * Constructs and initialize updater
+	 * Construct Jetpack module.
 	 *
 	 * @param Plugin $plugin
 	 */

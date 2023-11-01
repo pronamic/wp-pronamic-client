@@ -27,7 +27,7 @@ class GoogleAnalyticsModule {
 	private $tracking_id;
 
 	/**
-	 * Constructs and initialize updater
+	 * Construct Google Analytics module.
 	 *
 	 * @param Plugin $plugin
 	 */

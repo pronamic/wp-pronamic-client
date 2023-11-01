@@ -27,7 +27,7 @@ class PhpMailerModule {
 	private $sender;
 
 	/**
-	 * Constructs and initialize updater
+	 * Construct PHPMailer module.
 	 *
 	 * @param Plugin $plugin
 	 */

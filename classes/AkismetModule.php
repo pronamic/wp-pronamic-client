@@ -20,7 +20,7 @@ class AkismetModule {
 	private $plugin;
 
 	/**
-	 * Constructs and initialize updater
+	 * Construct Akismet module.
 	 *
 	 * @param Plugin $plugin
 	 */
