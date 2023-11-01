@@ -13,9 +13,19 @@
     "config": {
         "allow-plugins": {
             "dealerdirect/phpcodesniffer-composer-installer": true,
-            "roots/wordpress-core-installer": true
+            "roots/wordpress-core-installer": true,
+            "automattic/jetpack-autoloader": true
         },
+        "platform": {
+            "php": "8.0"
+        },
+        "platform-check": false,
+        "sort-packages": true,
         "wp-slug": "pronamic-client"
+    },
+    "require": {
+        "php": ">=8.0",
+        "automattic/jetpack-autoloader": "^2.12"
     },
     "require-dev": {
         "phpcompatibility/php-compatibility": "^9.3",

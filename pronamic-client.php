@@ -18,7 +18,14 @@ License: GPL
 GitHub URI: https://github.com/pronamic/wp-pronamic-client
 */
 
-require __DIR__ . '/vendor/autoload.php';
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+/**
+ * Autoload.
+ */
+require __DIR__ . '/vendor/autoload_packages.php';
 
 /**
  * Bootstrap
