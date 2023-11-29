@@ -42,6 +42,10 @@
 	},
 	"scripts": {
 		"build": "vendor/bin/pronamic wp-build",
+		"translate": [
+			"@build",
+			"rsync --recursive --delete --verbose ./build/project/languages/ ./languages/"
+		],
 		"phpcbf": "XDEBUG_MODE=off vendor/bin/phpcbf",
 		"phpcs": "XDEBUG_MODE=off vendor/bin/phpcs -s -v --ignore=packages,build",
 		"phplint": "vendor/bin/phplint",
