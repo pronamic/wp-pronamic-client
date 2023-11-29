@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2023-11-29
+
+### Commits
+
+- Use `str_start_with`, WordPress has polyfill. ([035d940](https://github.com/pronamic/wp-pronamic-client/commit/035d94043247c2018a1913aa3a2aad4997390ea3))
+- Added the new Mollie user agent library. ([666d48b](https://github.com/pronamic/wp-pronamic-client/commit/666d48bdd78d8a3852198a51623d725577051742))
+- Use the new Pronamic updater library. ([32b5ad0](https://github.com/pronamic/wp-pronamic-client/commit/32b5ad0a3659a872caa5fa49facf2170699ceb4e))
+- ncu ([86ea0b1](https://github.com/pronamic/wp-pronamic-client/commit/86ea0b166cb0e5dd8ee3fa155b2bf7d8ec737e41))
+- Use Jetpack autoloader. ([962d77a](https://github.com/pronamic/wp-pronamic-client/commit/962d77af67855daa21669950a5e447fcf513994b))
+- Fixed PHP warnings about dynamic properties. ([e85404d](https://github.com/pronamic/wp-pronamic-client/commit/e85404d60853ba83e5fa26a2a34b7ad6860c9481))
+
+### Composer
+
+- Added `php` `>=8.0`.
+- Added `automattic/jetpack-autoloader` `^2.12`.
+- Added `pronamic/pronamic-mollie-user-agent` `^1.0`.
+- Added `pronamic/pronamic-wp-updater` `^1.0`.
+
+Full set of changes: [`1.9.8...2.0.0`][2.0.0]
+
+[2.0.0]: https://github.com/pronamic/wp-pronamic-client/compare/v1.9.8...v2.0.0
+
 ## 1.9.8
 - Update feed URLs.
 - Also override on SEO tools page.
