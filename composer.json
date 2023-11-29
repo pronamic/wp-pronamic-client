@@ -32,6 +32,7 @@
 		"pronamic/pronamic-wp-updater": "^1.0"
 	},
 	"require-dev": {
+		"overtrue/phplint": "^9.0",
 		"phpcompatibility/php-compatibility": "^9.3",
 		"phpcompatibility/phpcompatibility-wp": "^2.1",
 		"pronamic/pronamic-cli": "^1.1",
@@ -43,7 +44,7 @@
 		"build": "vendor/bin/pronamic wp-build",
 		"phpcbf": "XDEBUG_MODE=off vendor/bin/phpcbf",
 		"phpcs": "XDEBUG_MODE=off vendor/bin/phpcs -s -v --ignore=packages,build",
-		"phplint": "find admin adminer classes includes templates -name '*.php' | xargs -n 1 -P 4 php -l",
+		"phplint": "vendor/bin/phplint",
 		"release": [
 			"@build",
 			"vendor/bin/pronamic release-to-github",
