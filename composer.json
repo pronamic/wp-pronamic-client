@@ -1,45 +1,51 @@
 {
-    "name": "pronamic/pronamic-client",
-    "autoload": {
-        "psr-4": {
-            "Pronamic\\WordPress\\PronamicClient\\": "classes/"
-        },
-        "files": [
-            "includes/credits.php",
-            "includes/functions.php",
-            "includes/version.php"
-        ]
-    },
-    "config": {
-        "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true,
-            "roots/wordpress-core-installer": true,
-            "automattic/jetpack-autoloader": true
-        },
-        "platform": {
-            "php": "8.0"
-        },
-        "platform-check": false,
-        "sort-packages": true,
-        "wp-slug": "pronamic-client"
-    },
-    "require": {
-        "php": ">=8.0",
-        "automattic/jetpack-autoloader": "^2.12",
-        "pronamic/pronamic-mollie-user-agent": "^1.0",
-        "pronamic/pronamic-wp-updater": "^1.0"
-    },
-    "require-dev": {
-        "phpcompatibility/php-compatibility": "^9.3",
-        "phpcompatibility/phpcompatibility-wp": "^2.1",
-        "pronamic/pronamic-cli": "dev-main",
-        "roots/wordpress": "^6.3",
-        "pronamic/wp-coding-standards": "^1.3",
-        "vrana/adminer": "^4.8"
-    },
-    "scripts": {
-        "phpcbf": "XDEBUG_MODE=off vendor/bin/phpcbf",
+	"name": "pronamic/pronamic-client",
+	"autoload": {
+		"psr-4": {
+			"Pronamic\\WordPress\\PronamicClient\\": "classes/"
+		},
+		"files": [
+			"includes/credits.php",
+			"includes/functions.php",
+			"includes/version.php"
+		]
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"roots/wordpress-core-installer": true,
+			"automattic/jetpack-autoloader": true
+		},
+		"platform": {
+			"php": "8.0"
+		},
+		"platform-check": false,
+		"sort-packages": true,
+		"wp-slug": "pronamic-client"
+	},
+	"require": {
+		"php": ">=8.0",
+		"automattic/jetpack-autoloader": "^2.12",
+		"pronamic/pronamic-mollie-user-agent": "^1.0",
+		"pronamic/pronamic-wp-updater": "^1.0"
+	},
+	"require-dev": {
+		"phpcompatibility/php-compatibility": "^9.3",
+		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"pronamic/pronamic-cli": "^1.1",
+		"pronamic/wp-coding-standards": "^1.3",
+		"roots/wordpress": "^6.3",
+		"vrana/adminer": "^4.8"
+	},
+	"scripts": {
+		"build": "vendor/bin/pronamic wp-build",
+		"phpcbf": "XDEBUG_MODE=off vendor/bin/phpcbf",
 		"phpcs": "XDEBUG_MODE=off vendor/bin/phpcs -s -v --ignore=packages,build",
-		"phplint": "find admin adminer classes includes templates -name '*.php' | xargs -n 1 -P 4 php -l"
-    }
+		"phplint": "find admin adminer classes includes templates -name '*.php' | xargs -n 1 -P 4 php -l",
+		"release": [
+			"@build",
+			"vendor/bin/pronamic release-to-github",
+			"vendor/bin/pronamic release-to-pronamic"
+		]
+	}
 }
