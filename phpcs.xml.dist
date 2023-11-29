@@ -18,8 +18,6 @@
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter" />
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion" />
 
-		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
-
 		<exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped" />
 		<exclude name="WordPress.Security.EscapeOutput.UnsafePrintingFunction" />
 
