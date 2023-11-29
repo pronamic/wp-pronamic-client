@@ -18,7 +18,6 @@
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.NotInFooter" />
 		<exclude name="WordPress.WP.EnqueuedResourceParameters.MissingVersion" />
 
-		<exclude name="WordPress.Files.FileName.InvalidClassFileName" />
 		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
 
 		<exclude name="WordPress.PHP.NoSilencedErrors.Discouraged" />
