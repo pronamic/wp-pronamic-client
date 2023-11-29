@@ -3,10 +3,10 @@
 
 	printf(
 		/* translators: %s: e-mail link */
-		__( 'E-mail: %s', 'pronamic_client' ),
+		__( 'E-mail: %s', 'pronamic-client' ),
 		sprintf(
 			'<a href="mailto:%1$s">%1$s</a>',
-			__( 'support@pronamic.eu', 'pronamic_client' )
+			__( 'support@pronamic.eu', 'pronamic-client' )
 		)
 	);
 
@@ -14,10 +14,10 @@
 
 	printf(
 		/* translators: %s: website link */
-		__( 'Website: %s', 'pronamic_client' ),
+		__( 'Website: %s', 'pronamic-client' ),
 		sprintf(
 			'<a href="%1$s">%1$s</a>',
-			__( 'https://www.pronamic.eu/', 'pronamic_client' )
+			__( 'https://www.pronamic.eu/', 'pronamic-client' )
 		)
 	);
 

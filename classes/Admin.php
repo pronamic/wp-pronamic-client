@@ -121,7 +121,7 @@ class Admin {
 
 		$email->message .= sprintf(
 			/* translators: %s: sent date */
-			__( 'Sent: %s', 'pronamic_client' ),
+			__( 'Sent: %s', 'pronamic-client' ),
 			\gmdate( 'r' )
 		);
 
@@ -209,8 +209,8 @@ class Admin {
 	 */
 	public function admin_menu() {
 		add_menu_page(
-			__( 'Pronamic', 'pronamic_client' ), // page title
-			__( 'Pronamic', 'pronamic_client' ), // menu title
+			__( 'Pronamic', 'pronamic-client' ), // page title
+			__( 'Pronamic', 'pronamic-client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client', // menu slug
 			[ $this, 'page_dashboard' ], // function
@@ -221,8 +221,8 @@ class Admin {
 		// @see wp-admin/menu.php
 		add_submenu_page(
 			'pronamic_client', // parent slug
-			__( 'Pronamic Checklist', 'pronamic_client' ), // page title
-			__( 'Checklist', 'pronamic_client' ), // menu title
+			__( 'Pronamic Checklist', 'pronamic-client' ), // page title
+			__( 'Checklist', 'pronamic-client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_checklist', // menu slug
 			[ $this, 'page_checklist' ] // function
@@ -230,8 +230,8 @@ class Admin {
 
 		add_submenu_page(
 			'pronamic_client', // parent slug
-			__( 'Pronamic Extensions', 'pronamic_client' ), // page title
-			__( 'Extensions', 'pronamic_client' ), // menu title
+			__( 'Pronamic Extensions', 'pronamic-client' ), // page title
+			__( 'Extensions', 'pronamic-client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_extensions', // menu slug
 			[ $this, 'page_extensions' ] // function
@@ -240,8 +240,8 @@ class Admin {
 		// @see wp-admin/menu.php
 		add_submenu_page(
 			'pronamic_client', // parent slug
-			__( 'Pronamic Virus Scanner', 'pronamic_client' ), // page title
-			__( 'Scanner', 'pronamic_client' ), // menu title
+			__( 'Pronamic Virus Scanner', 'pronamic-client' ), // page title
+			__( 'Scanner', 'pronamic-client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_virus_scanner', // menu slug
 			[ $this, 'page_virus_scanner' ] // function
@@ -249,8 +249,8 @@ class Admin {
 
 		add_submenu_page(
 			'pronamic_client', // parent slug
-			__( 'Email', 'pronamic_client' ), // page title
-			__( 'Email', 'pronamic_client' ), // menu title
+			__( 'Email', 'pronamic-client' ), // page title
+			__( 'Email', 'pronamic-client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_email', // menu slug
 			[ $this, 'page_email' ] // function
@@ -258,8 +258,8 @@ class Admin {
 
 		add_submenu_page(
 			'pronamic_client', // parent slug
-			__( 'Settings', 'pronamic_client' ), // page title
-			__( 'Settings', 'pronamic_client' ), // menu title
+			__( 'Settings', 'pronamic-client' ), // page title
+			__( 'Settings', 'pronamic-client' ), // menu title
 			'pronamic_client', // capability
 			'pronamic_client_settings', // menu slug
 			[ $this, 'page_settings' ] // function
@@ -278,7 +278,7 @@ class Admin {
 			'proanmic-client-media',
 			'pronamicClientMedia',
 			[
-				'browseText' => __( 'Browse…', 'pronamic_client' ),
+				'browseText' => __( 'Browse…', 'pronamic-client' ),
 			]
 		);
 
@@ -305,7 +305,7 @@ class Admin {
 	public function dashboard_setup() {
 		wp_add_dashboard_widget(
 			'pronamic_client',
-			__( 'Pronamic', 'pronamic_client' ),
+			__( 'Pronamic', 'pronamic-client' ),
 			'pronamic_client_dashboard'
 		);
 	}

@@ -15,8 +15,8 @@ if ( ! function_exists( 'pronamic_field_input_media' ) ) {
 			esc_attr( $args['label_for'] ),
 			esc_attr( get_option( $args['label_for'] ) ),
 			'regular-text code pronamic-media-picker',
-			__( 'Select Media', 'pronamic_client' ),
-			__( 'Select', 'pronamic_client' ),
+			__( 'Select Media', 'pronamic-client' ),
+			__( 'Select', 'pronamic-client' ),
 			''
 		);
 

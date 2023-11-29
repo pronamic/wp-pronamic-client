@@ -72,7 +72,7 @@ class GoogleAnalyticsModule {
 		// Section
 		\add_settings_section(
 			'pronamic_client_google_analytics',
-			\__( 'Google Analytics', 'pronamic_client' ),
+			\__( 'Google Analytics', 'pronamic-client' ),
 			'__return_null',
 			'pronamic_client'
 		);
@@ -80,7 +80,7 @@ class GoogleAnalyticsModule {
 		// GA Code
 		\add_settings_field(
 			'pronamic_client_google_analytics_tracking_id',
-			\__( 'Google Analytics Tracking ID', 'pronamic_client' ),
+			\__( 'Google Analytics Tracking ID', 'pronamic-client' ),
 			function ( $args ) {
 				Admin::input_text( $args );
 			},
@@ -129,7 +129,7 @@ class GoogleAnalyticsModule {
 		foreach ( $conflicts as $plugin ) {
 			$this->admin_notices[] = \sprintf(
 				/* translators: %1: <em>conflicting plugin name</em>, 2: Pronamic Client */
-				\__( 'The %1$s plugin might cause issues when used in conjunction with %2$s.', 'pronamic_client' ),
+				\__( 'The %1$s plugin might cause issues when used in conjunction with %2$s.', 'pronamic-client' ),
 				'<em>' . $plugin . '</em>',
 				'Pronamic Client'
 			);

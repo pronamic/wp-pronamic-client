@@ -13,14 +13,14 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'WordPress', 'pronamic_client' ); ?></th>
+				<th colspan="2"><?php _e( 'WordPress', 'pronamic-client' ); ?></th>
 			</tr>
 		</thead>
 
 		<tbody>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Language', 'pronamic_client' ); ?>
+					<?php _e( 'Language', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<span class="dashicons dashicons-yes"></span> <?php echo $language; ?>
@@ -28,7 +28,7 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Is Dutch', 'pronamic_client' ); ?>
+					<?php _e( 'Is Dutch', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $is_dutch ) : ?>
@@ -40,7 +40,7 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Timezone', 'pronamic_client' ); ?>
+					<?php _e( 'Timezone', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $is_dutch && 'Europe/Amsterdam' === $timezone ) : ?>
@@ -54,7 +54,7 @@
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Site Visibility', 'pronamic_client' ); ?>
+					<?php _e( 'Site Visibility', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $blog_public ) : ?>
@@ -63,12 +63,12 @@
 
 					<?php endif; ?>
 
-					<?php $blog_public ? esc_html_e( 'Public', 'pronamic_client' ) : esc_html_e( 'Private', 'pronamic_client' ); ?>
+					<?php $blog_public ? esc_html_e( 'Public', 'pronamic-client' ) : esc_html_e( 'Private', 'pronamic-client' ); ?>
 				</td>
 			</tr>
 			<tr>
 				<th scope="row">
-					<?php _e( 'Category Base', 'pronamic_client' ); ?>
+					<?php _e( 'Category Base', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $is_dutch && 'categorie' === $category_base ) : ?>
@@ -86,7 +86,7 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'Config', 'pronamic_client' ); ?></th>
+				<th colspan="2"><?php _e( 'Config', 'pronamic-client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -129,7 +129,7 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'Theme', 'pronamic_client' ); ?></th>
+				<th colspan="2"><?php _e( 'Theme', 'pronamic-client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -147,7 +147,7 @@
 
 					printf(
 						/* translators: 1: name, 2: filename */
-						__( 'Function %1$s in %2$s', 'pronamic_client' ),
+						__( 'Function %1$s in %2$s', 'pronamic-client' ),
 						'<code>wp_head();</code>',
 						'<code>header.php</code>'
 					);
@@ -157,7 +157,7 @@
 				<td>
 					<span class="dashicons dashicons-<?php echo esc_attr( $has_wp_head_function ? 'yes' : 'no' ); ?>"></span>
 
-					<?php $has_wp_head_function ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+					<?php $has_wp_head_function ? esc_html_e( 'Yes', 'pronamic-client' ) : esc_html_e( 'No', 'pronamic-client' ); ?>
 				</td>
 			</tr>
 			<tr>
@@ -173,7 +173,7 @@
 
 					printf(
 						/* translators: 1: name, 2: filename */
-						__( 'Function %1$s in %2$s', 'pronamic_client' ),
+						__( 'Function %1$s in %2$s', 'pronamic-client' ),
 						'<code>wp_footer();</code>',
 						'<code>footer.php</code>'
 					);
@@ -183,7 +183,7 @@
 				<td>
 					<span class="dashicons dashicons-<?php echo esc_attr( $has_wp_footer_function ? 'yes' : 'no' ); ?>"></span>
 
-					<?php $has_wp_footer_function ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+					<?php $has_wp_footer_function ? esc_html_e( 'Yes', 'pronamic-client' ) : esc_html_e( 'No', 'pronamic-client' ); ?>
 				</td>
 			</tr>
 			<tr>
@@ -193,7 +193,7 @@
 
 				?>
 				<th scope="row">
-					<?php _e( 'Theme Support HTML5', 'pronamic_client' ); ?>
+					<?php _e( 'Theme Support HTML5', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $theme_support_html5 ) : ?>
@@ -202,7 +202,7 @@
 
 					<?php endif; ?>
 
-					<?php $theme_support_html5 ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+					<?php $theme_support_html5 ? esc_html_e( 'Yes', 'pronamic-client' ) : esc_html_e( 'No', 'pronamic-client' ); ?>
 				</td>
 			</tr>
 			<tr>
@@ -212,7 +212,7 @@
 
 				?>
 				<th scope="row">
-					<?php _e( 'Theme Support Title Tag', 'pronamic_client' ); ?>
+					<?php _e( 'Theme Support Title Tag', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $theme_support_title_tag ) : ?>
@@ -221,7 +221,7 @@
 
 					<?php endif; ?>
 
-					<?php $theme_support_title_tag ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+					<?php $theme_support_title_tag ? esc_html_e( 'Yes', 'pronamic-client' ) : esc_html_e( 'No', 'pronamic-client' ); ?>
 				</td>
 			</tr>
 		</tbody>
@@ -230,7 +230,7 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'Users', 'pronamic_client' ); ?></th>
+				<th colspan="2"><?php _e( 'Users', 'pronamic-client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -243,7 +243,7 @@
 
 				?>
 				<th scope="row">
-					<?php _e( 'WordPress user \'pronamic\'', 'pronamic_client' ); ?>
+					<?php _e( 'WordPress user \'pronamic\'', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $has_user_pronamic ) : ?>
@@ -252,7 +252,7 @@
 
 					<?php endif; ?>
 
-					<?php $has_user_pronamic ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+					<?php $has_user_pronamic ? esc_html_e( 'Yes', 'pronamic-client' ) : esc_html_e( 'No', 'pronamic-client' ); ?>
 				</td>
 			</tr>
 
@@ -265,7 +265,7 @@
 
 					?>
 					<th scope="row">
-						<?php _e( 'WordPress user \'pronamic\' email \'info@pronamic.nl\'', 'pronamic_client' ); ?>
+						<?php _e( 'WordPress user \'pronamic\' email \'info@pronamic.nl\'', 'pronamic-client' ); ?>
 					</th>
 					<td>
 						<?php if ( $has_email_pronamic ) : ?>
@@ -288,7 +288,7 @@
 
 				?>
 				<th scope="row">
-					<?php _e( 'WordPress user role \'manager\'', 'pronamic_client' ); ?>
+					<?php _e( 'WordPress user role \'manager\'', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $has_role_manager ) : ?>
@@ -297,7 +297,7 @@
 
 					<?php endif; ?>
 
-					<?php $has_role_manager ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+					<?php $has_role_manager ? esc_html_e( 'Yes', 'pronamic-client' ) : esc_html_e( 'No', 'pronamic-client' ); ?>
 				</td>
 			</tr>
 		</tbody>
@@ -306,7 +306,7 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="2"><?php _e( 'Gravity Forms', 'pronamic_client' ); ?></th>
+				<th colspan="2"><?php _e( 'Gravity Forms', 'pronamic-client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -318,7 +318,7 @@
 
 				?>
 				<th scope="row">
-					<?php _e( 'Gravity Forms Output HTML5', 'pronamic_client' ); ?>
+					<?php _e( 'Gravity Forms Output HTML5', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $rg_gforms_enable_html5 ) : ?>
@@ -327,7 +327,7 @@
 
 					<?php endif; ?>
 
-					<?php $rg_gforms_enable_html5 ? esc_html_e( 'Yes', 'pronamic_client' ) : esc_html_e( 'No', 'pronamic_client' ); ?>
+					<?php $rg_gforms_enable_html5 ? esc_html_e( 'Yes', 'pronamic-client' ) : esc_html_e( 'No', 'pronamic-client' ); ?>
 				</td>
 			</tr>
 			<tr>
@@ -337,7 +337,7 @@
 
 				?>
 				<th scope="row">
-					<?php _e( 'Gravity Forms Currency', 'pronamic_client' ); ?>
+					<?php _e( 'Gravity Forms Currency', 'pronamic-client' ); ?>
 				</th>
 				<td>
 					<?php if ( $is_dutch && 'EUR' === $rg_gforms_currency ) : ?>
@@ -398,7 +398,7 @@
 	<table class="pronamic-status-table widefat striped" cellspacing="0">
 		<thead>
 			<tr>
-				<th colspan="3"><?php _e( 'Plugins', 'pronamic_client' ); ?></th>
+				<th colspan="3"><?php _e( 'Plugins', 'pronamic-client' ); ?></th>
 			</tr>
 		</thead>
 
@@ -430,7 +430,7 @@
 
 							?>
 							<a href="<?php echo esc_url( $search_url ); ?>">
-								<?php esc_html_e( 'Search Plugin', 'pronamic_client' ); ?>
+								<?php esc_html_e( 'Search Plugin', 'pronamic-client' ); ?>
 							</a>
 
 						<?php endif; ?>

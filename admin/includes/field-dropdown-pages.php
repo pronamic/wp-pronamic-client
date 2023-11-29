@@ -13,7 +13,7 @@ if ( ! function_exists( 'pronamic_field_dropdown_pages' ) ) {
 			[
 				'name'             => $name,
 				'selected'         => get_option( $name, '' ),
-				'show_option_none' => __( '&mdash; Select a page &mdash;', 'pronamic_client' ),
+				'show_option_none' => __( '&mdash; Select a page &mdash;', 'pronamic-client' ),
 			]
 		);
 	}

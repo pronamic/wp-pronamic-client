@@ -71,14 +71,14 @@ class PhpMailerModule {
 		// Settings - General.
 		add_settings_section(
 			'pronamic_client_email',
-			__( 'Email', 'pronamic_client' ),
+			__( 'Email', 'pronamic-client' ),
 			'__return_null',
 			'pronamic_client'
 		);
 
 		add_settings_field(
 			'pronamic_client_phpmailer_sender',
-			__( 'PHPMailer Sender', 'pronamic_client' ),
+			__( 'PHPMailer Sender', 'pronamic-client' ),
 			function ( $args ) {
 				$args['type'] = 'email';
 
@@ -91,7 +91,7 @@ class PhpMailerModule {
 				'classes'     => 'regular-text',
 				'description' => sprintf(
 					/* translators: %s: <code>spf=neutral...</code> */
-					__( 'Optionally set a PHPMailer Sender e-mail address to, for example, resolve SPF neutral notifications such as: %s.', 'pronamic_client' ),
+					__( 'Optionally set a PHPMailer Sender e-mail address to, for example, resolve SPF neutral notifications such as: %s.', 'pronamic-client' ),
 					sprintf(
 						'<br /><code>%s</code>',
 						'spf=neutral (●●●●●●●●.●●●: ●.●.●.● is neither permitted nor denied by best guess record for domain of ●●●●●●●●@●●●●●●●●.●●●) smtp.mailfrom=●●●●●●●●@●●●●●●●●.●●●'

@@ -56,7 +56,7 @@ class AkismetModule {
 			return;
 		}
 
-		\wp_die( \__( 'Sorry, you are not allowed to view this page.', 'pronamic_client' ) );
+		\wp_die( \__( 'Sorry, you are not allowed to view this page.', 'pronamic-client' ) );
 	}
 
 	/**

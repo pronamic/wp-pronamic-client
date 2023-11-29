@@ -73,7 +73,7 @@ class GoogleTagManagerModule {
 		// Section
 		\add_settings_section(
 			'pronamic_client_google_tag_manager',
-			\__( 'Google Tag Manager', 'pronamic_client' ),
+			\__( 'Google Tag Manager', 'pronamic-client' ),
 			'__return_null',
 			'pronamic_client'
 		);
@@ -81,7 +81,7 @@ class GoogleTagManagerModule {
 		// GTM Code
 		\add_settings_field(
 			'pronamic_client_google_tag_manager_container_id',
-			\__( 'Google Tag Manager Container ID', 'pronamic_client' ),
+			\__( 'Google Tag Manager Container ID', 'pronamic-client' ),
 			function ( $args ) {
 				Admin::input_text( $args );
 			},
@@ -92,7 +92,7 @@ class GoogleTagManagerModule {
 				'classes'     => 'regular-text',
 				'description' => sprintf(
 					/* translators: 1: hook */
-					\esc_html__( 'Your theme needs support for the %1$s hook.', 'pronamic_client' ),
+					\esc_html__( 'Your theme needs support for the %1$s hook.', 'pronamic-client' ),
 					'<code>wp_body_open</code>'
 				),
 			]
@@ -126,7 +126,7 @@ class GoogleTagManagerModule {
 		foreach ( $conflicts as $plugin ) {
 			$this->admin_notices[] = \sprintf(
 				/* translators: %1: <em>conflicting plugin name</em>, 2: Pronamic Client */
-				\__( 'The %1$s plugin might cause issues when used in conjunction with %2$s.', 'pronamic_client' ),
+				\__( 'The %1$s plugin might cause issues when used in conjunction with %2$s.', 'pronamic-client' ),
 				'<em>' . $plugin . '</em>',
 				'Pronamic Client'
 			);

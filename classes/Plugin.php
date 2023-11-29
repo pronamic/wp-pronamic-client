@@ -77,7 +77,7 @@ class Plugin {
 	 * @return void
 	 */
 	public function plugins_loaded() {
-		load_plugin_textdomain( 'pronamic_client', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
+		load_plugin_textdomain( 'pronamic-client', false, dirname( plugin_basename( $this->file ) ) . '/languages/' );
 	}
 
 	/**
@@ -90,8 +90,8 @@ class Plugin {
 			$wp_admin_bar->add_menu(
 				[
 					'id'    => 'pronamic',
-					'title' => __( 'Pronamic', 'pronamic_client' ),
-					'href'  => __( 'https://www.pronamic.eu/', 'pronamic_client' ),
+					'title' => __( 'Pronamic', 'pronamic-client' ),
+					'href'  => __( 'https://www.pronamic.eu/', 'pronamic-client' ),
 					'meta'  => [
 						'target' => '_blank',
 					],
@@ -102,8 +102,8 @@ class Plugin {
 				[
 					'parent' => 'pronamic',
 					'id'     => 'pronamic_contact',
-					'title'  => __( 'Contact', 'pronamic_client' ),
-					'href'   => __( 'https://www.pronamic.eu/contact/', 'pronamic_client' ),
+					'title'  => __( 'Contact', 'pronamic-client' ),
+					'href'   => __( 'https://www.pronamic.eu/contact/', 'pronamic-client' ),
 					'meta'   => [
 						'target' => '_blank',
 					],
@@ -120,7 +120,7 @@ class Plugin {
 	 */
 	public function wp_headers( $headers ) {
 		// Extend the headers with a Pronamic powered by header
-		$headers['X-Powered-By'] = _x( 'Pronamic | pronamic.eu | info@pronamic.eu', 'x-powered-by', 'pronamic_client' );
+		$headers['X-Powered-By'] = _x( 'Pronamic | pronamic.eu | info@pronamic.eu', 'x-powered-by', 'pronamic-client' );
 
 		return $headers;
 	}

@@ -7,7 +7,7 @@ $adminer_url = plugins_url( 'adminer/', $pronamic_client->file );
 ?>
 <form target="_blank" method="post" action="<?php echo esc_url( $adminer_url ); ?>">
 	<p>
-		<a target="_blank" href="<?php echo esc_url( $adminer_url ); ?>"><?php _e( 'Adminer', 'pronamic_client' ); ?></a>
+		<a target="_blank" href="<?php echo esc_url( $adminer_url ); ?>"><?php _e( 'Adminer', 'pronamic-client' ); ?></a>
 	</p>
 
 	<p>
@@ -26,6 +26,6 @@ $adminer_url = plugins_url( 'adminer/', $pronamic_client->file );
 		<input type="hidden" name="auth[password]" value="<?php echo esc_attr( DB_PASSWORD ); ?>">
 		<input type="hidden" name="auth[db]" value="<?php echo esc_attr( DB_NAME ); ?>">
 
-		<?php submit_button( __( 'Login', 'pronamic_client' ), 'primary', 'submit', false ); ?>
+		<?php submit_button( __( 'Login', 'pronamic-client' ), 'primary', 'submit', false ); ?>
 	</p>
 </form>

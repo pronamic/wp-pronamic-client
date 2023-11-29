@@ -23,7 +23,7 @@ if ( null !== $nonce && \wp_verify_nonce( $nonce, 'pronamic_client_scanner_delet
 <div class="wrap">
 	<h1><?php echo get_admin_page_title(); ?></h1>
 
-	<h2><?php _e( 'Uploads', 'pronamic_client' ); ?></h2>
+	<h2><?php _e( 'Uploads', 'pronamic-client' ); ?></h2>
 
 	<?php
 
@@ -51,11 +51,11 @@ if ( null !== $nonce && \wp_verify_nonce( $nonce, 'pronamic_client_scanner_delet
 								<th id="cb" class="manage-column column-cb check-column" scope="col">
 									<input type="checkbox" />
 								</th>
-								<th scope="col"><?php _e( 'File', 'pronamic_client' ); ?></th>
-								<th scope="col"><?php _e( 'Size', 'pronamic_client' ); ?></th>
-								<th scope="col"><?php _e( 'Date', 'pronamic_client' ); ?></th>
-								<th scope="col"><?php _e( 'Content', 'pronamic_client' ); ?></th>
-								<th scope="col"><?php _e( 'Actions', 'pronamic_client' ); ?></th>
+								<th scope="col"><?php _e( 'File', 'pronamic-client' ); ?></th>
+								<th scope="col"><?php _e( 'Size', 'pronamic-client' ); ?></th>
+								<th scope="col"><?php _e( 'Date', 'pronamic-client' ); ?></th>
+								<th scope="col"><?php _e( 'Content', 'pronamic-client' ); ?></th>
+								<th scope="col"><?php _e( 'Actions', 'pronamic-client' ); ?></th>
 							</tr>
 						</<?php echo $html_tag; ?>>
 
@@ -86,7 +86,7 @@ if ( null !== $nonce && \wp_verify_nonce( $nonce, 'pronamic_client_scanner_delet
 									</th>
 									<td><?php echo $filename; ?></td>
 									<td><?php echo size_format( filesize( $filename ) ); ?></td>
-									<td><?php echo date_i18n( __( 'F j, Y g:i a', 'pronamic_client' ), filectime( $filename ) ); ?></td>
+									<td><?php echo date_i18n( __( 'F j, Y g:i a', 'pronamic-client' ), filectime( $filename ) ); ?></td>
 									<td>
 										<textarea cols="60" rows="4" readonly="readonly"><?php echo esc_html( file_get_contents( $filename, true ) ); ?></textarea>
 									</td>
@@ -101,7 +101,7 @@ if ( null !== $nonce && \wp_verify_nonce( $nonce, 'pronamic_client_scanner_delet
 											?>
 
 										<a href="<?php echo add_query_arg( 'delete', $filename, 'admin.php?page=pronamic_client_virus_scanner' ); ?>">
-											<?php _e( 'Delete', 'pronamic_client' ); ?>
+											<?php _e( 'Delete', 'pronamic-client' ); ?>
 										</a>
 
 										<?php } ?>
@@ -123,8 +123,8 @@ if ( null !== $nonce && \wp_verify_nonce( $nonce, 'pronamic_client_scanner_delet
 						?>
 
 						<select name="action2">
-							<option selected="selected" value="-1"><?php _e( 'Actions', 'pronamic_client' ); ?></option>
-							<option value="delete"><?php _e( 'Delete', 'pronamic_client' ); ?></option>
+							<option selected="selected" value="-1"><?php _e( 'Actions', 'pronamic-client' ); ?></option>
+							<option value="delete"><?php _e( 'Delete', 'pronamic-client' ); ?></option>
 						</select>
 
 						<input id="doaction2" class="button-secondary action" type="submit" value="Uitvoeren" name="">

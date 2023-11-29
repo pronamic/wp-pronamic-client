@@ -1,7 +1,7 @@
 <div class="wrap">
 	<h1><?php echo get_admin_page_title(); ?></h1>
 
-	<h2><?php _e( 'Plugins', 'pronamic_client' ); ?></h2>
+	<h2><?php _e( 'Plugins', 'pronamic-client' ); ?></h2>
 
 	<?php
 
@@ -11,7 +11,7 @@
 		?>
 
 		<p>
-			<?php _e( 'No Pronamic plugins found.', 'pronamic_client' ); ?>
+			<?php _e( 'No Pronamic plugins found.', 'pronamic-client' ); ?>
 		</p>
 
 	<?php else : ?>
@@ -19,9 +19,9 @@
 		<table class="wp-list-table widefat plugins" cellspacing="0">
 			<thead>
 				<tr>
-					<th scope="col"><?php _e( 'Plugin', 'pronamic_client' ); ?></th>
-					<th scope="col"><?php _e( 'Author', 'pronamic_client' ); ?></th>
-					<th scope="col"><?php _e( 'Version', 'pronamic_client' ); ?></th>
+					<th scope="col"><?php _e( 'Plugin', 'pronamic-client' ); ?></th>
+					<th scope="col"><?php _e( 'Author', 'pronamic-client' ); ?></th>
+					<th scope="col"><?php _e( 'Version', 'pronamic-client' ); ?></th>
 				</tr>
 			</thead>
 
@@ -48,7 +48,7 @@
 
 	<?php endif; ?>
 
-	<h2><?php _e( 'Themes', 'pronamic_client' ); ?></h2>
+	<h2><?php _e( 'Themes', 'pronamic-client' ); ?></h2>
 
 	<?php
 
@@ -58,7 +58,7 @@
 		?>
 
 		<p>
-			<?php _e( 'No Pronamic themes found.', 'pronamic_client' ); ?>
+			<?php _e( 'No Pronamic themes found.', 'pronamic-client' ); ?>
 		</p>
 
 	<?php else : ?>
@@ -66,9 +66,9 @@
 		<table class="wp-list-table widefat themes" cellspacing="0">
 			<thead>
 				<tr>
-					<th scope="col"><?php _e( 'Theme', 'pronamic_client' ); ?></th>
-					<th scope="col"><?php _e( 'Author', 'pronamic_client' ); ?></th>
-					<th scope="col"><?php _e( 'Version', 'pronamic_client' ); ?></th>
+					<th scope="col"><?php _e( 'Theme', 'pronamic-client' ); ?></th>
+					<th scope="col"><?php _e( 'Author', 'pronamic-client' ); ?></th>
+					<th scope="col"><?php _e( 'Version', 'pronamic-client' ); ?></th>
 				</tr>
 			</thead>
 
