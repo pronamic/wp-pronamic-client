@@ -57,4 +57,4 @@
 	<rule ref="WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter">
 		<exclude-pattern>classes/Admin.php</exclude-pattern>
 	</rule>
-</ruleset></ruleset>
+</ruleset>
