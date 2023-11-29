@@ -1,8 +1,12 @@
 {
 	"core": null,
 	"plugins": [
-		".",
 		"pronamic/wp-env-quick-login",
+		"https://downloads.wordpress.org/plugin/log-http-requests.zip",
 		"https://downloads.wordpress.org/plugin/query-monitor.zip"
-	]
+	],
+	"mappings": {
+		"wp-content/plugins/pronamic-client-dev": "./",
+		"wp-content/plugins/pronamic-client": "./build/project/"
+	}
 }
