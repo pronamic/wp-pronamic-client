@@ -70,7 +70,7 @@ class ScriptsModule {
 		 */
 		$handles = \array_filter(
 			$handles,
-			function( $handle ) {
+			function ( $handle ) {
 				return \wp_script_is( $handle );
 			}
 		);

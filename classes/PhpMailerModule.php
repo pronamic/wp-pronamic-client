@@ -79,7 +79,7 @@ class PhpMailerModule {
 		add_settings_field(
 			'pronamic_client_phpmailer_sender',
 			__( 'PHPMailer Sender', 'pronamic_client' ),
-			function( $args ) {
+			function ( $args ) {
 				$args['type'] = 'email';
 
 				Admin::input_text( $args );

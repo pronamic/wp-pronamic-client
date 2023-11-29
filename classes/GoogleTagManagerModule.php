@@ -82,7 +82,7 @@ class GoogleTagManagerModule {
 		\add_settings_field(
 			'pronamic_client_google_tag_manager_container_id',
 			\__( 'Google Tag Manager Container ID', 'pronamic_client' ),
-			function( $args ) {
+			function ( $args ) {
 				Admin::input_text( $args );
 			},
 			'pronamic_client',

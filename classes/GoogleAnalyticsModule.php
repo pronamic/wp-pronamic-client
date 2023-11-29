@@ -81,7 +81,7 @@ class GoogleAnalyticsModule {
 		\add_settings_field(
 			'pronamic_client_google_analytics_tracking_id',
 			\__( 'Google Analytics Tracking ID', 'pronamic_client' ),
-			function( $args ) {
+			function ( $args ) {
 				Admin::input_text( $args );
 			},
 			'pronamic_client',
