@@ -18,8 +18,6 @@
 		<exclude name="WordPress.Security.EscapeOutput.OutputNotEscaped" />
 		<exclude name="WordPress.Security.EscapeOutput.UnsafePrintingFunction" />
 
-		<exclude name="WordPress.WP.GlobalVariablesOverride.OverrideProhibited" />
-
 		<exclude name="WordPressVIPMinimum.Hooks.RestrictedHooks.http_request_args" />
 		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_unlink" />
 		<exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.wp_mail_wp_mail" />
