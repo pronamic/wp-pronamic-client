@@ -1,5 +1,7 @@
 {
 	"name": "pronamic/pronamic-client",
+	"description": "WordPress plugin for Pronamic clients.",
+	"type": "wordpress-plugin",
 	"autoload": {
 		"psr-4": {
 			"Pronamic\\WordPress\\PronamicClient\\": "classes/"
