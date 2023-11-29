@@ -1,10 +1,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/wp-pronamic-"
-"client\n"
-"POT-Creation-Date: 2022-01-07 12:40:00+00:00\n"
-"PO-Revision-Date: 2022-01-07 13:40+0100\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-client\n"
+"POT-Creation-Date: 2023-11-29T10:28:47+00:00\n"
+"PO-Revision-Date: 2023-11-29 11:29+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -13,8 +12,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-KeywordsList: \n"
-"X-Generator: Poedit 3.0.1\n"
+"X-Generator: Poedit 3.4.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
+
+#. Plugin Name of the plugin
+msgid "Pronamic Client"
+msgstr "Pronamic Client"
+
+#. Plugin URI of the plugin
+msgid "https://www.pronamic.eu/plugins/pronamic-client/"
+msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
+
+#. Description of the plugin
+msgid "WordPress plugin for Pronamic clients."
+msgstr "WordPress plugin voor Pronamic klanten."
+
+#. Author of the plugin
+#: classes/Admin.php:212 classes/Admin.php:213 classes/Admin.php:308
+#: classes/Plugin.php:93 includes/credits.php:20
+msgid "Pronamic"
+msgstr "Pronamic"
+
+#. Author URI of the plugin
+msgid "http://www.pronamic.eu/"
+msgstr "http://www.pronamic.nl/"
 
 #: admin/checklist.php:16
 msgid "WordPress"
@@ -117,9 +138,32 @@ msgstr "Plugins"
 msgid "Search Plugin"
 msgstr "Zoek plugin"
 
-#: admin/dashboard/adminer.php:10 admin/dashboard.php:20
+#: admin/dashboard.php:10 admin/includes/dashboard.php:8
+msgid "Support"
+msgstr "Support"
+
+#: admin/dashboard.php:20 admin/dashboard/adminer.php:10
 msgid "Adminer"
 msgstr "Adminer"
+
+#: admin/dashboard.php:34
+msgid "Pronamic.nl News"
+msgstr "Pronamic.nl nieuws"
+
+#: admin/dashboard.php:43 admin/dashboard.php:69 admin/dashboard/support.php:20
+#: admin/includes/dashboard.php:29 admin/includes/dashboard.php:43
+#: classes/Plugin.php:94 includes/credits.php:18
+msgid "https://www.pronamic.eu/"
+msgstr "https://www.pronamic.nl/"
+
+#: admin/dashboard.php:45 admin/dashboard.php:71
+#: admin/includes/dashboard.php:45
+msgid "Pronamic News"
+msgstr "Pronamic nieuws"
+
+#: admin/dashboard.php:60
+msgid "Pronamic.eu News"
+msgstr "Pronamic.eu nieuws"
 
 #: admin/dashboard/adminer.php:29
 msgid "Login"
@@ -138,34 +182,6 @@ msgstr "support@pronamic.nl"
 #: admin/dashboard/support.php:17 admin/includes/dashboard.php:26
 msgid "Website: %s"
 msgstr "Website: %s"
-
-#. translators: 1: https:www.pronamic.eu/, 2: Pronamic specialist, 3: Pronamic
-#: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
-#: admin/includes/dashboard.php:43 classes/Plugin.php:80
-#: includes/credits.php:18
-msgid "https://www.pronamic.eu/"
-msgstr "https://www.pronamic.nl/"
-
-#: admin/dashboard.php:10 admin/includes/dashboard.php:8
-msgid "Support"
-msgstr "Support"
-
-#: admin/dashboard.php:34
-msgid "Pronamic.nl News"
-msgstr "Pronamic.nl nieuws"
-
-#. Author URI of the plugin/theme
-msgid "http://www.pronamic.eu/"
-msgstr "http://www.pronamic.nl/"
-
-#: admin/dashboard.php:45 admin/dashboard.php:71
-#: admin/includes/dashboard.php:45
-msgid "Pronamic News"
-msgstr "Pronamic nieuws"
-
-#: admin/dashboard.php:60
-msgid "Pronamic.eu News"
-msgstr "Pronamic.eu nieuws"
 
 #: admin/email.php:14
 msgid "Current mail settings"
@@ -201,11 +217,11 @@ msgstr "In %1$s op regel %2$s."
 msgid "Send a test email"
 msgstr "Verstuur een test email"
 
-#: admin/email.php:91
+#: admin/email.php:92
 msgid "The test email has not been sent by WordPress."
 msgstr "De test-e-mail is niet verzonden door WordPress."
 
-#: admin/email.php:103
+#: admin/email.php:104
 msgid ""
 "The test email has been sent by WordPress. Please note this does not mean it "
 "has been delivered."
@@ -213,8 +229,8 @@ msgstr ""
 "De test-e-mail is verzonden door WordPress. Let op: dit betekent niet dat "
 "het is afgeleverd."
 
-#. translators: %s: <a href="https:www.mail-tester.com">mail-tester.com</a>
-#: admin/email.php:114
+#. translators: %s: <a href="https://www.mail-tester.com">mail-tester.com</a>
+#: admin/email.php:115
 msgid ""
 "Use a service like %s to test if this WordPress installation is sending "
 "emails."
@@ -223,12 +239,12 @@ msgstr ""
 "mails verzendt."
 
 #. translators: %s: site url
-#: admin/email.php:133
+#: admin/email.php:134
 msgid "Test email from %s"
 msgstr "Test e-mail van %s"
 
 #. translators: %s: site url
-#: admin/email.php:138
+#: admin/email.php:139
 msgid ""
 "This test email proves that your WordPress installation at %s can send "
 "emails."
@@ -236,71 +252,71 @@ msgstr ""
 "Deze test-e-mail bewijst dat je WordPress-installatie op %s e-mails kan "
 "verzenden."
 
-#: admin/email.php:149
+#: admin/email.php:150
 msgid "Send To"
 msgstr "Verstuur naar"
 
-#: admin/email.php:157
+#: admin/email.php:158
 msgid "From Email"
 msgstr "Van e-mailadres"
 
-#: admin/email.php:162
+#: admin/email.php:163
 msgid "Leave empty to use WordPress default sender."
 msgstr "Laat leeg om de standaard afzender van WordPress te gebruiken."
 
-#: admin/email.php:167
+#: admin/email.php:168
 msgid "Subject"
 msgstr "Onderwerp"
 
-#: admin/email.php:175
+#: admin/email.php:176
 msgid "Message"
 msgstr "Bericht"
 
-#: admin/email.php:183
+#: admin/email.php:184
 msgid "Headers"
 msgstr "Headers"
 
-#: admin/email.php:201
+#: admin/email.php:202
 msgid "Send test email"
 msgstr "Verstuur test e-mail"
 
-#: admin/email.php:219
+#: admin/email.php:220
 msgid "Tools"
 msgstr "Gereedschap"
 
-#: admin/email.php:225
+#: admin/email.php:226
 msgid "Title"
 msgstr "Titel"
 
-#: admin/email.php:228
+#: admin/email.php:229
 msgid "Link"
 msgstr "Link"
 
-#: admin/email.php:236
+#: admin/email.php:237
 msgid "mail-tester.com"
 msgstr "mail-tester.com"
 
-#: admin/email.php:244
+#: admin/email.php:245
 msgid "mail-tester.com/spf-dkim-check"
 msgstr "mail-tester.com/spf-dkim-check"
 
-#: admin/email.php:252
+#: admin/email.php:253
 msgid "Dig (DNS lookup) - G Suite toolbox"
 msgstr "Dig (DNS lookup) - G Suite toolbox"
 
-#: admin/email.php:260
+#: admin/email.php:261
 msgid "SPF Record Testing Tools"
 msgstr "SPF Record Testing Tools"
 
-#: admin/email.php:268
+#: admin/email.php:269
 msgid "dmarcian's SPF Record Checker"
 msgstr "dmarcian's SPF Record Checker"
 
-#: admin/email.php:276
+#: admin/email.php:277
 msgid "DMARC Analyzer - DKIM record Checker"
 msgstr "DMARC Analyzer - DKIM record Checker"
 
-#: admin/email.php:284
+#: admin/email.php:285
 msgid "DKIMValidator — DKIM, SPF, SpamAssassin validator"
 msgstr "DKIMValidator — DKIM, SPF, SpamAssassin validator"
 
@@ -354,84 +370,80 @@ msgstr "Selecteer media"
 msgid "Select"
 msgstr "Selecteer"
 
-#: admin/virus-scanner.php:22
+#: admin/virus-scanner.php:26
 msgid "Uploads"
 msgstr "Uploads"
 
-#: admin/virus-scanner.php:50
+#: admin/virus-scanner.php:54
 msgid "File"
 msgstr "Bestand"
 
-#: admin/virus-scanner.php:51
+#: admin/virus-scanner.php:55
 msgid "Size"
 msgstr "Grootte"
 
-#: admin/virus-scanner.php:52
+#: admin/virus-scanner.php:56
 msgid "Date"
 msgstr "Datum"
 
-#: admin/virus-scanner.php:53
+#: admin/virus-scanner.php:57
 msgid "Content"
 msgstr "Inhoud"
 
-#: admin/virus-scanner.php:54 admin/virus-scanner.php:116
+#: admin/virus-scanner.php:58 admin/virus-scanner.php:126
 msgid "Actions"
 msgstr "Acties"
 
-#: admin/virus-scanner.php:85
+#: admin/virus-scanner.php:89
 msgid "F j, Y g:i a"
 msgstr "j F Y H:i"
 
-#: admin/virus-scanner.php:100 admin/virus-scanner.php:117
+#: admin/virus-scanner.php:104 admin/virus-scanner.php:127
 msgid "Delete"
 msgstr "Verwijder"
 
 #. translators: %s: sent date
-#: classes/Admin.php:120
+#: classes/Admin.php:124
 msgid "Sent: %s"
 msgstr "Verzonden: %s"
 
-#. Author of the plugin/theme
-msgid "Pronamic"
-msgstr "Pronamic"
-
-#: classes/Admin.php:220
+#: classes/Admin.php:224
 msgid "Pronamic Checklist"
 msgstr "Pronamic checklist"
 
-#: classes/Admin.php:221
+#: classes/Admin.php:225
 msgid "Checklist"
 msgstr "Checklist"
 
-#: classes/Admin.php:229
+#: classes/Admin.php:233
 msgid "Pronamic Extensions"
 msgstr "Pronamic extensies"
 
-#: classes/Admin.php:230
+#: classes/Admin.php:234
 msgid "Extensions"
 msgstr "Extensies"
 
-#: classes/Admin.php:239
+#: classes/Admin.php:243
 msgid "Pronamic Virus Scanner"
 msgstr "Pronamic virusscanner"
 
-#: classes/Admin.php:240
+#: classes/Admin.php:244
 msgid "Scanner"
 msgstr "Scanner"
 
-#: classes/Admin.php:248 classes/Admin.php:249 classes/PhpMailerModule.php:74
+#: classes/Admin.php:252 classes/Admin.php:253 classes/PhpMailerModule.php:74
 msgid "Email"
 msgstr "E-mail"
 
-#: classes/Admin.php:257 classes/Admin.php:258
+#: classes/Admin.php:261 classes/Admin.php:262
 msgid "Settings"
 msgstr "Instellingen"
 
-#: classes/Admin.php:277
+#: classes/Admin.php:281
 msgid "Browse…"
 msgstr "Bladeren…"
 
-#: classes/AkismetModule.php:57
+#: classes/AkismetModule.php:59
 msgid "Sorry, you are not allowed to view this page."
 msgstr "Sorry, je mag deze pagina niet bekijken."
 
@@ -475,13 +487,18 @@ msgstr ""
 "Stel optioneel een PHPMailer afzender e-mailadres in om bijvoorbeeld SPF-"
 "neutrale meldingen op te lossen, zoals: %s."
 
-#: classes/Plugin.php:91
+#: classes/Plugin.php:105
 msgid "Contact"
 msgstr "Contact"
 
-#: classes/Plugin.php:92
+#: classes/Plugin.php:106
 msgid "https://www.pronamic.eu/contact/"
 msgstr "https://www.pronamic.nl/contact/"
+
+#: classes/Plugin.php:123
+msgctxt "x-powered-by"
+msgid "Pronamic | pronamic.eu | info@pronamic.eu"
+msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #. translators: %s: Pronamic
 #: includes/credits.php:14
@@ -491,23 +508,6 @@ msgstr "Concept en realisatie door %s"
 #: includes/credits.php:19
 msgid "Pronamic - Internet, marketing & WordPress specialist"
 msgstr "Pronamic - Internet, marketing & WordPress specialist"
-
-#. Plugin Name of the plugin/theme
-msgid "Pronamic Client"
-msgstr "Pronamic Client"
-
-#. Plugin URI of the plugin/theme
-msgid "https://www.pronamic.eu/plugins/pronamic-client/"
-msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
-
-#. Description of the plugin/theme
-msgid "WordPress plugin for Pronamic clients."
-msgstr "WordPress plugin voor Pronamic klanten."
-
-#: classes/Plugin.php:109
-msgctxt "x-powered-by"
-msgid "Pronamic | pronamic.eu | info@pronamic.eu"
-msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
 
 #~ msgid "http://www.pronamic.eu/plugins/pronamic-client/"
 #~ msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
