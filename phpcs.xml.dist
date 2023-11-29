@@ -49,10 +49,6 @@
 		<exclude-pattern>templates/google-analytics-tracking-code.php</exclude-pattern>
 	</rule>
 
-	<rule ref="WordPress.WP.EnqueuedResources.NonEnqueuedScript">
-		<exclude-pattern>templates/google-analytics-tracking-code.php</exclude-pattern>
-	</rule>
-
 	<rule ref="WordPressVIPMinimum.Security.PHPFilterFunctions.RestrictedFilter">
 		<exclude-pattern>classes/Admin.php</exclude-pattern>
 	</rule>
