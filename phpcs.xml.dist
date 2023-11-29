@@ -34,6 +34,14 @@
 		<exclude name="WordPressVIPMinimum.Performance.FetchingRemoteData.FileGetContentsUnknown" />
 	</rule>
 
+	<rule ref="WordPress.WP.Capabilities">
+		<properties>
+			<property name="custom_capabilities" type="array">
+				<element value="pronamic_client" />
+			</property>
+		</properties>
+	</rule>
+
 	<rule ref="WordPress.PHP.DiscouragedPHPFunctions.obfuscation_base64_decode">
 		<exclude-pattern>adminer/index.php</exclude-pattern>
 	</rule>
