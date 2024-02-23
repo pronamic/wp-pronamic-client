@@ -63,6 +63,7 @@ class Plugin {
 			'query-monitor'      => QueryMonitorModule::get_instance( $this ),
 			'scripts'            => ScriptsModule::get_instance( $this ),
 			'yoast'              => YoastModule::get_instance( $this ),
+			'complianz'          => ComplianzModule::get_instance(),
 		];
 
 		// Admin
