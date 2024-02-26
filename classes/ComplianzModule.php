@@ -2,6 +2,8 @@
 
 namespace Pronamic\WordPress\PronamicClient;
 
+use WP_Error;
+
 class ComplianzModule {
 	/**
 	 * Instance of this class.
@@ -29,64 +31,29 @@ class ComplianzModule {
 			return;
 		}
 
-		\add_filter( 'http_response', [ $this, 'http_response' ], 10, 3 );
+		\add_filter( 'pre_http_request', [ $this, 'pre_http_request' ], 10, 3 );
 	}
 
 	/**
-	 * HTTP response.
+	 * Pre HTTP request.
 	 * 
-	 * @param array  $response    HTTP resposne.
-	 * @param array  $parsed_args Parsed arguments.
-	 * @param string $url         URL.
-	 * @return array
+	 * @param false|array|WP_Error $response    A preemptive return value of an HTTP request. Default false.
+	 * @param array                $parsed_args HTTP request arguments.
+	 * @param string               $url         The request URL.
+	 * @return false|array|WP_Error
 	 */
-	public function http_response( $response, $parsed_args, $url ) {
-		if ( 'https://complianz.io' !== $url ) {
+	public function pre_http_request( $response, $parsed_args, $url ) {
+		if ( ! \in_array( $url, [ 'https://complianz.io', 'https://complianz.io/' ], true ) ) {
 			return $response;
 		}
 
-		if ( ! \array_key_exists( 'body', $parsed_args ) ) {
-			return $response;
-		}
-
-		$body = $parsed_args['body'];
-
-		if ( ! \is_array( $body ) ) {
-			return $response;
-		}
-
-		if ( ! \array_key_exists( 'edd_action', $body ) ) {
-			return $response;
-		}
-
-		$edd_action = $body['edd_action'];
-
-		if ( 'activate_license' !== $edd_action ) {
-			return $response;
-		}
-
-		$data = \json_decode( \wp_remote_retrieve_body( $response ), true );
-
-		if ( ! is_array( $data ) ) {
-			return $response;
-		}
-
-		$data['success']          = true;
-		$data['license']          = 'valid';
-		$data['activations_left'] = 1;
-		$data['license_limit']    = 0;
-		$data['site_count']       = 1;
-		$data['expires']          = 'lifetime';
-
-		unset( $data['error'] );
-
-		$response['body'] = \wp_json_encode( $data );
-
-		return $response;
+		return \wp_remote_request( 'https://complianz.io.pronamic.directory/', $parsed_args );
 	}
 
 	/**
 	 * Return an instance of this class.
+	 * 
+	 * @return self
 	 */
 	public static function get_instance() {
 		if ( null === self::$instance ) {
