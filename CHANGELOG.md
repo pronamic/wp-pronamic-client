@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.1] - 2024-02-29
+
+### Commits
+
+- Bump composer/composer from 2.2.22 to 2.2.23 ([456bc4d](https://github.com/pronamic/wp-pronamic-client/commit/456bc4d798b6b8fd5d24a2930eb777d310dfecab))
+
+Full set of changes: [`2.0.0...2.0.1`][2.0.1]
+
+[2.0.1]: https://github.com/pronamic/wp-pronamic-client/compare/v2.0.0...v2.0.1
+
 ## [2.0.0] - 2023-11-29
 
 ### Commits
