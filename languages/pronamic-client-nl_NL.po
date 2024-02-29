@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pronamic Client\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/pronamic-client\n"
-"POT-Creation-Date: 2023-11-29T10:28:47+00:00\n"
-"PO-Revision-Date: 2023-11-29 11:29+0100\n"
+"POT-Creation-Date: 2024-02-29T09:31:22+00:00\n"
+"PO-Revision-Date: 2024-02-29 10:32+0100\n"
 "Last-Translator: Remco Tolsma <info@remcotolsma.nl>\n"
 "Language-Team: Pronamic <info@pronamic.nl>\n"
 "Language: nl_NL\n"
@@ -12,30 +12,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-KeywordsList: \n"
-"X-Generator: Poedit 3.4.1\n"
+"X-Generator: Poedit 3.4.2\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 #. Plugin Name of the plugin
+#: pronamic-client.php
 msgid "Pronamic Client"
 msgstr "Pronamic Client"
 
 #. Plugin URI of the plugin
-msgid "https://www.pronamic.eu/plugins/pronamic-client/"
-msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
+#: pronamic-client.php
+msgid "https://wp.pronamic.directory/plugins/pronamic-client/"
+msgstr "https://wp.pronamic.directory/plugins/pronamic-client/"
 
 #. Description of the plugin
+#: pronamic-client.php
 msgid "WordPress plugin for Pronamic clients."
 msgstr "WordPress plugin voor Pronamic klanten."
 
 #. Author of the plugin
-#: classes/Admin.php:212 classes/Admin.php:213 classes/Admin.php:308
-#: classes/Plugin.php:93 includes/credits.php:20
+#: pronamic-client.php classes/Admin.php:212 classes/Admin.php:213
+#: classes/Admin.php:308 classes/Plugin.php:94 includes/credits.php:20
 msgid "Pronamic"
 msgstr "Pronamic"
 
 #. Author URI of the plugin
-msgid "http://www.pronamic.eu/"
-msgstr "http://www.pronamic.nl/"
+#: pronamic-client.php admin/dashboard.php:43 admin/dashboard.php:69
+#: admin/dashboard/support.php:20 admin/includes/dashboard.php:29
+#: admin/includes/dashboard.php:43 classes/Plugin.php:95
+#: includes/credits.php:18
+msgid "https://www.pronamic.eu/"
+msgstr "https://www.pronamic.nl/"
 
 #: admin/checklist.php:16
 msgid "WordPress"
@@ -149,12 +156,6 @@ msgstr "Adminer"
 #: admin/dashboard.php:34
 msgid "Pronamic.nl News"
 msgstr "Pronamic.nl nieuws"
-
-#: admin/dashboard.php:43 admin/dashboard.php:69 admin/dashboard/support.php:20
-#: admin/includes/dashboard.php:29 admin/includes/dashboard.php:43
-#: classes/Plugin.php:94 includes/credits.php:18
-msgid "https://www.pronamic.eu/"
-msgstr "https://www.pronamic.nl/"
 
 #: admin/dashboard.php:45 admin/dashboard.php:71
 #: admin/includes/dashboard.php:45
@@ -487,15 +488,15 @@ msgstr ""
 "Stel optioneel een PHPMailer afzender e-mailadres in om bijvoorbeeld SPF-"
 "neutrale meldingen op te lossen, zoals: %s."
 
-#: classes/Plugin.php:105
+#: classes/Plugin.php:106
 msgid "Contact"
 msgstr "Contact"
 
-#: classes/Plugin.php:106
+#: classes/Plugin.php:107
 msgid "https://www.pronamic.eu/contact/"
 msgstr "https://www.pronamic.nl/contact/"
 
-#: classes/Plugin.php:123
+#: classes/Plugin.php:124
 msgctxt "x-powered-by"
 msgid "Pronamic | pronamic.eu | info@pronamic.eu"
 msgstr "Pronamic | pronamic.nl | info@pronamic.nl"
@@ -508,6 +509,12 @@ msgstr "Concept en realisatie door %s"
 #: includes/credits.php:19
 msgid "Pronamic - Internet, marketing & WordPress specialist"
 msgstr "Pronamic - Internet, marketing & WordPress specialist"
+
+#~ msgid "https://www.pronamic.eu/plugins/pronamic-client/"
+#~ msgstr "https://www.pronamic.eu/plugins/pronamic-client/"
+
+#~ msgid "http://www.pronamic.eu/"
+#~ msgstr "http://www.pronamic.nl/"
 
 #~ msgid "http://www.pronamic.eu/plugins/pronamic-client/"
 #~ msgstr "http://www.pronamic.eu/plugins/pronamic-client/"
