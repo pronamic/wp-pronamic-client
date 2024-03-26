@@ -34,5 +34,8 @@
 	"devDependencies": {
 		"@wordpress/env": "^9.4.0",
 		"@wp-now/wp-now": "^0.1.65"
+	},
+	"scripts": {
+		"wp-now": "wp-now start"
 	}
 }
