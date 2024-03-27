@@ -237,16 +237,6 @@ class Admin {
 			[ $this, 'page_extensions' ] // function
 		);
 
-		// @see wp-admin/menu.php
-		add_submenu_page(
-			'pronamic_client', // parent slug
-			__( 'Pronamic Virus Scanner', 'pronamic-client' ), // page title
-			__( 'Scanner', 'pronamic-client' ), // menu title
-			'pronamic_client', // capability
-			'pronamic_client_virus_scanner', // menu slug
-			[ $this, 'page_virus_scanner' ] // function
-		);
-
 		add_submenu_page(
 			'pronamic_client', // parent slug
 			__( 'Email', 'pronamic-client' ), // page title
@@ -369,13 +359,6 @@ class Admin {
 	 */
 	public function page_dashboard() {
 		$this->plugin->display( 'admin/dashboard.php' );
-	}
-
-	/**
-	 * Page virus scanner
-	 */
-	public function page_virus_scanner() {
-		$this->plugin->display( 'admin/virus-scanner.php' );
 	}
 
 	/**
