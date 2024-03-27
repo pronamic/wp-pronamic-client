@@ -18,7 +18,11 @@ function adminer_object() {
 		 * @link https://github.com/vrana/adminer/blob/7247f801bd06e51347d7ea671484e0fa6a883cbb/adminer/include/adminer.inc.php#L142-L152
 		 */
 		public function login( $login, $password ) {
-			return true;
+			if ( defined( 'DRIVER' ) && 'sqlite' === DRIVER ) {
+				return true;
+			}
+
+			return parent::login( $login, $password );
 		}
 	}
 
