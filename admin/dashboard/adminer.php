@@ -4,6 +4,26 @@ $pronamic_client = \Pronamic\WordPress\PronamicClient\Plugin::get_instance();
 
 $adminer_url = plugins_url( 'adminer/', $pronamic_client->file );
 
+$driver = 'server';
+
+$inputs = [
+	'driver'   => 'server',
+	'server'   => DB_HOST,
+	'username' => DB_USER,
+	'password' => DB_PASSWORD,
+	'db'       => DB_NAME,
+];
+
+if ( defined( 'DB_ENGINE' ) && 'sqlite' === DB_ENGINE ) {
+	$inputs['driver'] = 'sqlite';
+}
+
+if ( defined( 'FQDB' ) ) {
+	$inputs['db'] = FQDB;
+
+	unset( $inputs['password'] );
+}
+
 ?>
 <form target="_blank" method="post" action="<?php echo esc_url( $adminer_url ); ?>">
 	<p>
@@ -19,13 +39,16 @@ $adminer_url = plugins_url( 'adminer/', $pronamic_client->file );
 		 * @link https://github.com/vrana/adminer/blob/v4.7.7/adminer/include/auth.inc.php#L51-L75
 		 */
 
-		?>
-		<input type="hidden" name="auth[driver]" value="server">
-		<input type="hidden" name="auth[server]" value="<?php echo esc_attr( DB_HOST ); ?>">
-		<input type="hidden" name="auth[username]" value="<?php echo esc_attr( DB_USER ); ?>">
-		<input type="hidden" name="auth[password]" value="<?php echo esc_attr( DB_PASSWORD ); ?>">
-		<input type="hidden" name="auth[db]" value="<?php echo esc_attr( DB_NAME ); ?>">
+		foreach ( $inputs as $key => $value ) {
+			printf(
+				'<input type="hidden" name="%s" value="%s">',
+				esc_attr( 'auth[' . $key . ']' ),
+				esc_attr( $value )
+			);
+		}
 
-		<?php submit_button( __( 'Login', 'pronamic-client' ), 'primary', 'submit', false ); ?>
+		submit_button( __( 'Login', 'pronamic-client' ), 'primary', 'submit', false );
+
+		?>
 	</p>
 </form>
