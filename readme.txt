@@ -1,8 +1,8 @@
 === Pronamic Client ===
 Contributors: pronamic, remcotolsma
-Tags: pronamic, client, update, plugin, theme, extension, plugins, themes, extensions
+Tags: pronamic
 Requires at least: 3.0
-Tested up to: 6.4
+Tested up to: 6.5
 Stable tag: 2.0.1
 
 WordPress plugin for Pronamic clients.
