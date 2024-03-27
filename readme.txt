@@ -9,7 +9,7 @@ WordPress plugin for Pronamic clients.
 
 == Description ==
 
-The Pronamic Client plugin is a handy plugin for all WordPress users who use plugins or themes developed by Pronamic. It contains an checklist, virus scanner and an Pronamic extensions overview list.
+The Pronamic Client plugin is a handy plugin for all WordPress users who use plugins or themes developed by Pronamic.
 
 
 == Installation ==
@@ -20,7 +20,6 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 == Screenshots ==
 
 1.	Checklist
-2.	Virus Scanner
 
 
 == Changelog ==
