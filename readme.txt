@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic
 Requires at least: 3.0
 Tested up to: 6.5
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 
 WordPress plugin for Pronamic clients.
 

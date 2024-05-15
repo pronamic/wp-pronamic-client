@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.2] - 2024-05-15
+
+### Commits
+
+- Tested up to: 6.5. ([98df5b7](https://github.com/pronamic/wp-pronamic-client/commit/98df5b737910be38a0512c054747202001bc847c))
+- Removed virus scanner, no longer used. ([3c44fe2](https://github.com/pronamic/wp-pronamic-client/commit/3c44fe2cdb273fd0cdde65b422e6e3ad7710f913))
+- Added support for SQLite. ([b0f3968](https://github.com/pronamic/wp-pronamic-client/commit/b0f396867c4b761008e743bc207cd6a358d4e52e))
+- Updated Adminder to full version with SQLite support. ([eddf9b8](https://github.com/pronamic/wp-pronamic-client/commit/eddf9b8ba43fade5c6dafb4b569aa89ea5544d4d))
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v2.12.0` to `v3.0.7`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.0.7
+- Changed `pronamic/pronamic-mollie-user-agent` from `v1.0.0` to `v1.0.1`.
+	Release notes: https://github.com/pronamic/pronamic-mollie-user-agent/releases/tag/v1.0.1
+- Changed `pronamic/pronamic-wp-updater` from `v1.0.0` to `v1.0.2`.
+	Release notes: https://github.com/pronamic/pronamic-wp-updater/releases/tag/v1.0.2
+
+Full set of changes: [`2.0.1...2.0.2`][2.0.2]
+
+[2.0.2]: https://github.com/pronamic/wp-pronamic-client/compare/v2.0.1...v2.0.2
+
 ## [2.0.1] - 2024-02-29
 
 ### Commits
