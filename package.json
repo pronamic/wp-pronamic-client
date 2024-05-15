@@ -32,8 +32,8 @@
 	},
 	"homepage": "https://github.com/pronamic/wp-pronamic-client",
 	"devDependencies": {
-		"@wordpress/env": "^9.4.0",
-		"@wp-now/wp-now": "^0.1.65"
+		"@wordpress/env": "^9.9.0",
+		"@wp-now/wp-now": "^0.1.70"
 	},
 	"scripts": {
 		"wp-now": "wp-now start"
