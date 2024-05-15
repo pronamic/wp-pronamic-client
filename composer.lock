@@ -4,27 +4,29 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c354470bcf8e1d2753f411cf76d9663d",
+    "content-hash": "0a7776893dd7f350d1d437e872951985",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
-            "version": "v2.12.0",
+            "version": "v3.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Automattic/jetpack-autoloader.git",
-                "reference": "632b69cfc73ed5505f2b03165e7f68d414d0da12"
+                "reference": "2a3ab8c22cefdb7a48f1c704696c821d1e9a5ebb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/632b69cfc73ed5505f2b03165e7f68d414d0da12",
-                "reference": "632b69cfc73ed5505f2b03165e7f68d414d0da12",
+                "url": "https://api.github.com/repos/Automattic/jetpack-autoloader/zipball/2a3ab8c22cefdb7a48f1c704696c821d1e9a5ebb",
+                "reference": "2a3ab8c22cefdb7a48f1c704696c821d1e9a5ebb",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.1 || ^2.0"
+                "composer-plugin-api": "^1.1 || ^2.0",
+                "php": ">=7.0"
             },
             "require-dev": {
-                "automattic/jetpack-changelogger": "^3.3.11",
+                "automattic/jetpack-changelogger": "^4.2.3",
+                "composer/composer": "^1.1 || ^2.0",
                 "yoast/phpunit-polyfills": "1.1.0"
             },
             "type": "composer-plugin",
@@ -39,7 +41,7 @@
                     "::VERSION": "src/AutoloadGenerator.php"
                 },
                 "branch-alias": {
-                    "dev-trunk": "2.12.x-dev"
+                    "dev-trunk": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -64,32 +66,32 @@
                 "wordpress"
             ],
             "support": {
-                "source": "https://github.com/Automattic/jetpack-autoloader/tree/v2.12.0"
+                "source": "https://github.com/Automattic/jetpack-autoloader/tree/v3.0.7"
             },
-            "time": "2023-09-28T18:33:34+00:00"
+            "time": "2024-05-06T17:33:09+00:00"
         },
         {
             "name": "pronamic/pronamic-mollie-user-agent",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/pronamic-mollie-user-agent.git",
-                "reference": "01dd1fa76a21c9a1ffa657a9393b26ececf412ec"
+                "reference": "8c1387b72a06748993c25c4b4eb8d0ad671bc723"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/pronamic-mollie-user-agent/zipball/01dd1fa76a21c9a1ffa657a9393b26ececf412ec",
-                "reference": "01dd1fa76a21c9a1ffa657a9393b26ececf412ec",
+                "url": "https://api.github.com/repos/pronamic/pronamic-mollie-user-agent/zipball/8c1387b72a06748993c25c4b4eb8d0ad671bc723",
+                "reference": "8c1387b72a06748993c25c4b4eb8d0ad671bc723",
                 "shasum": ""
             },
             "require": {
-                "automattic/jetpack-autoloader": "^2.11",
+                "automattic/jetpack-autoloader": "^3.0",
                 "php": ">=8.0",
                 "pronamic/pronamic-wp-updater": "^1.0"
             },
             "require-dev": {
                 "pronamic/pronamic-cli": "^1.1",
-                "pronamic/wp-coding-standards": "^2.0"
+                "pronamic/wp-coding-standards": "^2.2"
             },
             "type": "wordpress-plugin",
             "autoload": {
@@ -119,30 +121,30 @@
             "support": {
                 "email": "support@pronamic.eu",
                 "issues": "https://github.com/pronamic/pronamic-mollie-user-agent/issues",
-                "source": "https://github.com/pronamic/pronamic-mollie-user-agent/tree/v1.0.0"
+                "source": "https://github.com/pronamic/pronamic-mollie-user-agent/tree/v1.0.1"
             },
-            "time": "2023-11-01T10:48:45+00:00"
+            "time": "2024-05-15T12:25:38+00:00"
         },
         {
             "name": "pronamic/pronamic-wp-updater",
-            "version": "v1.0.0",
+            "version": "v1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pronamic/pronamic-wp-updater.git",
-                "reference": "f89550e788c8f38e99cd528463ded0b8e03643bb"
+                "reference": "5dfbd527d7ffaac427ce9ed691cd0795609d4bf1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pronamic/pronamic-wp-updater/zipball/f89550e788c8f38e99cd528463ded0b8e03643bb",
-                "reference": "f89550e788c8f38e99cd528463ded0b8e03643bb",
+                "url": "https://api.github.com/repos/pronamic/pronamic-wp-updater/zipball/5dfbd527d7ffaac427ce9ed691cd0795609d4bf1",
+                "reference": "5dfbd527d7ffaac427ce9ed691cd0795609d4bf1",
                 "shasum": ""
             },
             "require": {
-                "automattic/jetpack-autoloader": "^2.12"
+                "automattic/jetpack-autoloader": "^3.0"
             },
             "require-dev": {
                 "pronamic/pronamic-cli": "^1.1",
-                "pronamic/wp-coding-standards": "^2.0"
+                "pronamic/wp-coding-standards": "^2.2"
             },
             "type": "wordpress-plugin",
             "autoload": {
@@ -160,9 +162,9 @@
             "description": "This WordPress plugin extends the WordPress update system with updates from Pronamic.",
             "support": {
                 "issues": "https://github.com/pronamic/pronamic-wp-updater/issues",
-                "source": "https://github.com/pronamic/pronamic-wp-updater/tree/v1.0.0"
+                "source": "https://github.com/pronamic/pronamic-wp-updater/tree/v1.0.2"
             },
-            "time": "2023-10-30T14:15:16+00:00"
+            "time": "2024-05-15T10:40:44+00:00"
         }
     ],
     "packages-dev": [
