@@ -27,6 +27,13 @@ class GoogleAnalyticsModule {
 	private $tracking_id;
 
 	/**
+	 * Admin notices.
+	 *
+	 * @var array
+	 */
+	public $admin_notices;
+
+	/**
 	 * Construct Google Analytics module.
 	 *
 	 * @param Plugin $plugin
