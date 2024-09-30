@@ -11,6 +11,8 @@ WordPress plugin for Pronamic clients.
 
 == Description ==
 
+[Pronamic](https://www.pronamic.eu/) · [GitHub](https://github.com/pronamic/wp-pronamic-client)
+
 The Pronamic Client plugin is a handy plugin for all WordPress users who use plugins or themes developed by Pronamic.
 
 
