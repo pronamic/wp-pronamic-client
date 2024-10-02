@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic
 Requires at least: 3.0
 Tested up to: 6.6
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,23 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [2.0.3] - 2024-10-02
+
+#### Commits
+
+- Switch to `override_load_textdomain` filter instead of `plugin_locale` filter. ([60c621b](https://github.com/pronamic/wp-pronamic-client/commit/60c621b5590951ac9eaf9f55d07bc5ef7cfcf87f))
+- Added `$admin_notices` property. ([2d152ba](https://github.com/pronamic/wp-pronamic-client/commit/2d152ba426b5918c7514dcc8d1cad3b7d32d0c22))
+- Tested up to: 6.6 ([013ba16](https://github.com/pronamic/wp-pronamic-client/commit/013ba16186b560dd325ffaa25e14b1cd4f37d811))
+
+#### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v3.0.7` to `v3.1.0`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.1.0
+
+Full set of changes: [`2.0.2...2.0.3`][2.0.3]
+
+[2.0.3]: https://github.com/pronamic/wp-pronamic-client/compare/v2.0.2...v2.0.3
 
 ### [2.0.2] - 2024-05-15
 
