@@ -1,0 +1,16 @@
+.distignore
+
+.editorconfig
+
+.git/
+
+.github/
+
+.gitattributes
+.gitignore
+
+.phplint.yml
+
+.wp-env.json
+
+phpcs.xml.dist

@@ -44,7 +44,13 @@
 	"scripts": {
 		"build": [
 			"Pronamic\\ChangelogMdToWordPressPluginReadmeTxt\\Synchronizer::run",
-			"vendor/bin/pronamic wp-build",
+			"rm -rf ./build",
+			"mkdir ./build",
+			"mkdir ./build/stage-1",
+			"rsync --recursive --verbose --exclude-from=.distignore --exclude-from=.gitignore ./ ./build/stage-1/",
+			"composer install --no-dev --prefer-dist --optimize-autoloader --working-dir=./build/stage-1/",
+			"vendor/bin/wp i18n make-pot ./build/stage-1/ --slug=pronamic-client",
+			"vendor/bin/wp dist-archive ./build/stage-1/ --plugin-dirname=pronamic-client"
 		],
 		"translate": [
 			"@build",
