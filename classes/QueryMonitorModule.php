@@ -43,7 +43,7 @@ class QueryMonitorModule {
 			return;
 		}
 
-		\add_filter( 'plugin_locale', [ $this, 'plugin_locale' ], 10, 2 );
+		\add_filter( 'override_load_textdomain', [ $this, 'override_load_textdomain' ], 10, 2 );
 	}
 
 	/**
@@ -51,16 +51,17 @@ class QueryMonitorModule {
 	 *
 	 * @link https://github.com/johnbillion/query-monitor/blob/60da795c040e0f08850891c74a36b2f566cee14d/classes/QueryMonitor.php#L162-L167
 	 * @link https://github.com/WordPress/wordpress-develop/blob/2bb5679d666474d024352fa53f07344affef7e69/src/wp-includes/l10n.php#L69-L71
-	 * @param string $locale The plugin's current locale.
-	 * @param string $domain Text domain. Unique identifier for retrieving translated strings.
-	 * @return string
+	 * @link https://github.com/WordPress/wordpress-develop/blob/2bb5679d666474d024352fa53f07344affef7e69/src/wp-includes/l10n.php#L711-L726
+	 * @link https://github.com/pronamic/wp-pronamic-client/issues/24
+	 * @param bool   $override Whether to override the .mo file loading. Default false.
+	 * @param string $domain   Text domain. Unique identifier for retrieving translated strings.
 	 */
-	public function plugin_locale( $locale, $domain ) {
-		if ( 'query-monitor' !== $domain ) {
-			return $locale;
+	public function override_load_textdomain( $override, $domain ) {
+		if ( 'query-monitor' === $domain ) {
+			$override = true;
 		}
 
-		return 'en_US';
+		return $override;
 	}
 
 
