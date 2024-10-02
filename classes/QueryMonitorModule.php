@@ -6,7 +6,7 @@ class QueryMonitorModule {
 	/**
 	 * Instance of this class.
 	 *
-	 * @var YoastModule
+	 * @var QueryMonitorModule
 	 */
 	protected static $instance = null;
 
@@ -18,7 +18,7 @@ class QueryMonitorModule {
 	private $plugin;
 
 	/**
-	 * Constructs and initialize Yoast module.
+	 * Construct Query Monitor module.
 	 *
 	 * @param Plugin $plugin
 	 */
@@ -47,7 +47,7 @@ class QueryMonitorModule {
 	}
 
 	/**
-	 * For English for Query Monitor plugin.
+	 * Only English for Query Monitor plugin.
 	 *
 	 * @link https://github.com/johnbillion/query-monitor/blob/60da795c040e0f08850891c74a36b2f566cee14d/classes/QueryMonitor.php#L162-L167
 	 * @link https://github.com/WordPress/wordpress-develop/blob/2bb5679d666474d024352fa53f07344affef7e69/src/wp-includes/l10n.php#L69-L71
@@ -63,7 +63,6 @@ class QueryMonitorModule {
 
 		return $override;
 	}
-
 
 	/**
 	 * Return an instance of this class.
