@@ -35,13 +35,17 @@
 		"overtrue/phplint": "^9.0",
 		"phpcompatibility/php-compatibility": "^9.3",
 		"phpcompatibility/phpcompatibility-wp": "^2.1",
+		"pronamic/changelog-md-to-wordpress-plugin-readme-txt": "^1.0",
 		"pronamic/pronamic-cli": "^1.1",
 		"pronamic/wp-coding-standards": "^2.0",
 		"roots/wordpress": "^6.3",
 		"vrana/adminer": "^4.8"
 	},
 	"scripts": {
-		"build": "vendor/bin/pronamic wp-build",
+		"build": [
+			"Pronamic\\ChangelogMdToWordPressPluginReadmeTxt\\Synchronizer::run",
+			"vendor/bin/pronamic wp-build",
+		],
 		"translate": [
 			"@build",
 			"rsync --recursive --delete --verbose ./build/project/languages/ ./languages/"
