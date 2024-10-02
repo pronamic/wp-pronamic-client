@@ -59,9 +59,8 @@
 		"phpcbf": "XDEBUG_MODE=off vendor/bin/phpcbf",
 		"phpcs": "XDEBUG_MODE=off vendor/bin/phpcs -s -v --ignore=packages,build",
 		"phplint": "vendor/bin/phplint",
-		"release": [
-			"@build",
-			"vendor/bin/pronamic release-to-github"
+		"version": [
+			"Pronamic\\ChangelogMdToWordPressPluginReadmeTxt\\Synchronizer::run"
 		]
 	}
 }
