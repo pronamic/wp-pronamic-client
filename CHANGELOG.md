@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Start changelog -->
 
+## [2.1.0] - 2025-02-28
+
+### Commits
+
+- 4.17.1 ([ac32fc9](https://github.com/pronamic/wp-pronamic-client/commit/ac32fc92d4e2a3827a09f2ee60992c87b1cd9435))
+
+### Composer
+
+- Changed `automattic/jetpack-autoloader` from `v3.1.0` to `v3.1.3`.
+	Release notes: https://github.com/Automattic/jetpack-autoloader/releases/tag/v3.1.3
+
+Full set of changes: [`2.0.3...2.1.0`][2.1.0]
+
+[2.1.0]: https://github.com/pronamic/wp-pronamic-client/compare/v2.0.3...v2.1.0
+
 ## [2.0.3] - 2024-10-02
 
 ### Commits
