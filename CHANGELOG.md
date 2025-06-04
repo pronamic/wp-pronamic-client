@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Start changelog -->
 
+## [2.2.0] - 2025-06-04
+
+
+
+Full set of changes: [`2.1.0...2.2.0`][2.2.0]
+
+[2.2.0]: https://github.com/pronamic/wp-pronamic-client/compare/v2.1.0...v2.2.0
+
 ## [2.1.0] - 2025-02-28
 
 ### Commits
