@@ -39,7 +39,9 @@
 		"pronamic/pronamic-cli": "^1.1",
 		"pronamic/wp-coding-standards": "^2.0",
 		"roots/wordpress": "^6.3",
-		"vrana/adminer": "^5.3"
+		"vrana/adminer": "^5.3",
+		"wp-cli/dist-archive-command": "*",
+		"wp-cli/wp-cli-bundle": "*"
 	},
 	"scripts": {
 		"build": [
