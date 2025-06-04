@@ -6,7 +6,7 @@
  * @return Adminer
  */
 function adminer_object() {
-	class PronamicAdminer extends Adminer {
+	class PronamicAdminer extends \Adminer\Adminer {
 		public function name() {
 			return 'Pronamic Adminer';
 		}
