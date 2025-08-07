@@ -1,5 +1,7 @@
 .distignore
 
+.DS_Store
+
 .editorconfig
 
 .git/
