@@ -1,5 +1,24 @@
 <?php
 
+$adminer_url  = 'https://www.adminer.org/latest.php';
+$temp_dir     = sys_get_temp_dir();
+$today        = gmdate( 'Y-m-d' );
+$filename     = 'adminer-' . md5( $today ) . '.php';
+$adminer_path = $temp_dir . DIRECTORY_SEPARATOR . $filename;
+
+if ( ! file_exists( $adminer_path ) ) {
+	$code = file_get_contents( $adminer_url );
+
+	if ( false === $code ) {
+		http_response_code( 500 );
+
+		exit( 'Adminer download failed.' );
+	}
+
+	// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
+	file_put_contents( $adminer_path, $code );
+}
+
 /**
  * Adminer object
  *
@@ -30,6 +49,6 @@ function adminer_object() {
 }
 
 /**
- * Include Adminer
+ * Require Adminer.
  */
-require 'adminer.php';
+require $adminer_path;
