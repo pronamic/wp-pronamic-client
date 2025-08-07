@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic
 Requires at least: 3.0
 Tested up to: 6.7
-Stable tag: 2.2.0
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,21 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [2.3.0] - 2025-08-07
+
+#### Changed
+
+- Remove Adminer, download temporary per day.
+
+#### Composer
+
+- Changed `pronamic/pronamic-wp-updater` from `v1.0.2` to `v1.0.3`.
+	Release notes: https://github.com/pronamic/pronamic-wp-updater/releases/tag/v1.0.3
+
+Full set of changes: [`2.2.0...2.3.0`][2.3.0]
+
+[2.3.0]: https://github.com/pronamic/wp-pronamic-client/compare/v2.2.0...v2.3.0
 
 ### [2.2.0] - 2025-06-04
 

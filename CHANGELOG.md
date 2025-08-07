@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Start changelog -->
 
+## [2.3.0] - 2025-08-07
+
+### Changed
+
+- Remove Adminer, download temporary per day.
+
+### Composer
+
+- Changed `pronamic/pronamic-wp-updater` from `v1.0.2` to `v1.0.3`.
+	Release notes: https://github.com/pronamic/pronamic-wp-updater/releases/tag/v1.0.3
+
+Full set of changes: [`2.2.0...2.3.0`][2.3.0]
+
+[2.3.0]: https://github.com/pronamic/wp-pronamic-client/compare/v2.2.0...v2.3.0
+
 ## [2.2.0] - 2025-06-04
 
 
