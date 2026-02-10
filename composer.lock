@@ -4509,16 +4509,16 @@
         },
         {
             "name": "vrana/adminer",
-            "version": "v5.3.0",
+            "version": "v5.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vrana/adminer.git",
-                "reference": "1cfc8451ef27d9fc96a34d3bea9f49fcf126dc3e"
+                "reference": "39b339b1b551d2cc100893047fac2498a83d8407"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vrana/adminer/zipball/1cfc8451ef27d9fc96a34d3bea9f49fcf126dc3e",
-                "reference": "1cfc8451ef27d9fc96a34d3bea9f49fcf126dc3e",
+                "url": "https://api.github.com/repos/vrana/adminer/zipball/39b339b1b551d2cc100893047fac2498a83d8407",
+                "reference": "39b339b1b551d2cc100893047fac2498a83d8407",
                 "shasum": ""
             },
             "require": {
@@ -4569,7 +4569,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2025-05-04T16:30:08+00:00"
+            "time": "2026-02-08T15:44:05+00:00"
         },
         {
             "name": "wp-cli/cache-command",
