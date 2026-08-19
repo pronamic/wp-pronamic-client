@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dde9a3ea0d819487b54f661971f77833",
+    "content-hash": "548af18109c223925ceee2ef42874862",
     "packages": [
         {
             "name": "automattic/jetpack-autoloader",
@@ -4501,20 +4501,29 @@
         },
         {
             "name": "vrana/adminer",
-            "version": "v5.4.2",
+            "version": "v6.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/vrana/adminer.git",
-                "reference": "39b339b1b551d2cc100893047fac2498a83d8407"
+                "reference": "f4a3d5f2fd1b8cefdd50c6f03c4841f334595356"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/vrana/adminer/zipball/39b339b1b551d2cc100893047fac2498a83d8407",
-                "reference": "39b339b1b551d2cc100893047fac2498a83d8407",
+                "url": "https://api.github.com/repos/vrana/adminer/zipball/f4a3d5f2fd1b8cefdd50c6f03c4841f334595356",
+                "reference": "f4a3d5f2fd1b8cefdd50c6f03c4841f334595356",
                 "shasum": ""
             },
             "require": {
+                "ext-json": "*",
+                "ext-session": "*",
                 "php": ">=7.4"
+            },
+            "require-dev": {
+                "phpcompatibility/php-compatibility": "dev-develop#299a472",
+                "phpstan/phpstan": "2.2.8",
+                "phpstan/phpstan-strict-rules": "2.0.12",
+                "slevomat/coding-standard": "8.31.1",
+                "squizlabs/php_codesniffer": "4.0.4"
             },
             "type": "library",
             "autoload": {
@@ -4561,7 +4570,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2026-02-08T15:44:05+00:00"
+            "time": "2026-08-14T14:58:38+00:00"
         },
         {
             "name": "wp-cli/cache-command",
