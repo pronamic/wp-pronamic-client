@@ -1,7 +1,5 @@
 <?php
 
-$pronamic_client = \Pronamic\WordPress\PronamicClient\Plugin::get_instance();
-
 $auth_url = wp_nonce_url(
 	add_query_arg(
 		[
