@@ -9,5 +9,6 @@
 	"mappings": {
 		"wp-content/plugins/pronamic-client-dev": "./",
 		"wp-content/plugins/pronamic-client": "./build/project/"
-	}
+	},
+	"testsEnvironment": false
 }
