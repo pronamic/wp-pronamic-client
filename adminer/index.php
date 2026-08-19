@@ -1,22 +1,15 @@
 <?php
 
-$adminer_url  = 'https://www.adminer.org/latest.php';
-$temp_dir     = sys_get_temp_dir();
-$today        = gmdate( 'Y-m-d' );
-$filename     = 'adminer-' . md5( $today ) . '.php';
-$adminer_path = $temp_dir . DIRECTORY_SEPARATOR . $filename;
+if ( \PHP_SESSION_NONE === \session_status() ) {
+	\session_start();
+}
 
-if ( ! file_exists( $adminer_path ) ) {
-	$code = file_get_contents( $adminer_url );
+$adminer_path = $_SESSION['pronamic_client_adminer_path'] ?? null;
 
-	if ( false === $code ) {
-		http_response_code( 500 );
+if ( ! \is_string( $adminer_path ) || '' === $adminer_path || ! \is_readable( $adminer_path ) ) {
+	http_response_code( 403 );
 
-		exit( 'Adminer download failed.' );
-	}
-
-	// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
-	file_put_contents( $adminer_path, $code );
+	exit( 'Adminer access denied.' );
 }
 
 /**
@@ -26,7 +19,7 @@ if ( ! file_exists( $adminer_path ) ) {
  */
 function adminer_object() {
 	class PronamicAdminer extends \Adminer\Adminer {
-		public function name() {
+		public function name(): string {
 			return 'Pronamic Adminer';
 		}
 
