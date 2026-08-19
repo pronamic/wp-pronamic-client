@@ -80,12 +80,9 @@ class Admin {
 		}
 
 		$adminer_url  = 'https://www.adminer.org/latest.php';
-		$temp_dir     = \sys_get_temp_dir();
-		$today        = \gmdate( 'Y-m-d' );
-		$filename     = 'adminer-' . \md5( $today ) . '.php';
-		$adminer_path = $temp_dir . \DIRECTORY_SEPARATOR . $filename;
+		$adminer_path = $_SESSION['pronamic_client_adminer_path'] ?? '';
 
-		if ( ! \file_exists( $adminer_path ) ) {
+		if ( '' === $adminer_path || ! \file_exists( $adminer_path ) ) {
 			$code = \file_get_contents( $adminer_url );
 
 			if ( false === $code ) {
@@ -95,6 +92,9 @@ class Admin {
 					500
 				);
 			}
+
+			// Use an unpredictable filename so it can't be pre-created/swapped by another local process.
+			$adminer_path = \wp_tempnam( 'adminer' );
 
 			// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
 			\file_put_contents( $adminer_path, $code );
