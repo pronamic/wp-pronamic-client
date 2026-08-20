@@ -20,6 +20,10 @@ if ( ! is_readable( $adminer_path ) ) {
  * @return array<string, string>|null
  */
 function pronamic_client_adminer_get_credentials( $token ) {
+	if ( 1 !== preg_match( '/\A[a-f0-9]{32}\z/', $token ) ) {
+		return null;
+	}
+
 	$creds_file = sys_get_temp_dir() . DIRECTORY_SEPARATOR . '.' . $token;
 
 	if ( ! is_file( $creds_file ) || filemtime( $creds_file ) < time() - 10 ) {
