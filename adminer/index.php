@@ -59,7 +59,7 @@ function pronamic_client_adminer_get_credentials( $token ) {
  * @return Adminer
  */
 function adminer_object() {
-	$token = (string) $_GET['pronamic_client_adminer_token'] ?? '';
+	$token = isset( $_GET['pronamic_client_adminer_token'] ) && is_string( $_GET['pronamic_client_adminer_token'] ) ? $_GET['pronamic_client_adminer_token'] : '';
 
 	$credentials = pronamic_client_adminer_get_credentials( $token );
 
