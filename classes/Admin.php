@@ -33,8 +33,6 @@ class Admin {
 		// Actions
 		add_action( 'admin_init', [ $this, 'admin_init' ] );
 
-		add_action( 'admin_post_pronamic_client_adminer_login', [ $this, 'adminer_login' ] );
-
 		add_action( 'admin_menu', [ $this, 'admin_menu' ] );
 
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_enqueue_scripts' ] );
@@ -59,80 +57,6 @@ class Admin {
 		if ( filter_has_var( INPUT_POST, 'pronamic_client_send_test_email' ) ) {
 			$this->maybe_send_test_email();
 		}
-	}
-
-	/**
-	 * Login to Adminer.
-	 */
-	public function adminer_login() {
-		if ( ! \current_user_can( 'pronamic_client' ) ) {
-			\wp_die(
-				esc_html__( 'You are not allowed to access Adminer.', 'pronamic-client' ),
-				esc_html__( 'Forbidden', 'pronamic-client' ),
-				403
-			);
-		}
-
-		\check_admin_referer( 'pronamic_client_adminer_login' );
-
-		if ( \PHP_SESSION_NONE === \session_status() ) {
-			\session_start();
-		}
-
-		$adminer_url  = 'https://www.adminer.org/latest.php';
-		$adminer_path = $_SESSION['pronamic_client_adminer_path'] ?? '';
-
-		if ( '' === $adminer_path || ! \file_exists( $adminer_path ) ) {
-			$code = \file_get_contents( $adminer_url );
-
-			if ( false === $code ) {
-				\wp_die(
-					esc_html__( 'Adminer download failed.', 'pronamic-client' ),
-					esc_html__( 'Error', 'pronamic-client' ),
-					500
-				);
-			}
-
-			// Use an unpredictable filename so it can't be pre-created/swapped by another local process.
-			$adminer_path = \wp_tempnam( 'adminer' );
-
-			// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
-			\file_put_contents( $adminer_path, $code );
-		}
-
-		$_SESSION['pronamic_client_adminer_path'] = $adminer_path;
-
-		$driver   = 'server';
-		$server   = DB_HOST;
-		$username = DB_USER;
-		$password = DB_PASSWORD;
-		$db       = DB_NAME;
-
-		if ( \defined( 'DB_ENGINE' ) && 'sqlite' === \DB_ENGINE ) {
-			$driver = 'sqlite';
-		}
-
-		if ( \defined( 'FQDB' ) ) {
-			$db = \FQDB;
-		}
-
-		$_SESSION['pwds'][ $driver ][ $server ][ $username ]      = $password;
-		$_SESSION['db'][ $driver ][ $server ][ $username ][ $db ] = true;
-
-		$adminer_url = \plugins_url( 'adminer/', $this->plugin->file );
-
-		$adminer_url = \add_query_arg(
-			[
-				$driver    => $server,
-				'username' => $username,
-				'db'       => $db,
-			],
-			$adminer_url
-		);
-
-		\wp_safe_redirect( $adminer_url );
-
-		exit;
 	}
 
 	/**
