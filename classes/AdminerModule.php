@@ -67,6 +67,7 @@ class AdminerModule {
 				'href'   => $this->get_login_url(),
 				'meta'   => [
 					'target' => '_blank',
+					'rel'    => 'noopener noreferrer',
 				],
 			]
 		);
