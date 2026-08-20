@@ -25,13 +25,68 @@ class AdminerModule {
 	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		\add_action( 'admin_post_pronamic_client_adminer_login', [ $this, 'adminer_login' ] );
+		\add_action( 'admin_menu', $this->admin_menu( ... ), 110 );
+		\add_action( 'admin_bar_menu', $this->admin_bar_menu( ... ), 110 );
+		\add_action( 'admin_post_pronamic_client_adminer_login', $this->adminer_login( ... ) );
+	}
+
+	/**
+	 * Get the Adminer login URL.
+	 *
+	 * @return string
+	 */
+	private function get_login_url() {
+		return \wp_nonce_url(
+			\add_query_arg(
+				[
+					'action' => 'pronamic_client_adminer_login',
+				],
+				\admin_url( 'admin-post.php' )
+			),
+			'pronamic_client_adminer_login'
+		);
+	}
+
+	/**
+	 * Add Adminer to the Pronamic submenu.
+	 */
+	private function admin_menu() {
+		\add_submenu_page(
+			'pronamic_client',
+			\__( 'Adminer', 'pronamic-client' ),
+			\__( 'Adminer', 'pronamic-client' ),
+			'pronamic_client',
+			$this->get_login_url()
+		);
+	}
+
+	/**
+	 * Add Adminer to the Pronamic admin bar menu.
+	 */
+	private function admin_bar_menu() {
+		if ( ! \current_user_can( 'pronamic_client' ) ) {
+			return;
+		}
+
+		global $wp_admin_bar;
+
+		$wp_admin_bar->add_menu(
+			[
+				'parent' => 'pronamic',
+				'id'     => 'pronamic_adminer',
+				'title'  => \__( 'Adminer', 'pronamic-client' ),
+				'href'   => $this->get_login_url(),
+				'meta'   => [
+					'target' => '_blank',
+				],
+			]
+		);
 	}
 
 	/**
 	 * Login to Adminer.
 	 */
-	public function adminer_login() {
+	private function adminer_login() {
 		if ( ! \current_user_can( 'pronamic_client' ) ) {
 			\wp_die(
 				esc_html__( 'You are not allowed to access Adminer.', 'pronamic-client' ),
