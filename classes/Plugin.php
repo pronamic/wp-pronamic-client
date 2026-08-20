@@ -54,6 +54,7 @@ class Plugin {
 
 		// Modules.
 		$this->modules = [
+			'adminer'            => AdminerModule::get_instance( $this ),
 			'akismet'            => AkismetModule::get_instance( $this ),
 			'google-analytics'   => GoogleAnalyticsModule::get_instance( $this ),
 			'google-tag-manager' => GoogleTagManagerModule::get_instance( $this ),

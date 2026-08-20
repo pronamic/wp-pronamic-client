@@ -1,22 +1,62 @@
 <?php
+/**
+ * Standalone entry point: no wp-load.php, no ABSPATH, only native PHP.
+ *
+ * Credentials arrive via a single-use `?token=` query parameter
+ * instead of `$_SESSION`, which would conflict with Adminer's own session use.
+ */
 
-$adminer_url  = 'https://www.adminer.org/latest.php';
-$temp_dir     = sys_get_temp_dir();
-$today        = gmdate( 'Y-m-d' );
-$filename     = 'adminer-' . md5( $today ) . '.php';
-$adminer_path = $temp_dir . DIRECTORY_SEPARATOR . $filename;
+$filename = 'pronamic-client-adminer-' . md5( gmdate( 'Y-m-d' ) ) . '.php';
 
-if ( ! file_exists( $adminer_path ) ) {
-	$code = file_get_contents( $adminer_url );
+$adminer_path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . $filename;
 
-	if ( false === $code ) {
-		http_response_code( 500 );
+if ( ! is_readable( $adminer_path ) ) {
+	header( 'HTTP/1.1 500 Internal Server Error' );
+	exit;
+}
 
-		exit( 'Adminer download failed.' );
+/**
+ * Read credentials referenced by a token.
+ *
+ * @param string $token Login token.
+ * @return array<string, string>|null
+ */
+function pronamic_client_adminer_get_credentials( $token ) {
+	if ( 1 !== preg_match( '/\A[a-f0-9]{32}\z/', $token ) ) {
+		return null;
 	}
 
-	// phpcs:ignore WordPressVIPMinimum.Functions.RestrictedFunctions.file_ops_file_put_contents
-	file_put_contents( $adminer_path, $code );
+	$creds_file = sys_get_temp_dir() . DIRECTORY_SEPARATOR . '.' . $token;
+
+	if ( ! is_file( $creds_file ) || filemtime( $creds_file ) < time() - 10 ) {
+		return null;
+	}
+
+	$data = file_get_contents( $creds_file );
+
+	// Single-use: the file is never needed again after this read attempt.
+	unlink( $creds_file );
+
+	if ( false === $data || strlen( $data ) <= 16 ) {
+		return null;
+	}
+
+	$iv     = substr( $data, 0, 16 );
+	$cipher = substr( $data, 16 );
+	$key    = hash( 'sha256', $token, true );
+	$json   = openssl_decrypt( $cipher, 'aes-256-cbc', $key, OPENSSL_RAW_DATA, $iv );
+
+	if ( false === $json ) {
+		return null;
+	}
+
+	$credentials = json_decode( $json, true );
+
+	if ( ! is_array( $credentials ) ) {
+		return null;
+	}
+
+	return $credentials;
 }
 
 /**
@@ -25,8 +65,30 @@ if ( ! file_exists( $adminer_path ) ) {
  * @return Adminer
  */
 function adminer_object() {
+	$token = isset( $_GET['pronamic_client_adminer_token'] ) && is_string( $_GET['pronamic_client_adminer_token'] ) ? $_GET['pronamic_client_adminer_token'] : '';
+
+	$credentials = pronamic_client_adminer_get_credentials( $token );
+
+	if ( null !== $credentials ) {
+		// Seed Adminer's own session password server-side, never rendered to the browser.
+		Adminer\set_password( $credentials['driver'], $credentials['server'], $credentials['username'], $credentials['password'] );
+
+		header(
+			'Location: ' . Adminer\auth_url(
+				$credentials['driver'],
+				$credentials['server'],
+				$credentials['username'],
+				$credentials['db']
+			),
+			true,
+			302
+		);
+
+		exit;
+	}
+
 	class PronamicAdminer extends \Adminer\Adminer {
-		public function name() {
+		public function name(): string {
 			return 'Pronamic Adminer';
 		}
 
@@ -37,7 +99,7 @@ function adminer_object() {
 		 * @link https://github.com/vrana/adminer/blob/7247f801bd06e51347d7ea671484e0fa6a883cbb/adminer/include/adminer.inc.php#L142-L152
 		 */
 		public function login( $login, $password ) {
-			if ( defined( 'DRIVER' ) && 'sqlite' === DRIVER ) {
+			if ( defined( 'Adminer\\DRIVER' ) && 'sqlite' === \Adminer\DRIVER ) {
 				return true;
 			}
 
