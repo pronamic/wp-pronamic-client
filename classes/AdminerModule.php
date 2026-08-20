@@ -85,7 +85,7 @@ class AdminerModule {
 		);
 
 		$adminer_url = \add_query_arg(
-			[ 'token' => $token ],
+			[ 'pronamic_client_adminer_token' => $token ],
 			\plugins_url( 'adminer/', $this->plugin->file )
 		);
 

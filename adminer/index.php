@@ -6,6 +6,13 @@
  * instead of `$_SESSION`, which would conflict with Adminer's own session use.
  */
 
+$adminer_path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'pronamic-client-adminer.php';
+
+if ( ! is_readable( $adminer_path ) ) {
+	header( 'HTTP/1.1 500 Internal Server Error' );
+	exit;
+}
+
 /**
  * Read credentials referenced by a token.
  *
@@ -46,33 +53,32 @@ function pronamic_client_adminer_get_credentials( $token ) {
 	return $credentials;
 }
 
-$token = ( isset( $_GET['token'] ) && is_string( $_GET['token'] ) ) ? $_GET['token'] : '';
-
-$adminer_path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'pronamic-client-adminer.php';
-$credentials  = null;
-
-if ( '' !== $token ) {
-	$credentials = pronamic_client_adminer_get_credentials( $token );
-}
-
-if ( null !== $credentials ) {
-	// DRIVER/SERVER/DB constants are baked from $_GET at bootstrap, before auth.inc.php runs.
-	$_GET[ $credentials['driver'] ] = $credentials['server'];
-	$_GET['username']               = $credentials['username'];
-	$_GET['db']                     = $credentials['db'];
-}
-
 /**
  * Adminer object
  *
  * @return Adminer
  */
 function adminer_object() {
-	global $credentials;
+	$token = (string) $_GET['pronamic_client_adminer_token'] ?? '';
+
+	$credentials = pronamic_client_adminer_get_credentials( $token );
 
 	if ( null !== $credentials ) {
 		// Seed Adminer's own session password server-side, never rendered to the browser.
-		\Adminer\set_password( $credentials['driver'], $credentials['server'], $credentials['username'], $credentials['password'] );
+		Adminer\set_password( $credentials['driver'], $credentials['server'], $credentials['username'], $credentials['password'] );
+
+		header(
+			'Location: ' . Adminer\auth_url(
+				$credentials['driver'],
+				$credentials['server'],
+				$credentials['username'],
+				$credentials['db']
+			),
+			true,
+			302
+		);
+
+		exit;
 	}
 
 	class PronamicAdminer extends \Adminer\Adminer {
