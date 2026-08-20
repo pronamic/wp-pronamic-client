@@ -19,14 +19,14 @@
 			"automattic/jetpack-autoloader": true
 		},
 		"platform": {
-			"php": "8.0"
+			"php": "8.1"
 		},
 		"platform-check": false,
 		"sort-packages": true,
 		"wp-slug": "pronamic-client"
 	},
 	"require": {
-		"php": ">=8.0",
+		"php": ">=8.1",
 		"automattic/jetpack-autoloader": "^3.1",
 		"pronamic/pronamic-mollie-user-agent": "^1.0",
 		"pronamic/pronamic-wp-updater": "^1.0"
