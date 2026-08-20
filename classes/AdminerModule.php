@@ -42,8 +42,11 @@ class AdminerModule {
 
 		\check_admin_referer( 'pronamic_client_adminer_login' );
 
-		$adminer_url  = 'https://www.adminer.org/latest.php';
-		$adminer_path = \sys_get_temp_dir() . \DIRECTORY_SEPARATOR . 'pronamic-client-adminer.php';
+		$adminer_url = 'https://www.adminer.org/latest.php';
+
+		$filename = 'pronamic-client-adminer-' . md5( gmdate( 'Y-m-d' ) ) . '.php';
+
+		$adminer_path = \sys_get_temp_dir() . \DIRECTORY_SEPARATOR . $filename;
 
 		if ( ! \is_file( $adminer_path ) ) {
 			$code = \file_get_contents( $adminer_url );

@@ -6,7 +6,9 @@
  * instead of `$_SESSION`, which would conflict with Adminer's own session use.
  */
 
-$adminer_path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . 'pronamic-client-adminer.php';
+$filename = 'pronamic-client-adminer-' . md5( gmdate( 'Y-m-d' ) ) . '.php';
+
+$adminer_path = sys_get_temp_dir() . DIRECTORY_SEPARATOR . $filename;
 
 if ( ! is_readable( $adminer_path ) ) {
 	header( 'HTTP/1.1 500 Internal Server Error' );
