@@ -3,7 +3,7 @@ Contributors: pronamic, remcotolsma
 Tags: pronamic
 Requires at least: 3.0
 Tested up to: 7.1
-Stable tag: 2.3.0
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,6 +29,22 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [2.4.0] - 2026-08-20
+
+#### Added
+
+- Added a link to the Pronamic admin bar for authorized users.
+
+#### Changed
+
+- Hardened the protected login flow with nonce-protected admin-post requests.
+- Raised the minimum supported PHP version from 8.0 to 8.1.
+- Updated the WordPress compatibility metadata to WordPress 7.1.
+
+Full set of changes: [`2.3.0...2.4.0`][2.4.0]
+
+[2.4.0]: https://github.com/pronamic/wp-pronamic-client/compare/v2.3.0...v2.4.0
 
 ### [2.3.0] - 2025-08-07
 
