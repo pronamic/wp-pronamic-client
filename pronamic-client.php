@@ -6,6 +6,7 @@
  *
  * Version: 2.4.0
  * Requires at least: 3.0
+ * Requires PHP: 7.4
  *
  * Author: Pronamic
  * Author URI: https://www.pronamic.eu/

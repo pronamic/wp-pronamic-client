@@ -2,6 +2,7 @@
 Contributors: pronamic, remcotolsma
 Tags: pronamic
 Requires at least: 3.0
+Requires PHP: 7.4
 Tested up to: 7.1
 Stable tag: 2.4.0
 License: GPLv2 or later

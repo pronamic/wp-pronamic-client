@@ -27,9 +27,9 @@ class AdminerModule {
 	private function __construct( Plugin $plugin ) {
 		$this->plugin = $plugin;
 
-		\add_action( 'admin_post_pronamic_client_adminer_login', $this->adminer_login( ... ) );
+		\add_action( 'admin_post_pronamic_client_adminer_login', [ $this, 'adminer_login' ] );
 
-		\add_action( 'admin_bar_menu', $this->admin_bar_menu( ... ), 20, 1 );
+		\add_action( 'admin_bar_menu', [ $this, 'admin_bar_menu' ], 20, 1 );
 	}
 
 	/**
@@ -54,7 +54,7 @@ class AdminerModule {
 	 *
 	 * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
 	 */
-	private function admin_bar_menu( WP_Admin_Bar $wp_admin_bar ) {
+	public function admin_bar_menu( WP_Admin_Bar $wp_admin_bar ) {
 		if ( ! \current_user_can( 'pronamic_client' ) ) {
 			return;
 		}
@@ -76,7 +76,7 @@ class AdminerModule {
 	/**
 	 * Login to Adminer.
 	 */
-	private function adminer_login() {
+	public function adminer_login() {
 		if ( ! \current_user_can( 'pronamic_client' ) ) {
 			\wp_die(
 				esc_html__( 'You are not allowed to access Adminer.', 'pronamic-client' ),
