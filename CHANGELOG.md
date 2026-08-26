@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 <!-- Start changelog -->
 
+## [2.4.1] - 2026-08-26
+
+### Fixed
+
+- Restored PHP 7.4 compatibility.
+
+Full set of changes: [`2.4.0...2.4.1`][2.4.1]
+
+[2.4.1]: https://github.com/pronamic/wp-pronamic-client/compare/v2.4.0...v2.4.1
+
 ## [2.4.0] - 2026-08-20
 
 ### Added

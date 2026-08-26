@@ -4,7 +4,7 @@ Tags: pronamic
 Requires at least: 3.0
 Requires PHP: 7.4
 Tested up to: 7.1
-Stable tag: 2.4.0
+Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,16 @@ Extract the zip file and just drop the contents in the wp-content/plugins/ direc
 == Changelog ==
 
 <!-- Start changelog -->
+
+### [2.4.1] - 2026-08-26
+
+#### Fixed
+
+- Restored PHP 7.4 compatibility.
+
+Full set of changes: [`2.4.0...2.4.1`][2.4.1]
+
+[2.4.1]: https://github.com/pronamic/wp-pronamic-client/compare/v2.4.0...v2.4.1
 
 ### [2.4.0] - 2026-08-20
 
